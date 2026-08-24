@@ -96,15 +96,6 @@ func RayCastQuery(pointA: Vector3, pointB: Vector3) -> Dictionary:
 		)
 
 	return result
-	#var spaceState = get_world_3d().direct_space_state
-	#var query = PhysicsRayQueryParameters3D.create(pointA, pointB, 1 << 0)
-	#query.hit_from_inside = false
-	#var result = spaceState.intersect_ray(query)
-	#if result:
-		#DrawLineRelative_thick(pointA, result.position - pointA, 10, Color.PURPLE)
-		#return result
-	#else:
-		#return result
 
 func DrawAim() -> void:
 	var speed: float = 15.0
@@ -132,25 +123,3 @@ func DrawAim() -> void:
 		)
 
 		lineStart = lineEnd
-	#var speed: float = container.currentItem.speed
-	#var speed: float = 15
-	#var vel := -camera.global_transform.basis.z.normalized() * speed
-	#startPoint = drawDebug.to_local(global_position)
-	#
-	#var lineStart:Vector3 = startPoint
-	#var lineEnd:Vector3 = startPoint
-	#
-	#for i in range(1, 151):
-		#vel.y -= gravity * tStep
-		#lineStart += lineEnd
-		#lineEnd += vel * tStep
-		#
-		#vel *= clamp(1.0 - drag * tStep, 0, 1) #drag
-		#
-		## Check if hit wall
-		#var ray := RayCastQuery(lineStart, lineEnd)
-		#if not ray.is_empty():
-			#break
-		#
-		#DrawLineRelative_thick(lineStart, lineEnd)
-	#
