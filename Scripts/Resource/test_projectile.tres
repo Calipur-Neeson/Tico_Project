@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BaseItem" format=3 uid="uid://je8jed7h2iyk"]
+
+[ext_resource type="Script" uid="uid://d1oo83aha63bl" path="res://Scripts/Resource/BaseItem.gd" id="1_2yoi0"]
+[ext_resource type="PackedScene" uid="uid://ccwo45flvlsa3" path="res://Scenes/BaseThrow.tscn" id="1_gtsm8"]
+
+[resource]
+script = ExtResource("1_2yoi0")
+item_name = "test"
+scene = ExtResource("1_gtsm8")
+speed = 15.0
+metadata/_custom_type_script = "uid://d1oo83aha63bl"

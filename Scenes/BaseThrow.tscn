@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://ccwo45flvlsa3"]
+
+[ext_resource type="Script" uid="uid://c7qoyhm8y2mii" path="res://Scripts/Interactable/BaseProjectile.gd" id="1_joe2a"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_12j5o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_12j5o"]
+albedo_color = Color(0.45230645, 0.96994835, 0, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_61ot5"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pohj0"]
+
+[node name="Node3D" type="Node3D" unique_id=1234102838]
+script = ExtResource("1_joe2a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1261540302]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+mesh = SubResource("SphereMesh_12j5o")
+surface_material_override/0 = SubResource("StandardMaterial3D_12j5o")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=85138054]
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1320762709]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+shape = SubResource("SphereShape3D_61ot5")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="." unique_id=1507030360]
+transform = Transform3D(0.31, 0, 0, 0, 0.31, 0, 0, 0, 0.31, 0, 0, 0)
+shape = SubResource("SphereShape3D_pohj0")
+target_position = Vector3(0, 0, 0)
+collision_mask = 4

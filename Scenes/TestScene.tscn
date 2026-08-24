@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://bes5sm4j5semt"]
+
+[ext_resource type="PackedScene" uid="uid://3s4de650h0ll" path="res://Meshes/test_level.glb" id="1_iufkg"]
+[ext_resource type="PackedScene" uid="uid://d3rrh52jvjo02" path="res://Scenes/Player.tscn" id="2_5lt6y"]
+[ext_resource type="Script" uid="uid://6w4tnfc7tgel" path="res://Scripts/GroundSound.gd" id="2_iufkg"]
+[ext_resource type="AudioStream" uid="uid://cvc5wu4f7vbky" path="res://Audios/Stone_Footstep_stream_randomizer.tres" id="3_5rbs6"]
+[ext_resource type="AudioStream" uid="uid://m2jfmx3q1h1b" path="res://Audios/Music/temple.mp3" id="3_8k7wh"]
+[ext_resource type="AudioStream" uid="uid://bld4w8c7ciwxp" path="res://Audios/Wood_Footstep_stream_randomizer.tres" id="4_201fe"]
+[ext_resource type="AudioStream" uid="uid://dm1onj42aa1ar" path="res://Audios/Sand_Footstep_stream_randomizer.tres" id="5_xjl2p"]
+[ext_resource type="AudioStream" uid="uid://bfv3s0mgxbls6" path="res://Audios/Grass_Footstep_stream_randomizer.tres" id="6_ytmxh"]
+[ext_resource type="AudioStream" uid="uid://17o7a3gunqr0" path="res://Audios/Dirt_Footstep_stream_randomizer.tres" id="7_hctok"]
+[ext_resource type="PackedScene" uid="uid://cywm4vx6pp8ll" path="res://Scenes/BaseInteractable.tscn" id="10_201fe"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5lt6y"]
+sky_top_color = Color(0.4263404, 0.7202341, 0.9959741, 1)
+sky_horizon_color = Color(0.83223087, 0.9308462, 1.0203236, 1)
+ground_bottom_color = Color(0.08313779, 0.18370548, 0.2658751, 1)
+ground_horizon_color = Color(0.83223087, 0.9308462, 1.0203236, 1)
+
+[sub_resource type="Sky" id="Sky_8k7wh"]
+sky_material = SubResource("ProceduralSkyMaterial_5lt6y")
+
+[sub_resource type="Environment" id="Environment_iufkg"]
+background_mode = 2
+sky = SubResource("Sky_8k7wh")
+glow_enabled = true
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pohj0"]
+height = 0.21
+radius = 2.08
+
+[node name="Node3D" type="Node3D" unique_id=1930091129]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1635902719]
+environment = SubResource("Environment_iufkg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2018383686]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="test_level" parent="." unique_id=78685540 instance=ExtResource("1_iufkg")]
+
+[node name="StaticBody3D" parent="test_level/level" parent_id_path=PackedInt32Array(78685540, 1797625487) index="0" unique_id=493939191]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("2_iufkg")
+footstep_sound = ExtResource("3_5rbs6")
+
+[node name="ClimbablePlatform1" type="StaticBody3D" parent="test_level/level" parent_id_path=PackedInt32Array(78685540, 1797625487) index="1" unique_id=1907339340]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.656927, 1.8248019, -19.408386)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test_level/level/ClimbablePlatform1" unique_id=787908846]
+shape = SubResource("CylinderShape3D_pohj0")
+
+[node name="ClimbablePlatform2" type="StaticBody3D" parent="test_level/level" parent_id_path=PackedInt32Array(78685540, 1797625487) index="2" unique_id=1099981158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.462723, 3.796918, -14.312778)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test_level/level/ClimbablePlatform2" unique_id=1255936817]
+shape = SubResource("CylinderShape3D_pohj0")
+
+[node name="StaticBody3D" parent="test_level/wood" parent_id_path=PackedInt32Array(78685540, 1303138268) index="0" unique_id=1869748029]
+script = ExtResource("2_iufkg")
+footstep_sound = ExtResource("4_201fe")
+
+[node name="StaticBody3D" parent="test_level/snow" parent_id_path=PackedInt32Array(78685540, 1226705282) index="0" unique_id=1004733406]
+script = ExtResource("2_iufkg")
+footstep_sound = ExtResource("5_xjl2p")
+
+[node name="StaticBody3D" parent="test_level/grass" parent_id_path=PackedInt32Array(78685540, 1927762622) index="0" unique_id=1806353333]
+script = ExtResource("2_iufkg")
+footstep_sound = ExtResource("6_ytmxh")
+
+[node name="StaticBody3D" parent="test_level/dirt" parent_id_path=PackedInt32Array(78685540, 2045909647) index="0" unique_id=2008789136]
+script = ExtResource("2_iufkg")
+footstep_sound = ExtResource("7_hctok")
+
+[node name="CharacterBody3D" parent="." unique_id=1445218770 instance=ExtResource("2_5lt6y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2353477, 2.5367908, 3.8211536)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1210683253]
+stream = ExtResource("3_8k7wh")
+autoplay = true
+bus = &"Music"
+
+[node name="Node3D" parent="." unique_id=1163798542 instance=ExtResource("10_201fe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.956025, 0.732021, 0)
+
+[editable path="test_level"]
+[editable path="Node3D"]

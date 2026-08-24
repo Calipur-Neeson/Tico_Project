@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cywm4vx6pp8ll"]
+
+[ext_resource type="Material" uid="uid://bf8220torvm0p" path="res://Shader/outline_shader_material.tres" id="1_3rakw"]
+[ext_resource type="Script" uid="uid://boqxnnvn8s5bp" path="res://Scripts/Interactable/Interact_Test.gd" id="1_cp2a4"]
+[ext_resource type="Resource" uid="uid://je8jed7h2iyk" path="res://Scripts/Resource/test_projectile.tres" id="2_itkq8"]
+[ext_resource type="Shader" uid="uid://c1kbvi16neeys" path="res://Shader/outline_shader_material.gdshader" id="3_sudja"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fdfra"]
+render_priority = 0
+shader = ExtResource("3_sudja")
+shader_parameter/color = Color(1, 0, 0, 1)
+shader_parameter/size = 1.05
+
+[sub_resource type="SphereMesh" id="SphereMesh_61ot5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u7x0b"]
+next_pass = ExtResource("1_3rakw")
+albedo_color = Color(0.7725, 0.089999974, 1, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_61ot5"]
+
+[node name="Node3D" type="Node3D" unique_id=1163798542]
+script = ExtResource("1_cp2a4")
+item = ExtResource("2_itkq8")
+outLine = SubResource("ShaderMaterial_fdfra")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1909160582]
+mesh = SubResource("SphereMesh_61ot5")
+surface_material_override/0 = SubResource("StandardMaterial3D_u7x0b")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1606439506]
+collision_layer = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2003153620]
+shape = SubResource("SphereShape3D_61ot5")

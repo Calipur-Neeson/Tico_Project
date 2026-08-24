@@ -1,0 +1,19 @@
+class_name PlayerFallState
+extends BasePlayerState
+
+func Enter(player: Player) -> void:
+	player.playerAnim.play("NewLib/FallingIdle", player.BLEEND_SPEED)
+
+func PreUpdate(player: Player) -> void:
+	if player.is_on_floor():
+		player.ChangeStateTo(PlayerState.Land)
+	
+	
+
+func Update(player: Player, delta: float) -> void:
+	var direction := player.GetMoveInput()
+	player.velocity += player.get_gravity() * delta
+	player.landSpeed = player.velocity.y
+	player.UpdateVelocity(direction, player.runSpeed * 0.5)
+	player.TurnTo(direction)
+	player.move_and_slide()
