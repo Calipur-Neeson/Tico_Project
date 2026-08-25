@@ -25,7 +25,7 @@
 [ext_resource type="Script" uid="uid://cqncyoc8cmutj" path="res://Scripts/FootSteper.gd" id="11_ksbbd"]
 [ext_resource type="Animation" uid="uid://cu7oytpqxvsxe" path="res://Animations/ReadyToJump.anim" id="12_1iu4k"]
 [ext_resource type="Animation" uid="uid://cp8oqp2m3ncie" path="res://Animations/RunJump.anim" id="13_m0x7a"]
-[ext_resource type="Animation" uid="uid://clw38obx1eo3r" path="res://Animations/Stumbling.anim" id="15_m0x7a"]
+[ext_resource type="Animation" uid="uid://bv7kpkjwcnr04" path="res://Animations/Stumbling.anim" id="15_m0x7a"]
 [ext_resource type="Script" uid="uid://ddy7qiduvfmbi" path="res://Scripts/InteractControl.gd" id="27_u7x0b"]
 [ext_resource type="Script" uid="uid://c5gbw7dm7dyhg" path="res://Scripts/Container.gd" id="28_utwlt"]
 [ext_resource type="Script" uid="uid://dyg2p2radpdur" path="res://Scripts/Trajectory.gd" id="29_kih0c"]
@@ -62,9 +62,8 @@ _data = {
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_12j5o"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_61ot5"]
-radius = 0.4
-height = 1.5
+[sub_resource type="BoxShape3D" id="BoxShape3D_itkq8"]
+size = Vector3(1.595, 0.52, 0.225)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_12j5o"]
 height = 1.36
@@ -92,7 +91,7 @@ shape = SubResource("CapsuleShape3D_12j5o")
 [node name="Mesh" parent="." unique_id=817030189 instance=ExtResource("1_bhhdu")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, -0.86376077, 0)
 
-[node name="Skeleton3D" parent="Mesh" index="0" unique_id=1118486751]
+[node name="Skeleton3D" parent="Mesh" index="0" unique_id=225314288]
 bones/0/position = Vector3(0.002294555, 0.9286259, -0.01037536)
 bones/0/rotation = Quaternion(-0.036482364, -0.36709917, -0.013288065, 0.9293711)
 bones/1/rotation = Quaternion(-0.010292281, 0.040697996, -0.0060800808, 0.99909997)
@@ -147,7 +146,7 @@ bones/61/rotation = Quaternion(-0.3104612, 0.07523703, -0.018645853, 0.9474206)
 bones/62/rotation = Quaternion(0.68291104, 0.07025634, 0.09784087, 0.72050244)
 bones/63/rotation = Quaternion(0.242829, 0.035679772, 0.012655887, 0.9693302)
 
-[node name="AnimationPlayer" parent="Mesh" index="1" unique_id=502051978]
+[node name="AnimationPlayer" parent="Mesh" index="1" unique_id=788844123]
 libraries/NewLib = SubResource("AnimationLibrary_6xh1p")
 autoplay = &"NewLib/Idle"
 speed_scale = 0.99997115
@@ -170,8 +169,8 @@ script = ExtResource("11_ksbbd")
 [node name="RayDetectors" type="Node3D" parent="." unique_id=1360739361]
 
 [node name="FloorCast" type="ShapeCast3D" parent="RayDetectors" unique_id=911625513]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.5920775, 0.2103247)
-shape = SubResource("CapsuleShape3D_61ot5")
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.85898495, 0)
+shape = SubResource("BoxShape3D_itkq8")
 target_position = Vector3(0, 0, 0)
 collision_mask = 4
 

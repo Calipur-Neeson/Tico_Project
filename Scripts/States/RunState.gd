@@ -6,7 +6,7 @@ func Enter(player: Player) -> void:
 
 func PreUpdate(player: Player) -> void:
 	var currentSpped = player.GetCurrentSpeed()
-	if not player.is_on_floor():
+	if not player.is_on_floor() and not player.floor_cast.is_colliding():
 		player.ChangeStateTo(PlayerState.Fall)
 		
 	if currentSpped <= player.maxWalkSpeed:
@@ -19,6 +19,7 @@ func PreUpdate(player: Player) -> void:
 	
 func Update(player: Player, delta: float) -> void:
 	var direction := player.GetMoveInput()
+	player.velocity += player.get_gravity() * delta
 	player.UpdateVelocity(direction)
 	
 	player.TurnTo(direction)

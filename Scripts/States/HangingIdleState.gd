@@ -20,7 +20,7 @@ func PreUpdate(player: Player) -> void:
 		player.ChangeStateTo(PlayerState.LeftShimmy)
 	elif player.right_climb_cast.is_colliding() and Input.is_action_pressed("Move_Right"):
 		player.ChangeStateTo(PlayerState.RightShimmy)
-	elif Input.is_action_pressed("Jump") and not player.ceiling_cast.is_colliding():
+	elif Input.is_action_just_pressed("Jump") and not player.ceiling_cast.is_colliding():
 		player.ChangeStateTo(PlayerState.ClimbWall)
 
 func Update(player: Player, delta: float) -> void:
