@@ -31,7 +31,6 @@
 [ext_resource type="Script" uid="uid://dyg2p2radpdur" path="res://Scripts/Trajectory.gd" id="29_kih0c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_12j5o"]
-radius = 0.3623047
 height = 1.7338867
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6xh1p"]
@@ -61,6 +60,7 @@ _data = {
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_12j5o"]
+radius = 0.45
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_itkq8"]
 size = Vector3(1.595, 0.52, 0.225)

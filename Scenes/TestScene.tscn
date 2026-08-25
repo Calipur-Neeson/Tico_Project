@@ -93,4 +93,6 @@ bus = &"Music"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.956025, 0.732021, 0)
 
 [editable path="test_level"]
+[editable path="CharacterBody3D"]
+[editable path="CharacterBody3D/Mesh"]
 [editable path="Node3D"]
