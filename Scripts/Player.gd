@@ -28,6 +28,7 @@ var landSpeed: float
 var maxWalkSpeed: float = 3
 const BLEEND_SPEED: float = 0.2
 var isCrouch: bool = false
+var island: bool = false
 
 #Current state that our player is
 var state: BasePlayerState = PlayerState.Idle

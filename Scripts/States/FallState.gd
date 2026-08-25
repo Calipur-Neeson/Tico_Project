@@ -7,7 +7,9 @@ func Enter(player: Player) -> void:
 func PreUpdate(player: Player) -> void:
 	if player.is_on_floor():
 		player.ChangeStateTo(PlayerState.Land)
-	
+		
+	elif player.climbable_cast.is_colliding() and not player.island:
+		player.ChangeStateTo(PlayerState.HangingIdle)
 	
 
 func Update(player: Player, delta: float) -> void:

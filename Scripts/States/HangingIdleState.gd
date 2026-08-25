@@ -15,6 +15,7 @@ func Enter(player: Player) -> void:
 
 func PreUpdate(player: Player) -> void:
 	if Input.is_action_just_pressed("Crouch"):
+		player.island = true
 		player.ChangeStateTo(PlayerState.Fall)
 	if player.left_climb_cast.is_colliding() and Input.is_action_pressed("Move_Left"):
 		player.ChangeStateTo(PlayerState.LeftShimmy)

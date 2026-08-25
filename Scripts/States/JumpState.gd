@@ -11,10 +11,7 @@ func PreUpdate(player: Player) -> void:
 		player.velocity.y = player.JUMP_VELOCITY
 		player.ChangeStateTo(PlayerState.Fall)
 		
-	if player.climbable_cast.is_colliding():
-		player.ChangeStateTo(PlayerState.HangingIdle)
-		
-		
+
 func Update(player: Player, delta: float) -> void:
 	var direction := player.GetMoveInput()
 	player.UpdateVelocity(direction, player.GetCurrentSpeed())

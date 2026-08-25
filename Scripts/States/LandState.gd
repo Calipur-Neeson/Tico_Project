@@ -5,6 +5,8 @@ var landDirection: Vector3
 var landVelociry: Vector3
 
 func Enter(player: Player) -> void:
+	player.island = false
+	
 	if player.landSpeed < -11:
 		if player.GetMoveInput():
 			landDirection = player.GetMoveInput()

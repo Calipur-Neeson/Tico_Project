@@ -3,7 +3,7 @@ extends BasePlayerState
 
 
 func PreUpdate(player: Player) -> void:
-	if not player.left_climb_cast.is_colliding() or not Input.is_action_pressed("Move_Right"):
+	if not player.right_climb_cast.is_colliding() or not Input.is_action_pressed("Move_Right"):
 		player.ChangeStateTo(PlayerState.HangingIdle)
 
 
