@@ -11,7 +11,7 @@ var mouseInput: Vector2
 @onready var player: Node3D = get_parent()
 @onready var camRig: Vector3 = Vector3(0, 0.7, 0)
 
-
+var isReset: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -40,6 +40,8 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	position = player.position + player.global_basis * camRig
+	if isReset:
+		ResetCamera(delta)
 
 func ResetCamera(delta: float) -> void:
 	camRig.x = lerpf(camRig.x, 0, 10 * delta)

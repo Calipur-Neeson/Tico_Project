@@ -154,7 +154,7 @@ speed_scale = 0.99997115
 [node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1172535245]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.531, 0)
 top_level = true
-collision_mask = 15
+collision_mask = 14
 shape = SubResource("SphereShape3D_12j5o")
 script = ExtResource("10_ksbbd")
 
@@ -178,6 +178,10 @@ collision_mask = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0195339, 0)
 target_position = Vector3(0, 0, -0.715)
 collision_mask = 2
+
+[node name="WallCast" type="RayCast3D" parent="RayDetectors" unique_id=1682758509]
+target_position = Vector3(0, 0, -0.6)
+collision_mask = 4
 
 [node name="RightClimbCast" type="RayCast3D" parent="RayDetectors" unique_id=1429416035]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.02, 0)

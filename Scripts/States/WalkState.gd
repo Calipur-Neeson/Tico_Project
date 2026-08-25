@@ -17,11 +17,16 @@ func PreUpdate(player: Player) -> void:
 
 func Update(player: Player, delta: float) -> void:
 	var direction := player.GetMoveInput()
+	player.TurnTo(direction)
+	
+	if player.wall_cast.is_colliding():
+		player.velocity = Vector3.ZERO
+		return
+		
 	player.velocity += player.get_gravity() * delta
 	player.UpdateVelocity(direction)
 	
 	var walkSpeed: float = lerpf(0.1, 1.2, player.GetCurrentSpeed() / player.maxWalkSpeed)
 	player.playerAnim.play("NewLib/Walking", player.BLEEND_SPEED, walkSpeed)
 	
-	player.TurnTo(direction)
 	player.move_and_slide()

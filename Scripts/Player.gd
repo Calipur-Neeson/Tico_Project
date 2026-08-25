@@ -18,6 +18,7 @@ extends CharacterBody3D
 @onready var left_climb_cast: RayCast3D = $RayDetectors/LeftClimbCast
 @onready var right_climb_cast: RayCast3D = $RayDetectors/RightClimbCast
 @onready var ceiling_cast: ShapeCast3D = $RayDetectors/CeilingCast
+@onready var wall_cast: RayCast3D = $RayDetectors/WallCast
 
 
 

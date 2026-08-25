@@ -21,7 +21,3 @@ func PreUpdate(player: Player) -> void:
 	elif Input.is_action_pressed("Aim") and player.is_on_floor():
 		player.ChangeStateTo(PlayerState.Aim)
 	
-
-func Update(player: Player, delta: float) -> void:
-	player.camControl.ResetCamera(delta)
-	
