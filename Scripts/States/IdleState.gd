@@ -2,7 +2,7 @@ class_name PlayerIdleState
 extends BasePlayerState
 
 func Enter(player: Player) -> void:
-	player.isCrouch = false
+	player.SetCrouch(false)
 	player.playerAnim.play("NewLib/Idle", player.BLEEND_SPEED)
 
 func PreUpdate(player: Player) -> void:

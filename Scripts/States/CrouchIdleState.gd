@@ -2,7 +2,7 @@ class_name PlayerCrouchIdleState
 extends BasePlayerState
 
 func Enter(player: Player) -> void:
-	player.isCrouch = true
+	player.SetCrouch(true)
 	player.playerAnim.play("NewLib/CrouchIdle", player.BLEEND_SPEED)
 
 func PreUpdate(player: Player) -> void:
@@ -13,7 +13,12 @@ func PreUpdate(player: Player) -> void:
 		player.ChangeStateTo(PlayerState.CrouchWalk)
 		
 	elif Input.is_action_just_pressed("Jump") or Input.is_action_just_pressed("Crouch"):
-		player.ChangeStateTo(PlayerState.CrouchToStand)
+		player.ceiling_cast.enabled = true
+		player.ceiling_cast.force_shapecast_update()
+		if not player.ceiling_cast.is_colliding():
+			player.ChangeStateTo(PlayerState.CrouchToStand)
+		else :
+			player.ceiling_cast.enabled = false
 	
 	elif Input.is_action_pressed("Aim") and player.is_on_floor():
 		player.ChangeStateTo(PlayerState.Aim)

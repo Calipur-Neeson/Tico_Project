@@ -32,6 +32,10 @@ radius = 2.08
 [sub_resource type="BoxShape3D" id="BoxShape3D_12j5o"]
 size = Vector3(7.5, 0.23, 5.115)
 
+[sub_resource type="BoxMesh" id="BoxMesh_12j5o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_61ot5"]
+
 [node name="Node3D" type="Node3D" unique_id=1930091129]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1635902719]
@@ -93,6 +97,86 @@ footstep_sound = ExtResource("6_ytmxh")
 [node name="StaticBody3D" parent="test_level/dirt" parent_id_path=PackedInt32Array(78685540, 1906227977) index="0" unique_id=725711831]
 script = ExtResource("2_iufkg")
 footstep_sound = ExtResource("7_hctok")
+
+[node name="Cave" type="Node3D" parent="test_level" unique_id=612785187]
+
+[node name="CaveP1" type="Node3D" parent="test_level/Cave" unique_id=549258832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3079014, 2.710052, 12.935077)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="test_level/Cave/CaveP1" unique_id=670285281]
+transform = Transform3D(2.5059412, 0, 0, 0, 0.045987822, 0, 0, 0, 4.0801363, 0, -0.8059292, 0)
+mesh = SubResource("BoxMesh_12j5o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="test_level/Cave/CaveP1/MeshInstance3D" unique_id=1574565733]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test_level/Cave/CaveP1/MeshInstance3D/StaticBody3D" unique_id=716721710]
+shape = SubResource("BoxShape3D_61ot5")
+
+[node name="CaveP2" type="Node3D" parent="test_level/Cave" unique_id=1970387675]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.44761953, 0, 0.99999994, -1.9566071e-08, -4.301359, 0.9543655, 11.732648)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="test_level/Cave/CaveP2" unique_id=458249360]
+transform = Transform3D(2.5059412, 0, 0, 0, 0.045987822, 0, 0, 0, 4.0801363, 0, -0.8059292, 0)
+mesh = SubResource("BoxMesh_12j5o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="test_level/Cave/CaveP2/MeshInstance3D" unique_id=1151597098]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test_level/Cave/CaveP2/MeshInstance3D/StaticBody3D" unique_id=1812739787]
+shape = SubResource("BoxShape3D_61ot5")
+
+[node name="CaveP3" type="Node3D" parent="test_level/Cave" unique_id=1572124312]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.44761953, 0, 0.99999994, -1.9566071e-08, -4.301359, 0.9543655, 15.741683)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="test_level/Cave/CaveP3" unique_id=782148901]
+transform = Transform3D(2.5059412, 0, 0, 0, 0.045987822, 0, 0, 0, 4.0801363, 0, -0.8059292, 0)
+mesh = SubResource("BoxMesh_12j5o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="test_level/Cave/CaveP3/MeshInstance3D" unique_id=369846307]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test_level/Cave/CaveP3/MeshInstance3D/StaticBody3D" unique_id=306317417]
+shape = SubResource("BoxShape3D_61ot5")
+
+[node name="CaveP4" type="Node3D" parent="test_level/Cave" unique_id=1497714916]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.832784, 2.2196884, 12.935077)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="test_level/Cave/CaveP4" unique_id=1708416352]
+transform = Transform3D(2.5059412, 0, 0, 0, 0.045987822, 0, 0, 0, 4.0801363, 0, -0.8059292, 0)
+mesh = SubResource("BoxMesh_12j5o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="test_level/Cave/CaveP4/MeshInstance3D" unique_id=1753308071]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test_level/Cave/CaveP4/MeshInstance3D/StaticBody3D" unique_id=1799464484]
+shape = SubResource("BoxShape3D_61ot5")
+
+[node name="CaveP5" type="Node3D" parent="test_level/Cave" unique_id=924842571]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.44761953, 0, 0.99999994, -1.9566071e-08, -6.826242, 0.9543655, 11.732648)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="test_level/Cave/CaveP5" unique_id=1347652703]
+transform = Transform3D(2.5059412, 0, 0, 0, 0.045987815, 1.4210855e-14, 0, -4.440892e-16, 3.0490367, 0, -0.8059292, 0.527748)
+mesh = SubResource("BoxMesh_12j5o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="test_level/Cave/CaveP5/MeshInstance3D" unique_id=382572793]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test_level/Cave/CaveP5/MeshInstance3D/StaticBody3D" unique_id=27348692]
+shape = SubResource("BoxShape3D_61ot5")
+
+[node name="CaveP6" type="Node3D" parent="test_level/Cave" unique_id=468988153]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.44761953, 0, 0.99999994, -1.9566071e-08, -6.826242, 0.9543655, 15.741683)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="test_level/Cave/CaveP6" unique_id=527813540]
+transform = Transform3D(2.5059412, 0, 0, 0, 0.045987602, 2.9842795e-13, 0, -2.220446e-15, 2.9034104, 0, -0.8059292, 0.38661957)
+mesh = SubResource("BoxMesh_12j5o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="test_level/Cave/CaveP6/MeshInstance3D" unique_id=1509092727]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test_level/Cave/CaveP6/MeshInstance3D/StaticBody3D" unique_id=1068668753]
+shape = SubResource("BoxShape3D_61ot5")
 
 [node name="CharacterBody3D" parent="." unique_id=1445218770 instance=ExtResource("2_5lt6y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.050232, 3.6557865, 24.643148)

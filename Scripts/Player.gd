@@ -11,6 +11,9 @@ extends CharacterBody3D
 @onready var container: PlayerContainer = $Container
 @onready var muzzle: Trajectory = $Muzzle
 
+#Colliders
+@onready var collision_stand: CollisionShape3D = $CollisionStand
+@onready var collision_crouch: CollisionShape3D = $CollisionCrouch
 
 #Caster
 @onready var climbable_cast: RayCast3D = $RayDetectors/ClimbCast
@@ -38,6 +41,8 @@ var island: bool = false
 var state: BasePlayerState = PlayerState.Idle
 
 func _ready() -> void:
+	ceiling_cast.enabled = false
+	
 	state.Enter(self)
 	camControl = spring_arm_3d
 
@@ -72,6 +77,11 @@ func UpdateVelocity(direction: Vector3, speed: float = runSpeed) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, 1)
 		velocity.z = move_toward(velocity.z, 0, 1)
+
+func SetCrouch(crouch: bool) -> void:
+	isCrouch = crouch
+	collision_crouch.disabled = !crouch
+	collision_stand.disabled = crouch
 
 func ForceMovePlayer(offset: Vector3) -> void:
 	var tween = create_tween()
