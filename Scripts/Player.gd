@@ -19,7 +19,11 @@ extends CharacterBody3D
 @onready var right_climb_cast: RayCast3D = $RayDetectors/RightClimbCast
 @onready var ceiling_cast: ShapeCast3D = $RayDetectors/CeilingCast
 @onready var wall_cast: RayCast3D = $RayDetectors/WallCast
+@onready var right_turn_climb_cast: RayCast3D = $RayDetectors/RightTurnClimbCast
+@onready var left_turn_climb_cast: RayCast3D = $RayDetectors/LeftTurnClimbCast
 
+#Hand Pivot
+@onready var hand_pivot: Marker3D = $HandPivot
 
 
 var camControl: CameraControl
@@ -68,3 +72,8 @@ func UpdateVelocity(direction: Vector3, speed: float = runSpeed) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, 1)
 		velocity.z = move_toward(velocity.z, 0, 1)
+
+func ForceMovePlayer(offset: Vector3) -> void:
+	var tween = create_tween()
+	tween.tween_property(self, "position", position + offset, 0.1)
+	
