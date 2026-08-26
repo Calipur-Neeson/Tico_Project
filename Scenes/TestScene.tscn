@@ -30,7 +30,7 @@ height = 0.21
 radius = 2.08
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_12j5o"]
-size = Vector3(7.5, 0.23, 3.03)
+size = Vector3(7.5, 0.23, 5.115)
 
 [node name="Node3D" type="Node3D" unique_id=1930091129]
 
@@ -43,10 +43,10 @@ shadow_enabled = true
 
 [node name="test_level" parent="." unique_id=78685540 instance=ExtResource("1_iufkg")]
 
-[node name="level" parent="test_level" index="0" unique_id=823750820]
+[node name="level" parent="test_level" index="0" unique_id=1763856893]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0003027916, -0.00040721893, -0.000497818)
 
-[node name="StaticBody3D" parent="test_level/level" index="0" unique_id=587194403]
+[node name="StaticBody3D" parent="test_level/level" index="0" unique_id=1210837255]
 collision_layer = 4
 collision_mask = 16
 script = ExtResource("2_iufkg")
@@ -69,35 +69,35 @@ collision_mask = 2
 shape = SubResource("CylinderShape3D_pohj0")
 
 [node name="ClimbablePlatform3" type="StaticBody3D" parent="test_level/level" index="3" unique_id=2026887247]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.888313, 1.8759065, 22.157007)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.884794, 4.4148335, 22.138262)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="test_level/level/ClimbablePlatform3" unique_id=1366214329]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64118576, 0.23117948, 2.0507336)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64118576, 0.23117971, 3.1089573)
 shape = SubResource("BoxShape3D_12j5o")
 debug_color = Color(0, 0, 0, 0.9607843)
 
-[node name="StaticBody3D" parent="test_level/wood" parent_id_path=PackedInt32Array(78685540, 1434197295) index="0" unique_id=71937128]
+[node name="StaticBody3D" parent="test_level/wood" parent_id_path=PackedInt32Array(78685540, 1689332265) index="0" unique_id=85657359]
 script = ExtResource("2_iufkg")
 footstep_sound = ExtResource("4_201fe")
 
-[node name="StaticBody3D" parent="test_level/snow" parent_id_path=PackedInt32Array(78685540, 1020897175) index="0" unique_id=812767266]
+[node name="StaticBody3D" parent="test_level/snow" parent_id_path=PackedInt32Array(78685540, 1534009705) index="0" unique_id=79410971]
 script = ExtResource("2_iufkg")
 footstep_sound = ExtResource("5_xjl2p")
 
-[node name="StaticBody3D" parent="test_level/grass" parent_id_path=PackedInt32Array(78685540, 1120422819) index="0" unique_id=347638795]
+[node name="StaticBody3D" parent="test_level/grass" parent_id_path=PackedInt32Array(78685540, 571352279) index="0" unique_id=1127961135]
 script = ExtResource("2_iufkg")
 footstep_sound = ExtResource("6_ytmxh")
 
-[node name="StaticBody3D" parent="test_level/dirt" parent_id_path=PackedInt32Array(78685540, 941957627) index="0" unique_id=989433190]
+[node name="StaticBody3D" parent="test_level/dirt" parent_id_path=PackedInt32Array(78685540, 1906227977) index="0" unique_id=725711831]
 script = ExtResource("2_iufkg")
 footstep_sound = ExtResource("7_hctok")
 
 [node name="CharacterBody3D" parent="." unique_id=1445218770 instance=ExtResource("2_5lt6y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.050232, 0.90084696, 20.87149)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.050232, 3.6557865, 24.643148)
 
-[node name="Skeleton3D" parent="CharacterBody3D/Mesh" parent_id_path=PackedInt32Array(1445218770, 817030189) index="0" unique_id=225314288]
+[node name="Skeleton3D" parent="CharacterBody3D/Mesh" parent_id_path=PackedInt32Array(1445218770, 817030189) index="0" unique_id=307522006]
 bones/0/rotation = Quaternion(0.09101166, -0.05604479, -0.082359, 0.9908546)
 bones/1/rotation = Quaternion(-0.03783933, 0.021258209, 0.16457346, 0.98540956)
 bones/2/rotation = Quaternion(0.027774153, 0.011579947, -0.037580453, 0.99884045)
