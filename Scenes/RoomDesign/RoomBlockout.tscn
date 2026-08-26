@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ddwoonfdlh7yu"]
+
+[ext_resource type="PackedScene" uid="uid://d3rrh52jvjo02" path="res://Scenes/Player.tscn" id="1_57ebb"]
+
+[node name="RoomBlockout" type="Node3D" unique_id=8699618]
+
+[node name="CharacterBody3D" parent="." unique_id=1445218770 instance=ExtResource("1_57ebb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0496025, -6.4435577, -4.7538757)
+
+[node name="Basic blockout" type="Node" parent="." unique_id=1304243684]
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Basic blockout" unique_id=550521616]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.5, 0, 0)
+size = Vector3(1, 16, 50)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Basic blockout" unique_id=524866149]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.5, 0)
+size = Vector3(70, 1, 50)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Basic blockout" unique_id=356679936]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.5, 0, 0)
+size = Vector3(1, 16, 50)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Basic blockout" unique_id=805275964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.5)
+size = Vector3(70, 16, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Basic blockout" unique_id=767060474]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24.5)
+size = Vector3(70, 16, 1)
