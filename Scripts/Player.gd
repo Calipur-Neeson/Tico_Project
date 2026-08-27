@@ -24,6 +24,8 @@ extends CharacterBody3D
 @onready var wall_cast: RayCast3D = $RayDetectors/WallCast
 @onready var right_turn_climb_cast: RayCast3D = $RayDetectors/RightTurnClimbCast
 @onready var left_turn_climb_cast: RayCast3D = $RayDetectors/LeftTurnClimbCast
+@onready var obstacle_cast: RayCast3D = $RayDetectors/ObstacleCast
+
 
 #Hand Pivot
 @onready var hand_pivot: Marker3D = $HandPivot
@@ -42,6 +44,7 @@ var state: BasePlayerState = PlayerState.Idle
 
 func _ready() -> void:
 	ceiling_cast.enabled = false
+	obstacle_cast.enabled = false
 	
 	state.Enter(self)
 	camControl = spring_arm_3d

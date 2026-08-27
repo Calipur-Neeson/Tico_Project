@@ -2,6 +2,7 @@ class_name PlayerJumpState
 extends BasePlayerState
 
 func Enter(player: Player) -> void:
+	player.obstacle_cast.enabled = false
 	player.playerAnim.play("NewLib/ReadyToJump", player.BLEEND_SPEED, 3)
 
 	
