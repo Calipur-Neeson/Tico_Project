@@ -38,6 +38,22 @@ height = 1.75
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_12j5o"]
 height = 1.3
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c43xd"]
+radius = 0.4
+height = 0.985
+
+[sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_c43xd"]
+angle = 2.7925267
+
+[sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_avx33"]
+angle = 2.8684487
+
+[sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_pohj0"]
+angle = 2.7925267
+
+[sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_ftswq"]
+angle = 2.7925267
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6xh1p"]
 _data = {
 &"ClimbWall": ExtResource("3_8flut"),
@@ -99,10 +115,20 @@ shape = SubResource("CapsuleShape3D_61ot5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, -0.155)
 shape = SubResource("CapsuleShape3D_12j5o")
 
+[node name="CollisionUpper" type="CollisionShape3D" parent="." unique_id=83559206]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23044834, -0.1913957)
+shape = SubResource("CapsuleShape3D_c43xd")
+
 [node name="Mesh" parent="." unique_id=817030189 instance=ExtResource("1_bhhdu")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, -0.86376077, 0)
 
-[node name="Skeleton3D" parent="Mesh" index="0" unique_id=307522006]
+[node name="LeftArmTarget" type="Node3D" parent="Mesh" unique_id=1156450197]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34318477, 0.82601166, 0.3870807)
+
+[node name="RightArmTarget" type="Node3D" parent="Mesh" unique_id=937716359]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13096386, 0.8250742, 0.42000002)
+
+[node name="Skeleton3D" parent="Mesh" index="2" unique_id=307522006]
 bones/0/position = Vector3(0.002294555, 0.9286259, -0.01037536)
 bones/0/rotation = Quaternion(-0.036482364, -0.36709917, -0.013288065, 0.9293711)
 bones/1/rotation = Quaternion(-0.010292281, 0.040697996, -0.0060800808, 0.99909997)
@@ -157,7 +183,49 @@ bones/61/rotation = Quaternion(-0.3104612, 0.07523703, -0.018645853, 0.9474206)
 bones/62/rotation = Quaternion(0.68291104, 0.07025634, 0.09784087, 0.72050244)
 bones/63/rotation = Quaternion(0.242829, 0.035679772, 0.012655887, 0.9693302)
 
-[node name="AnimationPlayer" parent="Mesh" index="1" unique_id=1256023696]
+[node name="LeftCCDIK3D" type="CCDIK3D" parent="Mesh/Skeleton3D" index="2" unique_id=1840530733]
+influence = 0.0
+setting_count = 1
+settings/0/target_node = NodePath("../../LeftArmTarget")
+settings/0/root_bone_name = "mixamorig_LeftArm"
+settings/0/root_bone = 8
+settings/0/end_bone_name = "mixamorig_LeftHand"
+settings/0/end_bone = 10
+settings/0/extend_end_bone = false
+settings/0/joint_count = 3
+settings/0/joints/0/rotation_axis = 3
+settings/0/joints/0/limitation = SubResource("JointLimitationCone3D_c43xd")
+settings/0/joints/0/limitation/right_axis = 0
+settings/0/joints/0/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
+settings/0/joints/1/rotation_axis = 3
+settings/0/joints/1/limitation = SubResource("JointLimitationCone3D_avx33")
+settings/0/joints/1/limitation/right_axis = 0
+settings/0/joints/1/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
+settings/0/joints/2/rotation_axis = 3
+settings/0/joints/2/limitation = null
+
+[node name="RightCCDIK3D" type="CCDIK3D" parent="Mesh/Skeleton3D" index="3" unique_id=1995951483]
+influence = 0.0
+setting_count = 1
+settings/0/target_node = NodePath("../../RightArmTarget")
+settings/0/root_bone_name = "mixamorig_RightArm"
+settings/0/root_bone = 32
+settings/0/end_bone_name = "mixamorig_RightHand"
+settings/0/end_bone = 34
+settings/0/extend_end_bone = false
+settings/0/joint_count = 3
+settings/0/joints/0/rotation_axis = 3
+settings/0/joints/0/limitation = SubResource("JointLimitationCone3D_pohj0")
+settings/0/joints/0/limitation/right_axis = 0
+settings/0/joints/0/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
+settings/0/joints/1/rotation_axis = 3
+settings/0/joints/1/limitation = SubResource("JointLimitationCone3D_ftswq")
+settings/0/joints/1/limitation/right_axis = 0
+settings/0/joints/1/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
+settings/0/joints/2/rotation_axis = 3
+settings/0/joints/2/limitation = null
+
+[node name="AnimationPlayer" parent="Mesh" index="3" unique_id=1256023696]
 libraries/NewLib = SubResource("AnimationLibrary_6xh1p")
 autoplay = &"NewLib/Idle"
 speed_scale = 0.99997115
@@ -191,6 +259,7 @@ target_position = Vector3(0, 0, -0.715)
 collision_mask = 2
 
 [node name="WallCast" type="RayCast3D" parent="RayDetectors" unique_id=1682758509]
+visible = false
 target_position = Vector3(0, 0, -0.6)
 collision_mask = 4
 
@@ -229,8 +298,8 @@ collision_mask = 32
 script = ExtResource("27_u7x0b")
 
 [node name="ObstacleCast" type="RayCast3D" parent="RayDetectors" unique_id=2017354926]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, -0.55)
-target_position = Vector3(0, -2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, -0.6)
+target_position = Vector3(0, -2.14, 0)
 collision_mask = 4
 
 [node name="Container" type="Node3D" parent="." unique_id=1630844471]

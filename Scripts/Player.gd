@@ -7,13 +7,22 @@ extends CharacterBody3D
 
 @onready var spring_arm_3d: CameraControl = $SpringArm3D
 @onready var cam: Camera3D = $SpringArm3D/Camera3D
-@onready var playerAnim: AnimationPlayer = $Mesh/AnimationPlayer
 @onready var container: PlayerContainer = $Container
 @onready var muzzle: Trajectory = $Muzzle
+
+#Animator
+@onready var playerAnim: AnimationPlayer = $Mesh/AnimationPlayer
+@onready var left_ccdik_3d: CCDIK3D = $Mesh/Skeleton3D/LeftCCDIK3D
+@onready var right_ccdik_3d: CCDIK3D = $Mesh/Skeleton3D/RightCCDIK3D
+@onready var right_arm_target: Node3D = $Mesh/RightArmTarget
+@onready var left_arm_target: Node3D = $Mesh/LeftArmTarget
+
 
 #Colliders
 @onready var collision_stand: CollisionShape3D = $CollisionStand
 @onready var collision_crouch: CollisionShape3D = $CollisionCrouch
+@onready var collision_upper: CollisionShape3D = $CollisionUpper
+
 
 #Caster
 @onready var climbable_cast: RayCast3D = $RayDetectors/ClimbCast
@@ -45,7 +54,7 @@ var state: BasePlayerState = PlayerState.Idle
 func _ready() -> void:
 	ceiling_cast.enabled = false
 	obstacle_cast.enabled = false
-	
+		
 	state.Enter(self)
 	camControl = spring_arm_3d
 
@@ -85,8 +94,11 @@ func SetCrouch(crouch: bool) -> void:
 	isCrouch = crouch
 	collision_crouch.disabled = !crouch
 	collision_stand.disabled = crouch
+	collision_upper.disabled = true
 
-func ForceMovePlayer(offset: Vector3) -> void:
-	var tween = create_tween()
-	tween.tween_property(self, "position", position + offset, 0.1)
+func SmoothLerp(to: Vector3, delta: float) -> void:
+	var speed: = delta *2
+	var distance: float = position.distance_to(to)
+	var timer = clamp(speed / distance, 0, 1)
+	position = position.lerp(to, timer)
 	

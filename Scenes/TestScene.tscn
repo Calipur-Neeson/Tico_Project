@@ -37,34 +37,34 @@ size = Vector3(7.5, 0.23, 5.115)
 [sub_resource type="BoxShape3D" id="BoxShape3D_61ot5"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_201fe"]
-size = Vector3(1, 0.2, 0.5)
+size = Vector3(1, 0.8, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xjl2p"]
-size = Vector3(1, 0.2, 0.5)
+size = Vector3(1, 0.8, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ytmxh"]
-size = Vector3(1, 0.2, 0.8)
+size = Vector3(1, 0.8, 0.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hctok"]
-size = Vector3(1, 0.2, 0.8)
+size = Vector3(1, 0.8, 0.8)
 
 [sub_resource type="BoxMesh" id="BoxMesh_t2vuu"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1, 0.8, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lp1f3"]
-size = Vector3(1, 0.2, 0.5)
+size = Vector3(1, 0.8, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_p30di"]
-size = Vector3(1, 0.2, 1.2)
+[sub_resource type="BoxMesh" id="BoxMesh_xjl2p"]
+size = Vector3(1, 0.8, 1.2)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8c81w"]
-size = Vector3(1, 0.2, 1.2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ytmxh"]
+size = Vector3(1, 0.8, 1.2)
 
-[sub_resource type="BoxMesh" id="BoxMesh_pohj0"]
-size = Vector3(1, 0.2, 1.4)
+[sub_resource type="BoxMesh" id="BoxMesh_hctok"]
+size = Vector3(1, 0.8, 1.4)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ftswq"]
-size = Vector3(1, 0.2, 1.4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_t2vuu"]
+size = Vector3(1, 0.8, 1.4)
 
 [node name="Node3D" type="Node3D" unique_id=1930091129]
 
@@ -249,32 +249,32 @@ collision_layer = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="test_level/Obstacles/Ob3/MeshInstance3D/StaticBody3D" unique_id=808236953]
 shape = SubResource("BoxShape3D_lp1f3")
 
-[node name="Ob4" type="Node3D" parent="test_level/Obstacles" unique_id=42975471]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -3.0739336, -0.248047, 0)
+[node name="Ob4" type="Node3D" parent="test_level/Obstacles" unique_id=1160470756]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -3.1025858, -0.24464226, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="test_level/Obstacles/Ob4" unique_id=2113878546]
-mesh = SubResource("BoxMesh_p30di")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="test_level/Obstacles/Ob4" unique_id=185596865]
+mesh = SubResource("BoxMesh_xjl2p")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="test_level/Obstacles/Ob4/MeshInstance3D" unique_id=420008529]
+[node name="StaticBody3D" type="StaticBody3D" parent="test_level/Obstacles/Ob4/MeshInstance3D" unique_id=1726523617]
 collision_layer = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="test_level/Obstacles/Ob4/MeshInstance3D/StaticBody3D" unique_id=1343178851]
-shape = SubResource("BoxShape3D_8c81w")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test_level/Obstacles/Ob4/MeshInstance3D/StaticBody3D" unique_id=371887543]
+shape = SubResource("BoxShape3D_ytmxh")
 
-[node name="Ob5" type="Node3D" parent="test_level/Obstacles" unique_id=1292608823]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -4.1100073, -0.1454432, 0)
+[node name="Ob5" type="Node3D" parent="test_level/Obstacles" unique_id=957008459]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -4.1712427, -0.15034652, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="test_level/Obstacles/Ob5" unique_id=1821254716]
-mesh = SubResource("BoxMesh_pohj0")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="test_level/Obstacles/Ob5" unique_id=20390913]
+mesh = SubResource("BoxMesh_hctok")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="test_level/Obstacles/Ob5/MeshInstance3D" unique_id=1202318517]
+[node name="StaticBody3D" type="StaticBody3D" parent="test_level/Obstacles/Ob5/MeshInstance3D" unique_id=1553019314]
 collision_layer = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="test_level/Obstacles/Ob5/MeshInstance3D/StaticBody3D" unique_id=1271125327]
-shape = SubResource("BoxShape3D_ftswq")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test_level/Obstacles/Ob5/MeshInstance3D/StaticBody3D" unique_id=666372192]
+shape = SubResource("BoxShape3D_t2vuu")
 
 [node name="CharacterBody3D" parent="." unique_id=1445218770 instance=ExtResource("2_5lt6y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.050232, 3.6557865, 24.643148)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.165739, 0.8771213, 17.013767)
 
 [node name="Skeleton3D" parent="CharacterBody3D/Mesh" parent_id_path=PackedInt32Array(1445218770, 817030189) index="0" unique_id=307522006]
 bones/13/rotation = Quaternion(-0.08627769, -0.00090557814, 0.031516086, 0.9957721)

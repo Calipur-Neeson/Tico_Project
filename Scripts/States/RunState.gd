@@ -13,9 +13,15 @@ func PreUpdate(player: Player) -> void:
 		player.ChangeStateTo(PlayerState.Walk)
 		
 	if Input.is_action_just_pressed("Jump") and player.is_on_floor():
-		player.jumpSpeed = player.velocity.length()
-		player.velocity.y = player.JUMP_VELOCITY
-		player.ChangeStateTo(PlayerState.RunJump)
+		player.obstacle_cast.enabled = true
+		player.obstacle_cast.force_raycast_update()
+		
+		if player.obstacle_cast.is_colliding():
+			player.ChangeStateTo(PlayerState.Vault)
+		else:
+			player.jumpSpeed = player.velocity.length()
+			player.velocity.y = player.JUMP_VELOCITY
+			player.ChangeStateTo(PlayerState.RunJump)
 	
 func Update(player: Player, delta: float) -> void:
 	var direction := player.GetMoveInput()
