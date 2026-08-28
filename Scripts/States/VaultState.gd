@@ -12,9 +12,10 @@ var time: float
 func Enter(player: Player) -> void:
 	player.collision_upper.disabled = false
 	player.collision_stand.disabled = true
+	player.assuming_land_cast.enabled = false
 	
-	hitPoint = player.obstacle_cast.get_collision_point()
 	player.obstacle_cast.force_raycast_update()
+	hitPoint = player.obstacle_cast.get_collision_point()
 	player.obstacle_cast.enabled = false
 	
 	playerFootPoint = player.global_position - Vector3(0, 1.75/2, 0)
@@ -22,11 +23,11 @@ func Enter(player: Player) -> void:
 	targetPointA = player.global_position + Vector3(0, obstacleHight - 0.5, 0) + (-player.global_basis.z * 0.18)
 	targetPointB = targetPointA + (-player.global_basis.z * 1.2)
 	targetPointC = player.global_position + (-player.global_basis.z * 2.2)
-	print("hit", obstacleHight)
+	
 	var right := player.global_basis.x.normalized()
 	player.left_arm_target.global_position = hitPoint - right * 0.34 
 	player.right_arm_target.global_position = hitPoint + right * 0.13 
-	#if obstacleHight < 1.5:
+	
 	player.playerAnim.play("NewLib/VaultLow", player.BLEEND_SPEED)
 
 func PreUpdate(player: Player) -> void:

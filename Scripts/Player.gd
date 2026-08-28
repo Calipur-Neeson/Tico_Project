@@ -3,7 +3,8 @@ extends CharacterBody3D
 
 @export var runSpeed:float = 5.0
 @export var crouchSpeed:float = 2.0
-@export var JUMP_VELOCITY:float = 6
+@export var jumpVelocity:float = 6
+@export var maxVaultHeight: float = 1.5
 
 @onready var spring_arm_3d: CameraControl = $SpringArm3D
 @onready var cam: Camera3D = $SpringArm3D/Camera3D
@@ -55,6 +56,7 @@ var state: BasePlayerState = PlayerState.Idle
 func _ready() -> void:
 	ceiling_cast.enabled = false
 	obstacle_cast.enabled = false
+	assuming_land_cast.enabled = false
 		
 	state.Enter(self)
 	camControl = spring_arm_3d

@@ -9,7 +9,7 @@ func Enter(player: Player) -> void:
 func PreUpdate(player: Player) -> void:
 	if not player.playerAnim.is_playing():
 		player.jumpSpeed = player.velocity.length()
-		player.velocity.y = player.JUMP_VELOCITY
+		player.velocity.y = player.jumpVelocity
 		player.ChangeStateTo(PlayerState.Fall)
 		
 
