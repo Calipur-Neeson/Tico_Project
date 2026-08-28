@@ -37,34 +37,34 @@ size = Vector3(7.5, 0.23, 5.115)
 [sub_resource type="BoxShape3D" id="BoxShape3D_61ot5"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_201fe"]
-size = Vector3(1, 0.8, 0.5)
+size = Vector3(1, 0.3, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xjl2p"]
-size = Vector3(1, 0.8, 0.5)
+size = Vector3(1, 0.3, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ytmxh"]
-size = Vector3(1, 0.8, 0.8)
+size = Vector3(1, 0.3, 0.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hctok"]
-size = Vector3(1, 0.8, 0.8)
+size = Vector3(1, 0.3, 0.8)
 
 [sub_resource type="BoxMesh" id="BoxMesh_t2vuu"]
-size = Vector3(1, 0.8, 1)
+size = Vector3(1, 0.3, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lp1f3"]
-size = Vector3(1, 0.8, 1)
+size = Vector3(1, 0.3, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_xjl2p"]
-size = Vector3(1, 0.8, 1.2)
+size = Vector3(1, 0.3, 1.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ytmxh"]
-size = Vector3(1, 0.8, 1.2)
+size = Vector3(1, 0.3, 1.2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_hctok"]
-size = Vector3(1, 0.8, 1.4)
+size = Vector3(1, 0.3, 1.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t2vuu"]
-size = Vector3(1, 0.8, 1.4)
+size = Vector3(1, 0.3, 1.4)
 
 [node name="Node3D" type="Node3D" unique_id=1930091129]
 
@@ -277,14 +277,23 @@ shape = SubResource("BoxShape3D_t2vuu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.165739, 0.8771213, 17.013767)
 
 [node name="Skeleton3D" parent="CharacterBody3D/Mesh" parent_id_path=PackedInt32Array(1445218770, 817030189) index="0" unique_id=307522006]
+bones/7/rotation = Quaternion(-0.45383507, -0.5448494, 0.5511389, -0.43979415)
+bones/8/rotation = Quaternion(-0.010451819, -0.0010627186, 0.10115047, 0.99481565)
 bones/13/rotation = Quaternion(-0.08627769, -0.00090557814, 0.031516086, 0.9957721)
 bones/17/rotation = Quaternion(0.1177903, -8.7806946e-08, -0.012070809, 0.9929652)
 bones/21/rotation = Quaternion(0.03689941, -4.8061768e-08, -0.0037813124, 0.9993119)
 bones/25/rotation = Quaternion(0.21421346, -1.3315157e-07, -0.02195199, 0.97654015)
+bones/27/rotation = Quaternion(2.8521122e-06, -3.0577734e-09, 0.0001410514, 1)
+bones/28/rotation = Quaternion(-5.954488e-06, 2.1905608e-09, -0.000367884, 0.99999994)
+bones/31/rotation = Quaternion(0.45383754, -0.54484725, 0.55114, 0.43979272)
+bones/32/rotation = Quaternion(-0.010455412, 0.0010630626, -0.101149395, 0.99481577)
 bones/37/rotation = Quaternion(-0.11756724, -0.010077033, -0.0053378567, 0.99299955)
 bones/41/rotation = Quaternion(0.05927672, -3.1265024e-08, 0.004828812, 0.9982299)
 bones/45/rotation = Quaternion(0.10060928, 4.656916e-08, 0.008195892, 0.99489224)
 bones/49/rotation = Quaternion(0.12311763, 9.480889e-09, 0.010029426, 0.9923414)
+bones/52/rotation = Quaternion(-2.0940528e-21, 0, 1.0394375e-05, 1)
+bones/55/rotation = Quaternion(2.0251724e-05, -0.0063501773, 0.99997544, -0.002969642)
+bones/56/rotation = Quaternion(-0.01811431, 0.00018249365, -0.005920146, 0.9998184)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1210683253]
 stream = ExtResource("3_8k7wh")

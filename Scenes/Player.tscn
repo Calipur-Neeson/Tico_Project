@@ -122,13 +122,7 @@ shape = SubResource("CapsuleShape3D_c43xd")
 [node name="Mesh" parent="." unique_id=817030189 instance=ExtResource("1_bhhdu")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, -0.86376077, 0)
 
-[node name="LeftArmTarget" type="Node3D" parent="Mesh" unique_id=1156450197]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34318477, 0.82601166, 0.3870807)
-
-[node name="RightArmTarget" type="Node3D" parent="Mesh" unique_id=937716359]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13096386, 0.8250742, 0.42000002)
-
-[node name="Skeleton3D" parent="Mesh" index="2" unique_id=307522006]
+[node name="Skeleton3D" parent="Mesh" index="0" unique_id=307522006]
 bones/0/position = Vector3(0.002294555, 0.9286259, -0.01037536)
 bones/0/rotation = Quaternion(-0.036482364, -0.36709917, -0.013288065, 0.9293711)
 bones/1/rotation = Quaternion(-0.010292281, 0.040697996, -0.0060800808, 0.99909997)
@@ -225,10 +219,16 @@ settings/0/joints/1/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
 settings/0/joints/2/rotation_axis = 3
 settings/0/joints/2/limitation = null
 
-[node name="AnimationPlayer" parent="Mesh" index="3" unique_id=1256023696]
+[node name="AnimationPlayer" parent="Mesh" index="1" unique_id=1256023696]
 libraries/NewLib = SubResource("AnimationLibrary_6xh1p")
 autoplay = &"NewLib/Idle"
 speed_scale = 0.99997115
+
+[node name="LeftArmTarget" type="Node3D" parent="Mesh" unique_id=1156450197]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34318477, 0.82601166, 0.3870807)
+
+[node name="RightArmTarget" type="Node3D" parent="Mesh" unique_id=937716359]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13096386, 0.8250742, 0.42000002)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1172535245]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.531, 0)
@@ -299,6 +299,11 @@ script = ExtResource("27_u7x0b")
 
 [node name="ObstacleCast" type="RayCast3D" parent="RayDetectors" unique_id=2017354926]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, -0.6)
+target_position = Vector3(0, -2.14, 0)
+collision_mask = 4
+
+[node name="AssumingLandCast" type="RayCast3D" parent="RayDetectors" unique_id=1015741088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, -1.2)
 target_position = Vector3(0, -2.14, 0)
 collision_mask = 4
 
