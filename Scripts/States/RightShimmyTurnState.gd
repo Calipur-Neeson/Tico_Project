@@ -14,7 +14,6 @@ func Enter(player: Player) -> void:
 	normal = player.right_turn_climb_cast.get_collision_normal()
 	targetPoint = player.right_turn_climb_cast.get_collision_point()
 	direction = targetPoint - player.hand_pivot.global_position
-	print(direction)
 
 func PreUpdate(player: Player) -> void:
 	if player.climbable_cast.is_colliding() and player.right_climb_cast.is_colliding():

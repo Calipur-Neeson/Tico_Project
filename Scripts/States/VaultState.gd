@@ -29,6 +29,7 @@ func Enter(player: Player) -> void:
 	player.right_arm_target.global_position = hitPoint + right * 0.13 
 	
 	player.playerAnim.play("NewLib/VaultLow", player.BLEEND_SPEED)
+	
 
 func PreUpdate(player: Player) -> void:
 	if not player.playerAnim.is_playing():

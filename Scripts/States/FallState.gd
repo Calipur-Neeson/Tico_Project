@@ -19,3 +19,6 @@ func Update(player: Player, delta: float) -> void:
 	player.UpdateVelocity(direction, player.runSpeed * 0.5)
 	player.TurnTo(direction)
 	player.move_and_slide()
+	
+	player.left_ccdik_3d.influence = 0
+	player.right_ccdik_3d.influence = 0
