@@ -28,15 +28,14 @@ func Enter(player: Player) -> void:
 	
 	player.playerAnim.play("NewLib/ClimbWall", player.BLEEND_SPEED)
 	
-	#hitPoint = player.climbable_cast.get_collision_point()
-	#normal = player.climbable_cast.get_collision_normal()
 	
 	if player.floor_cast.is_colliding():
 		player.playerAnim.play("NewLib/HangingIdle_short", player.BLEEND_SPEED)
+		player.collision_upper.disabled = false
+		player.collision_stand.disabled = true
 	else:	
 		player.playerAnim.play("NewLib/HangingIdle", player.BLEEND_SPEED)
 	
-	var move: Vector3 = hitPoint - player.hand_pivot.global_position
 	
 func PreUpdate(player: Player) -> void:
 	if Input.is_action_just_pressed("Crouch"):
@@ -54,6 +53,7 @@ func PreUpdate(player: Player) -> void:
 		player.ChangeStateTo(PlayerState.TurnRightShimmy)
 
 func Update(player: Player, delta: float) -> void:
+	normal = player.climbable_cast.get_collision_normal()
 	player.TurnTo(-normal)
 	
 	player.left_ccdik_3d.influence = move_toward(player.left_ccdik_3d.influence, 0.2, delta * 8.0)

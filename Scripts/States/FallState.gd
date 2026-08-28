@@ -2,6 +2,7 @@ class_name PlayerFallState
 extends BasePlayerState
 
 func Enter(player: Player) -> void:
+	player.SetCrouch(false)
 	player.playerAnim.play("NewLib/FallingIdle", player.BLEEND_SPEED)
 
 func PreUpdate(player: Player) -> void:

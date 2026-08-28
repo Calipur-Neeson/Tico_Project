@@ -122,7 +122,7 @@ shape = SubResource("CapsuleShape3D_c43xd")
 [node name="Mesh" parent="." unique_id=817030189 instance=ExtResource("1_bhhdu")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, -0.86376077, 0)
 
-[node name="Skeleton3D" parent="Mesh" index="0" unique_id=225314288]
+[node name="Skeleton3D" parent="Mesh" index="0" unique_id=307522006]
 bones/0/position = Vector3(0.0035504817, 0.6915999, -0.09324837)
 bones/0/rotation = Quaternion(0.28310814, -0.12855177, -0.07710521, 0.9473009)
 bones/1/rotation = Quaternion(0.0029175915, 0.020913184, 0.0119936615, 0.9997052)
@@ -219,7 +219,7 @@ settings/0/joints/1/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
 settings/0/joints/2/rotation_axis = 3
 settings/0/joints/2/limitation = null
 
-[node name="AnimationPlayer" parent="Mesh" index="1" unique_id=788844123]
+[node name="AnimationPlayer" parent="Mesh" index="1" unique_id=1256023696]
 libraries/NewLib = SubResource("AnimationLibrary_6xh1p")
 autoplay = &"NewLib/Idle"
 speed_scale = 0.99997115
