@@ -314,8 +314,7 @@ collision_layer = 4
 shape = SubResource("BoxShape3D_c2lnq")
 
 [node name="CharacterBody3D" parent="." unique_id=1445218770 instance=ExtResource("2_5lt6y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.161568, 3.6533198, 26.303997)
-metadata/_edit_lock_ = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.161568, 1.1591282, 20.303932)
 
 [node name="Skeleton3D" parent="CharacterBody3D/Mesh" parent_id_path=PackedInt32Array(1445218770, 817030189) index="0" unique_id=307522006]
 bones/0/position = Vector3(0.002294555, 0.9286259, -0.01037536)
@@ -343,7 +342,6 @@ bones/24/rotation = Quaternion(0.27554515, 0.0017584844, 0.024053346, 0.96098554
 bones/25/rotation = Quaternion(0.21421346, -1.3315157e-07, -0.02195199, 0.97654015)
 bones/27/rotation = Quaternion(2.8521122e-06, -3.0577734e-09, 0.0001410514, 1)
 bones/28/rotation = Quaternion(-5.954488e-06, 2.1905608e-09, -0.000367884, 0.99999994)
-bones/29/rotation = Quaternion(3.6591703e-06, 8.409115e-10, 0.00022980936, 1)
 bones/31/rotation = Quaternion(0.45383754, -0.54484725, 0.55114, 0.43979272)
 bones/32/rotation = Quaternion(-0.010455412, 0.0010630626, -0.101149395, 0.99481577)
 bones/33/rotation = Quaternion(0.044699393, 0.02911429, -0.35953817, 0.9316043)
@@ -362,7 +360,6 @@ bones/48/rotation = Quaternion(0.32042277, -0.0023630264, -0.03381974, 0.9466678
 bones/49/rotation = Quaternion(0.12311763, 9.480889e-09, 0.010029426, 0.9923414)
 bones/51/rotation = Quaternion(0.2071685, -0.011139501, 0.092078224, 0.9738987)
 bones/52/rotation = Quaternion(-2.0940528e-21, 0, 1.0394375e-05, 1)
-bones/53/rotation = Quaternion(1.0671668e-21, 0, -1.0428465e-05, 1)
 bones/55/rotation = Quaternion(2.0251724e-05, -0.0063501773, 0.99997544, -0.002969642)
 bones/56/rotation = Quaternion(-0.01811431, 0.00018249365, -0.005920146, 0.9998184)
 bones/57/rotation = Quaternion(0.5789254, -0.023310244, -0.031172957, 0.814451)

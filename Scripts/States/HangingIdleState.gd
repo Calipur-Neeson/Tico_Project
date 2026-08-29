@@ -22,9 +22,9 @@ func Enter(player: Player) -> void:
 	
 	player.position = targetPointA
 
-	var right := player.global_basis.x.normalized()
-	player.left_arm_target.global_position = hitPoint - right * 0.3
-	player.right_arm_target.global_position = hitPoint + right * 0.3
+	#var right := player.global_basis.x.normalized()
+	#player.left_arm_target.global_position = hitPoint - right * 0.3
+	#player.right_arm_target.global_position = hitPoint + right * 0.3
 	
 	player.playerAnim.play("NewLib/ClimbWall", player.BLEEND_SPEED)
 	

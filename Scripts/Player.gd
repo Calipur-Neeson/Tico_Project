@@ -12,11 +12,9 @@ extends CharacterBody3D
 @onready var muzzle: Trajectory = $Muzzle
 
 #Animator
-@onready var playerAnim: AnimationPlayer = $Mesh/AnimationPlayer
-@onready var left_ccdik_3d: CCDIK3D = $Mesh/Skeleton3D/LeftCCDIK3D
-@onready var right_ccdik_3d: CCDIK3D = $Mesh/Skeleton3D/RightCCDIK3D
-@onready var right_arm_target: Node3D = $Mesh/RightArmTarget
-@onready var left_arm_target: Node3D = $Mesh/LeftArmTarget
+@onready var animation_player: AnimationPlayer = $Character/AnimationPlayer
+@onready var animation_tree: AnimationTree = $Character/AnimationTree
+
 
 
 #Colliders
@@ -49,6 +47,7 @@ var maxWalkSpeed: float = 3
 const BLEEND_SPEED: float = 0.2
 var isCrouch: bool = false
 var island: bool = false
+
 
 #Current state that our player is
 var state: BasePlayerState = PlayerState.Idle
@@ -105,3 +104,12 @@ func SmoothLerp(to: Vector3, delta: float) -> void:
 	var timer = clamp(speed / distance, 0, 1)
 	position = position.lerp(to, timer)
 	
+func ApplyRootMotion(delta: float) -> void:
+	var root_motion: Vector3 = animation_tree.get_root_motion_position() 
+	root_motion.z *= -1
+	root_motion.x *= -1
+	
+	var movement := global_basis * root_motion
+	velocity = movement / delta
+	
+	move_and_slide()

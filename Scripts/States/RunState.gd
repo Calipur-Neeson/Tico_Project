@@ -2,7 +2,7 @@ class_name PlayerRunState
 extends BasePlayerState
 
 func Enter(player: Player) -> void:
-	player.playerAnim.play("NewLib/Running", player.BLEEND_SPEED)
+	player.animation_tree.set("parameters/movement/transition_request", "run")
 
 func PreUpdate(player: Player) -> void:
 	var currentSpped = player.GetCurrentSpeed()
@@ -18,8 +18,7 @@ func PreUpdate(player: Player) -> void:
 		
 		if player.obstacle_cast.is_colliding():
 			var hitPoint: Vector3 = player.obstacle_cast.get_collision_point()
-			var playerFootPoint: Vector3 = player.global_position - Vector3(0, 1.75/2, 0)
-			var obstacleHight: float = hitPoint.y - playerFootPoint.y
+			var obstacleHight: float = hitPoint.y - player.global_position.y
 			
 			player.assuming_land_cast.enabled = true
 			player.assuming_land_cast.force_raycast_update()

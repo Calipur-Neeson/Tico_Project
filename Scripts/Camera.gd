@@ -5,11 +5,11 @@ extends SpringArm3D
 @export var springLength: float = 2
 @export var rotateRate: float = 150
 @export var mouseSensitivity: float = .1
-@export var camHeightStand: float = 0.7
-@export var camHeightCrouch: float = 0.4
+@export var camHeightStand: float = 1.575
+@export var camHeightCrouch: float = 1.275
 var mouseInput: Vector2
 @onready var player: Node3D = get_parent()
-@onready var camRig: Vector3 = Vector3(0, 0.7, 0)
+@onready var camRig: Vector3 = Vector3(0, 1.575, 0)
 
 var isReset: bool = false
 

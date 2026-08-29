@@ -3,7 +3,7 @@ extends BasePlayerState
 
 func Enter(player: Player) -> void:
 	player.SetCrouch(false)
-	player.playerAnim.play("NewLib/FallingIdle", player.BLEEND_SPEED)
+	#player.playerAnim.play("NewLib/FallingIdle", player.BLEEND_SPEED)
 
 func PreUpdate(player: Player) -> void:
 	if player.is_on_floor():
@@ -21,5 +21,5 @@ func Update(player: Player, delta: float) -> void:
 	player.TurnTo(direction)
 	player.move_and_slide()
 	
-	player.left_ccdik_3d.influence = 0
-	player.right_ccdik_3d.influence = 0
+	#player.left_ccdik_3d.influence = 0
+	#player.right_ccdik_3d.influence = 0
