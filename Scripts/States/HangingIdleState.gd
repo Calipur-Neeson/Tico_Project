@@ -3,7 +3,6 @@ extends BasePlayerState
 
 var normal :Vector3
 var hitPoint: Vector3
-var playerFootPoint: Vector3
 var obstacleHight: float
 var targetPointA: Vector3
 var time: float
@@ -15,8 +14,7 @@ func Enter(player: Player) -> void:
 	hitPoint = player.obstacle_cast.get_collision_point()
 	player.obstacle_cast.enabled = false
 	
-	playerFootPoint = player.global_position - Vector3(0, 1.75/2, 0)
-	obstacleHight = hitPoint.y - playerFootPoint.y
+	obstacleHight = hitPoint.y - player.global_position.y
 	
 	targetPointA = player.global_position + Vector3(0, obstacleHight - 1.9, 0)
 	
@@ -26,15 +24,13 @@ func Enter(player: Player) -> void:
 	#player.left_arm_target.global_position = hitPoint - right * 0.3
 	#player.right_arm_target.global_position = hitPoint + right * 0.3
 	
-	player.playerAnim.play("NewLib/ClimbWall", player.BLEEND_SPEED)
-	
 	
 	if player.floor_cast.is_colliding():
-		player.playerAnim.play("NewLib/HangingIdle_short", player.BLEEND_SPEED)
-		player.collision_upper.disabled = false
-		player.collision_stand.disabled = true
+		player.animation_tree.set("parameters/movement/transition_request", "hangIdleShort")
+		#player.collision_upper.disabled = false
+		#player.collision_stand.disabled = true
 	else:	
-		player.playerAnim.play("NewLib/HangingIdle", player.BLEEND_SPEED)
+		player.animation_tree.set("parameters/movement/transition_request", "hangIdleLong")
 	
 	
 func PreUpdate(player: Player) -> void:
@@ -47,15 +43,15 @@ func PreUpdate(player: Player) -> void:
 		player.ChangeStateTo(PlayerState.RightShimmy)
 	elif Input.is_action_just_pressed("Jump") and not player.ceiling_cast.is_colliding():
 		player.ChangeStateTo(PlayerState.ClimbWall)
-	elif player.left_turn_climb_cast.is_colliding() and not player.left_climb_cast.is_colliding() and Input.is_action_pressed("Move_Left"):
-		player.ChangeStateTo(PlayerState.TurnLeftShimmy)
-	elif player.right_turn_climb_cast.is_colliding() and not player.right_climb_cast.is_colliding() and Input.is_action_pressed("Move_Right"):
-		player.ChangeStateTo(PlayerState.TurnRightShimmy)
+	#elif player.left_turn_climb_cast.is_colliding() and not player.left_climb_cast.is_colliding() and Input.is_action_pressed("Move_Left"):
+		#player.ChangeStateTo(PlayerState.TurnLeftShimmy)
+	#elif player.right_turn_climb_cast.is_colliding() and not player.right_climb_cast.is_colliding() and Input.is_action_pressed("Move_Right"):
+		#player.ChangeStateTo(PlayerState.TurnRightShimmy)
 
 func Update(player: Player, delta: float) -> void:
 	normal = player.climbable_cast.get_collision_normal()
 	player.TurnTo(-normal)
 	
-	player.left_ccdik_3d.influence = move_toward(player.left_ccdik_3d.influence, 0.2, delta * 8.0)
-	player.right_ccdik_3d.influence = move_toward(player.right_ccdik_3d.influence, 0.2, delta * 8.0)
+	#player.left_ccdik_3d.influence = move_toward(player.left_ccdik_3d.influence, 0.2, delta * 8.0)
+	#player.right_ccdik_3d.influence = move_toward(player.right_ccdik_3d.influence, 0.2, delta * 8.0)
 	

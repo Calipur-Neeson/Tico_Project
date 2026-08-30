@@ -19,6 +19,6 @@ func Update(player: Player, delta: float) -> void:
 	player.move_and_slide()
 
 	if player.floor_cast.is_colliding():
-		player.playerAnim.play("NewLib/HangLeftShimmy_short", player.BLEEND_SPEED)
-	elif not player.floor_cast.is_colliding() :
-		player.playerAnim.play("NewLib/HangLeftShimmy", player.BLEEND_SPEED)
+		player.animation_tree.set("parameters/movement/transition_request", "shimmyShortLeft")
+	else:
+		player.animation_tree.set("parameters/movement/transition_request", "shimmyLongLeft")
