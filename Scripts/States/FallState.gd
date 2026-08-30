@@ -3,7 +3,7 @@ extends BasePlayerState
 
 func Enter(player: Player) -> void:
 	player.SetCrouch(false)
-	#player.playerAnim.play("NewLib/FallingIdle", player.BLEEND_SPEED)
+	player.animation_tree.set("parameters/movement/transition_request", "fall")
 
 func PreUpdate(player: Player) -> void:
 	if player.is_on_floor():

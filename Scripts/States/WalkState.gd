@@ -42,7 +42,9 @@ func Update(player: Player, delta: float) -> void:
 	player.velocity += player.get_gravity() * delta
 	player.UpdateVelocity(direction)
 	
-	var walkSpeed: float = lerpf(0.1, 1.2, player.GetCurrentSpeed() / player.maxWalkSpeed)
+	var walkSpeed: float = lerpf(0.1, 1.6, player.GetCurrentSpeed() / player.maxWalkSpeed)
 	
 	player.animation_tree.set("parameters/movement/transition_request", "walk")
+	player.animation_tree.set("parameters/walkSpeed/scale", walkSpeed)
+
 	player.move_and_slide()

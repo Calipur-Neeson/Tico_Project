@@ -3,14 +3,14 @@ extends BasePlayerState
 
 func Enter(player: Player) -> void:
 	player.obstacle_cast.enabled = false
-	player.playerAnim.play("NewLib/RunJump", player.BLEEND_SPEED)
+	player.animation_tree.set("parameters/movement/transition_request", "runJump")
 
 func PreUpdate(player: Player) -> void:
 	player.obstacle_cast.enabled = true
 	
 	if player.is_on_floor():
 		player.obstacle_cast.enabled = false
-		player.ChangeStateTo(PlayerState.Land)
+		player.ChangeStateTo(PlayerState.Run)
 	
 	if player.obstacle_cast.is_colliding() and not player.island:
 		var hitPoint: Vector3 = player.obstacle_cast.get_collision_point()

@@ -3,7 +3,7 @@ extends BasePlayerState
 
 func Enter(player: Player) -> void:
 	player.SetCrouch(true)
-	player.playerAnim.play("NewLib/CrouchIdle", player.BLEEND_SPEED)
+	player.animation_tree.set("parameters/movement/transition_request", "crouchIdle")
 
 func PreUpdate(player: Player) -> void:
 	if not player.is_on_floor():
@@ -16,7 +16,7 @@ func PreUpdate(player: Player) -> void:
 		player.ceiling_cast.enabled = true
 		player.ceiling_cast.force_shapecast_update()
 		if not player.ceiling_cast.is_colliding():
-			player.ChangeStateTo(PlayerState.CrouchToStand)
+			player.ChangeStateTo(PlayerState.Idle)
 		else :
 			player.ceiling_cast.enabled = false
 	

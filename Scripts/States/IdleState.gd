@@ -6,7 +6,7 @@ func Enter(player: Player) -> void:
 	player.animation_tree.set("parameters/movement/transition_request", "idle")
 
 func PreUpdate(player: Player) -> void:
-	if not player.is_on_floor():
+	if not player.is_on_floor() and not player.floor_cast.is_colliding():
 		player.ChangeStateTo(PlayerState.Fall)
 		
 	elif player.GetMoveInput().length() > 0.01:
@@ -32,8 +32,14 @@ func PreUpdate(player: Player) -> void:
 			player.ChangeStateTo(PlayerState.Jump)
 	
 	elif Input.is_action_just_pressed("Crouch") and player.is_on_floor():
-		player.ChangeStateTo(PlayerState.StandToCrouch)
+		player.ChangeStateTo(PlayerState.CrouchIdle)
 	
 	elif Input.is_action_pressed("Aim") and player.is_on_floor():
 		player.ChangeStateTo(PlayerState.Aim)
+	
+func Update(player: Player, delta: float) -> void:
+	if player.is_on_floor():
+		return
+	player.velocity += player.get_gravity() * delta
+	player.move_and_slide()
 	

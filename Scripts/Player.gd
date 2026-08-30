@@ -68,6 +68,7 @@ func ChangeStateTo(nextState: BasePlayerState) -> void:
 func _physics_process(delta: float) -> void:
 	state.PreUpdate(self)
 	state.Update(self, delta)
+	
 
 func TurnTo(direction: Vector3) -> void:
 	if direction:
