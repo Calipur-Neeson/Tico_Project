@@ -28,6 +28,7 @@ func PreUpdate(player: Player) -> void:
 				player.ChangeStateTo(PlayerState.ClimbWall)
 			elif obstacleHight >= player.maxVaultHeight:
 				player.ChangeStateTo(PlayerState.HangingIdle)
+		
 		else:
 			player.jumpSpeed = player.velocity.length()
 			player.velocity.y = player.jumpVelocity
@@ -36,10 +37,6 @@ func PreUpdate(player: Player) -> void:
 func Update(player: Player, delta: float) -> void:
 	var direction := player.GetMoveInput()
 	player.TurnTo(direction)
-	
-	if player.wall_cast.is_colliding():
-		player.velocity = Vector3.ZERO
-		return
 		
 	player.velocity += player.get_gravity() * delta
 	player.UpdateVelocity(direction)

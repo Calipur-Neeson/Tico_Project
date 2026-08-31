@@ -17,12 +17,12 @@ func Enter(player: Player) -> void:
 
 
 func PreUpdate(player: Player) -> void:
-	if player.climbable_cast.is_colliding() and player.left_climb_cast.is_colliding():
+	if player.climb_cast_horizontal.is_colliding() and player.left_climb_cast.is_colliding():
 		player.ChangeStateTo(PlayerState.HangingIdle)
 
 
 func Update(player: Player, delta: float) -> void:
-	if player.climbable_cast.is_colliding():
+	if player.climb_cast_horizontal.is_colliding():
 		player.velocity = dirLeft * 2.0
 		player.move_and_slide()
 	else:

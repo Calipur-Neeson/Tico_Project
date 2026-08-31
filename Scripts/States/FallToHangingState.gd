@@ -1,4 +1,4 @@
-class_name PlayerHangingIdleState
+class_name PlayerFallToHangingState
 extends BasePlayerState
 
 var normal :Vector3
@@ -8,11 +8,11 @@ var targetPointA: Vector3
 var time: float
 
 func Enter(player: Player) -> void:
-	player.assuming_land_cast.enabled = false
+	player.climb_cast_vertical.enabled = true
 	
-	player.obstacle_cast.force_raycast_update()
-	hitPoint = player.obstacle_cast.get_collision_point()
-	player.obstacle_cast.enabled = false
+	player.climb_cast_vertical.force_raycast_update()
+	hitPoint = player.climb_cast_vertical.get_collision_point()
+	
 	obstacleHight = hitPoint.y - player.global_position.y
 	
 	targetPointA = player.global_position + Vector3(0, obstacleHight - 1.4, 0)
@@ -47,3 +47,4 @@ func Update(player: Player, delta: float) -> void:
 	
 func Exit(player: Player) -> void:
 	player.climb_cast_horizontal.enabled = false
+	player.climb_cast_vertical.enabled = false

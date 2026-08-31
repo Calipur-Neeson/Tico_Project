@@ -24,12 +24,13 @@ extends CharacterBody3D
 
 
 #Caster
-@onready var climbable_cast: RayCast3D = $RayDetectors/ClimbCast
+@onready var climb_cast_horizontal: RayCast3D = $RayDetectors/ClimbCastHorizontal
+@onready var climb_cast_vertical: RayCast3D = $RayDetectors/ClimbCastVertical
 @onready var floor_cast: ShapeCast3D = $RayDetectors/FloorCast
 @onready var left_climb_cast: RayCast3D = $RayDetectors/LeftClimbCast
 @onready var right_climb_cast: RayCast3D = $RayDetectors/RightClimbCast
 @onready var ceiling_cast: ShapeCast3D = $RayDetectors/CeilingCast
-@onready var wall_cast: RayCast3D = $RayDetectors/WallCast
+@onready var wall_cast: ShapeCast3D = $RayDetectors/WallCast
 @onready var right_turn_climb_cast: RayCast3D = $RayDetectors/RightTurnClimbCast
 @onready var left_turn_climb_cast: RayCast3D = $RayDetectors/LeftTurnClimbCast
 @onready var obstacle_cast: RayCast3D = $RayDetectors/ObstacleCast
@@ -56,6 +57,7 @@ func _ready() -> void:
 	ceiling_cast.enabled = false
 	obstacle_cast.enabled = false
 	assuming_land_cast.enabled = false
+	climb_cast_horizontal.enabled = false
 		
 	state.Enter(self)
 	camControl = spring_arm_3d

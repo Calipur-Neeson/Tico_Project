@@ -10322,10 +10322,10 @@ _subresources={
 "slices/amount": 0
 },
 "Hanging Idle Short": {
-"save_to_file/enabled": false,
-"save_to_file/fallback_path": "",
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Animations/HangShort.anim",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "",
+"save_to_file/path": "uid://4e3qkpp2y0rq",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -16490,10 +16490,10 @@ _subresources={
 "slices/amount": 0
 },
 "Left Shimmy Short": {
-"save_to_file/enabled": false,
-"save_to_file/fallback_path": "",
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Animations/ShimmyLeftShort.anim",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "",
+"save_to_file/path": "uid://bsrghas81rbbt",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -20602,10 +20602,10 @@ _subresources={
 "slices/amount": 0
 },
 "Right Shimmy Short": {
-"save_to_file/enabled": false,
-"save_to_file/fallback_path": "",
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Animations/ShimmyRightShort.anim",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "",
+"save_to_file/path": "uid://c4hynmb8vl2xv",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,

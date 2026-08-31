@@ -22,3 +22,6 @@ func PreUpdate(player: Player) -> void:
 	
 	elif Input.is_action_pressed("Aim") and player.is_on_floor():
 		player.ChangeStateTo(PlayerState.Aim)
+
+func Exit(player: Player) -> void:
+	player.ceiling_cast.enabled = false

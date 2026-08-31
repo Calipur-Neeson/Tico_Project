@@ -16,12 +16,12 @@ func Enter(player: Player) -> void:
 	direction = targetPoint - player.hand_pivot.global_position
 
 func PreUpdate(player: Player) -> void:
-	if player.climbable_cast.is_colliding() and player.right_climb_cast.is_colliding():
+	if player.climb_cast_horizontal.is_colliding() and player.right_climb_cast.is_colliding():
 		player.ChangeStateTo(PlayerState.HangingIdle)
 
 
 func Update(player: Player, delta: float) -> void:
-	if player.climbable_cast.is_colliding():
+	if player.climb_cast_horizontal.is_colliding():
 		player.velocity = dirRight * 2.0
 		player.move_and_slide()
 	else:

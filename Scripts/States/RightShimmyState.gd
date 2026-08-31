@@ -8,7 +8,7 @@ func PreUpdate(player: Player) -> void:
 
 
 func Update(player: Player, delta: float) -> void:
-	var normal :Vector3 = player.climbable_cast.get_collision_normal()
+	var normal :Vector3 = player.climb_cast_horizontal.get_collision_normal()
 	player.TurnTo(-normal)
 
 	var hitPoint := player.right_climb_cast.get_collision_point()

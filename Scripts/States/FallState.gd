@@ -1,17 +1,25 @@
 class_name PlayerFallState
 extends BasePlayerState
 
+var detected_object: Node3D
+
 func Enter(player: Player) -> void:
 	player.SetCrouch(false)
+	player.climb_cast_horizontal.enabled = true
 	player.animation_tree.set("parameters/movement/transition_request", "fall")
+	if player.climb_cast_horizontal.is_colliding():
+		detected_object = player.climb_cast_horizontal.get_collider()
 
 func PreUpdate(player: Player) -> void:
 	if player.is_on_floor():
 		player.ChangeStateTo(PlayerState.Land)
 		
-	elif player.climbable_cast.is_colliding() and not player.island:
-		player.ChangeStateTo(PlayerState.HangingIdle)
-	
+	if player.climb_cast_horizontal.is_colliding():
+		print("hit", player.climb_cast_horizontal.is_colliding())
+		print(detected_object)
+		if player.climb_cast_horizontal.get_collider() != detected_object or detected_object == null:
+			player.ChangeStateTo(PlayerState.FallToHanging)
+		
 
 func Update(player: Player, delta: float) -> void:
 	var direction := player.GetMoveInput()
@@ -21,5 +29,6 @@ func Update(player: Player, delta: float) -> void:
 	player.TurnTo(direction)
 	player.move_and_slide()
 	
-	#player.left_ccdik_3d.influence = 0
-	#player.right_ccdik_3d.influence = 0
+func Exit(player: Player) -> void:
+	player.climb_cast_horizontal.enabled = false
+	detected_object = null
