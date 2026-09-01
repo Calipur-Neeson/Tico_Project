@@ -26,6 +26,7 @@ extends CharacterBody3D
 #Caster
 @onready var climb_normal_cast: RayCast3D = $RayDetectors/ClimbNormalCast
 @onready var climb_up_cast: RayCast3D = $RayDetectors/ClimbUpCast
+@onready var shimmy_cast: RayCast3D = $RayDetectors/ShimmyCast
 
 #@onready var climb_cast_horizontal: RayCast3D = $RayDetectors/ClimbCastHorizontal
 #@onready var climb_cast_vertical: RayCast3D = $RayDetectors/ClimbCastVertical
@@ -64,6 +65,8 @@ func _ready() -> void:
 		
 	state.Enter(self)
 	camControl = spring_arm_3d
+	
+
 
 func ChangeStateTo(nextState: BasePlayerState) -> void:
 	state.Exit(self)
