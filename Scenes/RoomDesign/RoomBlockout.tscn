@@ -19,90 +19,145 @@ glow_enabled = true
 [node name="RoomBlockout" type="Node3D" unique_id=8699618]
 
 [node name="CharacterBody3D" parent="." unique_id=1445218770 instance=ExtResource("1_57ebb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.994263, -5.428501, -0.15684891)
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0.42491913, 2.5416737, -39.708405)
 
-[node name="Basic blockout" type="Node" parent="." unique_id=1304243684]
+[node name="BasicBlockout" type="Node3D" parent="." unique_id=838870089]
 
-[node name="Walls" type="Node" parent="Basic blockout" unique_id=213795963]
+[node name="Walls" type="Node3D" parent="BasicBlockout" unique_id=667012150]
 
-[node name="Wallx-" type="CSGBox3D" parent="Basic blockout/Walls" unique_id=550521616]
+[node name="Wallx-" type="CSGBox3D" parent="BasicBlockout/Walls" unique_id=550521616]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.5, 3.769226, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.5, 7.9746094, 5.059143)
 use_collision = true
-size = Vector3(1, 8.5, 50)
+size = Vector3(1, 16, 60)
 
-[node name="Wallx-2" type="CSGBox3D" parent="Basic blockout/Walls" unique_id=299244331]
+[node name="Wallx-2" type="CSGBox3D" parent="BasicBlockout/Walls" unique_id=299244331]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.5, 0, -14.348328)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20, 4, -24.5)
 use_collision = true
-size = Vector3(1, 16, 21.303345)
+size = Vector3(1, 8, 30)
 
-[node name="Wallx-3" type="CSGBox3D" parent="Basic blockout/Walls" unique_id=104752608]
+[node name="Wallx-3" type="CSGBox3D" parent="BasicBlockout/Walls" unique_id=104752608]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.5, 0, 14.2751045)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -20, 4, -24.5)
 use_collision = true
-size = Vector3(1, 16, 21.38208)
+size = Vector3(1, 8, 30)
 
-[node name="Floor" type="CSGBox3D" parent="Basic blockout/Walls" unique_id=524866149]
+[node name="EntranceFloor" type="CSGBox3D" parent="BasicBlockout/Walls" unique_id=1000805947]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.5, 0)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.09747293, -0.5, -35.9682)
 use_collision = true
-size = Vector3(70, 1, 50)
+size = Vector3(22, 1, 16)
 
-[node name="EntranceFloor" type="CSGBox3D" parent="Basic blockout/Walls" unique_id=1000805947]
+[node name="Wallx+" type="CSGBox3D" parent="BasicBlockout/Walls" unique_id=356679936]
 physics_interpolation_mode = 1
-transform = Transform3D(0.18967682, 0, 0, 0, 1, 0, 0, 0, 0.14403422, -41.66766, -7.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.5, 8, 5)
 use_collision = true
-size = Vector3(70, 1, 50)
+size = Vector3(1, 16, 60)
 
-[node name="Wallx+" type="CSGBox3D" parent="Basic blockout/Walls" unique_id=356679936]
+[node name="Wallz-" type="CSGBox3D" parent="BasicBlockout/Walls" unique_id=805275964]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, -24.5)
 use_collision = true
-size = Vector3(1, 16, 50)
+size = Vector3(70, 8, 1)
 
-[node name="Wallz-" type="CSGBox3D" parent="Basic blockout/Walls" unique_id=805275964]
+[node name="Wallz+" type="CSGBox3D" parent="BasicBlockout/Walls" unique_id=767060474]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 34.5)
 use_collision = true
 size = Vector3(70, 16, 1)
 
-[node name="Wallz+" type="CSGBox3D" parent="Basic blockout/Walls" unique_id=767060474]
+[node name="Gate" type="Node3D" parent="BasicBlockout/Walls" unique_id=496095221]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -27.039528)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="BasicBlockout/Walls/Gate" unique_id=1088308318]
+transform = Transform3D(0.458703, 0, -0.8885896, 0, 1, 0, 0.8885896, 0, 0.458703, 0.75087357, 4, -6.2038565)
+use_collision = true
+size = Vector3(0.443, 8, 6)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="BasicBlockout/Walls/Gate" unique_id=2080061161]
+transform = Transform3D(0.3709729, 0, 0.9286437, 0, 1, 0, -0.9286437, 0, 0.3709729, 0.8937473, 4, 5.8442755)
+use_collision = true
+size = Vector3(0.443, 8, 6)
+
+[node name="FirstFloor" type="Node3D" parent="BasicBlockout" unique_id=69473793]
+
+[node name="FFFloor" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=524866149]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 5)
 use_collision = true
-size = Vector3(70, 16, 1)
+size = Vector3(70, 1, 60)
 
-[node name="Gate" type="Node" parent="Basic blockout/Walls" unique_id=1017579909]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Basic blockout/Walls/Gate" unique_id=1088308318]
-transform = Transform3D(0.45870304, 0, -0.8885896, 0, 6.604994, 0, 0.8885896, 0, 0.45870304, -36.716675, -3.8038468, -2.4205477)
-size = Vector3(0.44335938, 1, 4.4871826)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Basic blockout/Walls/Gate" unique_id=2080061161]
-transform = Transform3D(0.37097284, 0, 0.9286436, 0, 6.6049924, 0, -0.9286436, 0, 0.37097284, -36.570694, -3.8038468, 2.6497214)
-size = Vector3(0.44335938, 1, 4.218994)
-
-[node name="FirstFloor" type="Node" parent="Basic blockout" unique_id=701574521]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Basic blockout/FirstFloor" unique_id=258635744]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.57471, -6.4284534, -15.627431)
+[node name="FFWall2" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=1522923860]
+transform = Transform3D(0.91151935, 0, 0.41125715, 0, 1, 0, -0.41125715, 0, 0.91151935, 18.790745, 0.92871284, -16.826132)
 use_collision = true
+size = Vector3(1, 1.8574219, 17.132813)
 
-[node name="SecondFloor" type="Node" parent="Basic blockout" unique_id=1954974636]
+[node name="FFWall" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=258635744]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 3, -10)
+use_collision = true
+size = Vector3(1, 6, 30)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Basic blockout/SecondFloor" unique_id=1959064075]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119, -2, 12.869)
-size = Vector3(67.697, 0.4, 21.979736)
+[node name="FFWall3" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=164497235]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -20, 3, 18)
+use_collision = true
+size = Vector3(1, 6, 30)
 
-[node name="ThirdFloor" type="Node" parent="Basic blockout" unique_id=1215191422]
+[node name="FFWall4" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=450401541]
+transform = Transform3D(0.6235945, 0, 0.7817477, 0, 1, 0, -0.7817477, 0, 0.6235945, -29.26191, 3, -13.286886)
+use_collision = true
+size = Vector3(1, 6, 13.649414)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Basic blockout/ThirdFloor" unique_id=500871963]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119, 2, -11.926)
-size = Vector3(67.697, 0.4, 21.979736)
+[node name="FFBlock" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=206464120]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.003445, 4.6753244, 6.834127)
+use_collision = true
+size = Vector3(2, 9.554871, 2)
+
+[node name="FFBlock2" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=1581109019]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.487915, 2.935626, 0.050298452)
+use_collision = true
+size = Vector3(2, 7.727043, 2)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=1218875080]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 7.625868, 4.0837617)
+use_collision = true
+size = Vector3(1, 0.2, 3.7597382)
+
+[node name="FFBlock3" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=228100197]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.044245, 2.1721745, 2.8227081)
+use_collision = true
+size = Vector3(2, 6.249325, 2)
+
+[node name="FFBlock4" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=1802780611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.677483, 1.2930098, 3.1310377)
+use_collision = true
+size = Vector3(2, 4.4909954, 2)
+
+[node name="FFBlock5" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=1552912684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.275738, 1.135236, 5.9682794)
+use_collision = true
+size = Vector3(2, 3.16468, 2)
+
+[node name="FFBlock6" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=1642889577]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.275738, 0.63563097, 8.722264)
+use_collision = true
+size = Vector3(2, 2.16547, 2)
+
+[node name="SecondFloor" type="Node3D" parent="BasicBlockout" unique_id=1489948982]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="BasicBlockout/SecondFloor" unique_id=1959064075]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.5, 22.058838)
+size = Vector3(68, 0.4, 23.882324)
+
+[node name="ThirdFloor" type="Node3D" parent="BasicBlockout" unique_id=1843291539]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="BasicBlockout/ThirdFloor" unique_id=500871963]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.5, -13.402283)
+size = Vector3(67.97545, 0.4, 21.17517)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1204733722]
-transform = Transform3D(1, 0, 0, 0, -0.13476658, 0.9908774, 0, -0.9908774, -0.13476658, 0, 20.589249, 0)
+transform = Transform3D(1, 0, 0, 0, -0.13476658, 0.9908774, 0, -0.9908774, -0.13476658, 0, 28.37633, 0)
+light_energy = 1.317
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1824941264]
 environment = SubResource("Environment_mweve")
