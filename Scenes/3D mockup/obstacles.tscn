@@ -72,6 +72,12 @@ use_collision = true
 collision_layer = 2
 size = Vector3(1.8, 2.4, 2)
 
+[node name="CSGBox3D19" type="CSGBox3D" parent="." unique_id=436760163]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6586037, 1.3418415, -20.940908)
+use_collision = true
+collision_layer = 2
+size = Vector3(1.8, 4, 2)
+
 [node name="CSGBox3D8" type="CSGBox3D" parent="." unique_id=512867440]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7661209, 4.041771, -7.3743)
 use_collision = true

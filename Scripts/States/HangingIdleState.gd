@@ -28,7 +28,7 @@ func Enter(player: Player) -> void:
 func PreUpdate(player: Player) -> void:
 	if Input.is_action_just_pressed("Crouch"):
 		player.island = true
-		player.ChangeStateTo(PlayerState.Fall)
+		player.ChangeStateTo(PlayerState.HangingToFall)
 	
 	if player.shimmy_cast.is_colliding():
 		var hitPoint: Vector3 = player.shimmy_cast.get_collision_point()

@@ -36,4 +36,5 @@ func Update(player: Player, delta: float) -> void:
 	player.animation_tree.set("parameters/movement/transition_request", "shimmyShortLeft")
 
 func Exit(player: Player) -> void:
+	player.velocity = Vector3.ZERO
 	player.climb_normal_cast.enabled = false
