@@ -4,7 +4,7 @@ extends CharacterBody3D
 @export var runSpeed:float = 5.0
 @export var crouchSpeed:float = 2.0
 @export var jumpVelocity:float = 6
-@export var maxVaultHeight: float = 1.5
+@export var maxVaultHeight: float = 1.3
 
 @onready var spring_arm_3d: CameraControl = $SpringArm3D
 @onready var cam: Camera3D = $SpringArm3D/Camera3D
@@ -24,8 +24,9 @@ extends CharacterBody3D
 
 
 #Caster
-@onready var climb_cast_horizontal: RayCast3D = $RayDetectors/ClimbCastHorizontal
-@onready var climb_cast_vertical: RayCast3D = $RayDetectors/ClimbCastVertical
+@onready var climb_normal_cast: RayCast3D = $RayDetectors/ClimbNormalCast
+#@onready var climb_cast_horizontal: RayCast3D = $RayDetectors/ClimbCastHorizontal
+#@onready var climb_cast_vertical: RayCast3D = $RayDetectors/ClimbCastVertical
 @onready var floor_cast: ShapeCast3D = $RayDetectors/FloorCast
 @onready var left_climb_cast: RayCast3D = $RayDetectors/LeftClimbCast
 @onready var right_climb_cast: RayCast3D = $RayDetectors/RightClimbCast
@@ -57,7 +58,7 @@ func _ready() -> void:
 	ceiling_cast.enabled = false
 	obstacle_cast.enabled = false
 	assuming_land_cast.enabled = false
-	climb_cast_horizontal.enabled = false
+	climb_normal_cast.enabled = false
 		
 	state.Enter(self)
 	camControl = spring_arm_3d

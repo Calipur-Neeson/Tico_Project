@@ -15,13 +15,10 @@ func Enter(player: Player) -> void:
 	player.obstacle_cast.enabled = false
 	obstacleHight = hitPoint.y - player.global_position.y
 	
-	targetPointA = player.global_position + Vector3(0, obstacleHight - 1.4, 0)
+	targetPointA = player.global_position + Vector3(0, obstacleHight - 1.8, 0)
 
-	player.climb_cast_horizontal.enabled = true
-	normal = player.climb_cast_horizontal.get_collision_normal()
-	#var right := player.global_basis.x.normalized()
-	#player.left_arm_target.global_position = hitPoint - right * 0.3
-	#player.right_arm_target.global_position = hitPoint + right * 0.3
+	player.climb_normal_cast.enabled = true
+	player.climb_normal_cast.force_raycast_update()
 	
 	player.animation_tree.set("parameters/movement/transition_request", "hangIdleShort")
 
@@ -40,10 +37,9 @@ func PreUpdate(player: Player) -> void:
 	
 
 func Update(player: Player, delta: float) -> void:
+	normal = player.climb_normal_cast.get_collision_normal()
 	player.TurnTo(-normal)
 	player.SmoothLerp(targetPointA,delta)
-	#player.left_ccdik_3d.influence = move_toward(player.left_ccdik_3d.influence, 0.2, delta * 8.0)
-	#player.right_ccdik_3d.influence = move_toward(player.right_ccdik_3d.influence, 0.2, delta * 8.0)
 	
 func Exit(player: Player) -> void:
-	player.climb_cast_horizontal.enabled = false
+	player.climb_normal_cast.enabled = false

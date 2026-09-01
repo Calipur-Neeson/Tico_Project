@@ -10,7 +10,7 @@ var Land := PlayerLandState.new()
 var CrouchIdle := PlayerCrouchIdleState.new()
 var CrouchWalk := PlayerCrouchWalkState.new()
 var HangingIdle := PlayerHangingIdleState.new()
-var FallToHanging := PlayerFallToHangingState.new()
+
 var LeftShimmy := PlayerLeftShimmyState.new()
 var RightShimmy := PlayerRightShimmyState.new()
 var ClimbWall := PlayerClimbWallState.new()
