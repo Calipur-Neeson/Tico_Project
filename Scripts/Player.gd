@@ -14,6 +14,10 @@ extends CharacterBody3D
 #Animator
 @onready var animation_player: AnimationPlayer = $Character/AnimationPlayer
 @onready var animation_tree: AnimationTree = $Character/AnimationTree
+@onready var right_ik: CCDIK3D = $"Character/Y Bot/Skeleton3D/RightIK"
+@onready var left_ik: CCDIK3D = $"Character/Y Bot/Skeleton3D/LeftIK"
+@onready var left_hand_point: Node3D = $LeftHandPoint
+@onready var right_hand_point: Node3D = $RightHandPoint
 
 
 
@@ -27,9 +31,6 @@ extends CharacterBody3D
 @onready var climb_normal_cast: RayCast3D = $RayDetectors/ClimbNormalCast
 @onready var climb_up_cast: RayCast3D = $RayDetectors/ClimbUpCast
 @onready var shimmy_cast: RayCast3D = $RayDetectors/ShimmyCast
-
-#@onready var climb_cast_horizontal: RayCast3D = $RayDetectors/ClimbCastHorizontal
-#@onready var climb_cast_vertical: RayCast3D = $RayDetectors/ClimbCastVertical
 @onready var floor_cast: ShapeCast3D = $RayDetectors/FloorCast
 @onready var left_climb_cast: RayCast3D = $RayDetectors/LeftClimbCast
 @onready var right_climb_cast: RayCast3D = $RayDetectors/RightClimbCast
