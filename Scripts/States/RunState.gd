@@ -17,14 +17,19 @@ func PreUpdate(player: Player) -> void:
 		player.obstacle_cast.force_raycast_update()
 		
 		if player.obstacle_cast.is_colliding():
+			player.obstacle_cast.enabled = true
+		player.obstacle_cast.force_raycast_update()
+		
+		player.climb_up_cast.enabled = true
+		player.climb_up_cast.force_raycast_update()
+		
+		if player.obstacle_cast.is_colliding():
 			var hitPoint: Vector3 = player.obstacle_cast.get_collision_point()
 			var obstacleHight: float = hitPoint.y - player.global_position.y
 			
-			player.assuming_land_cast.enabled = true
-			player.assuming_land_cast.force_raycast_update()
 			if obstacleHight < player.maxVaultHeight and not player.assuming_land_cast.is_colliding():
 				player.ChangeStateTo(PlayerState.Vault)
-			elif obstacleHight < player.maxVaultHeight and player.assuming_land_cast.is_colliding():
+			elif obstacleHight < player.maxVaultHeight and not player.climb_up_cast.is_colliding():
 				player.ChangeStateTo(PlayerState.ClimbWall)
 			elif obstacleHight >= player.maxVaultHeight:
 				player.ChangeStateTo(PlayerState.HangingIdle)

@@ -16,12 +16,13 @@ func Enter(player: Player) -> void:
 	obstacleHight = hitPoint.y - player.global_position.y
 	
 	targetPointA = player.global_position + Vector3(0, obstacleHight - 1.8, 0)
-
+	
 	player.climb_normal_cast.enabled = true
 	player.climb_normal_cast.force_raycast_update()
+	player.climb_up_cast.enabled = true
+	player.climb_up_cast.force_raycast_update()
 	
 	player.animation_tree.set("parameters/movement/transition_request", "hangIdleShort")
-
 	
 	
 func PreUpdate(player: Player) -> void:
@@ -32,7 +33,7 @@ func PreUpdate(player: Player) -> void:
 		player.ChangeStateTo(PlayerState.LeftShimmy)
 	elif player.right_climb_cast.is_colliding() and Input.is_action_pressed("Move_Right"):
 		player.ChangeStateTo(PlayerState.RightShimmy)
-	elif Input.is_action_just_pressed("Jump") and not player.ceiling_cast.is_colliding():
+	elif Input.is_action_just_pressed("Jump") and not player.climb_up_cast.is_colliding():
 		player.ChangeStateTo(PlayerState.ClimbWall)
 	
 
@@ -43,3 +44,4 @@ func Update(player: Player, delta: float) -> void:
 	
 func Exit(player: Player) -> void:
 	player.climb_normal_cast.enabled = false
+	player.climb_up_cast.enabled = false

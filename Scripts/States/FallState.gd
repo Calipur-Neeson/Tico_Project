@@ -1,14 +1,11 @@
 class_name PlayerFallState
 extends BasePlayerState
 
-var detected_object: Node3D
 
 func Enter(player: Player) -> void:
 	player.SetCrouch(false)
-	#player.climb_cast_horizontal.enabled = true
 	player.animation_tree.set("parameters/movement/transition_request", "fall")
-	#if player.climb_cast_horizontal.is_colliding():
-		#detected_object = player.climb_cast_horizontal.get_collider()
+	
 	player.obstacle_cast.enabled = true
 	player.obstacle_cast.force_raycast_update()
 
@@ -34,4 +31,3 @@ func Update(player: Player, delta: float) -> void:
 	
 func Exit(player: Player) -> void:
 	player.obstacle_cast.enabled = false
-	detected_object = null

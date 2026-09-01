@@ -25,6 +25,8 @@ extends CharacterBody3D
 
 #Caster
 @onready var climb_normal_cast: RayCast3D = $RayDetectors/ClimbNormalCast
+@onready var climb_up_cast: RayCast3D = $RayDetectors/ClimbUpCast
+
 #@onready var climb_cast_horizontal: RayCast3D = $RayDetectors/ClimbCastHorizontal
 #@onready var climb_cast_vertical: RayCast3D = $RayDetectors/ClimbCastVertical
 @onready var floor_cast: ShapeCast3D = $RayDetectors/FloorCast
