@@ -112,6 +112,7 @@ Shot={
 3d_physics/layer_4="Ceiling"
 3d_physics/layer_5="Player"
 3d_physics/layer_6="Interactable"
+3d_physics/layer_7="Wall"
 
 [physics]
 

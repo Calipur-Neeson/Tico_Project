@@ -8,7 +8,7 @@ func PreUpdate(player: Player) -> void:
 
 
 func Update(player: Player, delta: float) -> void:
-	var normal :Vector3 = player.climbable_cast.get_collision_normal()
+	var normal :Vector3 = player.climb_cast_horizontal.get_collision_normal()
 	player.TurnTo(-normal)
 
 	var hitPoint := player.left_climb_cast.get_collision_point()
@@ -19,6 +19,6 @@ func Update(player: Player, delta: float) -> void:
 	player.move_and_slide()
 
 	if player.floor_cast.is_colliding():
-		player.playerAnim.play("NewLib/HangLeftShimmy_short", player.BLEEND_SPEED)
-	elif not player.floor_cast.is_colliding() :
-		player.playerAnim.play("NewLib/HangLeftShimmy", player.BLEEND_SPEED)
+		player.animation_tree.set("parameters/movement/transition_request", "shimmyShortLeft")
+	else:
+		player.animation_tree.set("parameters/movement/transition_request", "shimmyLongLeft")

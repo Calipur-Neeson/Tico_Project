@@ -3,12 +3,12 @@ extends BasePlayerState
 
 
 func PreUpdate(player: Player) -> void:
-	if not player.left_climb_cast.is_colliding() or not Input.is_action_pressed("Move_Right"):
+	if not player.right_climb_cast.is_colliding() or not Input.is_action_pressed("Move_Right"):
 		player.ChangeStateTo(PlayerState.HangingIdle)
 
 
 func Update(player: Player, delta: float) -> void:
-	var normal :Vector3 = player.climbable_cast.get_collision_normal()
+	var normal :Vector3 = player.climb_cast_horizontal.get_collision_normal()
 	player.TurnTo(-normal)
 
 	var hitPoint := player.right_climb_cast.get_collision_point()
@@ -19,6 +19,6 @@ func Update(player: Player, delta: float) -> void:
 	player.move_and_slide()
 
 	if player.floor_cast.is_colliding():
-		player.playerAnim.play("NewLib/HangRightShimmy_short", player.BLEEND_SPEED)
-	elif not player.floor_cast.is_colliding() :
-		player.playerAnim.play("NewLib/HangRightShimmy", player.BLEEND_SPEED)
+		player.animation_tree.set("parameters/movement/transition_request", "shimmyShortRight")
+	else:
+		player.animation_tree.set("parameters/movement/transition_request", "shimmyLongRight")
