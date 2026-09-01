@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ddwoonfdlh7yu"]
 
 [ext_resource type="PackedScene" uid="uid://d3rrh52jvjo02" path="res://Scenes/Player.tscn" id="1_57ebb"]
+[ext_resource type="Script" uid="uid://mlj572rq8nm3" path="res://Scripts/BlockoutSceneScripts/PillarCopyTransform.gd" id="1_mweve"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_57ebb"]
 sky_top_color = Color(0.4263404, 0.7202341, 0.9959741, 1)
@@ -21,6 +22,7 @@ glow_enabled = true
 [node name="BasicBlockout" type="Node3D" parent="." unique_id=838870089]
 
 [node name="Walls" type="Node3D" parent="BasicBlockout" unique_id=667012150]
+visible = false
 
 [node name="Wallx-" type="CSGBox3D" parent="BasicBlockout/Walls" unique_id=550521616]
 physics_interpolation_mode = 1
@@ -161,26 +163,29 @@ use_collision = true
 collision_layer = 7
 size = Vector3(2, 2.16547, 2)
 
-[node name="FFPillarHolder" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=210758436]
-transform = Transform3D(-0.99938667, 0, -0.035018284, 0, 1, 0, 0.035018284, 0, -0.99938667, -17.560087, 7.669983, 2.0561929)
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="BasicBlockout/FirstFloor" unique_id=774459633]
+transform = Transform3D(-1, -3.7252903e-09, 8.754432e-08, 0, 1.0000002, 0, -8.754432e-08, 0, -1.0000004, -17.560087, 7.6699834, 2.0561924)
+
+[node name="FFPillarHolder" type="CSGBox3D" parent="BasicBlockout/FirstFloor/CSGCombiner3D" unique_id=210758436]
+transform = Transform3D(1, -3.7252894e-09, 1.2151702e-10, 0, 0.99999976, 0, -1.2154544e-10, 3.2612783e-16, 0.99999964, 0, -4.7683716e-07, -4.7683716e-07)
 use_collision = true
 collision_layer = 7
 size = Vector3(5.546875, 12.124306, 2.3027344)
 
-[node name="FFBlock8" type="CSGBox3D" parent="BasicBlockout/FirstFloor/FFPillarHolder" unique_id=1619192366]
-transform = Transform3D(0.99975145, 7.1167946e-05, -0.022277812, -0.02112198, 0.32096097, -0.9468567, 0.0070828516, 0.9470928, 0.32088232, -0.07333565, 4.421089, -0.70596766)
+[node name="FFBlock8" type="CSGBox3D" parent="BasicBlockout/FirstFloor/CSGCombiner3D/FFPillarHolder" unique_id=1619192366]
+transform = Transform3D(0.99975145, 7.1167946e-05, -0.022277812, -0.02112198, 0.32096097, -0.9468567, 0.0070828516, 0.9470928, 0.32088232, -0.07333565, 4.988491, -0.70596766)
 operation = 2
 use_collision = true
 collision_layer = 7
 size = Vector3(6.3691406, 9.08321, 3.7441406)
 
-[node name="PillarContainer" type="Node3D" parent="BasicBlockout/FirstFloor/FFPillarHolder" unique_id=1070059076]
-transform = Transform3D(-0.9999999, 0, 8.7422784e-08, 0, 0.99999994, 0, -8.742277e-08, 0, -1.0000001, 1.0991898, 0.20710564, -9.881912)
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="BasicBlockout/FirstFloor/FFPillarHolder/PillarContainer" unique_id=1797450034]
-transform = Transform3D(1, 0, 0, 0, 0.8954688, 0.44512463, 0, -0.44512463, 0.8954688, 0, 7.105901, -1.8361559)
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="BasicBlockout/FirstFloor/CSGCombiner3D/FFPillarHolder" unique_id=1797450034]
+transform = Transform3D(-1.1, 7.968554e-08, -1.4573226e-07, -5.7731597e-15, 0.9651411, 0.52773356, 1.6609539e-07, 0.52773356, -0.9651411, 0.015926361, 5.7684994, -7.6173067)
+operation = 2
 radius = 1.819
 height = 13.75232
+sides = 20
+script = ExtResource("1_mweve")
 
 [node name="FFIcePillar" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=1196385661]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.569801, 7.669983, 8.4506645)
@@ -204,9 +209,10 @@ collision_layer = 7
 size = Vector3(4.819092, 3.347553, 1.1293945)
 
 [node name="PillarContainer" type="Node3D" parent="BasicBlockout/SecondFloor" unique_id=968559831]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.52058, 6.3961754, 11.295238)
+transform = Transform3D(1, 0, 0, 0, 0.6227851, 0.782393, 0, -0.782393, 0.6227851, -17.52058, 6.3961754, 11.295238)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="BasicBlockout/SecondFloor/PillarContainer" unique_id=556988616]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.8954688, 0.44512463, 0, -0.44512463, 0.8954688, 0, 7.105901, -1.8361559)
 radius = 1.819
 height = 13.75232
@@ -233,4 +239,4 @@ light_energy = 1.317
 environment = SubResource("Environment_mweve")
 
 [node name="CharacterBody3D" parent="." unique_id=1445218770 instance=ExtResource("1_57ebb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.320481, 0.9955232, -42.800327)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.215092, 7.6955223, 17.248123)
