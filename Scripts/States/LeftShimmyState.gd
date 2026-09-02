@@ -1,6 +1,8 @@
 class_name PlayerLeftShimmyState
 extends BasePlayerState
 
+var inversedInput: Vector3
+
 func Enter(player: Player) -> void:
 	player.climb_normal_cast.enabled = true
 	
@@ -10,13 +12,17 @@ func PreUpdate(player: Player) -> void:
 
 
 func Update(player: Player, delta: float) -> void:
-	player.shimmy_cast.position.x += player.GetMoveInput().x * 10.0 * delta
-	player.shimmy_cast.position.y -= player.GetMoveInput().z * 10.0 * delta
+	inversedInput = player.global_transform.basis.inverse() * player.GetMoveInput()
 	
-	if abs(player.GetMoveInput().x) <= 0.3:
+	if abs(inversedInput.x) <= 0.4:
 		player.shimmy_cast.position.x = 0
-	if player.GetMoveInput().z == 0:
+	else :
+		player.shimmy_cast.position.x += inversedInput.x * 10.0 * delta
+		
+	if abs(inversedInput.z) <= 0.4:
 		player.shimmy_cast.position.y = 1.9
+	else:
+		player.shimmy_cast.position.y -= inversedInput.z * 10.0 * delta	
 	
 	player.shimmy_cast.position.x = clampf(player.shimmy_cast.position.x, -player.shimmyDis, player.shimmyDis)
 	player.shimmy_cast.position.y = clamp(player.shimmy_cast.position.y, 2 - player.shimmyJumpDis, 1.9 + player.shimmyJumpDis)

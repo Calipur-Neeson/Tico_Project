@@ -22,7 +22,7 @@ func Enter(player: Player) -> void:
 	
 	
 func PreUpdate(player: Player) -> void:
-	if time > 0.6:
+	if time > 0.4:
 		player.ChangeStateTo(PlayerState.HangingIdle)
 	
 
