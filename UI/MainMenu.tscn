@@ -1,0 +1,217 @@
+[gd_scene format=3 uid="uid://c8hngcrs3ks2p"]
+
+[ext_resource type="Texture2D" uid="uid://bvb0h4jafxjbc" path="res://Meshes/test_level_snow.png" id="1_uahxu"]
+
+[node name="Main_Menu" type="Control" unique_id=2121913463]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1051067582]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_uahxu")
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect" unique_id=1132114971]
+visible = false
+layout_mode = 0
+offset_left = -1.0
+offset_top = -6.0
+offset_right = 1151.0
+offset_bottom = 646.0
+color = Color(1, 1, 1, 0.19607843)
+
+[node name="Main menu" type="Control" parent="." unique_id=408139661]
+anchors_preset = 0
+offset_right = 1153.0
+offset_bottom = 645.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Main menu" unique_id=1597443175]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main menu/MarginContainer" unique_id=337164491]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Main Menu" type="Panel" parent="Main menu/MarginContainer/VBoxContainer" unique_id=296268296]
+layout_mode = 2
+
+[node name="New Game" type="Button" parent="Main menu/MarginContainer/VBoxContainer/Main Menu" unique_id=319613207]
+layout_mode = 0
+offset_top = 71.0
+offset_right = 320.0
+offset_bottom = 135.0
+theme_override_font_sizes/font_size = 38
+text = "New Game"
+alignment = 0
+icon_alignment = 1
+
+[node name="Options" type="Button" parent="Main menu/MarginContainer/VBoxContainer/Main Menu" unique_id=309538354]
+layout_mode = 0
+offset_top = 141.0
+offset_right = 320.0
+offset_bottom = 205.0
+theme_override_font_sizes/font_size = 38
+text = "Options"
+alignment = 0
+icon_alignment = 1
+
+[node name="Exit" type="Button" parent="Main menu/MarginContainer/VBoxContainer/Main Menu" unique_id=2124800901]
+layout_mode = 0
+offset_top = 211.0
+offset_right = 320.0
+offset_bottom = 275.0
+theme_override_font_sizes/font_size = 38
+text = "Exit
+"
+alignment = 0
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=1715250249]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 116.0
+offset_right = 676.0
+offset_bottom = 204.0
+theme_override_colors/font_color = Color(0.35906908, 0.35906908, 0.35906908, 1)
+theme_override_font_sizes/font_size = 64
+text = "Game Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=827524724]
+visible = false
+layout_mode = 0
+offset_left = 576.0
+offset_top = 12.0
+offset_right = 576.0
+offset_bottom = 636.0
+theme_override_constants/separation = 18
+
+[node name="Options" type="Panel" parent="VBoxContainer" unique_id=1598731024]
+visible = false
+layout_mode = 2
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer/Options" unique_id=1702846841]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -43.0
+offset_right = 317.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 56
+text = "Options"
+
+[node name="Audio" type="Button" parent="VBoxContainer/Options" unique_id=1553207412]
+layout_mode = 0
+offset_top = 71.0
+offset_right = 320.0
+offset_bottom = 135.0
+theme_override_font_sizes/font_size = 38
+text = "Audio	"
+alignment = 0
+icon_alignment = 1
+
+[node name="Controls" type="Button" parent="VBoxContainer/Options" unique_id=404275606]
+layout_mode = 0
+offset_top = 141.0
+offset_right = 320.0
+offset_bottom = 205.0
+theme_override_font_sizes/font_size = 38
+text = "Controls
+"
+alignment = 0
+icon_alignment = 1
+
+[node name="Back" type="Button" parent="VBoxContainer/Options" unique_id=1992235745]
+layout_mode = 0
+offset_top = 211.0
+offset_right = 320.0
+offset_bottom = 275.0
+theme_override_font_sizes/font_size = 38
+text = "Back
+
+"
+alignment = 0
+icon_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1288929223]
+visible = false
+layout_mode = 0
+offset_left = 147.0
+offset_top = 86.0
+offset_right = 645.0
+offset_bottom = 393.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=751659165]
+layout_mode = 2
+
+[node name="Audio panel" type="Panel" parent="HBoxContainer/VBoxContainer" unique_id=1282791480]
+layout_mode = 2
+
+[node name="TextEdit2" type="TextEdit" parent="HBoxContainer/VBoxContainer/Audio panel" unique_id=1374660043]
+layout_mode = 0
+offset_right = 342.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 53
+text = "Audio"
+
+[node name="Master volume" type="TextEdit" parent="HBoxContainer/VBoxContainer/Audio panel" unique_id=1744483170]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 116.0
+offset_right = 318.0
+offset_bottom = 168.0
+theme_override_font_sizes/font_size = 30
+text = "Master Volume"
+
+[node name="HSlider" type="HSlider" parent="HBoxContainer/VBoxContainer/Audio panel/Master volume" unique_id=1294467411]
+layout_mode = 0
+offset_left = 297.0
+offset_right = 497.0
+offset_bottom = 50.0
+
+[node name="Music Volume" type="TextEdit" parent="HBoxContainer/VBoxContainer/Audio panel/Master volume" unique_id=765342642]
+layout_mode = 0
+offset_top = 60.0
+offset_right = 261.0
+offset_bottom = 112.0
+theme_override_font_sizes/font_size = 30
+text = "Music Volume"
+
+[node name="HSlider" type="HSlider" parent="HBoxContainer/VBoxContainer/Audio panel/Master volume/Music Volume" unique_id=1075051467]
+layout_mode = 0
+offset_left = 297.0
+offset_right = 497.0
+offset_bottom = 50.0
+
+[node name="Sfx volume" type="TextEdit" parent="HBoxContainer/VBoxContainer/Audio panel" unique_id=2083730586]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 234.0
+offset_right = 320.0
+offset_bottom = 286.0
+theme_override_font_sizes/font_size = 30
+text = "Sfx Volume"
+
+[node name="HSlider" type="HSlider" parent="HBoxContainer/VBoxContainer/Audio panel/Sfx volume" unique_id=1314137760]
+layout_mode = 0
+offset_left = 297.0
+offset_right = 497.0
+offset_bottom = 50.0
