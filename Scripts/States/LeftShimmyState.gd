@@ -5,23 +5,21 @@ func Enter(player: Player) -> void:
 	player.climb_normal_cast.enabled = true
 	
 func PreUpdate(player: Player) -> void:
-	if not Input.is_action_pressed("Move_Left") or not player.shimmy_cast.is_colliding():
+	if not player.shimmy_cast.position.x < 0 or not player.left_climb_cast.is_colliding():
 		player.ChangeStateTo(PlayerState.HangingIdle)
 
 
 func Update(player: Player, delta: float) -> void:
-	if Input.is_action_pressed("Move_Left"):
-		player.shimmy_cast.position.x -= 10 * delta
+	player.shimmy_cast.position.x += player.GetMoveInput().x * 10.0 * delta
+	player.shimmy_cast.position.y -= player.GetMoveInput().z * 10.0 * delta
 	
-	if Input.is_action_pressed("Move_Forward"):
-		player.shimmy_cast.position.y += 10 * delta
-	elif Input.is_action_pressed("Move_Back"):
-		player.shimmy_cast.position.y -= 10 * delta
-	else:
+	if abs(player.GetMoveInput().x) <= 0.3:
+		player.shimmy_cast.position.x = 0
+	if player.GetMoveInput().z == 0:
 		player.shimmy_cast.position.y = 1.9
 	
-	player.shimmy_cast.position.x = clampf(player.shimmy_cast.position.x, -0.7, 0.7)
-	player.shimmy_cast.position.y = clamp(player.shimmy_cast.position.y, 1.3, 2.7)
+	player.shimmy_cast.position.x = clampf(player.shimmy_cast.position.x, -player.shimmyDis, player.shimmyDis)
+	player.shimmy_cast.position.y = clamp(player.shimmy_cast.position.y, 2 - player.shimmyJumpDis, 1.9 + player.shimmyJumpDis)
 	
 	var normal :Vector3 = player.climb_normal_cast.get_collision_normal()
 	player.TurnTo(-normal)

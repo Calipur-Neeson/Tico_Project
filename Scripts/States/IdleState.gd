@@ -4,6 +4,10 @@ extends BasePlayerState
 func Enter(player: Player) -> void:
 	player.SetCrouch(false)
 	player.animation_tree.set("parameters/movement/transition_request", "idle")
+	
+	player.left_climb_cast.enabled = false
+	player.right_climb_cast.enabled = false
+
 
 func PreUpdate(player: Player) -> void:
 	if not player.is_on_floor() and not player.floor_cast.is_colliding():

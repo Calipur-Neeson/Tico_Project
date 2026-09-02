@@ -5,6 +5,8 @@ extends CharacterBody3D
 @export var crouchSpeed:float = 2.0
 @export var jumpVelocity:float = 6
 @export var maxVaultHeight: float = 1.3
+@export var shimmyDis: float = 1.0
+@export var shimmyJumpDis: float = 1.1
 
 @onready var spring_arm_3d: CameraControl = $SpringArm3D
 @onready var cam: Camera3D = $SpringArm3D/Camera3D

@@ -22,6 +22,8 @@ func Enter(player: Player) -> void:
 	player.climb_up_cast.enabled = true
 	player.climb_up_cast.force_raycast_update()
 	
+	player.left_climb_cast.enabled = true
+	player.right_climb_cast.enabled = true
 	player.animation_tree.set("parameters/movement/transition_request", "hangIdleShort")
 	
 	
@@ -29,39 +31,31 @@ func PreUpdate(player: Player) -> void:
 	if Input.is_action_just_pressed("Crouch"):
 		player.island = true
 		player.ChangeStateTo(PlayerState.HangingToFall)
-	
-	if player.shimmy_cast.is_colliding():
-		var hitPoint: Vector3 = player.shimmy_cast.get_collision_point()
-		var dis: float = player.position.distance_to(hitPoint)
-	
-		if Input.is_action_pressed("Move_Left") and player.shimmy_cast.position.y < 2.1:
-			player.ChangeStateTo(PlayerState.LeftShimmy)
-		elif Input.is_action_pressed("Move_Right") and player.shimmy_cast.position.y < 2.1:
-			player.ChangeStateTo(PlayerState.RightShimmy)
-		elif Input.is_action_just_pressed("Jump") and not player.climb_up_cast.is_colliding():
+	elif Input.is_action_just_pressed("Jump"):
+		if player.GetMoveInput().z > 0.6:
+			player.ChangeStateTo(PlayerState.Fall)
+		elif player.climb_up_cast.is_colliding():
 			player.ChangeStateTo(PlayerState.ClimbWall)
-		elif Input.is_action_just_pressed("Jump"):
-			if Input.is_action_pressed("Move_Left") or Input.is_action_pressed("Move_Right") or Input.is_action_pressed("Move_Forward"):
-				player.ChangeStateTo(PlayerState.HangingToJump)
 	
+	elif player.shimmy_cast.position.x < 0 and player.left_climb_cast.is_colliding():
+		player.ChangeStateTo(PlayerState.LeftShimmy)
+	elif player.shimmy_cast.position.x > 0 and player.right_climb_cast.is_colliding():
+		player.ChangeStateTo(PlayerState.RightShimmy)
+	elif Input.is_action_just_pressed("Jump") and player.shimmy_cast.is_colliding():
+		if Input.is_action_pressed("Move_Forward") or Input.is_action_pressed("Move_Left") or Input.is_action_pressed("Move_Right"):
+			player.ChangeStateTo(PlayerState.HangingToJump)
 
 func Update(player: Player, delta: float) -> void:
-	if Input.is_action_pressed("Move_Left"):
-		player.shimmy_cast.position.x -= 10 * delta
-	elif Input.is_action_pressed("Move_Right"):
-		player.shimmy_cast.position.x += 10 * delta
-	else:
+	player.shimmy_cast.position.x += player.GetMoveInput().x * 10.0 * delta
+	player.shimmy_cast.position.y -= player.GetMoveInput().z * 10.0 * delta
+	
+	if abs(player.GetMoveInput().x) <= 0.3:
 		player.shimmy_cast.position.x = 0
-
-	if Input.is_action_pressed("Move_Forward"):
-		player.shimmy_cast.position.y += 10 * delta
-	elif Input.is_action_pressed("Move_Back"):
-		player.shimmy_cast.position.y -= 10 * delta
-	else:
+	if player.GetMoveInput().z == 0:
 		player.shimmy_cast.position.y = 1.9
 	
-	player.shimmy_cast.position.x = clampf(player.shimmy_cast.position.x, -0.7, 0.7)
-	player.shimmy_cast.position.y = clamp(player.shimmy_cast.position.y, 1.3, 3.0)
+	player.shimmy_cast.position.x = clampf(player.shimmy_cast.position.x, -player.shimmyDis, player.shimmyDis)
+	player.shimmy_cast.position.y = clamp(player.shimmy_cast.position.y, 2 - player.shimmyJumpDis, 1.9 + player.shimmyJumpDis)
 	
 	if Input.is_action_pressed("Move_Left") and player.shimmy_cast.is_colliding():
 		player.left_ik.influence = 1
@@ -80,5 +74,7 @@ func Update(player: Player, delta: float) -> void:
 	player.SmoothLerp(targetPointA,delta)
 	
 func Exit(player: Player) -> void:
+	player.left_ik.influence = 0
+	player.right_ik.influence = 0
 	player.climb_normal_cast.enabled = false
 	player.climb_up_cast.enabled = false
