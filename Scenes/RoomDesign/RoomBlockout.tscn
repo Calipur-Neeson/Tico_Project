@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://ddwoonfdlh7yu"]
 
 [ext_resource type="PackedScene" uid="uid://d3rrh52jvjo02" path="res://Scenes/Player.tscn" id="1_57ebb"]
+[ext_resource type="PackedScene" uid="uid://c4disitlekxwt" path="res://Scenes/Testings/testing.tscn" id="2_bxeee"]
+[ext_resource type="PackedScene" uid="uid://d1rc4ksud4nms" path="res://Meshes/wall.blend" id="3_bxeee"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_57ebb"]
 sky_top_color = Color(0.4263404, 0.7202341, 0.9959741, 1)
@@ -43,13 +45,6 @@ use_collision = true
 collision_layer = 7
 size = Vector3(1, 8, 30)
 
-[node name="EntranceFloor" type="CSGBox3D" parent="BasicBlockout/Walls" unique_id=1000805947]
-physics_interpolation_mode = 1
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.09747293, -0.5, -35.9682)
-use_collision = true
-collision_layer = 7
-size = Vector3(22, 1, 16)
-
 [node name="Wallx+" type="CSGBox3D" parent="BasicBlockout/Walls" unique_id=356679936]
 physics_interpolation_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.5, 8, 5)
@@ -59,10 +54,10 @@ size = Vector3(1, 16, 60)
 
 [node name="Wallz-" type="CSGBox3D" parent="BasicBlockout/Walls" unique_id=805275964]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, -24.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.1604, -24.5)
 use_collision = true
 collision_layer = 7
-size = Vector3(70, 8, 1)
+size = Vector3(70, 9.679199, 1)
 
 [node name="Wallz+" type="CSGBox3D" parent="BasicBlockout/Walls" unique_id=767060474]
 physics_interpolation_mode = 1
@@ -71,22 +66,37 @@ use_collision = true
 collision_layer = 7
 size = Vector3(70, 16, 1)
 
+[node name="EscapeHole" type="CSGBox3D" parent="BasicBlockout/Walls/Wallz+" unique_id=262870268]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.503824, 5.6369143, 0)
+operation = 2
+use_collision = true
+collision_layer = 7
+size = Vector3(4.752117, 2.963623, 1)
+
 [node name="Gate" type="Node3D" parent="BasicBlockout/Walls" unique_id=496095221]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -27.039528)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="BasicBlockout/Walls/Gate" unique_id=1088308318]
-transform = Transform3D(0.458703, 0, -0.8885896, 0, 1, 0, 0.8885896, 0, 0.458703, 0.75087357, 4, -6.2038565)
+transform = Transform3D(0.458703, 0, -0.8885896, 0, 1, 0, 0.8885896, 0, 0.458703, 0.75087357, 3.2231207, -6.203856)
 use_collision = true
 collision_layer = 7
-size = Vector3(0.443, 8, 6)
+size = Vector3(0.443, 6, 6)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="BasicBlockout/Walls/Gate" unique_id=2080061161]
-transform = Transform3D(0.3709729, 0, 0.9286437, 0, 1, 0, -0.9286437, 0, 0.3709729, 0.8937473, 4, 5.8442755)
+transform = Transform3D(0.3709729, 0, 0.9286437, 0, 1, 0, -0.9286437, 0, 0.3709729, 0.8937473, 3.2231207, 5.844276)
 use_collision = true
 collision_layer = 7
-size = Vector3(0.443, 8, 6)
+size = Vector3(0.443, 6, 6)
 
 [node name="FirstFloor" type="Node3D" parent="BasicBlockout" unique_id=69473793]
+
+[node name="EntranceFloor" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=1000805947]
+physics_interpolation_mode = 1
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.09086146, -0.5000001, -35.968086)
+use_collision = true
+collision_layer = 7
+size = Vector3(22, 1, 16)
 
 [node name="FFFloor" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=524866149]
 physics_interpolation_mode = 1
@@ -101,12 +111,6 @@ use_collision = true
 collision_layer = 7
 size = Vector3(1, 1.8574219, 17.132813)
 
-[node name="FFWall" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=258635744]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 3, -10)
-use_collision = true
-collision_layer = 7
-size = Vector3(1, 6, 30)
-
 [node name="FFWall3" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=164497235]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -20, 3, 18)
 use_collision = true
@@ -120,110 +124,175 @@ collision_layer = 7
 size = Vector3(1, 6, 13.649414)
 
 [node name="FFBlock" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=206464120]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.988659, 4.1972513, 5.840241)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.988659, 4.1972513, 20.837423)
 use_collision = true
 collision_layer = 7
 size = Vector3(2, 8.598724, 2)
 
 [node name="FFBlock2" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=1581109019]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.487915, 2.935626, 0.050298452)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.923756, 2.6090899, 17.308865)
 use_collision = true
 collision_layer = 7
-size = Vector3(2, 7.727043, 2)
+size = Vector3(2, 7.073971, 2)
 
 [node name="FFPlatform" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=1218875080]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 7.376855, 4.0837617)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 7.376855, 18.075336)
+use_collision = true
+collision_layer = 7
+size = Vector3(1, 0.2, 1.7485214)
+
+[node name="FFPlatform2" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=904601406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 8.965468, 19.080944)
 use_collision = true
 collision_layer = 7
 size = Vector3(1, 0.2, 3.7597382)
 
+[node name="FFPlatform3" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=1615149330]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 10.060813, 20.630833)
+use_collision = true
+collision_layer = 7
+size = Vector3(1, 0.2, 2.355455)
+
 [node name="FFBlock3" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=228100197]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.832375, 1.8293257, -0.49283504)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.96484, 1.8293257, 14.504348)
 use_collision = true
 collision_layer = 7
 size = Vector3(2, 5.5636272, 2)
 
 [node name="FFBlock4" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=1802780611]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.297523, 1.2930098, -1.6133771)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.297523, 1.2930098, 10.402536)
 use_collision = true
 collision_layer = 7
 size = Vector3(2, 4.4909954, 2)
 
 [node name="FFBlock5" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=1552912684]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.869057, 4.5768166, -2.7524467)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.869057, 5.5397205, 11.056686)
 use_collision = true
 collision_layer = 7
-size = Vector3(0.29504395, 0.2484777, 2)
+size = Vector3(0.29504395, 0.2484777, 2.7020264)
+
+[node name="FFBlock7" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=399893067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.869057, 6.6956806, 13.442259)
+use_collision = true
+collision_layer = 7
+size = Vector3(0.29504395, 0.2484777, 4.400116)
 
 [node name="FFBlock6" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=1642889577]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.27137, 0.63563097, -4.6575756)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.27137, 0.63563097, 8.064115)
 use_collision = true
 collision_layer = 7
 size = Vector3(2, 2.16547, 2)
 
-[node name="FFPillarHolder" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=210758436]
-transform = Transform3D(-0.99938667, 0, -0.035018284, 0, 1, 0, 0.035018284, 0, -0.99938667, -17.560087, 7.669983, 2.0561929)
-use_collision = true
-collision_layer = 7
-size = Vector3(5.546875, 12.124306, 2.3027344)
-
-[node name="FFBlock8" type="CSGBox3D" parent="BasicBlockout/FirstFloor/FFPillarHolder" unique_id=1619192366]
-transform = Transform3D(0.99975145, 7.1167946e-05, -0.022277812, -0.02112198, 0.32096097, -0.9468567, 0.0070828516, 0.9470928, 0.32088232, -0.07333565, 4.421089, -0.70596766)
-operation = 2
-use_collision = true
-collision_layer = 7
-size = Vector3(6.3691406, 9.08321, 3.7441406)
-
-[node name="PillarContainer" type="Node3D" parent="BasicBlockout/FirstFloor/FFPillarHolder" unique_id=1070059076]
-transform = Transform3D(-0.9999999, 0, 8.7422784e-08, 0, 0.99999994, 0, -8.742277e-08, 0, -1.0000001, 1.0991898, 0.20710564, -9.881912)
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="BasicBlockout/FirstFloor/FFPillarHolder/PillarContainer" unique_id=1797450034]
-transform = Transform3D(1, 0, 0, 0, 0.8954688, 0.44512463, 0, -0.44512463, 0.8954688, 0, 7.105901, -1.8361559)
-radius = 1.819
-height = 13.75232
-
-[node name="FFIcePillar" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=1196385661]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.569801, 7.669983, 8.4506645)
-use_collision = true
-collision_layer = 7
-size = Vector3(3.0234375, 12.124306, 2.3027344)
-
-[node name="FFBlock8" type="CSGBox3D" parent="BasicBlockout/FirstFloor/FFIcePillar" unique_id=2072193187]
-transform = Transform3D(0.99975145, 7.116983e-05, -0.022277819, -0.01000399, -0.8920647, -0.45179725, -0.01990541, 0.45190865, -0.8918423, -0.07333565, 5.3871126, 1.4124198)
-operation = 2
-use_collision = true
-collision_layer = 7
-size = Vector3(6.3691406, 9.08321, 3.7441406)
-
 [node name="SecondFloor" type="Node3D" parent="BasicBlockout" unique_id=1489948982]
 
-[node name="SFIceFall" type="CSGBox3D" parent="BasicBlockout/SecondFloor" unique_id=1836144238]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.347729, 5.420624, 9.822507)
+[node name="SFFloor" type="CSGBox3D" parent="BasicBlockout/SecondFloor" unique_id=1959064075]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.072266, 6.5, 29.372833)
 use_collision = true
 collision_layer = 7
-size = Vector3(4.819092, 3.347553, 1.1293945)
+size = Vector3(47.85547, 0.4, 9.2543335)
 
-[node name="PillarContainer" type="Node3D" parent="BasicBlockout/SecondFloor" unique_id=968559831]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.52058, 6.3961754, 11.295238)
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="BasicBlockout/SecondFloor/PillarContainer" unique_id=556988616]
-transform = Transform3D(1, 0, 0, 0, 0.8954688, 0.44512463, 0, -0.44512463, 0.8954688, 0, 7.105901, -1.8361559)
-radius = 1.819
-height = 13.75232
-
-[node name="CSGBox3D" type="CSGBox3D" parent="BasicBlockout/SecondFloor" unique_id=1959064075]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.5, 22.058838)
+[node name="SFFloor2" type="CSGBox3D" parent="BasicBlockout/SecondFloor" unique_id=582341335]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.91626, 6.5, 4.9767456)
 use_collision = true
 collision_layer = 7
-size = Vector3(68, 0.4, 23.882324)
+size = Vector3(20.16748, 0.4, 58.04651)
+
+[node name="SFFloor4" type="CSGBox3D" parent="BasicBlockout/SecondFloor" unique_id=1156909746]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23410034, 6.5, -20.511032)
+use_collision = true
+collision_layer = 7
+size = Vector3(68.4682, 0.4, 7.0709534)
 
 [node name="ThirdFloor" type="Node3D" parent="BasicBlockout" unique_id=1843291539]
 
-[node name="TFFloor" type="CSGBox3D" parent="BasicBlockout/ThirdFloor" unique_id=500871963]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.5, -13.402283)
+[node name="Celing" type="CSGBox3D" parent="BasicBlockout/ThirdFloor" unique_id=936721241]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.127365, 5)
 use_collision = true
 collision_layer = 7
-size = Vector3(67.97545, 0.4, 21.17517)
+size = Vector3(70, 1, 60)
+
+[node name="CelingCrack" type="CSGBox3D" parent="BasicBlockout/ThirdFloor/Celing" unique_id=1033069654]
+physics_interpolation_mode = 1
+transform = Transform3D(0.6494648, 0, 0.27889124, 0, 1, 0, -0.72820127, 0, 0.24873619, 20.15392, 0.29384422, 27.069733)
+operation = 2
+use_collision = true
+collision_layer = 7
+size = Vector3(1.856308, 1, 1.3179779)
+
+[node name="CelingCrack2" type="CSGBox3D" parent="BasicBlockout/ThirdFloor/Celing" unique_id=922115770]
+physics_interpolation_mode = 1
+transform = Transform3D(0.6494648, 0, 0.27889124, 0, 1, 0, -0.72820127, 0, 0.24873619, 20.232204, 0.29384422, 26.380825)
+operation = 2
+use_collision = true
+collision_layer = 7
+size = Vector3(1.856308, 1, 1.3179779)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="BasicBlockout/ThirdFloor/Celing" unique_id=524403850]
+transform = Transform3D(0.8434251, 0.19230928, -0.50164866, 0.53132373, -0.43684933, 0.72584975, -0.0795572, -0.87873775, -0.47062817, 18.172266, 1.7802792, 25.115627)
+light_color = Color(0.2901961, 1, 1, 1)
+light_energy = 10.0
+spot_range = 10.060344
+spot_angle = 25.70133
+
+[node name="TFFloor" type="CSGBox3D" parent="BasicBlockout/ThirdFloor" unique_id=500871963]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.251993, 11.5, -17.348969)
+use_collision = true
+collision_layer = 7
+size = Vector3(47.471462, 0.4, 13.281799)
+
+[node name="TFFloor4" type="CSGBox3D" parent="BasicBlockout/ThirdFloor" unique_id=757408144]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.231611, 11.5, -12.79203)
+use_collision = true
+collision_layer = 7
+size = Vector3(21.52084, 0.4, 22.395676)
+
+[node name="TFFloor3" type="CSGBox3D" parent="BasicBlockout/ThirdFloor" unique_id=637922909]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.860723, 11.5, 32.004562)
+use_collision = true
+collision_layer = 7
+size = Vector3(16.605389, 0.4, 1.9743919)
+
+[node name="CentralStructure" type="Node3D" parent="BasicBlockout" unique_id=1922913134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5687933, 0.5316143, 14.421667)
+
+[node name="CSPillar" type="CSGCylinder3D" parent="BasicBlockout/CentralStructure" unique_id=676025835]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7119875, 8, -2.811399)
+radius = 1.0
+height = 16.0
+sides = 16
+
+[node name="CSPillar2" type="CSGCylinder3D" parent="BasicBlockout/CentralStructure" unique_id=63818173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.784896, 8, 2.7908323)
+radius = 1.0
+height = 16.0
+sides = 16
+
+[node name="CSPillar3" type="CSGCylinder3D" parent="BasicBlockout/CentralStructure" unique_id=1275690722]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6940234, 8, 2.6814733)
+radius = 1.0
+height = 16.0
+sides = 16
+
+[node name="CSPillar4" type="CSGCylinder3D" parent="BasicBlockout/CentralStructure" unique_id=992220549]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8216069, 8, -2.7683754)
+radius = 1.0
+height = 16.0
+sides = 16
+
+[node name="CSF1-2" type="CSGBox3D" parent="BasicBlockout/CentralStructure" unique_id=1374386012]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 0.8553814, 0.51799864, 0, -0.51799864, 0.8553814, 0.24749756, 3.019493, 1.1272365)
+use_collision = true
+collision_layer = 7
+size = Vector3(7.418, 0.2, 10.963793)
+
+[node name="CSF2-3" type="CSGBox3D" parent="BasicBlockout/CentralStructure" unique_id=1170021719]
+physics_interpolation_mode = 1
+transform = Transform3D(-4.371139e-08, -0.28903177, -0.9573195, 0, 0.9573195, -0.28903177, 1, -1.263398e-08, -4.1845766e-08, 1.1479359, 10.021708, 0.03691852)
+use_collision = true
+collision_layer = 7
+size = Vector3(7.8723774, 0.2, 10.483379)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1204733722]
 transform = Transform3D(1, 0, 0, 0, -0.13476658, 0.9908774, 0, -0.9908774, -0.13476658, 0, 28.37633, 0)
@@ -233,4 +302,68 @@ light_energy = 1.317
 environment = SubResource("Environment_mweve")
 
 [node name="CharacterBody3D" parent="." unique_id=1445218770 instance=ExtResource("1_57ebb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.320481, 0.9955232, -42.800327)
+transform = Transform3D(-0.9997097, 0, 0.02409321, 0, 1, 0, -0.02409321, 0, -0.9997097, -0.5156844, 0.9955237, -43.278893)
+
+[node name="Skeleton3D" parent="CharacterBody3D/Character/Y Bot" parent_id_path=PackedInt32Array(1445218770, 695001073, 278326202) index="0" unique_id=1686170196]
+bones/0/position = Vector3(0, 0, 0)
+bones/1/position = Vector3(-6.757011e-08, 0.9979193, 4.84474e-07)
+bones/1/rotation = Quaternion(6.118128e-11, -1.3934977e-06, 4.3904816e-05, 1)
+bones/2/rotation = Quaternion(-0.06073024, 0, 6.119373e-06, 0.9981542)
+bones/3/rotation = Quaternion(0.0001961551, -1.8233095e-09, -9.316189e-06, 1)
+bones/4/rotation = Quaternion(0.057711724, 2.1958201e-06, 3.285151e-06, 0.99833333)
+bones/5/rotation = Quaternion(0.0028276474, 1.9293525e-12, -6.571284e-11, 0.999996)
+bones/6/rotation = Quaternion(9.48854e-09, 1.6562771e-13, 1.8195941e-11, 1)
+bones/8/rotation = Quaternion(-0.45383495, -0.54484946, 0.55113864, -0.4397944)
+bones/9/rotation = Quaternion(-0.010452068, -0.0010627588, 0.10115068, 0.99481565)
+bones/10/rotation = Quaternion(5.568327e-07, 8.15663e-09, 9.324792e-09, 1)
+bones/11/rotation = Quaternion(4.9397204e-07, -6.436068e-08, -6.704836e-08, 1)
+bones/12/rotation = Quaternion(0.25189498, -0.059463877, 0.22192298, 0.9400868)
+bones/13/rotation = Quaternion(6.9192574e-06, 2.7846858e-07, 1.1771917e-06, 1)
+bones/14/rotation = Quaternion(4.284154e-07, -1.8612926e-08, -6.7055225e-08, 1)
+bones/16/rotation = Quaternion(1.0887859e-06, 3.2874922e-08, 4.7140807e-06, 1)
+bones/17/rotation = Quaternion(-2.496196e-06, 4.540796e-08, -6.2545287e-06, 1)
+bones/18/rotation = Quaternion(8.3872874e-07, -5.673389e-09, -4.027916e-08, 1)
+bones/20/rotation = Quaternion(-5.604561e-07, 6.043486e-08, -1.631494e-08, 1)
+bones/21/rotation = Quaternion(1.460834e-06, 2.94015e-09, 2.2968516e-09, 1)
+bones/22/rotation = Quaternion(-6.594855e-07, -4.127173e-09, -3.2246898e-09, 1)
+bones/24/rotation = Quaternion(-7.186712e-07, 9.8503946e-08, 4.6033697e-06, 1)
+bones/25/rotation = Quaternion(-3.660973e-07, 1.23265185e-08, -8.162989e-06, 1)
+bones/26/rotation = Quaternion(-2.1710848e-06, 2.0323972e-07, 2.3479052e-07, 1)
+bones/28/rotation = Quaternion(2.1838232e-06, 1.7284002e-07, 0.00014089192, 1)
+bones/29/rotation = Quaternion(-6.4518163e-06, -3.7987786e-07, -0.00036822475, 0.99999994)
+bones/30/rotation = Quaternion(7.4671334e-06, 5.599198e-07, 0.0002303228, 0.99999994)
+bones/32/rotation = Quaternion(0.4538376, -0.5448472, 0.55114007, 0.43979272)
+bones/33/rotation = Quaternion(-0.010455807, 0.0010630764, -0.1011494, 0.99481577)
+bones/34/rotation = Quaternion(3.187888e-07, 1.9535868e-08, 2.5474645e-08, 1)
+bones/35/rotation = Quaternion(-5.0041126e-07, 2.3799522e-09, 8.200752e-09, 1)
+bones/36/rotation = Quaternion(0.25189516, 0.059464216, -0.22192371, 0.94008654)
+bones/37/rotation = Quaternion(8.572203e-06, -1.4963462e-07, -6.2957406e-07, 1)
+bones/38/rotation = Quaternion(-1.1278737e-06, 6.6505004e-07, 2.030283e-07, 1)
+bones/40/rotation = Quaternion(-5.982232e-09, -5.0444946e-08, -4.73801e-06, 1)
+bones/41/rotation = Quaternion(7.538323e-07, 8.929088e-08, 4.1331336e-06, 1)
+bones/42/rotation = Quaternion(2.8430586e-06, 1.2951812e-08, 1.9465219e-08, 1)
+bones/44/rotation = Quaternion(-3.2377712e-09, 1.721849e-08, -3.9924856e-07, 1)
+bones/45/rotation = Quaternion(1.911394e-06, 3.657056e-08, 7.55128e-08, 1)
+bones/46/rotation = Quaternion(-1.0633848e-06, -2.3511003e-08, -6.25287e-08, 1)
+bones/48/rotation = Quaternion(1.8039359e-06, -1.0762449e-08, -4.8360916e-06, 1)
+bones/49/rotation = Quaternion(-1.4355503e-06, -5.79753e-08, 7.974353e-06, 1)
+bones/50/rotation = Quaternion(7.161582e-07, 1.1289202e-07, 2.3746404e-07, 1)
+bones/52/rotation = Quaternion(1.7842324e-06, -3.327414e-08, -3.1969817e-06, 1)
+bones/53/rotation = Quaternion(-1.0249848e-06, 7.086528e-08, 1.0553993e-05, 1)
+bones/54/rotation = Quaternion(1.2043135e-06, -8.139007e-08, -1.0602165e-05, 1)
+bones/56/rotation = Quaternion(2.0325679e-05, -0.0063501787, 0.99997544, -0.002969649)
+bones/57/rotation = Quaternion(-0.018114306, 0.00018265916, -0.0059201526, 0.9998184)
+bones/58/rotation = Quaternion(0.5405498, 0.014366479, 0.024951097, 0.84081924)
+bones/59/rotation = Quaternion(0.227692, -0.032521635, -0.015365466, 0.97306865)
+bones/61/rotation = Quaternion(-1.8246923e-05, -0.0063338005, 0.99997526, 0.0030574573)
+bones/62/rotation = Quaternion(-0.018147064, -0.00018286798, 0.00592015, 0.9998178)
+bones/63/rotation = Quaternion(0.5405637, -0.014366018, -0.024951324, 0.8408103)
+bones/64/rotation = Quaternion(0.22770864, 0.032119635, 0.015257828, 0.9730798)
+
+[node name="Testing" parent="." unique_id=1110015414 instance=ExtResource("2_bxeee")]
+
+[node name="wall" parent="." unique_id=799151571 instance=ExtResource("3_bxeee")]
+transform = Transform3D(0.71104264, 0, 0.6323567, 0, 0.82395804, 0, -0.65301526, 0, 0.68854827, -7.103551, 3.293107, -14.610716)
+
+[editable path="CharacterBody3D"]
+[editable path="CharacterBody3D/Character"]
