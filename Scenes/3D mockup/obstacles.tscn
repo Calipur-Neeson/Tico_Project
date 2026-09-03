@@ -133,10 +133,10 @@ size = Vector3(1.245, 0.1, 0.3)
 material = SubResource("StandardMaterial3D_12j5o")
 
 [node name="CSGBox3D23" type="CSGBox3D" parent="." unique_id=676646003]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1673231, 7.392578, -4.4152985)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1030018, 7.392578, -3.8456664)
 use_collision = true
 collision_layer = 2
-size = Vector3(1.245, 0.1, 0.3)
+size = Vector3(3.255, 0.1, 1.47)
 material = SubResource("StandardMaterial3D_12j5o")
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="." unique_id=1690077680]
