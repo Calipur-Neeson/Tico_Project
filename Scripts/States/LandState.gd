@@ -38,7 +38,7 @@ func PreUpdate(player: Player) -> void:
 		player.ChangeStateTo(PlayerState.Idle)
 	elif isHardLand and time > 2:
 		player.ChangeStateTo(PlayerState.Idle)
-	elif isLandRoll and time > 1.8:
+	elif isLandRoll and time > 1.9:
 		player.ChangeStateTo(PlayerState.Idle)
 
 

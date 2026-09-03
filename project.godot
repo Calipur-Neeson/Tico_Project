@@ -22,6 +22,7 @@ buses/default_bus_layout="uid://qm1ndr6l75ug"
 [autoload]
 
 PlayerState="*uid://yrqb2v1dh6ol"
+Global="*uid://beofbwovp5pw"
 
 [display]
 

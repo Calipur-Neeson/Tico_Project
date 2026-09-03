@@ -3,33 +3,29 @@ extends BasePlayerState
 
 var targetPoint: Vector3
 var normal :Vector3
-var direction :Vector3
-var dirRight : Vector3
-var dirForward : Vector3
+var targetA :Vector3
+var targetB :Vector3
+var time : float
 
 func Enter(player: Player) -> void:
-	dirRight = player.global_basis.x
-	dirForward = -player.global_basis.z
+	time = 0
+	player.climb_normal_cast.enabled = true
+	player.animation_tree.set("parameters/movement/transition_request", "shimmyShortRight")
+	targetA = player.position + player.global_basis.x * 0.53
+	targetB = targetA - player.global_basis.z * 0.76
 	
 	normal = player.right_turn_climb_cast.get_collision_normal()
-	targetPoint = player.right_turn_climb_cast.get_collision_point()
-	direction = targetPoint - player.hand_pivot.global_position
+	print(normal)
 
 func PreUpdate(player: Player) -> void:
-	if player.climb_cast_horizontal.is_colliding() and player.right_climb_cast.is_colliding():
+	if time > 0.8:
 		player.ChangeStateTo(PlayerState.HangingIdle)
 
 
 func Update(player: Player, delta: float) -> void:
-	if player.climb_cast_horizontal.is_colliding():
-		player.velocity = dirRight * 2.0
-		player.move_and_slide()
-	else:
-		player.velocity = dirForward * 2.0
-		player.move_and_slide()
+	time += delta
+	if time < 0.3:
+		player.SmoothLerp(targetA, delta)
+	else :
+		player.SmoothLerp(targetB, delta)
 		player.TurnTo(-normal)
-	
-	if player.floor_cast.is_colliding():
-		player.playerAnim.play("NewLib/HangLeftShimmy_short", player.BLEEND_SPEED)
-	elif not player.floor_cast.is_colliding() :
-		player.playerAnim.play("NewLib/HangLeftShimmy", player.BLEEND_SPEED)
