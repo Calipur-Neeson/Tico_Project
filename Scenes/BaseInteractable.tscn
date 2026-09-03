@@ -19,7 +19,7 @@ albedo_color = Color(0.7725, 0.089999974, 1, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_61ot5"]
 
-[node name="Node3D" type="Node3D" unique_id=1163798542]
+[node name="Ball" type="StaticBody3D" unique_id=912300834]
 script = ExtResource("1_cp2a4")
 item = ExtResource("2_itkq8")
 outLine = SubResource("ShaderMaterial_fdfra")
@@ -28,8 +28,5 @@ outLine = SubResource("ShaderMaterial_fdfra")
 mesh = SubResource("SphereMesh_61ot5")
 surface_material_override/0 = SubResource("StandardMaterial3D_u7x0b")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1606439506]
-collision_layer = 32
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2003153620]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2003153620]
 shape = SubResource("SphereShape3D_61ot5")
