@@ -22,6 +22,7 @@ glow_enabled = true
 [node name="BasicBlockout" type="Node3D" parent="." unique_id=838870089]
 
 [node name="Walls" type="Node3D" parent="BasicBlockout" unique_id=667012150]
+visible = false
 
 [node name="Wallx-" type="CSGBox3D" parent="BasicBlockout/Walls" unique_id=550521616]
 physics_interpolation_mode = 1
@@ -43,13 +44,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -20,
 use_collision = true
 collision_layer = 7
 size = Vector3(1, 8, 30)
-
-[node name="EntranceFloor" type="CSGBox3D" parent="BasicBlockout/Walls" unique_id=1000805947]
-physics_interpolation_mode = 1
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.09747293, -0.5, -35.9682)
-use_collision = true
-collision_layer = 7
-size = Vector3(22, 1, 16)
 
 [node name="Wallx+" type="CSGBox3D" parent="BasicBlockout/Walls" unique_id=356679936]
 physics_interpolation_mode = 1
@@ -88,6 +82,13 @@ collision_layer = 7
 size = Vector3(0.443, 8, 6)
 
 [node name="FirstFloor" type="Node3D" parent="BasicBlockout" unique_id=69473793]
+
+[node name="EntranceFloor" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=1000805947]
+physics_interpolation_mode = 1
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.09747293, -0.5, -35.9682)
+use_collision = true
+collision_layer = 7
+size = Vector3(22, 1, 16)
 
 [node name="FFFloor" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=524866149]
 physics_interpolation_mode = 1
@@ -162,65 +163,19 @@ use_collision = true
 collision_layer = 7
 size = Vector3(2, 2.16547, 2)
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="BasicBlockout/FirstFloor" unique_id=774459633]
-transform = Transform3D(-1, -3.7252903e-09, 8.754432e-08, 0, 1.0000002, 0, -8.754432e-08, 0, -1.0000004, -17.560087, 7.6699834, 2.0561924)
-
-[node name="FFPillarHolder" type="CSGBox3D" parent="BasicBlockout/FirstFloor/CSGCombiner3D" unique_id=210758436]
-transform = Transform3D(1, -3.7252894e-09, 1.2151702e-10, 0, 0.99999976, 0, -1.2154544e-10, 3.2612783e-16, 0.99999964, 0, -4.7683716e-07, -4.7683716e-07)
-use_collision = true
-collision_layer = 7
-size = Vector3(5.546875, 12.124306, 2.3027344)
-
-[node name="FFBlock8" type="CSGBox3D" parent="BasicBlockout/FirstFloor/CSGCombiner3D/FFPillarHolder" unique_id=1619192366]
-transform = Transform3D(0.99975145, 7.1167946e-05, -0.022277812, -0.02112198, 0.32096097, -0.9468567, 0.0070828516, 0.9470928, 0.32088232, -0.07333565, 4.988491, -0.70596766)
-operation = 2
-use_collision = true
-collision_layer = 7
-size = Vector3(6.3691406, 9.08321, 3.7441406)
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="BasicBlockout/FirstFloor/CSGCombiner3D/FFPillarHolder" unique_id=1797450034]
-transform = Transform3D(-1.1, 7.968554e-08, -1.4573226e-07, -5.7731597e-15, 0.9651411, 0.52773356, 1.6609539e-07, 0.52773356, -0.9651411, 0.015926361, 5.7684994, -7.6173067)
-operation = 2
-radius = 1.819
-height = 13.75232
-sides = 20
-script = ExtResource("1_mweve")
-
-[node name="FFIcePillar" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=1196385661]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.569801, 7.669983, 8.4506645)
-use_collision = true
-collision_layer = 7
-size = Vector3(3.0234375, 12.124306, 2.3027344)
-
-[node name="FFBlock8" type="CSGBox3D" parent="BasicBlockout/FirstFloor/FFIcePillar" unique_id=2072193187]
-transform = Transform3D(0.99975145, 7.116983e-05, -0.022277819, -0.01000399, -0.8920647, -0.45179725, -0.01990541, 0.45190865, -0.8918423, -0.07333565, 5.3871126, 1.4124198)
-operation = 2
-use_collision = true
-collision_layer = 7
-size = Vector3(6.3691406, 9.08321, 3.7441406)
-
 [node name="SecondFloor" type="Node3D" parent="BasicBlockout" unique_id=1489948982]
-
-[node name="SFIceFall" type="CSGBox3D" parent="BasicBlockout/SecondFloor" unique_id=1836144238]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.347729, 5.420624, 9.822507)
-use_collision = true
-collision_layer = 7
-size = Vector3(4.819092, 3.347553, 1.1293945)
-
-[node name="PillarContainer" type="Node3D" parent="BasicBlockout/SecondFloor" unique_id=968559831]
-transform = Transform3D(1, 0, 0, 0, 0.6227851, 0.782393, 0, -0.782393, 0.6227851, -17.52058, 6.3961754, 11.295238)
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="BasicBlockout/SecondFloor/PillarContainer" unique_id=556988616]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.8954688, 0.44512463, 0, -0.44512463, 0.8954688, 0, 7.105901, -1.8361559)
-radius = 1.819
-height = 13.75232
 
 [node name="SFFloor" type="CSGBox3D" parent="BasicBlockout/SecondFloor" unique_id=1959064075]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.072266, 6.5, 26.706604)
 use_collision = true
 collision_layer = 7
 size = Vector3(47.85547, 0.4, 14.586792)
+
+[node name="SFFloor3" type="CSGBox3D" parent="BasicBlockout/SecondFloor" unique_id=1203766326]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12881851, 6.5, 13.325547)
+use_collision = true
+collision_layer = 7
+size = Vector3(6.9577255, 0.4, 12.188917)
 
 [node name="SFFloor2" type="CSGBox3D" parent="BasicBlockout/SecondFloor" unique_id=582341335]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.91626, 6.5, 4.9767456)
@@ -236,6 +191,12 @@ use_collision = true
 collision_layer = 7
 size = Vector3(47.471462, 0.4, 13.281799)
 
+[node name="TFFloor4" type="CSGBox3D" parent="BasicBlockout/ThirdFloor" unique_id=665733570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.309907, 11.5, 0.4732237)
+use_collision = true
+collision_layer = 7
+size = Vector3(6.33387, 0.4, 3.647049)
+
 [node name="TFFloor2" type="CSGBox3D" parent="BasicBlockout/ThirdFloor" unique_id=1993460744]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.231611, 11.5, 3.6335144)
 use_collision = true
@@ -248,6 +209,46 @@ use_collision = true
 collision_layer = 7
 size = Vector3(45.89421, 0.4, 17.550888)
 
+[node name="CentralStructure" type="Node3D" parent="BasicBlockout" unique_id=1922913134]
+
+[node name="CSPillar" type="CSGCylinder3D" parent="BasicBlockout/CentralStructure" unique_id=676025835]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7119875, 8, -2.811399)
+radius = 1.0
+height = 16.0
+sides = 16
+
+[node name="CSPillar2" type="CSGCylinder3D" parent="BasicBlockout/CentralStructure" unique_id=63818173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.784896, 8, 2.7908323)
+radius = 1.0
+height = 16.0
+sides = 16
+
+[node name="CSPillar3" type="CSGCylinder3D" parent="BasicBlockout/CentralStructure" unique_id=1275690722]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6940234, 8, 2.6814733)
+radius = 1.0
+height = 16.0
+sides = 16
+
+[node name="CSPillar4" type="CSGCylinder3D" parent="BasicBlockout/CentralStructure" unique_id=992220549]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8216069, 8, -2.7683754)
+radius = 1.0
+height = 16.0
+sides = 16
+
+[node name="CSF1-2" type="CSGBox3D" parent="BasicBlockout/CentralStructure" unique_id=1374386012]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 0.8553814, 0.51799864, 0, -0.51799864, 0.8553814, 0.24749756, 3.019493, 1.1272365)
+use_collision = true
+collision_layer = 7
+size = Vector3(7.418, 0.2, 10.963793)
+
+[node name="CSF2-3" type="CSGBox3D" parent="BasicBlockout/CentralStructure" unique_id=1170021719]
+physics_interpolation_mode = 1
+transform = Transform3D(-4.371139e-08, -0.28903177, -0.9573195, 0, 0.9573195, -0.28903177, 1, -1.263398e-08, -4.1845766e-08, 1.1479359, 10.021708, 0.03691852)
+use_collision = true
+collision_layer = 7
+size = Vector3(7.8723774, 0.2, 10.483379)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1204733722]
 transform = Transform3D(1, 0, 0, 0, -0.13476658, 0.9908774, 0, -0.9908774, -0.13476658, 0, 28.37633, 0)
 light_energy = 1.317
@@ -257,6 +258,55 @@ environment = SubResource("Environment_mweve")
 
 [node name="CharacterBody3D" parent="." unique_id=1445218770 instance=ExtResource("1_57ebb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5156844, 0.9955237, -43.278893)
+
+[node name="Testing" type="Node3D" parent="." unique_id=426660624]
+visible = false
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Testing" unique_id=774459633]
+transform = Transform3D(-1, -3.7252903e-09, 8.754432e-08, 0, 1.0000002, 0, -8.754432e-08, 0, -1.0000004, -82.4046, 3.0406694, -3.5585518)
+
+[node name="FFPillarHolder" type="CSGBox3D" parent="Testing/CSGCombiner3D" unique_id=210758436]
+transform = Transform3D(1, -3.7252894e-09, 1.2151702e-10, 0, 0.99999976, 0, -1.2154544e-10, 3.2612783e-16, 0.99999964, 0, -4.7683716e-07, -4.7683716e-07)
+use_collision = true
+collision_layer = 7
+size = Vector3(5.546875, 12.124306, 2.3027344)
+
+[node name="FFBlock8" type="CSGBox3D" parent="Testing/CSGCombiner3D/FFPillarHolder" unique_id=1619192366]
+transform = Transform3D(0.99975145, 7.1167946e-05, -0.022277812, -0.02112198, 0.32096097, -0.9468567, 0.0070828516, 0.9470928, 0.32088232, -0.07333565, 4.988491, -0.70596766)
+operation = 2
+use_collision = true
+collision_layer = 7
+size = Vector3(6.3691406, 9.08321, 3.7441406)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Testing/CSGCombiner3D/FFPillarHolder" unique_id=1797450034]
+transform = Transform3D(-1.1, 7.968554e-08, -1.4573226e-07, -5.7731597e-15, 0.9651411, 0.52773356, 1.6609539e-07, 0.52773356, -0.9651411, 0.015926361, 5.7684994, -7.6173067)
+operation = 2
+radius = 1.819
+height = 13.75232
+sides = 20
+script = ExtResource("1_mweve")
+
+[node name="PillarContainer" type="Node3D" parent="Testing" unique_id=968559831]
+transform = Transform3D(1, 0, 0, 0, 0.6227851, 0.782393, 0, -0.782393, 0.6227851, -83.050705, 6.3961754, 11.295238)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Testing/PillarContainer" unique_id=556988616]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.8954688, 0.44512463, 0, -0.44512463, 0.8954688, 0, 7.105901, -1.8361559)
+radius = 1.819
+height = 13.75232
+
+[node name="FFIcePillar" type="CSGBox3D" parent="Testing" unique_id=1196385661]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109.738846, 7.669983, 8.4506645)
+use_collision = true
+collision_layer = 7
+size = Vector3(3.0234375, 12.124306, 2.3027344)
+
+[node name="FFBlock8" type="CSGBox3D" parent="Testing/FFIcePillar" unique_id=2072193187]
+transform = Transform3D(0.99975145, 7.116983e-05, -0.022277819, -0.01000399, -0.8920647, -0.45179725, -0.01990541, 0.45190865, -0.8918423, -0.07333565, 5.3871126, 1.4124198)
+operation = 2
+use_collision = true
+collision_layer = 7
+size = Vector3(6.3691406, 9.08321, 3.7441406)
 
 [editable path="CharacterBody3D"]
 [editable path="CharacterBody3D/Character"]
