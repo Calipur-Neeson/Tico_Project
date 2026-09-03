@@ -16,10 +16,6 @@ func PreUpdate(player: Player) -> void:
 		player.obstacle_cast.enabled = true
 		player.obstacle_cast.force_raycast_update()
 		
-		if player.obstacle_cast.is_colliding():
-			player.obstacle_cast.enabled = true
-		player.obstacle_cast.force_raycast_update()
-		
 		player.climb_up_cast.enabled = true
 		player.climb_up_cast.force_raycast_update()
 		

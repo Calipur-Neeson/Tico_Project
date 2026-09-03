@@ -33,7 +33,8 @@ func PreUpdate(player: Player) -> void:
 		player.island = true
 		player.ChangeStateTo(PlayerState.HangingToFall)
 	elif Input.is_action_just_pressed("Jump"):
-		if player.GetMoveInput().z > 0.6:
+		var localInput = player.GetMoveInput().dot(player.global_basis.z)
+		if localInput > 0.7:
 			player.ChangeStateTo(PlayerState.JumpBack)
 		elif not player.climb_up_cast.is_colliding():
 			player.ChangeStateTo(PlayerState.ClimbWall)
