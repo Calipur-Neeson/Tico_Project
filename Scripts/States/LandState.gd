@@ -4,30 +4,46 @@ extends BasePlayerState
 var landDirection: Vector3
 var landVelociry: Vector3
 
+var isLand: bool
+var isHardLand: bool
+var isLandRoll: bool
+
+var time: float
+
 func Enter(player: Player) -> void:
-	if player.landSpeed < -11:
+	time = 0
+	player.island = false
+	#print("landSpeed", player.landSpeed)
+	if player.landSpeed <= -12:
 		if player.GetMoveInput():
 			landDirection = player.GetMoveInput()
 			landVelociry = player.velocity
 			landVelociry.y = 0
 			
-			player.playerAnim.play("NewLib/LandRoll", player.BLEEND_SPEED, 1.5)
+			isLandRoll = true
+			player.animation_tree.set("parameters/movement/transition_request", "landRoll")
 		else :
-			player.playerAnim.play("NewLib/HardLanding", player.BLEEND_SPEED, 1.5)
-	elif player.landSpeed < -8:
-		player.playerAnim.play("NewLib/Landing", player.BLEEND_SPEED, 1.5)
+			isHardLand = true
+			player.animation_tree.set("parameters/movement/transition_request", "hardLand")
+	elif player.landSpeed <= -7:
+		isLand = true
+		player.animation_tree.set("parameters/movement/transition_request", "land")
 	else:
 		player.ChangeStateTo(PlayerState.Idle)
 
 	player.jumpSpeed = 0
 
 func PreUpdate(player: Player) -> void:
-	if not player.playerAnim.is_playing():
+	if isLand and time > 0.7:
+		player.ChangeStateTo(PlayerState.Idle)
+	elif isHardLand and time > 2:
+		player.ChangeStateTo(PlayerState.Idle)
+	elif isLandRoll and time > 1.9:
 		player.ChangeStateTo(PlayerState.Idle)
 
+
 func Update(player: Player, delta: float) -> void:
-	if player.playerAnim.current_animation == "NewLib/LandRoll":
-		player.UpdateVelocity(landDirection, landVelociry.length())
-	
-		player.TurnTo(landDirection)
-		player.move_and_slide()
+	time += delta
+	if isLandRoll:
+		player.ApplyRootMotion(delta)
+		
