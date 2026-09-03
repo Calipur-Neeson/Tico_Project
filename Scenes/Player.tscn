@@ -229,7 +229,7 @@ nodes/crouchSpeed/position = Vector2(-140, -140)
 node_connections = [&"output", 0, &"movement", &"movement", 0, &"Animation", &"movement", 1, &"walkSpeed", &"movement", 2, &"Animation 3", &"movement", 3, &"Animation 4", &"movement", 4, &"Animation 5", &"movement", 5, &"crouchSpeed", &"movement", 6, &"Animation 7", &"movement", 7, &"Animation 8", &"movement", 8, &"Animation 9", &"movement", 9, &"Animation 10", &"movement", 10, &"Animation 11", &"movement", 11, &"Animation 12", &"movement", 12, &"Animation 13", &"movement", 13, &"Animation 14", &"movement", 14, &"Animation 15", &"movement", 15, &"Animation 16", &"movement", 16, &"Animation 17", &"movement", 17, &"Animation 18", &"movement", 18, &"Animation 19", &"movement", 19, &"Animation 20", &"walkSpeed", 0, &"Animation 2", &"crouchSpeed", 0, &"Animation 6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_12j5o"]
-radius = 0.45
+radius = 0.35
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_itkq8"]
 size = Vector3(1, 0.6, 0.225)
