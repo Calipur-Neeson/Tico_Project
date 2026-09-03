@@ -22,7 +22,6 @@ glow_enabled = true
 [node name="BasicBlockout" type="Node3D" parent="." unique_id=838870089]
 
 [node name="Walls" type="Node3D" parent="BasicBlockout" unique_id=667012150]
-visible = false
 
 [node name="Wallx-" type="CSGBox3D" parent="BasicBlockout/Walls" unique_id=550521616]
 physics_interpolation_mode = 1
@@ -217,19 +216,37 @@ transform = Transform3D(1, 0, 0, 0, 0.8954688, 0.44512463, 0, -0.44512463, 0.895
 radius = 1.819
 height = 13.75232
 
-[node name="CSGBox3D" type="CSGBox3D" parent="BasicBlockout/SecondFloor" unique_id=1959064075]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.5, 22.058838)
+[node name="SFFloor" type="CSGBox3D" parent="BasicBlockout/SecondFloor" unique_id=1959064075]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.072266, 6.5, 26.706604)
 use_collision = true
 collision_layer = 7
-size = Vector3(68, 0.4, 23.882324)
+size = Vector3(47.85547, 0.4, 14.586792)
+
+[node name="SFFloor2" type="CSGBox3D" parent="BasicBlockout/SecondFloor" unique_id=582341335]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.91626, 6.5, 4.9767456)
+use_collision = true
+collision_layer = 7
+size = Vector3(20.16748, 0.4, 58.04651)
 
 [node name="ThirdFloor" type="Node3D" parent="BasicBlockout" unique_id=1843291539]
 
 [node name="TFFloor" type="CSGBox3D" parent="BasicBlockout/ThirdFloor" unique_id=500871963]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.5, -13.402283)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.251993, 11.5, -17.348969)
 use_collision = true
 collision_layer = 7
-size = Vector3(67.97545, 0.4, 21.17517)
+size = Vector3(47.471462, 0.4, 13.281799)
+
+[node name="TFFloor2" type="CSGBox3D" parent="BasicBlockout/ThirdFloor" unique_id=1993460744]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.231611, 11.5, 3.6335144)
+use_collision = true
+collision_layer = 7
+size = Vector3(21.52084, 0.4, 55.246765)
+
+[node name="TFFloor3" type="CSGBox3D" parent="BasicBlockout/ThirdFloor" unique_id=637922909]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.044927, 11.5, 22.481453)
+use_collision = true
+collision_layer = 7
+size = Vector3(45.89421, 0.4, 17.550888)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1204733722]
 transform = Transform3D(1, 0, 0, 0, -0.13476658, 0.9908774, 0, -0.9908774, -0.13476658, 0, 28.37633, 0)
@@ -239,4 +256,7 @@ light_energy = 1.317
 environment = SubResource("Environment_mweve")
 
 [node name="CharacterBody3D" parent="." unique_id=1445218770 instance=ExtResource("1_57ebb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.215092, 7.6955223, 17.248123)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5156844, 0.9955237, -43.278893)
+
+[editable path="CharacterBody3D"]
+[editable path="CharacterBody3D/Character"]
