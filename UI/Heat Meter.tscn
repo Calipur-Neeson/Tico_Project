@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://desveukxni351"]
+
+[ext_resource type="Script" uid="uid://dec44n5w5aayn" path="res://UI/heat_meter.gd" id="1_bx8vt"]
+[ext_resource type="Texture2D" uid="uid://d3eh1djbbfm5n" path="res://UI/Images/Heat_meter/Heat meter full.png" id="2_mvg8w"]
+[ext_resource type="Texture2D" uid="uid://bfvngwrbdbx73" path="res://UI/Images/Heat_meter/Heat meter Normal.png" id="3_bcyrf"]
+[ext_resource type="Texture2D" uid="uid://d3gdor3im2wis" path="res://UI/Images/Heat_meter/Heat meter Low.png" id="4_65en2"]
+[ext_resource type="Texture2D" uid="uid://68ivrfjdme1j" path="res://UI/Images/Heat_meter/Heat meter critical.png" id="5_y7k6x"]
+
+[node name="HeatMeter" type="Control" unique_id=774558452]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bx8vt")
+full_texture = ExtResource("2_mvg8w")
+normal_texture = ExtResource("3_bcyrf")
+low_texture = ExtResource("4_65en2")
+critical_texture = ExtResource("5_y7k6x")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=27182645]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = 98.0
+offset_right = -3.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_mvg8w")
+expand_mode = 1
+stretch_mode = 5
