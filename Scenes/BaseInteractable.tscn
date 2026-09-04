@@ -20,6 +20,7 @@ albedo_color = Color(0.7725, 0.089999974, 1, 1)
 [sub_resource type="SphereShape3D" id="SphereShape3D_61ot5"]
 
 [node name="Ball" type="StaticBody3D" unique_id=912300834]
+collision_layer = 32
 script = ExtResource("1_cp2a4")
 item = ExtResource("2_itkq8")
 outLine = SubResource("ShaderMaterial_fdfra")

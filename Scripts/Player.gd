@@ -13,6 +13,7 @@ extends CharacterBody3D
 @onready var container: PlayerContainer = $Container
 @onready var muzzle: Trajectory = $Muzzle
 @onready var playerState: PlayerState = $StateMachine
+@onready var heatSystem: HeatSystem = $HeatMeter
 
 
 #Animator
@@ -22,7 +23,6 @@ extends CharacterBody3D
 @onready var left_ik: CCDIK3D = $"Character/Y Bot/Skeleton3D/LeftIK"
 @onready var left_hand_point: Node3D = $LeftHandPoint
 @onready var right_hand_point: Node3D = $RightHandPoint
-
 
 
 #Colliders

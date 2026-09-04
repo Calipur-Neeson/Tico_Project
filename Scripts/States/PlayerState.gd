@@ -23,3 +23,5 @@ var Vault: = PlayerVaultState.new()
 
 var TurnLeftShimmy := PlayerLeftShimmyTurnState.new()
 var TurnRightShimmy := PlayerRightShimmyTurnState.new()
+
+var Die:= PlayerDieState.new()

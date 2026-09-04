@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dp75xgh0s65xx"]
+
+[ext_resource type="Script" uid="uid://cun5lhha2hh1a" path="res://Scripts/camp_fire.gd" id="1_n0jt5"]
+[ext_resource type="Material" uid="uid://bf8220torvm0p" path="res://Shader/outline_shader_material.tres" id="2_dpdl8"]
+
+[sub_resource type="Curve" id="Curve_1n7pi"]
+_data = [Vector2(0, 0.1140939), 0.0, 0.0, 0, 0, Vector2(0.21666667, 0.5973154), 0.0, 0.0, 0, 0, Vector2(0.75666666, 0.2751677), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_pohj0"]
+radius = 0.3
+section_length = 0.1
+curve = SubResource("Curve_1n7pi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpdl8"]
+albedo_color = Color(0.9852986, 0.2446771, 0.4276237, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_47lvx"]
+height = 0.5
+radius = 0.3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_61ot5"]
+radius = 1.5
+
+[node name="CampFire" type="StaticBody3D" unique_id=716624488]
+collision_layer = 32
+script = ExtResource("1_n0jt5")
+outLine = ExtResource("2_dpdl8")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1514432527]
+mesh = SubResource("TubeTrailMesh_pohj0")
+surface_material_override/0 = SubResource("StandardMaterial3D_dpdl8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=430834520]
+shape = SubResource("CylinderShape3D_47lvx")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="." unique_id=1124746212]
+shape = SubResource("SphereShape3D_61ot5")
+target_position = Vector3(0, 0, 0)
+collision_mask = 16
