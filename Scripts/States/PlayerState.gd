@@ -1,3 +1,4 @@
+class_name PlayerState
 extends Node
 
 var Idle := PlayerIdleState.new()

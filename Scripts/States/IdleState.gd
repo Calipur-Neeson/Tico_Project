@@ -11,10 +11,10 @@ func Enter(player: Player) -> void:
 
 func PreUpdate(player: Player) -> void:
 	if not player.is_on_floor() and not player.floor_cast.is_colliding():
-		player.ChangeStateTo(PlayerState.Fall)
+		player.ChangeStateTo(player.playerState.Fall)
 		
 	elif player.GetMoveInput().length() > 0.01:
-		player.ChangeStateTo(PlayerState.Walk)
+		player.ChangeStateTo(player.playerState.Walk)
 		
 	elif Input.is_action_just_pressed("Jump") and player.is_on_floor():
 		player.obstacle_cast.enabled = true
@@ -28,19 +28,19 @@ func PreUpdate(player: Player) -> void:
 			var obstacleHight: float = hitPoint.y - player.global_position.y
 			
 			if obstacleHight < player.maxVaultHeight and not player.assuming_land_cast.is_colliding():
-				player.ChangeStateTo(PlayerState.Vault)
+				player.ChangeStateTo(player.playerState.Vault)
 			elif obstacleHight < player.maxVaultHeight and not player.climb_up_cast.is_colliding():
-				player.ChangeStateTo(PlayerState.ClimbWall)
+				player.ChangeStateTo(player.playerState.ClimbWall)
 			elif obstacleHight >= player.maxVaultHeight:
-				player.ChangeStateTo(PlayerState.HangingIdle)
+				player.ChangeStateTo(player.playerState.HangingIdle)
 		else:
-			player.ChangeStateTo(PlayerState.Jump)
+			player.ChangeStateTo(player.playerState.Jump)
 	
 	elif Input.is_action_just_pressed("Crouch") and player.is_on_floor():
-		player.ChangeStateTo(PlayerState.CrouchIdle)
+		player.ChangeStateTo(player.playerState.CrouchIdle)
 	
 	elif Input.is_action_pressed("Aim") and player.is_on_floor():
-		player.ChangeStateTo(PlayerState.Aim)
+		player.ChangeStateTo(player.playerState.Aim)
 	
 func Update(player: Player, delta: float) -> void:
 	if player.is_on_floor():

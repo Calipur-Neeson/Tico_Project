@@ -5,12 +5,12 @@ extends BasePlayerState
 func PreUpdate(player: Player) -> void:
 	var currentSpeed = player.GetCurrentSpeed()
 	if not player.is_on_floor() and not player.floor_cast.is_colliding():
-		player.ChangeStateTo(PlayerState.Fall)
+		player.ChangeStateTo(player.playerState.Fall)
 		
 	if currentSpeed > player.maxWalkSpeed:
-		player.ChangeStateTo(PlayerState.Run)
+		player.ChangeStateTo(player.playerState.Run)
 	elif currentSpeed <= 0.01:
-		player.ChangeStateTo(PlayerState.Idle)
+		player.ChangeStateTo(player.playerState.Idle)
 		
 	if Input.is_action_just_pressed("Jump") and player.is_on_floor():
 		player.obstacle_cast.enabled = true
@@ -24,13 +24,13 @@ func PreUpdate(player: Player) -> void:
 			var obstacleHight: float = hitPoint.y - player.global_position.y
 			
 			if obstacleHight < player.maxVaultHeight and not player.assuming_land_cast.is_colliding():
-				player.ChangeStateTo(PlayerState.Vault)
+				player.ChangeStateTo(player.playerState.Vault)
 			elif obstacleHight < player.maxVaultHeight and not player.climb_up_cast.is_colliding():
-				player.ChangeStateTo(PlayerState.ClimbWall)
+				player.ChangeStateTo(player.playerState.ClimbWall)
 			elif obstacleHight >= player.maxVaultHeight:
-				player.ChangeStateTo(PlayerState.HangingIdle)
+				player.ChangeStateTo(player.playerState.HangingIdle)
 		else:
-			player.ChangeStateTo(PlayerState.Jump)
+			player.ChangeStateTo(player.playerState.Jump)
 
 func Update(player: Player, delta: float) -> void:
 	var direction := player.GetMoveInput()

@@ -23,7 +23,7 @@ func Enter(player: Player) -> void:
 	
 func PreUpdate(player: Player) -> void:
 	if time > 0.4:
-		player.ChangeStateTo(PlayerState.HangingIdle)
+		player.ChangeStateTo(player.playerState.HangingIdle)
 	
 
 func Update(player: Player, delta: float) -> void:

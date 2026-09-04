@@ -13,10 +13,10 @@ func Enter(player: Player) -> void:
 
 func PreUpdate(player: Player) -> void:
 	if player.is_on_floor():
-		player.ChangeStateTo(PlayerState.Land)
+		player.ChangeStateTo(player.playerState.Land)
 		
 	if player.shimmy_cast.is_colliding() and not player.climb_normal_cast.is_colliding():
-		player.ChangeStateTo(PlayerState.HangingIdle)
+		player.ChangeStateTo(player.playerState.HangingIdle)
 		
 
 func Update(player: Player, delta: float) -> void:

@@ -9,7 +9,7 @@ func Enter(player: Player) -> void:
 	
 func PreUpdate(player: Player) -> void:
 	if not player.shimmy_cast.position.x < 0 or not player.left_climb_cast.is_colliding():
-		player.ChangeStateTo(PlayerState.HangingIdle)
+		player.ChangeStateTo(player.playerState.HangingIdle)
 
 
 func Update(player: Player, delta: float) -> void:

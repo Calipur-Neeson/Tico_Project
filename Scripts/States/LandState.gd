@@ -29,17 +29,17 @@ func Enter(player: Player) -> void:
 		isLand = true
 		player.animation_tree.set("parameters/movement/transition_request", "land")
 	else:
-		player.ChangeStateTo(PlayerState.Idle)
+		player.ChangeStateTo(player.playerState.Idle)
 
 	player.jumpSpeed = 0
 
 func PreUpdate(player: Player) -> void:
 	if isLand and time > 0.7:
-		player.ChangeStateTo(PlayerState.Idle)
+		player.ChangeStateTo(player.playerState.Idle)
 	elif isHardLand and time > 2:
-		player.ChangeStateTo(PlayerState.Idle)
+		player.ChangeStateTo(player.playerState.Idle)
 	elif isLandRoll and time > 1.9:
-		player.ChangeStateTo(PlayerState.Idle)
+		player.ChangeStateTo(player.playerState.Idle)
 
 
 func Update(player: Player, delta: float) -> void:

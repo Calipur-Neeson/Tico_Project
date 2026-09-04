@@ -5,10 +5,10 @@ extends BasePlayerState
 func PreUpdate(player: Player) -> void:
 	var currentSpeed = player.GetCurrentSpeed()
 	if not player.is_on_floor():
-		player.ChangeStateTo(PlayerState.Fall)
+		player.ChangeStateTo(player.playerState.Fall)
 
 	elif currentSpeed <= 0.01:
-		player.ChangeStateTo(PlayerState.CrouchIdle)
+		player.ChangeStateTo(player.playerState.CrouchIdle)
 
 
 func Update(player: Player, delta: float) -> void:

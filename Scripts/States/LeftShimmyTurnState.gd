@@ -15,11 +15,10 @@ func Enter(player: Player) -> void:
 	targetB = targetA - player.global_basis.z * 0.76
 	
 	normal = player.left_turn_climb_cast.get_collision_normal()
-	print(normal)
 
 func PreUpdate(player: Player) -> void:
 	if time > 0.8:
-		player.ChangeStateTo(PlayerState.HangingIdle)
+		player.ChangeStateTo(player.playerState.HangingIdle)
 
 
 func Update(player: Player, delta: float) -> void:
