@@ -3,6 +3,7 @@ extends CanvasLayer
 var isPaused: bool = false
 
 @onready var panel: Panel = $Panel
+@onready var resume_button: Button = $Panel/PanelContainer/VBoxContainer/ResumeButton
 
 
 func _process(delta: float) -> void:
@@ -17,7 +18,10 @@ func _process(delta: float) -> void:
 func Pause() -> void:
 	panel.modulate.a = 255
 	get_tree().paused = true
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if GameManager.current_mode == GameManager.InputMode.KEYBOARD_MOUSE:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	elif GameManager.current_mode == GameManager.InputMode.CONTROLLER:
+		resume_button.grab_focus()
 	
 func Resume() -> void:
 	panel.modulate.a = 0
