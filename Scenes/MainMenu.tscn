@@ -7,7 +7,6 @@ bg_color = Color(0.8124056, 0.8124056, 0.8124054, 1)
 
 [node name="MainMenu" type="Node2D" unique_id=958862293]
 script = ExtResource("1_tt5f1")
-playScene = &"uid://bes5sm4j5semt"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1331945206]
 
@@ -34,3 +33,5 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 43
 text = "Play"
+
+[connection signal="pressed" from="CanvasLayer/Panel/PlayButton" to="." method="_on_play_button_pressed"]

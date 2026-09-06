@@ -1,10 +1,7 @@
 extends Node2D
 
-@export var playScene: StringName = &""
-@onready var playButton: Button = $CanvasLayer/Panel/PlayButton
-
 func _ready() -> void:
-	playButton.pressed.connect(OnPlayPressed)
-
-func OnPlayPressed() -> void:
-	SceneLoader.LoadScene(playScene)
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
+func _on_play_button_pressed() -> void:
+	SceneLoader.LoadScene(SceneLoader.mainLevelScene)

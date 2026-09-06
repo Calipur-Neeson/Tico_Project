@@ -55,6 +55,21 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_12j5o")
 
+[node name="ProgressBar" type="ProgressBar" parent="Panel" unique_id=743791824]
+modulate = Color(0.17299062, 0.49009132, 0.98229593, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -243.0
+offset_top = -53.0
+offset_right = -31.0
+offset_bottom = -26.0
+grow_horizontal = 0
+grow_vertical = 0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1159491451]
 libraries/ = SubResource("AnimationLibrary_mtloq")
 autoplay = &"Transition"

@@ -6,7 +6,6 @@
 process_mode = 3
 layer = 2
 script = ExtResource("1_emv3i")
-menuScene = &"uid://b8v205x84e1gt"
 
 [node name="Panel" type="Panel" parent="." unique_id=682902423]
 modulate = Color(1, 1, 1, 0)
@@ -37,22 +36,28 @@ theme_override_constants/separation = 54
 
 [node name="ResumeButton" type="Button" parent="Panel/PanelContainer/VBoxContainer" unique_id=96474021]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../SettingButton")
 theme_override_font_sizes/font_size = 30
 text = "Resume"
 
 [node name="SettingButton" type="Button" parent="Panel/PanelContainer/VBoxContainer" unique_id=651471976]
 layout_mode = 2
+focus_neighbor_top = NodePath("../ResumeButton")
+focus_neighbor_bottom = NodePath("../RestartButton")
 theme_override_font_sizes/font_size = 30
 text = "Setting
 "
 
 [node name="RestartButton" type="Button" parent="Panel/PanelContainer/VBoxContainer" unique_id=904258301]
 layout_mode = 2
+focus_neighbor_top = NodePath("../SettingButton")
+focus_neighbor_bottom = NodePath("../MenuButton")
 theme_override_font_sizes/font_size = 30
 text = "Restart"
 
 [node name="MenuButton" type="Button" parent="Panel/PanelContainer/VBoxContainer" unique_id=1845106959]
 layout_mode = 2
+focus_neighbor_top = NodePath("../RestartButton")
 theme_override_font_sizes/font_size = 30
 text = "Quit"
 

@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 var isPaused: bool = false
-@export var menuScene: StringName = &""
 
 @onready var panel: Panel = $Panel
 
@@ -18,10 +17,12 @@ func _process(delta: float) -> void:
 func Pause() -> void:
 	panel.modulate.a = 255
 	get_tree().paused = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
 func Resume() -> void:
 	panel.modulate.a = 0
 	get_tree().paused = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _on_resume_button_pressed() -> void:
 	Resume()
@@ -34,4 +35,4 @@ func _on_restart_button_pressed() -> void:
 
 func _on_menu_button_pressed() -> void:
 	Resume()
-	SceneLoader.LoadScene(menuScene)
+	SceneLoader.LoadScene(SceneLoader.mainMenuScene)

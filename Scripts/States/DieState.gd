@@ -3,4 +3,4 @@ extends BasePlayerState
 
 
 func Enter(player: Player) -> void:
-	SceneLoader.LoadScene("uid://b8v205x84e1gt")
+	SceneLoader.LoadScene(SceneLoader.mainMenuScene)

@@ -4,6 +4,9 @@ signal progressChanged(progress)
 signal loadFinished
 
 var loadingScene: PackedScene = preload("uid://c5u3xklskdd5s")
+var mainMenuScene: String = "uid://b8v205x84e1gt"
+var mainLevelScene: String = "uid://bes5sm4j5semt"
+
 var loadedResource: PackedScene
 var scenePath: String
 var progress: Array = []
