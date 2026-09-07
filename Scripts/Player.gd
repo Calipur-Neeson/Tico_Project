@@ -12,6 +12,9 @@ extends CharacterBody3D
 @onready var cam: Camera3D = $SpringArm3D/Camera3D
 @onready var container: PlayerContainer = $Container
 @onready var muzzle: Trajectory = $Muzzle
+@onready var playerState: PlayerState = $StateMachine
+@onready var heatSystem: HeatSystem = $HeatMeter
+
 
 #Animator
 @onready var animation_player: AnimationPlayer = $Character/AnimationPlayer
@@ -20,7 +23,6 @@ extends CharacterBody3D
 @onready var left_ik: CCDIK3D = $"Character/Y Bot/Skeleton3D/LeftIK"
 @onready var left_hand_point: Node3D = $LeftHandPoint
 @onready var right_hand_point: Node3D = $RightHandPoint
-
 
 
 #Colliders
@@ -56,16 +58,16 @@ const BLEEND_SPEED: float = 0.2
 var isCrouch: bool = false
 var island: bool = false
 
-
 #Current state that our player is
-var state: BasePlayerState = PlayerState.Idle
+var state: BasePlayerState 
 
 func _ready() -> void:
 	ceiling_cast.enabled = false
 	obstacle_cast.enabled = false
 	assuming_land_cast.enabled = false
 	climb_normal_cast.enabled = false
-		
+	
+	state = playerState.Idle
 	state.Enter(self)
 	camControl = spring_arm_3d
 	

@@ -13,7 +13,7 @@ func PreUpdate(player: Player) -> void:
 	if time > 0.5:
 		player.jumpSpeed = player.velocity.length()
 		player.velocity.y = player.jumpVelocity
-		player.ChangeStateTo(PlayerState.Fall)
+		player.ChangeStateTo(player.playerState.Fall)
 		
 
 func Update(player: Player, delta: float) -> void:

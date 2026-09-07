@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://b8v205x84e1gt"]
+
+[ext_resource type="Script" uid="uid://bgym4b4lgs5v1" path="res://Scripts/UI/MainMenu.gd" id="1_tt5f1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12j5o"]
+bg_color = Color(0.8124056, 0.8124056, 0.8124054, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tt5f1"]
+bg_color = Color(0.69507337, 0.8348313, 0.99076563, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_853f1"]
+bg_color = Color(0.7694752, 0.16150084, 0.92886484, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8saeu"]
+bg_color = Color(0.76862746, 0.16078432, 0.92941177, 1)
+
+[node name="MainMenu" type="Node2D" unique_id=958862293]
+script = ExtResource("1_tt5f1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1331945206]
+layer = 6
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=493389130]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_12j5o")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Panel" unique_id=1196063532]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 73.0
+offset_top = -109.0
+offset_right = 357.0
+offset_bottom = 127.0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/PanelContainer" unique_id=1569290925]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/Panel/PanelContainer/VBoxContainer" unique_id=385736963]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9944934, 0.024017774, 0.38925973, 1)
+theme_override_colors/font_focus_color = Color(0.949763, 0.694409, 0.99014324, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.69411767, 0.9882353, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_tt5f1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_853f1")
+theme_override_styles/focus = SubResource("StyleBoxFlat_8saeu")
+text = "Play"
+
+[node name="SettingButton" type="Button" parent="CanvasLayer/Panel/PanelContainer/VBoxContainer" unique_id=2118887779]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9944934, 0.024017774, 0.38925973, 1)
+theme_override_colors/font_focus_color = Color(0.949763, 0.694409, 0.99014324, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.69411767, 0.9882353, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_tt5f1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_853f1")
+theme_override_styles/focus = SubResource("StyleBoxFlat_8saeu")
+text = "Setting"
+
+[node name="ExitButton" type="Button" parent="CanvasLayer/Panel/PanelContainer/VBoxContainer" unique_id=192966266]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9944934, 0.024017774, 0.38925973, 1)
+theme_override_colors/font_focus_color = Color(0.949763, 0.694409, 0.99014324, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.69411767, 0.9882353, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_tt5f1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_853f1")
+theme_override_styles/focus = SubResource("StyleBoxFlat_8saeu")
+text = "Exit"
+
+[connection signal="pressed" from="CanvasLayer/Panel/PanelContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/PanelContainer/VBoxContainer/SettingButton" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/PanelContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

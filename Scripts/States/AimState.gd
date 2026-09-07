@@ -17,9 +17,9 @@ func PreUpdate(player: Player) -> void:
 		player.muzzle.isAim = false
 		player.camControl.isReset = true
 		if not player.isCrouch:
-			player.ChangeStateTo(PlayerState.Idle)
+			player.ChangeStateTo(player.playerState.Idle)
 		else :
-			player.ChangeStateTo(PlayerState.CrouchIdle)
+			player.ChangeStateTo(player.playerState.CrouchIdle)
 	
 	if Input.is_action_just_released("Shot"):
 		if player.container.currentItem != null:
