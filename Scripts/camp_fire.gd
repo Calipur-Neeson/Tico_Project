@@ -8,6 +8,8 @@ var current_player: Player = null
 
 func Interact(player: Player) -> void:
 	print("Save")
+	QuickSave.save_var("PlayerPosition", player.position)
+	print(player.position)
 	#TODO: save menu
 
 func _physics_process(delta: float) -> void:
