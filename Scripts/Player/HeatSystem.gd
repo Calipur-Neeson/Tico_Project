@@ -7,6 +7,8 @@ var healSpeed: float = 10
 
 @onready var player: Player = get_parent()
 @onready var progress_bar: ProgressBar = $CanvasLayer/Panel/ProgressBar
+@onready var csg_polygon_3d: CSGPolygon3D = $"../Character/Y Bot/Skeleton3D/BoneAttachment3D/Path3D/CSGPolygon3D"
+
 
 var currentHeat: float
 var isDroping: bool = true
@@ -24,6 +26,10 @@ func _process(delta: float) -> void:
 	
 	currentHeat = clampf(currentHeat, 0, maxHeatMeter)
 	progress_bar.value = currentHeat
+	
+	var percentage := currentHeat / maxHeatMeter * 5.5
+
+	csg_polygon_3d.material.set_shader_parameter("percent", percentage)
 	
 	if currentHeat <= 0:
 		player.ChangeStateTo(player.playerState.Die)

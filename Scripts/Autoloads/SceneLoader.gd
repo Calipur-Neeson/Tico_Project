@@ -33,7 +33,7 @@ func StartLoad() -> void:
 	if state == OK:
 		set_process(true)
 		
-func  _process(delta: float) -> void:
+func _process(delta: float) -> void:
 	var loadStatus = ResourceLoader.load_threaded_get_status(scenePath, progress)
 	progressChanged.emit(progress[0])
 	match loadStatus:

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://3s4de650h0ll" path="res://Meshes/test_level.glb" id="1_iufkg"]
 [ext_resource type="PackedScene" uid="uid://d3rrh52jvjo02" path="res://Scenes/Player.tscn" id="2_5lt6y"]
-[ext_resource type="Script" uid="uid://6w4tnfc7tgel" path="res://Scripts/GroundSound.gd" id="2_iufkg"]
+[ext_resource type="Script" uid="uid://6w4tnfc7tgel" path="res://Scripts/Audio/GroundSound.gd" id="2_iufkg"]
 [ext_resource type="AudioStream" uid="uid://cvc5wu4f7vbky" path="res://Audios/Stone_Footstep_stream_randomizer.tres" id="3_5rbs6"]
 [ext_resource type="AudioStream" uid="uid://m2jfmx3q1h1b" path="res://Audios/Music/temple.mp3" id="3_8k7wh"]
 [ext_resource type="AudioStream" uid="uid://bld4w8c7ciwxp" path="res://Audios/Wood_Footstep_stream_randomizer.tres" id="4_201fe"]
