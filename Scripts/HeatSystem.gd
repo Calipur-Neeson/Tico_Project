@@ -3,7 +3,7 @@ extends Node3D
 
 @export var maxHeatMeter: float = 100
 @export var dropSpeed: float = 5
-@export var healSpeed: float = 10
+var healSpeed: float = 10
 
 @onready var player: Player = get_parent()
 @onready var progress_bar: ProgressBar = $CanvasLayer/Panel/ProgressBar

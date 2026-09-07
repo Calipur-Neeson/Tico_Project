@@ -7,6 +7,10 @@ extends Node2D
 
 func _ready() -> void:
 	GameManager.input_mode_changed.connect(OnInputModeChanged)
+	if GameManager.current_mode == GameManager.InputMode.KEYBOARD_MOUSE:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	elif GameManager.current_mode == GameManager.InputMode.CONTROLLER:
+		play_button.grab_focus()
 	
 
 func _on_play_button_pressed() -> void:

@@ -25,6 +25,7 @@ radius = 1.5
 [node name="CampFire" type="StaticBody3D" unique_id=716624488]
 collision_layer = 32
 script = ExtResource("1_n0jt5")
+healSpeed = 20.0
 outLine = ExtResource("2_dpdl8")
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1514432527]
