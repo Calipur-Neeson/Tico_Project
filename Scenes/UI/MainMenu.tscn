@@ -1,22 +1,25 @@
 [gd_scene format=3 uid="uid://b8v205x84e1gt"]
 
 [ext_resource type="Script" uid="uid://bgym4b4lgs5v1" path="res://Scripts/UI/MainMenu.gd" id="1_tt5f1"]
-[ext_resource type="Texture2D" uid="uid://bvb0h4jafxjbc" path="res://Meshes/test_level_snow.png" id="2_mjmdf"]
+[ext_resource type="Theme" uid="uid://28nmkntaehx4" path="res://Materials/main_theme.tres" id="2_72sra"]
+[ext_resource type="StyleBox" uid="uid://bdxcgfioonlsf" path="res://Materials/button_focus_mat.tres" id="3_t6w0q"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g18y6"]
+load_path = "res://.godot/imported/test_level_snow.png-7650d8900d336ebdeec0b778f0858ef1.s3tc.ctex"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61ot5"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="MainMenu" type="Node2D" unique_id=958862293]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8c6r"]
+bg_color = Color(0.800896, 0.174268, 0.8034692, 1)
+
+[node name="MainMenu" type="Control" unique_id=646235655]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_tt5f1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1331945206]
 layer = 5
-
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=617062505]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=130345091]
 anchors_preset = 15
@@ -24,7 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_mjmdf")
+texture = SubResource("CompressedTexture2D_g18y6")
 stretch_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureRect" unique_id=1397865521]
@@ -61,7 +64,9 @@ theme_override_constants/separation = 22
 
 [node name="NewGame" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1028111757]
 layout_mode = 2
+theme = ExtResource("2_72sra")
 theme_override_font_sizes/font_size = 38
+theme_override_styles/focus = ExtResource("3_t6w0q")
 text = "New Game"
 alignment = 0
 icon_alignment = 1
@@ -69,12 +74,16 @@ icon_alignment = 1
 [node name="LoadGame" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1436467216]
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
+theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
+theme_override_styles/focus = ExtResource("3_t6w0q")
 text = "Load Game"
 alignment = 0
 
 [node name="Options" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1851177872]
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
+theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
+theme_override_styles/focus = ExtResource("3_t6w0q")
 text = "Options"
 alignment = 0
 icon_alignment = 1
@@ -82,6 +91,8 @@ icon_alignment = 1
 [node name="Exit" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=243049776]
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
+theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
+theme_override_styles/focus = ExtResource("3_t6w0q")
 text = "Exit
 "
 alignment = 0

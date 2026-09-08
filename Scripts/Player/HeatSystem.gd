@@ -8,6 +8,7 @@ var healSpeed: float = 10
 @onready var player: Player = get_parent()
 @onready var progress_bar: ProgressBar = $CanvasLayer/Panel/ProgressBar
 @onready var csg_polygon_3d: CSGPolygon3D = $"../Character/Y Bot/Skeleton3D/BoneAttachment3D/Path3D/CSGPolygon3D"
+@onready var texture_progress_bar: TextureProgressBar = $SubViewport/TextureProgressBar
 
 
 var currentHeat: float
@@ -26,6 +27,7 @@ func _process(delta: float) -> void:
 	
 	currentHeat = clampf(currentHeat, 0, maxHeatMeter)
 	progress_bar.value = currentHeat
+	texture_progress_bar.value = currentHeat
 	
 	var percentage := currentHeat / maxHeatMeter * 5.5
 

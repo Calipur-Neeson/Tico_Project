@@ -1,7 +1,8 @@
-extends Node2D
+extends Control
+
+@onready var v_box_container: VBoxContainer = $CanvasLayer/MainMenu/VBoxContainer
 
 @onready var new_game: Button = $CanvasLayer/MainMenu/VBoxContainer/NewGame
-@onready var control: Control = $CanvasLayer/Control
 
 
 func _ready() -> void:
@@ -27,11 +28,10 @@ func _on_exit_pressed() -> void:
 func OnInputModeChanged(mode: GameManager.InputMode) -> void:
 	if mode == GameManager.InputMode.KEYBOARD_MOUSE:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		var button = control.get_focus_owner()
-		button.release_focus()
+		get_viewport().gui_release_focus()
 		
 
 	elif mode == GameManager.InputMode.CONTROLLER:
 		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-		new_game.grab_focus()
+		new_game.grab_focus.call_deferred()
 		
