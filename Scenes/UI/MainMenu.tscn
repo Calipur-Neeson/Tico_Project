@@ -1,0 +1,205 @@
+[gd_scene format=3 uid="uid://b8v205x84e1gt"]
+
+[ext_resource type="Script" uid="uid://bgym4b4lgs5v1" path="res://Scripts/UI/MainMenu.gd" id="1_tt5f1"]
+[ext_resource type="Theme" uid="uid://28nmkntaehx4" path="res://Materials/main_theme.tres" id="2_72sra"]
+[ext_resource type="StyleBox" uid="uid://bdxcgfioonlsf" path="res://Materials/button_focus_mat.tres" id="3_t6w0q"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g18y6"]
+load_path = "res://.godot/imported/test_level_snow.png-7650d8900d336ebdeec0b778f0858ef1.s3tc.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61ot5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8c6r"]
+bg_color = Color(0.800896, 0.174268, 0.8034692, 1)
+
+[node name="MainMenu" type="Control" unique_id=646235655]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_tt5f1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1331945206]
+layer = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=130345091]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_g18y6")
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureRect" unique_id=1397865521]
+visible = false
+layout_mode = 0
+offset_left = -1.0
+offset_top = -6.0
+offset_right = 1151.0
+offset_bottom = 646.0
+color = Color(1, 1, 1, 0.19607843)
+
+[node name="Game Name" type="Label" parent="CanvasLayer" unique_id=1561963849]
+offset_left = 425.0
+offset_top = 80.0
+offset_right = 791.0
+offset_bottom = 168.0
+theme_override_colors/font_color = Color(0.35906908, 0.35906908, 0.35906908, 1)
+theme_override_font_sizes/font_size = 64
+text = "Game Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenu" type="PanelContainer" parent="CanvasLayer" unique_id=503452495]
+offset_left = 20.0
+offset_top = 200.0
+offset_right = 437.0
+offset_bottom = 687.0005
+theme_override_styles/panel = SubResource("StyleBoxFlat_61ot5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu" unique_id=448076653]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 22
+
+[node name="NewGame" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1028111757]
+layout_mode = 2
+theme = ExtResource("2_72sra")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/focus = ExtResource("3_t6w0q")
+text = "New Game"
+alignment = 0
+icon_alignment = 1
+
+[node name="LoadGame" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1436467216]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
+theme_override_styles/focus = ExtResource("3_t6w0q")
+text = "Load Game"
+alignment = 0
+
+[node name="Options" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1851177872]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
+theme_override_styles/focus = ExtResource("3_t6w0q")
+text = "Options"
+alignment = 0
+icon_alignment = 1
+
+[node name="Exit" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=243049776]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
+theme_override_styles/focus = ExtResource("3_t6w0q")
+text = "Exit
+"
+alignment = 0
+icon_alignment = 1
+
+[node name="OptionMenu" type="PanelContainer" parent="CanvasLayer" unique_id=488025099]
+visible = false
+offset_left = 20.0
+offset_top = 200.0
+offset_right = 437.0
+offset_bottom = 687.0005
+theme_override_styles/panel = SubResource("StyleBoxFlat_61ot5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/OptionMenu" unique_id=812412530]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 18
+
+[node name="Audio" type="Button" parent="CanvasLayer/OptionMenu/VBoxContainer" unique_id=196805725]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Audio	"
+alignment = 0
+icon_alignment = 1
+
+[node name="Controls" type="Button" parent="CanvasLayer/OptionMenu/VBoxContainer" unique_id=506927284]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Controls
+"
+alignment = 0
+icon_alignment = 1
+
+[node name="Back" type="Button" parent="CanvasLayer/OptionMenu/VBoxContainer" unique_id=137281000]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Back
+
+"
+alignment = 0
+icon_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=633304502]
+visible = false
+offset_left = 147.0
+offset_top = 86.0
+offset_right = 645.0
+offset_bottom = 393.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer" unique_id=1071102707]
+layout_mode = 2
+
+[node name="Audio panel" type="Panel" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=390946769]
+layout_mode = 2
+
+[node name="TextEdit2" type="TextEdit" parent="CanvasLayer/HBoxContainer/VBoxContainer/Audio panel" unique_id=1715284621]
+layout_mode = 0
+offset_right = 342.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 53
+text = "Audio"
+
+[node name="Master volume" type="TextEdit" parent="CanvasLayer/HBoxContainer/VBoxContainer/Audio panel" unique_id=1042921030]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 116.0
+offset_right = 318.0
+offset_bottom = 168.0
+theme_override_font_sizes/font_size = 30
+text = "Master Volume"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/HBoxContainer/VBoxContainer/Audio panel/Master volume" unique_id=957241354]
+layout_mode = 0
+offset_left = 297.0
+offset_right = 497.0
+offset_bottom = 50.0
+
+[node name="Music Volume" type="TextEdit" parent="CanvasLayer/HBoxContainer/VBoxContainer/Audio panel/Master volume" unique_id=1169631120]
+layout_mode = 0
+offset_top = 60.0
+offset_right = 261.0
+offset_bottom = 112.0
+theme_override_font_sizes/font_size = 30
+text = "Music Volume"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/HBoxContainer/VBoxContainer/Audio panel/Master volume/Music Volume" unique_id=1008791635]
+layout_mode = 0
+offset_left = 297.0
+offset_right = 497.0
+offset_bottom = 50.0
+
+[node name="Sfx volume" type="TextEdit" parent="CanvasLayer/HBoxContainer/VBoxContainer/Audio panel" unique_id=620137132]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 234.0
+offset_right = 320.0
+offset_bottom = 286.0
+theme_override_font_sizes/font_size = 30
+text = "Sfx Volume"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/HBoxContainer/VBoxContainer/Audio panel/Sfx volume" unique_id=1101363064]
+layout_mode = 0
+offset_left = 297.0
+offset_right = 497.0
+offset_bottom = 50.0
+
+[connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/LoadGame" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

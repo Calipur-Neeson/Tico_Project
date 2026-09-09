@@ -31,24 +31,24 @@ func Enter(player: Player) -> void:
 func PreUpdate(player: Player) -> void:
 	if Input.is_action_just_pressed("Crouch"):
 		player.island = true
-		player.ChangeStateTo(PlayerState.HangingToFall)
+		player.ChangeStateTo(player.playerState.HangingToFall)
 	elif Input.is_action_just_pressed("Jump"):
 		var localInput = player.GetMoveInput().dot(player.global_basis.z)
 		if localInput > 0.7:
-			player.ChangeStateTo(PlayerState.JumpBack)
+			player.ChangeStateTo(player.playerState.JumpBack)
 		elif not player.climb_up_cast.is_colliding():
-			player.ChangeStateTo(PlayerState.ClimbWall)
+			player.ChangeStateTo(player.playerState.ClimbWall)
 		elif  player.shimmy_cast.is_colliding() and player.GetMoveInput():
-			player.ChangeStateTo(PlayerState.HangingToJump)
+			player.ChangeStateTo(player.playerState.HangingToJump)
 	
 	elif player.shimmy_cast.position.x < 0 and player.left_climb_cast.is_colliding():
-		player.ChangeStateTo(PlayerState.LeftShimmy)
+		player.ChangeStateTo(player.playerState.LeftShimmy)
 	elif player.shimmy_cast.position.x < 0 and not player.left_climb_cast.is_colliding() and player.left_turn_climb_cast.is_colliding():
-		player.ChangeStateTo(PlayerState.TurnLeftShimmy)
+		player.ChangeStateTo(player.playerState.TurnLeftShimmy)
 	elif player.shimmy_cast.position.x > 0 and player.right_climb_cast.is_colliding():
-		player.ChangeStateTo(PlayerState.RightShimmy)
+		player.ChangeStateTo(player.playerState.RightShimmy)
 	elif player.shimmy_cast.position.x > 0 and not player.right_climb_cast.is_colliding() and player.right_turn_climb_cast.is_colliding():
-		player.ChangeStateTo(PlayerState.TurnRightShimmy)
+		player.ChangeStateTo(player.playerState.TurnRightShimmy)
 
 func Update(player: Player, delta: float) -> void:
 	inversedInput = player.global_transform.basis.inverse() * player.GetMoveInput()
