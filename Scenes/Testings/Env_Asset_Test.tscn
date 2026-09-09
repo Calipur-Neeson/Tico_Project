@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bf4s3shyed33n"]
+
+[ext_resource type="PackedScene" uid="uid://c5vkvxaon31pd" path="res://Assets/Environment/FrozenPuddle/FrozenPuddle_A.glb" id="1_84wxd"]
+[ext_resource type="Material" uid="uid://cmj20ooscyfia" path="res://Assets/Materials/M_FrozenPuddle_A.tres" id="2_xl62b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d6bm3"]
+albedo_color = Color(0.32358384, 0.32358387, 0.32358384, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wxrey"]
+material = SubResource("StandardMaterial3D_d6bm3")
+size = Vector2(10, 10)
+
+[node name="EnvAssetTest" type="Node3D" unique_id=142144913]
+
+[node name="Test_Ground" type="MeshInstance3D" parent="." unique_id=549736981]
+mesh = SubResource("PlaneMesh_wxrey")
+
+[node name="Test_Sun" type="DirectionalLight3D" parent="." unique_id=158966701]
+transform = Transform3D(0.8921811, 0.31938452, -0.31938452, 0, 0.7071068, 0.7071068, 0.4516779, -0.6308673, 0.6308673, -1.9250144, 1.9776087, 0)
+light_energy = 1.95
+
+[node name="Test_Camera" type="Camera3D" parent="." unique_id=1312159568]
+
+[node name="FrozenPuddle_A" parent="." unique_id=1798768089 instance=ExtResource("1_84wxd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.16925073, 0)
+
+[node name="FrozenPuddle_A" parent="FrozenPuddle_A" index="0" unique_id=30393415]
+surface_material_override/0 = ExtResource("2_xl62b")
+
+[editable path="FrozenPuddle_A"]

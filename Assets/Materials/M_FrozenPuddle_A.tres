@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cmj20ooscyfia"]
+
+[ext_resource type="Texture2D" uid="uid://btrnvvqccpr0a" path="res://Assets/Environment/FrozenPuddle/FrozenPuddle_A_M_FrozenPuddle_A_BaseColor.png" id="1_q5dl8"]
+[ext_resource type="Texture2D" uid="uid://06cphnpk4sxs" path="res://Assets/Environment/FrozenPuddle/FrozenPuddle_A_M_FrozenPuddle_A_Normal.png" id="2_l1apo"]
+[ext_resource type="Texture2D" uid="uid://b6dr2pk8fdlrj" path="res://Assets/Environment/FrozenPuddle/FrozenPuddle_A_M_FrozenPuddle_A_Roughness.png" id="2_tpymy"]
+
+[resource]
+albedo_texture = ExtResource("1_q5dl8")
+roughness_texture = ExtResource("2_tpymy")
+normal_enabled = true
+normal_texture = ExtResource("2_l1apo")
