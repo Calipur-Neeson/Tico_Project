@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bjfgo3ts0j4im"]
+
+[ext_resource type="Script" uid="uid://bnju44o1ro4sn" path="res://addons/quicksave/ui/quicksave_panel.gd" id="1_ufr3u"]
+
+[node name="QuickSavePanel" type="Control" unique_id=99000492]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ufr3u")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=44766599]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="ClearButton" type="Button" parent="HBoxContainer" unique_id=1373908826]
+self_modulate = Color(1.0941573, 1.0941573, 1.0941573, 1)
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Clear"
+expand_icon = true
+
+[node name="RefreshButton" type="Button" parent="HBoxContainer" unique_id=136149478]
+self_modulate = Color(1.0941573, 1.0941573, 1.0941573, 1)
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Refresh"
+expand_icon = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=309808014]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuickSaveItemContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1977660611]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="HBoxContainer/ClearButton" to="." method="_on_clear_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/RefreshButton" to="." method="_on_refresh_button_pressed"]

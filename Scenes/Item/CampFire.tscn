@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dp75xgh0s65xx"]
 
-[ext_resource type="Script" uid="uid://cun5lhha2hh1a" path="res://Scripts/camp_fire.gd" id="1_n0jt5"]
+[ext_resource type="Script" uid="uid://cun5lhha2hh1a" path="res://Scripts/Interactable/camp_fire.gd" id="1_n0jt5"]
 [ext_resource type="Material" uid="uid://bf8220torvm0p" path="res://Shader/outline_shader_material.tres" id="2_dpdl8"]
 
 [sub_resource type="Curve" id="Curve_1n7pi"]

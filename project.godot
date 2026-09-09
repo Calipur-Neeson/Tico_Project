@@ -24,11 +24,16 @@ buses/default_bus_layout="uid://qm1ndr6l75ug"
 Global="*uid://beofbwovp5pw"
 SceneLoader="*uid://oerrnvv5tj6d"
 GameManager="*uid://exipo0k1y7mv"
+QuickSave="*uid://bg1ylmajd8c7s"
 
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/quicksave/plugin.cfg")
 
 [input]
 

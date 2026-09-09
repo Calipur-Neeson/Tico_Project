@@ -18,9 +18,9 @@ func _process(delta: float) -> void:
 func Pause() -> void:
 	panel.modulate.a = 255
 	get_tree().paused = true
-	if GameManager.current_mode == GameManager.InputMode.KEYBOARD_MOUSE:
+	if GameManager.currentInputMode == GameManager.InputMode.KEYBOARD_MOUSE:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	elif GameManager.current_mode == GameManager.InputMode.CONTROLLER:
+	elif GameManager.currentInputMode == GameManager.InputMode.CONTROLLER:
 		resume_button.grab_focus()
 	
 func Resume() -> void:
@@ -35,7 +35,11 @@ func _on_setting_button_pressed() -> void:
 	pass # Replace with function body.
 
 func _on_restart_button_pressed() -> void:
-	get_tree().reload_current_scene()
+	Resume()
+	#get_tree().reload_current_scene()
+	SceneLoader.LoadScene(SceneLoader.mainLevelScene)
+	GameManager.currentGameState = GameManager.GameState.RESTART
+
 
 func _on_menu_button_pressed() -> void:
 	Resume()

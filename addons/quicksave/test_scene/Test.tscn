@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://nj5kp1b3kfnw"]
+
+[ext_resource type="Script" uid="uid://bkbtrmmvvb6b3" path="res://addons/quicksave/test_scene/test_scene.gd" id="1_wen4y"]
+
+[sub_resource type="FontVariation" id="FontVariation_wen4y"]
+
+[node name="Node2D" type="Node2D" unique_id=2047454448]
+script = ExtResource("1_wen4y")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=551670210]
+
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=601700514]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI" unique_id=1884045055]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Score" type="Label" parent="CanvasLayer/UI/VBoxContainer" unique_id=274857170]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Current Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScore" type="Label" parent="CanvasLayer/UI/VBoxContainer" unique_id=528118170]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_wen4y")
+theme_override_font_sizes/font_size = 80
+text = "High Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer" unique_id=1759398363]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="DecreaseButton" type="Button" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer" unique_id=1667716340]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "-"
+
+[node name="IncreaseButton" type="Button" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer" unique_id=1374455594]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "+"
+
+[node name="SaveLoadContainer" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer" unique_id=1355311929]
+layout_mode = 2
+alignment = 1
+
+[node name="SaveButton" type="Button" parent="CanvasLayer/UI/VBoxContainer/SaveLoadContainer" unique_id=120834649]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Save"
+
+[node name="LoadButton" type="Button" parent="CanvasLayer/UI/VBoxContainer/SaveLoadContainer" unique_id=585411760]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Load"
+
+[connection signal="pressed" from="CanvasLayer/UI/VBoxContainer/HBoxContainer/DecreaseButton" to="." method="_on_decrease_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/VBoxContainer/HBoxContainer/IncreaseButton" to="." method="_on_increase_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/VBoxContainer/SaveLoadContainer/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/VBoxContainer/SaveLoadContainer/LoadButton" to="." method="_on_load_button_pressed"]

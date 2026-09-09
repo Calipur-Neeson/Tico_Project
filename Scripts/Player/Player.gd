@@ -71,7 +71,9 @@ func _ready() -> void:
 	state.Enter(self)
 	camControl = spring_arm_3d
 	
-
+	GameManager.OnGameRestart.connect(ReSetPositon)
+	if GameManager.currentGameState == GameManager.GameState.RESTART:
+		GameManager.OnGameRestart.emit()
 
 func ChangeStateTo(nextState: BasePlayerState) -> void:
 	state.Exit(self)
@@ -127,3 +129,8 @@ func ApplyRootMotion(delta: float) -> void:
 	velocity = movement / delta
 	
 	move_and_slide()
+
+func ReSetPositon() -> void:
+	var pos: Vector3 = QuickSave.load_var("PlayerPosition")
+	self.position = pos
+	GameManager.currentGameState = GameManager.GameState.PLAYING
