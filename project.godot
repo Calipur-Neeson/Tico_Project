@@ -25,6 +25,7 @@ Global="*uid://beofbwovp5pw"
 SceneLoader="*uid://oerrnvv5tj6d"
 GameManager="*uid://exipo0k1y7mv"
 QuickSave="*uid://bg1ylmajd8c7s"
+SoundEmitter="*uid://60chxcylqm7c"
 
 [display]
 
@@ -146,6 +147,7 @@ Escape={
 3d_physics/layer_5="Player"
 3d_physics/layer_6="Interactable"
 3d_physics/layer_7="Wall"
+3d_physics/layer_8="Enemy"
 
 [physics]
 
