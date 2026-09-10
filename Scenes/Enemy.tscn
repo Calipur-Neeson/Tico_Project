@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://kljeekg48esq"]
+
+[ext_resource type="Script" uid="uid://nt65daoq2yla" path="res://Scripts/Enemy/Enemy.gd" id="1_wovta"]
+[ext_resource type="Script" uid="uid://75nx6k08ifx" path="res://Scripts/Enemy/EnemyState.gd" id="2_xeo28"]
+[ext_resource type="Script" uid="uid://dfmq1nyjwfpor" path="res://Scripts/Enemy/SoundDetector.gd" id="3_xeo28"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_12j5o"]
+height = 1.5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_12j5o"]
+height = 1.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_12j5o"]
+size = Vector3(0.59, 0.24, 0.36)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_61ot5"]
+albedo_color = Color(0.6749369, 0.8569317, 7.70092e-07, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_f6tpa"]
+points = PackedVector3Array(0, 0, 0.6, -4, -0.5, 7, 4, -0.5, 7, 0, 1, 7)
+
+[node name="Enemy" type="CharacterBody3D" unique_id=173603545]
+collision_layer = 128
+collision_mask = 126
+script = ExtResource("1_wovta")
+moveSpeed = null
+rotateSpeed = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=629589996]
+shape = SubResource("CapsuleShape3D_12j5o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=635245909]
+mesh = SubResource("CapsuleMesh_12j5o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1001914479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33125854, 0.41157675)
+mesh = SubResource("BoxMesh_12j5o")
+surface_material_override/0 = SubResource("StandardMaterial3D_61ot5")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=777520406]
+
+[node name="StateMachine" type="Node3D" parent="." unique_id=1401129852]
+script = ExtResource("2_xeo28")
+
+[node name="SoundDetector" type="Node3D" parent="." unique_id=696125762]
+script = ExtResource("3_xeo28")
+
+[node name="PlayerShape3D" type="ShapeCast3D" parent="." unique_id=757891302]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11, 0)
+shape = SubResource("ConvexPolygonShape3D_f6tpa")
+collision_mask = 82
