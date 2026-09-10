@@ -12,10 +12,10 @@ func Enter(player: Player) -> void:
 
 func PreUpdate(player: Player) -> void:
 	if player.is_on_floor():
-		player.ChangeStateTo(PlayerState.Land)
+		player.ChangeStateTo(player.playerState.Land)
 	
 	if time > 0.3:
-		player.ChangeStateTo(PlayerState.Fall)
+		player.ChangeStateTo(player.playerState.Fall)
 		
 
 func Update(player: Player, delta: float) -> void:

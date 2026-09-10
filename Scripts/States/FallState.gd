@@ -11,14 +11,14 @@ func Enter(player: Player) -> void:
 
 func PreUpdate(player: Player) -> void:
 	if player.is_on_floor():
-		player.ChangeStateTo(PlayerState.Land)
+		player.ChangeStateTo(player.playerState.Land)
 		
 	if player.obstacle_cast.is_colliding():
 		var hitPoint: Vector3 = player.obstacle_cast.get_collision_point()
 		var obstacleHight: float = hitPoint.y - player.global_position.y
 			
 		if obstacleHight >= player.maxVaultHeight:
-			player.ChangeStateTo(PlayerState.HangingIdle)
+			player.ChangeStateTo(player.playerState.HangingIdle)
 		
 
 func Update(player: Player, delta: float) -> void:

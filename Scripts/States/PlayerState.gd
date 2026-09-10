@@ -1,3 +1,4 @@
+class_name PlayerState
 extends Node
 
 var Idle := PlayerIdleState.new()
@@ -22,3 +23,5 @@ var Vault: = PlayerVaultState.new()
 
 var TurnLeftShimmy := PlayerLeftShimmyTurnState.new()
 var TurnRightShimmy := PlayerRightShimmyTurnState.new()
+
+var Die:= PlayerDieState.new()

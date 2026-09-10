@@ -4,11 +4,12 @@ extends BasePlayerState
 var inversedInput: Vector3
 
 func Enter(player: Player) -> void:
+	player.animation_tree.set("parameters/movement/transition_request", "shimmyShortLeft")
 	player.climb_normal_cast.enabled = true
 	
 func PreUpdate(player: Player) -> void:
 	if not player.shimmy_cast.position.x < 0 or not player.left_climb_cast.is_colliding():
-		player.ChangeStateTo(PlayerState.HangingIdle)
+		player.ChangeStateTo(player.playerState.HangingIdle)
 
 
 func Update(player: Player, delta: float) -> void:
@@ -37,7 +38,7 @@ func Update(player: Player, delta: float) -> void:
 	player.velocity = -player.global_basis.x * 2.0
 	player.move_and_slide()
 
-	player.animation_tree.set("parameters/movement/transition_request", "shimmyShortLeft")
+	
 
 func Exit(player: Player) -> void:
 	player.velocity = Vector3.ZERO

@@ -25,7 +25,7 @@ func Enter(player: Player) -> void:
 
 func PreUpdate(player: Player) -> void:
 	if time >= 1.7:
-		player.ChangeStateTo(PlayerState.Idle)
+		player.ChangeStateTo(player.playerState.Idle)
 
 func Update(player: Player, delta: float) -> void:
 	time += delta

@@ -31,19 +31,24 @@ func Enter(player: Player) -> void:
 func PreUpdate(player: Player) -> void:
 	if Input.is_action_just_pressed("Crouch"):
 		player.island = true
-		player.ChangeStateTo(PlayerState.HangingToFall)
+		player.ChangeStateTo(player.playerState.HangingToFall)
 	elif Input.is_action_just_pressed("Jump"):
-		if player.GetMoveInput().z > 0.6:
-			player.ChangeStateTo(PlayerState.JumpBack)
+		var localInput = player.GetMoveInput().dot(player.global_basis.z)
+		if localInput > 0.7:
+			player.ChangeStateTo(player.playerState.JumpBack)
 		elif not player.climb_up_cast.is_colliding():
-			player.ChangeStateTo(PlayerState.ClimbWall)
+			player.ChangeStateTo(player.playerState.ClimbWall)
 		elif  player.shimmy_cast.is_colliding() and player.GetMoveInput():
-			player.ChangeStateTo(PlayerState.HangingToJump)
+			player.ChangeStateTo(player.playerState.HangingToJump)
 	
 	elif player.shimmy_cast.position.x < 0 and player.left_climb_cast.is_colliding():
-		player.ChangeStateTo(PlayerState.LeftShimmy)
+		player.ChangeStateTo(player.playerState.LeftShimmy)
+	elif player.shimmy_cast.position.x < 0 and not player.left_climb_cast.is_colliding() and player.left_turn_climb_cast.is_colliding():
+		player.ChangeStateTo(player.playerState.TurnLeftShimmy)
 	elif player.shimmy_cast.position.x > 0 and player.right_climb_cast.is_colliding():
-		player.ChangeStateTo(PlayerState.RightShimmy)
+		player.ChangeStateTo(player.playerState.RightShimmy)
+	elif player.shimmy_cast.position.x > 0 and not player.right_climb_cast.is_colliding() and player.right_turn_climb_cast.is_colliding():
+		player.ChangeStateTo(player.playerState.TurnRightShimmy)
 
 func Update(player: Player, delta: float) -> void:
 	inversedInput = player.global_transform.basis.inverse() * player.GetMoveInput()
@@ -61,12 +66,12 @@ func Update(player: Player, delta: float) -> void:
 	player.shimmy_cast.position.x = clampf(player.shimmy_cast.position.x, -player.shimmyDis, player.shimmyDis)
 	player.shimmy_cast.position.y = clamp(player.shimmy_cast.position.y, 2 - player.shimmyJumpDis, 1.9 + player.shimmyJumpDis)
 	
-	if Input.is_action_pressed("Move_Left") and player.shimmy_cast.is_colliding():
+	if inversedInput.x < 0 and player.shimmy_cast.is_colliding():
 		player.left_ik.influence = 1
 		player.left_hand_point.position = player.shimmy_cast.position
 	else :
 		player.left_ik.influence = 0
-	if Input.is_action_pressed("Move_Right") and player.shimmy_cast.is_colliding():
+	if inversedInput.x > 0 and player.shimmy_cast.is_colliding():
 		player.right_ik.influence = 1
 		player.right_hand_point.position = player.shimmy_cast.position
 	else :
