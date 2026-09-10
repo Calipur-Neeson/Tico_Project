@@ -79,7 +79,7 @@ collision_layer = 2
 size = Vector3(1.8, 4, 2)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="." unique_id=512867440]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7661209, 4.041771, -7.3743)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76175785, 4.049111, -7.377666)
 use_collision = true
 collision_layer = 64
 size = Vector3(5.961465, 6.388794, 0.085)
