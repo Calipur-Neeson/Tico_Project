@@ -1,6 +1,10 @@
 extends Node3D
 
-@export var detecteRange = 10
+@onready var enemy: Enemy = get_parent()
+
+@export var detecteRange: float = 10
+@export var alarmVolum: float = 1.5
+
 func _ready() -> void:
 	SoundEmitter.sound_emitted.connect(OnSoundDetected)
 
@@ -14,7 +18,17 @@ func OnSoundDetected(source: Vector3, volume: float) -> void:
 	var query = PhysicsRayQueryParameters3D.create(position, source, 1 << 6, [self])
 
 	var result = space_state.intersect_ray(query)
+	
+	if CaculateVolum(volume, distance, !result.is_empty()) > alarmVolum:
+		enemy.targetPositon = source
+		enemy.ChangeStateTo(enemy.enemyState.Alarm)
 	#print(result.is_empty())
 	#print("enemy", global_position)
 	#print("player", source)
 	
+func CaculateVolum(sourceVolum: float, dis: float, isBlock: bool) -> float:
+	if isBlock:
+		sourceVolum -= 2
+	
+	var heardVolum: float = sourceVolum - (sourceVolum / detecteRange) * dis
+	return heardVolum

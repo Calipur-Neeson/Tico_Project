@@ -3,12 +3,14 @@ extends CharacterBody3D
 
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var enemyState: EnemeyState = $StateMachine
+@onready var playerCast: ShapeCast3D = $VisulCast3D
 
+
+@export var moveSpeed: float = 3
+@export var rotateSpeed: float = 4
 
 var targetPositon: Vector3
 var hasTarget: bool = false
-@export var moveSpeed: float = 3
-@export var rotateSpeed: float = 4
 
 #Current state that our enemy is
 var state: BaseEnemyState 
@@ -23,7 +25,12 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	Move(delta)
 	move_and_slide()
+	
+	if playerCast.is_colliding():
+		
+		ChangeStateTo(enemyState.Chase)
 
 	
 func Move(delta: float) -> void:
@@ -39,7 +46,6 @@ func Move(delta: float) -> void:
 			rotSpeed = rotateSpeed * 4
 		rotation.y = move_toward(rotation.y , targetRotation, delta * moveSpeed)
 	
-	move_and_slide()
 	
 func ChangeStateTo(nextState: BaseEnemyState) -> void:
 	state.Exit(self)

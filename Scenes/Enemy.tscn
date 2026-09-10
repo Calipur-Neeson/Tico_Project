@@ -16,6 +16,10 @@ size = Vector3(0.59, 0.24, 0.36)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_61ot5"]
 albedo_color = Color(0.6749369, 0.8569317, 7.70092e-07, 1)
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_47lvx"]
+height = 5.0
+radius = 1.0
+
 [node name="Enemy" type="CharacterBody3D" unique_id=173603545]
 collision_layer = 128
 collision_mask = 126
@@ -39,3 +43,9 @@ script = ExtResource("2_xeo28")
 
 [node name="SoundDetector" type="Node3D" parent="." unique_id=696125762]
 script = ExtResource("3_xeo28")
+
+[node name="VisulCast3D" type="ShapeCast3D" parent="." unique_id=293451394]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_47lvx")
+target_position = Vector3(0, 3.295, -0.345)
+collision_mask = 16
