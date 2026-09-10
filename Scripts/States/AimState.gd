@@ -6,6 +6,8 @@ var direction: Vector3
 
 func Enter(player: Player) -> void:
 	isAim = true
+	player.camControl.isReset = false
+	
 	direction = -player.cam.global_transform.basis.z.normalized()
 	if player.container.currentItem:
 		player.muzzle.isAim = true
@@ -13,10 +15,11 @@ func Enter(player: Player) -> void:
 func PreUpdate(player: Player) -> void:	
 	if Input.is_action_just_released("Aim"):
 		player.muzzle.isAim = false
+		player.camControl.isReset = true
 		if not player.isCrouch:
-			player.ChangeStateTo(PlayerState.Idle)
+			player.ChangeStateTo(player.playerState.Idle)
 		else :
-			player.ChangeStateTo(PlayerState.CrouchIdle)
+			player.ChangeStateTo(player.playerState.CrouchIdle)
 	
 	if Input.is_action_just_released("Shot"):
 		if player.container.currentItem != null:
@@ -31,5 +34,4 @@ func Update(player: Player, delta: float) -> void:
 		player.spring_arm_3d.spring_length = lerpf(player.spring_arm_3d.spring_length, 0.5, 10 * delta)
 	if player.isCrouch:
 		player.camControl.camRig.y = lerpf(player.camControl.camRig.y, player.camControl.camHeightCrouch, 10 * delta)
-	
 	

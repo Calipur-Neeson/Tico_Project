@@ -1,0 +1,231 @@
+[gd_scene format=3 uid="uid://bes5sm4j5semt"]
+
+[ext_resource type="PackedScene" uid="uid://3s4de650h0ll" path="res://Meshes/test_level.glb" id="1_iufkg"]
+[ext_resource type="PackedScene" uid="uid://d3rrh52jvjo02" path="res://Scenes/Player.tscn" id="2_5lt6y"]
+[ext_resource type="Script" uid="uid://6w4tnfc7tgel" path="res://Scripts/Audio/GroundSound.gd" id="2_iufkg"]
+[ext_resource type="AudioStream" uid="uid://cvc5wu4f7vbky" path="res://Audios/Stone_Footstep_stream_randomizer.tres" id="3_5rbs6"]
+[ext_resource type="AudioStream" uid="uid://m2jfmx3q1h1b" path="res://Audios/Music/temple.mp3" id="3_8k7wh"]
+[ext_resource type="AudioStream" uid="uid://bld4w8c7ciwxp" path="res://Audios/Wood_Footstep_stream_randomizer.tres" id="4_201fe"]
+[ext_resource type="AudioStream" uid="uid://dm1onj42aa1ar" path="res://Audios/Sand_Footstep_stream_randomizer.tres" id="5_xjl2p"]
+[ext_resource type="AudioStream" uid="uid://bfv3s0mgxbls6" path="res://Audios/Grass_Footstep_stream_randomizer.tres" id="6_ytmxh"]
+[ext_resource type="AudioStream" uid="uid://17o7a3gunqr0" path="res://Audios/Dirt_Footstep_stream_randomizer.tres" id="7_hctok"]
+[ext_resource type="PackedScene" uid="uid://bksri74806slo" path="res://Scenes/3D mockup/obstacles.tscn" id="8_xjl2p"]
+[ext_resource type="PackedScene" uid="uid://cywm4vx6pp8ll" path="res://Scenes/Item/BaseInteractable.tscn" id="10_201fe"]
+[ext_resource type="PackedScene" uid="uid://dp75xgh0s65xx" path="res://Scenes/Item/CampFire.tscn" id="12_hctok"]
+[ext_resource type="PackedScene" uid="uid://d32l602i2xtte" path="res://Scenes/UI/pause_menu.tscn" id="12_ytmxh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5lt6y"]
+sky_top_color = Color(0.4263404, 0.7202341, 0.9959741, 1)
+sky_horizon_color = Color(0.83223087, 0.9308462, 1.0203236, 1)
+ground_bottom_color = Color(0.08313779, 0.18370548, 0.2658751, 1)
+ground_horizon_color = Color(0.83223087, 0.9308462, 1.0203236, 1)
+
+[sub_resource type="Sky" id="Sky_8k7wh"]
+sky_material = SubResource("ProceduralSkyMaterial_5lt6y")
+
+[sub_resource type="Environment" id="Environment_iufkg"]
+background_mode = 2
+sky = SubResource("Sky_8k7wh")
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_12j5o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_61ot5"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2akc3"]
+viewport_path = NodePath("HeatMeter/SubViewport")
+
+[node name="Node3D" type="Node3D" unique_id=1930091129]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1635902719]
+environment = SubResource("Environment_iufkg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2018383686]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="test_level" parent="." unique_id=78685540 instance=ExtResource("1_iufkg")]
+
+[node name="level" parent="test_level" index="0" unique_id=823750820]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0003027916, -0.00040721893, -0.000497818)
+
+[node name="StaticBody3D" parent="test_level/level" index="0" unique_id=587194403]
+collision_layer = 6
+collision_mask = 16
+script = ExtResource("2_iufkg")
+footstep_sound = ExtResource("3_5rbs6")
+
+[node name="StaticBody3D" parent="test_level/wood" parent_id_path=PackedInt32Array(78685540, 1434197295) index="0" unique_id=71937128]
+script = ExtResource("2_iufkg")
+footstep_sound = ExtResource("4_201fe")
+
+[node name="StaticBody3D" parent="test_level/snow" parent_id_path=PackedInt32Array(78685540, 1020897175) index="0" unique_id=812767266]
+script = ExtResource("2_iufkg")
+footstep_sound = ExtResource("5_xjl2p")
+
+[node name="StaticBody3D" parent="test_level/grass" parent_id_path=PackedInt32Array(78685540, 1120422819) index="0" unique_id=347638795]
+script = ExtResource("2_iufkg")
+footstep_sound = ExtResource("6_ytmxh")
+
+[node name="StaticBody3D" parent="test_level/dirt" parent_id_path=PackedInt32Array(78685540, 941957627) index="0" unique_id=989433190]
+script = ExtResource("2_iufkg")
+footstep_sound = ExtResource("7_hctok")
+
+[node name="Cave" type="Node3D" parent="test_level" unique_id=612785187]
+
+[node name="CaveP1" type="Node3D" parent="test_level/Cave" unique_id=549258832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3079014, 2.710052, 12.935077)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="test_level/Cave/CaveP1" unique_id=670285281]
+transform = Transform3D(2.5059412, 0, 0, 0, 0.045987822, 0, 0, 0, 4.0801363, 0, -0.8059292, 0)
+mesh = SubResource("BoxMesh_12j5o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="test_level/Cave/CaveP1/MeshInstance3D" unique_id=1574565733]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test_level/Cave/CaveP1/MeshInstance3D/StaticBody3D" unique_id=716721710]
+shape = SubResource("BoxShape3D_61ot5")
+
+[node name="CaveP2" type="Node3D" parent="test_level/Cave" unique_id=1970387675]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.44761953, 0, 0.99999994, -1.9566071e-08, -4.301359, 0.9543655, 11.732648)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="test_level/Cave/CaveP2" unique_id=458249360]
+transform = Transform3D(2.5059412, 0, 0, 0, 0.045987822, 0, 0, 0, 4.0801363, 0, -0.8059292, 0)
+mesh = SubResource("BoxMesh_12j5o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="test_level/Cave/CaveP2/MeshInstance3D" unique_id=1151597098]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test_level/Cave/CaveP2/MeshInstance3D/StaticBody3D" unique_id=1812739787]
+shape = SubResource("BoxShape3D_61ot5")
+
+[node name="CaveP3" type="Node3D" parent="test_level/Cave" unique_id=1572124312]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.44761953, 0, 0.99999994, -1.9566071e-08, -4.301359, 0.9543655, 15.741683)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="test_level/Cave/CaveP3" unique_id=782148901]
+transform = Transform3D(2.5059412, 0, 0, 0, 0.045987822, 0, 0, 0, 4.0801363, 0, -0.8059292, 0)
+mesh = SubResource("BoxMesh_12j5o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="test_level/Cave/CaveP3/MeshInstance3D" unique_id=369846307]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test_level/Cave/CaveP3/MeshInstance3D/StaticBody3D" unique_id=306317417]
+shape = SubResource("BoxShape3D_61ot5")
+
+[node name="CaveP4" type="Node3D" parent="test_level/Cave" unique_id=1497714916]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.832784, 2.2196884, 12.935077)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="test_level/Cave/CaveP4" unique_id=1708416352]
+transform = Transform3D(2.5059412, 0, 0, 0, 0.045987822, 0, 0, 0, 4.0801363, 0, -0.8059292, 0)
+mesh = SubResource("BoxMesh_12j5o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="test_level/Cave/CaveP4/MeshInstance3D" unique_id=1753308071]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test_level/Cave/CaveP4/MeshInstance3D/StaticBody3D" unique_id=1799464484]
+shape = SubResource("BoxShape3D_61ot5")
+
+[node name="CaveP5" type="Node3D" parent="test_level/Cave" unique_id=924842571]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.44761953, 0, 0.99999994, -1.9566071e-08, -6.826242, 0.9543655, 11.732648)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="test_level/Cave/CaveP5" unique_id=1347652703]
+transform = Transform3D(2.5059412, 0, 0, 0, 0.045987815, 1.4210855e-14, 0, -4.440892e-16, 3.0490367, 0, -0.8059292, 0.527748)
+mesh = SubResource("BoxMesh_12j5o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="test_level/Cave/CaveP5/MeshInstance3D" unique_id=382572793]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test_level/Cave/CaveP5/MeshInstance3D/StaticBody3D" unique_id=27348692]
+shape = SubResource("BoxShape3D_61ot5")
+
+[node name="CaveP6" type="Node3D" parent="test_level/Cave" unique_id=468988153]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.44761953, 0, 0.99999994, -1.9566071e-08, -6.826242, 0.9543655, 15.741683)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="test_level/Cave/CaveP6" unique_id=527813540]
+transform = Transform3D(2.5059412, 0, 0, 0, 0.045987602, 2.9842795e-13, 0, -2.220446e-15, 2.9034104, 0, -0.8059292, 0.38661957)
+mesh = SubResource("BoxMesh_12j5o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="test_level/Cave/CaveP6/MeshInstance3D" unique_id=1509092727]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test_level/Cave/CaveP6/MeshInstance3D/StaticBody3D" unique_id=1068668753]
+shape = SubResource("BoxShape3D_61ot5")
+
+[node name="Obstacles" parent="test_level" unique_id=1438000444 instance=ExtResource("8_xjl2p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.399825, 0.8485943, 16.210604)
+collision_layer = 2
+
+[node name="CharacterBody3D" parent="." unique_id=1445218770 instance=ExtResource("2_5lt6y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.495132, 0.04477358, 13.615075)
+
+[node name="Skeleton3D" parent="CharacterBody3D/Character/Y Bot" parent_id_path=PackedInt32Array(1445218770, 695001073, 1964922083) index="0" unique_id=1754900160]
+bones/1/position = Vector3(5.9576673e-06, 0.9293027, 4.8443957e-07)
+bones/1/rotation = Quaternion(-0.037384562, -0.36675164, -0.0136910975, 0.9294666)
+bones/2/rotation = Quaternion(-0.010851296, 0.040664975, -0.005892123, 0.9990966)
+bones/3/rotation = Quaternion(0.099880174, 0.08256384, -0.008329014, 0.9915331)
+bones/4/rotation = Quaternion(0.15678608, 0.081931695, -0.013099085, 0.9841412)
+bones/5/rotation = Quaternion(-0.031411815, -0.010768631, 0.0015021787, 0.99944746)
+bones/6/rotation = Quaternion(-0.058446996, 0.17661417, -0.010834784, 0.9824836)
+bones/8/rotation = Quaternion(-0.4953819, -0.519983, 0.57039154, -0.39858234)
+bones/9/rotation = Quaternion(0.5247038, -0.061352503, 0.13456479, 0.83834016)
+bones/10/rotation = Quaternion(-0.011646382, 0.058958966, 0.40933937, 0.91040075)
+bones/11/rotation = Quaternion(-0.14646435, 0.13904141, 0.01403774, 0.9792951)
+bones/12/rotation = Quaternion(0.30619308, -0.0069048963, 0.15469258, 0.9392915)
+bones/13/rotation = Quaternion(-0.007387396, 0.00054083025, 0.0010823307, 0.999972)
+bones/16/rotation = Quaternion(0.034405015, -0.005795668, 0.061247557, 0.9975127)
+bones/17/rotation = Quaternion(0.1443104, -0.0008041071, -0.006817179, 0.98950875)
+bones/20/rotation = Quaternion(0.12672037, 0.005582788, -0.08305073, 0.98843986)
+bones/21/rotation = Quaternion(0.1920077, -0.0013966203, 0.014429219, 0.9812864)
+bones/24/rotation = Quaternion(0.26669535, -0.014330756, -0.1281808, 0.9551115)
+bones/25/rotation = Quaternion(0.27765855, 0.0017580446, 0.024237733, 0.9603725)
+bones/28/rotation = Quaternion(0.29296526, -0.015178522, -0.16148987, 0.9422643)
+bones/29/rotation = Quaternion(0.3383791, 0.011191669, 0.049291905, 0.93965137)
+bones/32/rotation = Quaternion(0.5474156, -0.47995895, 0.5375685, 0.4254359)
+bones/33/rotation = Quaternion(0.49329388, 0.04500186, 0.098954745, 0.8630435)
+bones/34/rotation = Quaternion(0.04735891, 0.022606397, -0.36111015, 0.9310455)
+bones/35/rotation = Quaternion(0.11099899, -0.063057095, -0.10514433, 0.98622906)
+bones/36/rotation = Quaternion(0.2298325, 0.14440875, -0.20044753, 0.94135225)
+bones/37/rotation = Quaternion(-0.040466797, 0.0014386807, 0.17734183, 0.98331594)
+bones/40/rotation = Quaternion(0.051858924, 0.010047469, 0.008522221, 0.9985676)
+bones/41/rotation = Quaternion(0.1817496, 0.0010623364, 0.00632203, 0.983324)
+bones/44/rotation = Quaternion(0.11133148, 0.008614597, 0.02473744, 0.9934381)
+bones/45/rotation = Quaternion(0.27272332, 0.0014502656, -0.01762201, 0.96193004)
+bones/48/rotation = Quaternion(0.19134721, -0.008221614, 0.06703943, 0.9791958)
+bones/49/rotation = Quaternion(0.32508048, -0.002417776, -0.034260776, 0.9450625)
+bones/53/rotation = Quaternion(0.3929584, -0.014173851, -0.07146359, 0.91666555)
+bones/56/rotation = Quaternion(0.07862554, 0.21680486, 0.9671625, -0.10682026)
+bones/57/rotation = Quaternion(-0.31342936, 0.119463116, -0.04049197, 0.9411967)
+bones/58/rotation = Quaternion(0.5788311, -0.02300738, -0.030975264, 0.81453407)
+bones/59/rotation = Quaternion(0.2478412, -0.018182175, -0.040237993, 0.967794)
+bones/61/rotation = Quaternion(-0.12470714, 0.021979215, 0.98357576, 0.1286228)
+bones/62/rotation = Quaternion(-0.3073751, 0.07569885, -0.018205078, 0.9483981)
+bones/63/rotation = Quaternion(0.68199646, 0.070295855, 0.097965404, 0.72134745)
+
+[node name="BoneAttachment3D" parent="CharacterBody3D/Character/Y Bot/Skeleton3D" index="4" unique_id=101952003]
+transform = Transform3D(0.8740933, -0.021295086, -0.48529097, -0.033523668, 0.99401206, -0.10400021, 0.48459977, 0.10717466, 0.8681455, 0.02526824, 1.2490971, -0.045788474)
+
+[node name="RichTextLabel" parent="CharacterBody3D/Panel" parent_id_path=PackedInt32Array(1445218770, 1747039164) index="0" unique_id=1006582983]
+offset_top = -72.0
+offset_bottom = 0.0
+
+[node name="Sprite3D" parent="CharacterBody3D/HeatMeter" parent_id_path=PackedInt32Array(1445218770, 327134674) index="2" unique_id=1749484257]
+texture = SubResource("ViewportTexture_2akc3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1210683253]
+stream = ExtResource("3_8k7wh")
+autoplay = true
+bus = &"Music"
+
+[node name="Node3D" parent="." unique_id=1163798542 instance=ExtResource("10_201fe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.956025, 0.732021, 0)
+
+[node name="CampFire" parent="." unique_id=821418382 instance=ExtResource("12_hctok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.215029, 0.2706591, 7.6641707)
+
+[node name="PauseMenu" parent="." unique_id=956095709 instance=ExtResource("12_ytmxh")]
+
+[editable path="test_level"]
+[editable path="CharacterBody3D"]
+[editable path="CharacterBody3D/Character"]
+[editable path="Node3D"]
+[editable path="PauseMenu"]

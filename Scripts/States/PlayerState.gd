@@ -1,3 +1,4 @@
+class_name PlayerState
 extends Node
 
 var Idle := PlayerIdleState.new()
@@ -6,13 +7,21 @@ var Run := PlayerRunState.new()
 var Jump := PlayerJumpState.new()
 var RunJump := PlayerRunJumpState.new()
 var Fall := PlayerFallState.new()
+var HangingToFall := PlayerHangingToFallState.new()
 var Land := PlayerLandState.new()
 var CrouchIdle := PlayerCrouchIdleState.new()
-var StandToCrouch := PlayerStandToCrouchState.new()
-var CrouchToStand := PlayerCrouchToStandState.new()
 var CrouchWalk := PlayerCrouchWalkState.new()
 var HangingIdle := PlayerHangingIdleState.new()
+var HangingToJump := PlayerHangingToJumpState.new()
+var JumpBack := PlayerHangingToJumpBackState.new()
+
 var LeftShimmy := PlayerLeftShimmyState.new()
 var RightShimmy := PlayerRightShimmyState.new()
 var ClimbWall := PlayerClimbWallState.new()
 var Aim := PlayerAimState.new()
+var Vault: = PlayerVaultState.new()
+
+var TurnLeftShimmy := PlayerLeftShimmyTurnState.new()
+var TurnRightShimmy := PlayerRightShimmyTurnState.new()
+
+var Die:= PlayerDieState.new()

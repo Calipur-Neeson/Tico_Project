@@ -1,22 +1,36 @@
 class_name PlayerClimbWallState
 extends BasePlayerState
 
-var targetPoint: Vector3
+var hitPoint: Vector3
+
+var obstacleHight: float
+var targetPointA: Vector3
+
+var time: float
 
 func Enter(player: Player) -> void:
-	player.playerAnim.play("NewLib/ClimbWall", player.BLEEND_SPEED)
-	targetPoint = player.global_position
-	targetPoint += -player.global_basis.z * 0.5
-	targetPoint.y += 2
+	time = 0
+	player.assuming_land_cast.enabled = false
+	player.collision_stand.disabled = true
+	
+	player.obstacle_cast.force_raycast_update()
+	hitPoint = player.obstacle_cast.get_collision_point()
+	player.obstacle_cast.enabled = false
+	
+	obstacleHight = hitPoint.y - player.global_position.y
+	
+	targetPointA = player.global_position + Vector3(0, obstacleHight - 1.57, 0)
+	
+	player.animation_tree.set("parameters/movement/transition_request", "climbUp")
 	
 func PreUpdate(player: Player) -> void:
-	if not player.playerAnim.is_playing():
-		player.ChangeStateTo(PlayerState.Idle)
+	if time > 1.15:
+		player.ChangeStateTo(player.playerState.Idle)
 
-func  Update(player: Player, delta: float) -> void:
-	if player.global_position.y < targetPoint.y:
-		player.velocity = Vector3.UP * 3
-		player.move_and_slide()
-	else :
-		player.velocity = -player.global_basis.z * 1
-		player.move_and_slide()
+func Update(player: Player, delta: float) -> void:
+	time += delta 
+	if time < 0.15:
+		player.SmoothLerp(targetPointA, delta * 10)
+	if time > 1:
+		player.collision_stand.disabled = false
+	player.ApplyRootMotion(delta)
