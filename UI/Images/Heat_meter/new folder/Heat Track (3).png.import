@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3gdor3im2wis"
-path="res://.godot/imported/Heat meter Low.png-37d42a1beba690ba04eaa83023922ef3.ctex"
+uid="uid://cj43wndpnuqf8"
+path="res://.godot/imported/Heat Track (3).png-a9a864baefba6eb90f6a58fb715d78c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Images/Heat_meter/Heat meter Low.png"
-dest_files=["res://.godot/imported/Heat meter Low.png-37d42a1beba690ba04eaa83023922ef3.ctex"]
+source_file="res://UI/Images/Heat_meter/new folder/Heat Track (3).png"
+dest_files=["res://.godot/imported/Heat Track (3).png-a9a864baefba6eb90f6a58fb715d78c5.ctex"]
 
 [params]
 

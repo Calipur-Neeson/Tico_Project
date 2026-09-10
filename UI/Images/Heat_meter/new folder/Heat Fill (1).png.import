@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3eh1djbbfm5n"
-path="res://.godot/imported/Heat meter full.png-8aaf3e31bc8af95eff5476d5bff172fd.ctex"
+uid="uid://chvm47aa63b1t"
+path="res://.godot/imported/Heat Fill (1).png-71ced1fc416f88241f7a0825e3e28633.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Images/Heat_meter/Heat meter full.png"
-dest_files=["res://.godot/imported/Heat meter full.png-8aaf3e31bc8af95eff5476d5bff172fd.ctex"]
+source_file="res://UI/Images/Heat_meter/new folder/Heat Fill (1).png"
+dest_files=["res://.godot/imported/Heat Fill (1).png-71ced1fc416f88241f7a0825e3e28633.ctex"]
 
 [params]
 

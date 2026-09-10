@@ -1,28 +1,40 @@
 extends Control
 
-@export var full_texture: Texture2D
-@export var normal_texture: Texture2D
-@export var low_texture: Texture2D
-@export var critical_texture: Texture2D
+@onready var active: TextureProgressBar = $Active
 
-@onready var meter: TextureRect = $TextureRect
+@export var max_heat: float = 100.0
+@export var transition_speed: float = 10.0
+
+var current_heat: float = 100.0
+var target_heat: float = 100.0
 
 
 func _ready() -> void:
-	set_heat(100)
+	active.min_value = 0.0
+	active.max_value = max_heat
+	active.value = current_heat
+
+	# Temporary test
+	set_heat(10.0)
+
+
+func _process(delta: float) -> void:
+	current_heat = move_toward(
+		current_heat,
+		target_heat,
+		transition_speed * delta
+	)
+
+	active.value = current_heat
 
 
 func set_heat(value: float) -> void:
-	value = clamp(value, 0.0, 100.0)
+	target_heat = clamp(value, 0.0, max_heat)
 
-	if value >= 75:
-		meter.texture = full_texture
 
-	elif value >= 40:
-		meter.texture = normal_texture
+func remove_heat(amount: float) -> void:
+	set_heat(target_heat - amount)
 
-	elif value >= 20:
-		meter.texture = low_texture
 
-	else:
-		meter.texture = critical_texture
+func add_heat(amount: float) -> void:
+	set_heat(target_heat + amount)
