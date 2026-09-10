@@ -9,6 +9,9 @@ var time: float
 var inversedInput: Vector3
 
 func Enter(player: Player) -> void:
+	player.collision_stand.disabled = true
+	player.collision_upper.disabled = false
+	
 	player.assuming_land_cast.enabled = false
 	
 	player.obstacle_cast.force_raycast_update()
@@ -87,3 +90,4 @@ func Exit(player: Player) -> void:
 	player.right_ik.influence = 0
 	player.climb_normal_cast.enabled = false
 	player.climb_up_cast.enabled = false
+	

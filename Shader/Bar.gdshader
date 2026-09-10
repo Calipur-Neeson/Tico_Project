@@ -1,6 +1,6 @@
 shader_type spatial;
 
-uniform float percent = 5.5;
+uniform float percent = 3.3;
 
 void fragment() {
     if (UV.x > percent) 
