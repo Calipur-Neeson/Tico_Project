@@ -21,7 +21,6 @@ texture = ExtResource("1_uahxu")
 stretch_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="TextureRect" unique_id=1132114971]
-visible = false
 layout_mode = 0
 offset_left = -1.0
 offset_top = -6.0
@@ -215,3 +214,12 @@ layout_mode = 0
 offset_left = 297.0
 offset_right = 497.0
 offset_bottom = 50.0
+
+[node name="Back" type="Button" parent="HBoxContainer" unique_id=34295168]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Back
+
+"
+alignment = 0
+icon_alignment = 1

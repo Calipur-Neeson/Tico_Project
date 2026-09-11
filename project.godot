@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="PlayerTest"
+run/main_scene="uid://b8v205x84e1gt"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -27,6 +28,7 @@ QuickSave="*uid://bg1ylmajd8c7s"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
