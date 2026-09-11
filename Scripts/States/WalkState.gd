@@ -1,6 +1,8 @@
 class_name PlayerWalkState
 extends BasePlayerState
 
+func Enter(player: Player) -> void:
+	player.SetCrouch(false)
 
 func PreUpdate(player: Player) -> void:
 	var currentSpeed = player.GetCurrentSpeed()
@@ -31,6 +33,10 @@ func PreUpdate(player: Player) -> void:
 				player.ChangeStateTo(player.playerState.HangingIdle)
 		else:
 			player.ChangeStateTo(player.playerState.Jump)
+	elif Input.is_action_just_pressed("Crouch") and player.is_on_floor():
+		player.ChangeStateTo(player.playerState.CrouchWalk)
+
+
 
 func Update(player: Player, delta: float) -> void:
 	var direction := player.GetMoveInput()

@@ -13,6 +13,7 @@ config_version=5
 config/name="PlayerTest"
 run/main_scene="uid://b8v205x84e1gt"
 config/features=PackedStringArray("4.7", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [audio]
@@ -25,6 +26,7 @@ Global="*uid://beofbwovp5pw"
 SceneLoader="*uid://oerrnvv5tj6d"
 GameManager="*uid://exipo0k1y7mv"
 QuickSave="*uid://bg1ylmajd8c7s"
+SoundEmitter="*uid://60chxcylqm7c"
 
 [display]
 
@@ -146,6 +148,7 @@ Escape={
 3d_physics/layer_5="Player"
 3d_physics/layer_6="Interactable"
 3d_physics/layer_7="Wall"
+3d_physics/layer_8="Enemy"
 
 [physics]
 
