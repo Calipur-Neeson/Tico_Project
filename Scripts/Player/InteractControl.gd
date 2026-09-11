@@ -27,6 +27,7 @@ func _physics_process(delta: float) -> void:
 	currentObject = newObject
 	currentObject.InteractEnter()
 	panel.show()
+	interactText.text = currentObject.text
 	
 	
 
