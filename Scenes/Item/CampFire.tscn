@@ -3,14 +3,9 @@
 [ext_resource type="Script" uid="uid://cun5lhha2hh1a" path="res://Scripts/Interactable/camp_fire.gd" id="1_n0jt5"]
 [ext_resource type="Material" uid="uid://bf8220torvm0p" path="res://Shader/outline_shader_material.tres" id="2_dpdl8"]
 
-[sub_resource type="Curve" id="Curve_1n7pi"]
-_data = [Vector2(0, 0.1140939), 0.0, 0.0, 0, 0, Vector2(0.21666667, 0.5973154), 0.0, 0.0, 0, 0, Vector2(0.75666666, 0.2751677), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_pohj0"]
-radius = 0.3
-section_length = 0.1
-curve = SubResource("Curve_1n7pi")
+[sub_resource type="TorusMesh" id="TorusMesh_5m34c"]
+inner_radius = 0.118
+outer_radius = 0.791
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpdl8"]
 albedo_color = Color(0.9852986, 0.2446771, 0.4276237, 1)
@@ -20,7 +15,7 @@ height = 0.5
 radius = 0.3
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_61ot5"]
-radius = 1.5
+radius = 2.0
 
 [node name="CampFire" type="StaticBody3D" unique_id=716624488]
 collision_layer = 32
@@ -29,7 +24,7 @@ healSpeed = 20.0
 outLine = ExtResource("2_dpdl8")
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1514432527]
-mesh = SubResource("TubeTrailMesh_pohj0")
+mesh = SubResource("TorusMesh_5m34c")
 surface_material_override/0 = SubResource("StandardMaterial3D_dpdl8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=430834520]

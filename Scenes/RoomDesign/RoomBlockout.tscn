@@ -4,6 +4,10 @@
 [ext_resource type="Material" uid="uid://dy1hugn7e18nk" path="res://Materials/FloorMaterialPH.tres" id="1_bxeee"]
 [ext_resource type="Material" uid="uid://513nk442wjh" path="res://Materials/IceWallPH.tres" id="1_mweve"]
 [ext_resource type="Material" uid="uid://c3b8ups23qoht" path="res://Materials/WallMaterialPH.tres" id="1_wk7lk"]
+[ext_resource type="PackedScene" uid="uid://dp75xgh0s65xx" path="res://Scenes/Item/CampFire.tscn" id="3_6xo33"]
+[ext_resource type="Script" uid="uid://6w4tnfc7tgel" path="res://Scripts/Audio/GroundSound.gd" id="3_aw2j1"]
+[ext_resource type="AudioStream" uid="uid://cvc5wu4f7vbky" path="res://Audios/Stone_Footstep_stream_randomizer.tres" id="4_5m34c"]
+[ext_resource type="PackedScene" uid="uid://d32l602i2xtte" path="res://Scenes/UI/pause_menu.tscn" id="5_r10c5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_57ebb"]
 sky_top_color = Color(0.4263404, 0.7202341, 0.9959741, 1)
@@ -197,6 +201,8 @@ material_override = ExtResource("1_bxeee")
 use_collision = true
 collision_layer = 4
 size = Vector3(22, 1, 16)
+script = ExtResource("3_aw2j1")
+footstep_sound = ExtResource("4_5m34c")
 
 [node name="FFFloor" type="CSGBox3D" parent="BasicBlockout/FirstFloor" unique_id=524866149]
 physics_interpolation_mode = 1
@@ -205,6 +211,8 @@ material_override = ExtResource("1_bxeee")
 use_collision = true
 collision_layer = 4
 size = Vector3(70, 1, 60)
+script = ExtResource("3_aw2j1")
+footstep_sound = ExtResource("4_5m34c")
 
 [node name="FFFloor3" type="CSGBox3D" parent="BasicBlockout/FirstFloor/FFFloor" unique_id=7455929]
 physics_interpolation_mode = 1
@@ -392,26 +400,19 @@ use_collision = true
 collision_layer = 7
 size = Vector3(2.4042969, 8.074631, 2)
 
-[node name="Campfire" type="CSGTorus3D" parent="BasicBlockout/FirstFloor" unique_id=187690638]
-transform = Transform3D(1, 0, 0, 0, 1.7115937, 0, 0, 0, 1, -5.8217416, 0.43418813, -30.642788)
-inner_radius = 0.108465895
+[node name="CampFire" parent="BasicBlockout/FirstFloor" unique_id=716624488 instance=ExtResource("3_6xo33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.570526, 0.3123169, -30.796509)
 
-[node name="Campfire4" type="CSGTorus3D" parent="BasicBlockout/FirstFloor" unique_id=1117296735]
-transform = Transform3D(1, 0, 0, 0, 1.7115937, 0, 0, 0, 1, -30.341934, 0.43418455, 17.29663)
-inner_radius = 0.108465895
+[node name="CampFire2" parent="BasicBlockout/FirstFloor" unique_id=1821997676 instance=ExtResource("3_6xo33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0913696, 0.3123169, 8.366028)
 
-[node name="Campfire3" type="CSGTorus3D" parent="BasicBlockout/FirstFloor" unique_id=595434007]
-transform = Transform3D(1, 0, 0, 0, 1.7115937, 0, 0, 0, 1, -2.0001254, 0.43418813, 8.327024)
-inner_radius = 0.108465895
+[node name="CampFire3" parent="BasicBlockout/FirstFloor" unique_id=1729058368 instance=ExtResource("3_6xo33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.320122, 0.3123169, 17.353699)
 
 [node name="SecondFloor" type="Node3D" parent="BasicBlockout" unique_id=1489948982]
 
 [node name="SFSideRoom" type="Node3D" parent="BasicBlockout/SecondFloor" unique_id=2101173982]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.845, 6.5, 2.042)
-
-[node name="Campfire3" type="CSGTorus3D" parent="BasicBlockout/SecondFloor/SFSideRoom" unique_id=1375843905]
-transform = Transform3D(1, 0, 0, 0, 1.7115935, 0, 0, 0, 0.9999998, 1.6693115, 1.0123596, 2.8786142)
-inner_radius = 0.108465895
 
 [node name="SFSRFloor" type="CSGBox3D" parent="BasicBlockout/SecondFloor/SFSideRoom" unique_id=431150571]
 physics_interpolation_mode = 1
@@ -421,6 +422,8 @@ material_override = ExtResource("1_bxeee")
 use_collision = true
 collision_layer = 4
 size = Vector3(5.748, 0.4, 8.11)
+script = ExtResource("3_aw2j1")
+footstep_sound = ExtResource("4_5m34c")
 
 [node name="SFSRWall" type="CSGBox3D" parent="BasicBlockout/SecondFloor/SFSideRoom" unique_id=411515443]
 transform = Transform3D(0.12235533, 0, 0, 0, 1, 0, 0, 0, 0.95264757, 3.7722664, 3.1089773, 2.3075688)
@@ -430,12 +433,17 @@ use_collision = true
 collision_layer = 7
 size = Vector3(1, 6, 8.065514)
 
+[node name="CampFire4" parent="BasicBlockout/SecondFloor/SFSideRoom" unique_id=518286761 instance=ExtResource("3_6xo33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6379623, 0.60198975, 2.849159)
+
 [node name="SFFloor" type="CSGBox3D" parent="BasicBlockout/SecondFloor" unique_id=1959064075]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.035156, 6.5, 10.934745)
 material_override = ExtResource("1_bxeee")
 use_collision = true
 collision_layer = 6
 size = Vector3(27.929688, 0.4, 27.238096)
+script = ExtResource("3_aw2j1")
+footstep_sound = ExtResource("4_5m34c")
 
 [node name="SFFloor5" type="CSGBox3D" parent="BasicBlockout/SecondFloor/SFFloor" unique_id=1972937811]
 transform = Transform3D(0.17754538, 0, -0.2000474, 0, 2.861107, 0, 0.16484322, 0, 0.2154623, -11.193913, -1.9073486e-06, 3.014782)
@@ -444,6 +452,8 @@ operation = 2
 use_collision = true
 collision_layer = 6
 size = Vector3(108.575195, 0.4, 66.91453)
+script = ExtResource("3_aw2j1")
+footstep_sound = ExtResource("4_5m34c")
 
 [node name="SFFloor3" type="CSGBox3D" parent="BasicBlockout/SecondFloor" unique_id=1444835927]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.510742, 6.5, 29.205296)
@@ -451,6 +461,8 @@ material_override = ExtResource("1_bxeee")
 use_collision = true
 collision_layer = 6
 size = Vector3(12.978516, 0.4, 9.589409)
+script = ExtResource("3_aw2j1")
+footstep_sound = ExtResource("4_5m34c")
 
 [node name="SFFloor2" type="CSGBox3D" parent="BasicBlockout/SecondFloor" unique_id=582341335]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.629456, 6.5, 15.805023)
@@ -458,6 +470,8 @@ material_override = ExtResource("1_bxeee")
 use_collision = true
 collision_layer = 6
 size = Vector3(26.538452, 0.4, 36.389954)
+script = ExtResource("3_aw2j1")
+footstep_sound = ExtResource("4_5m34c")
 
 [node name="SFFloor5" type="CSGBox3D" parent="BasicBlockout/SecondFloor/SFFloor2" unique_id=1761389093]
 transform = Transform3D(0.49426317, 0, 0, 0, 3.0834932, 0, 0, 0, 0.6462492, 7.2184534, 0, 1.4069424)
@@ -466,6 +480,8 @@ operation = 2
 use_collision = true
 collision_layer = 6
 size = Vector3(26.538452, 0.4, 16.609695)
+script = ExtResource("3_aw2j1")
+footstep_sound = ExtResource("4_5m34c")
 
 [node name="SFFloor4" type="CSGBox3D" parent="BasicBlockout/SecondFloor" unique_id=1156909746]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23410034, 6.5, -13.103985)
@@ -473,6 +489,8 @@ material_override = ExtResource("1_bxeee")
 use_collision = true
 collision_layer = 6
 size = Vector3(68.4682, 0.4, 21.885048)
+script = ExtResource("3_aw2j1")
+footstep_sound = ExtResource("4_5m34c")
 
 [node name="ThirdFloor" type="Node3D" parent="BasicBlockout" unique_id=1843291539]
 
@@ -512,6 +530,8 @@ material_override = ExtResource("1_bxeee")
 use_collision = true
 collision_layer = 6
 size = Vector3(47.471462, 0.4, 34.23799)
+script = ExtResource("3_aw2j1")
+footstep_sound = ExtResource("4_5m34c")
 
 [node name="TFFloor4" type="CSGBox3D" parent="BasicBlockout/ThirdFloor" unique_id=757408144]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.231611, 11.5, -3.856699)
@@ -519,6 +539,8 @@ material_override = ExtResource("1_bxeee")
 use_collision = true
 collision_layer = 6
 size = Vector3(21.52084, 0.4, 40.26634)
+script = ExtResource("3_aw2j1")
+footstep_sound = ExtResource("4_5m34c")
 
 [node name="TFFloor5" type="CSGBox3D" parent="BasicBlockout/ThirdFloor" unique_id=1657938837]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.416777, 11.5, 24.383184)
@@ -526,6 +548,8 @@ material_override = ExtResource("1_bxeee")
 use_collision = true
 collision_layer = 6
 size = Vector3(1.5753589, 0.4, 19.703398)
+script = ExtResource("3_aw2j1")
+footstep_sound = ExtResource("4_5m34c")
 
 [node name="CentralStructure" type="Node3D" parent="BasicBlockout" unique_id=1922913134]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5687933, 0.5316143, 14.421667)
@@ -574,4 +598,6 @@ light_energy = 1.317
 environment = SubResource("Environment_mweve")
 
 [node name="CharacterBody3D" parent="." unique_id=1445218770 instance=ExtResource("1_57ebb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5249467, 14.253174, -19.486145)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.25648642, 0.29309082, -39.29767)
+
+[node name="PauseMenu" parent="." unique_id=956095709 instance=ExtResource("5_r10c5")]
