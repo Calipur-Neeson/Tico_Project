@@ -33,6 +33,15 @@ use_collision = true
 collision_layer = 64
 size = Vector3(1, 16, 60)
 
+[node name="SFIceHole" type="CSGBox3D" parent="BasicBlockout/Walls/Wallx-" unique_id=104220720]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.016967773, 1.6949921, -0.9612198)
+material_override = ExtResource("1_wk7lk")
+operation = 2
+use_collision = true
+collision_layer = 64
+size = Vector3(1.2854004, 5.8962708, 7.2740326)
+
 [node name="Wallx-2" type="CSGBox3D" parent="BasicBlockout/Walls" unique_id=299244331]
 physics_interpolation_mode = 1
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20, 3.2640991, -24.5)
@@ -388,11 +397,11 @@ transform = Transform3D(1, 0, 0, 0, 1.7115937, 0, 0, 0, 1, -5.8217416, 0.4341881
 inner_radius = 0.108465895
 
 [node name="Campfire4" type="CSGTorus3D" parent="BasicBlockout/FirstFloor" unique_id=1117296735]
-transform = Transform3D(1, 0, 0, 0, 1.7115937, 0, 0, 0, 1, -31.089058, 0.4341843, 8.684229)
+transform = Transform3D(1, 0, 0, 0, 1.7115937, 0, 0, 0, 1, -30.341934, 0.43418455, 17.29663)
 inner_radius = 0.108465895
 
 [node name="Campfire3" type="CSGTorus3D" parent="BasicBlockout/FirstFloor" unique_id=595434007]
-transform = Transform3D(1, 0, 0, 0, 1.7115937, 0, 0, 0, 1, -0.3971672, 0.43418813, -1.1883259)
+transform = Transform3D(1, 0, 0, 0, 1.7115937, 0, 0, 0, 1, -2.0001254, 0.43418813, 8.327024)
 inner_radius = 0.108465895
 
 [node name="SecondFloor" type="Node3D" parent="BasicBlockout" unique_id=1489948982]
@@ -466,11 +475,10 @@ collision_layer = 6
 size = Vector3(68.4682, 0.4, 21.885048)
 
 [node name="ThirdFloor" type="Node3D" parent="BasicBlockout" unique_id=1843291539]
-visible = false
 
 [node name="Celing" type="CSGBox3D" parent="BasicBlockout/ThirdFloor" unique_id=936721241]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.127365, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.388525, 5)
 use_collision = true
 collision_layer = 7
 size = Vector3(70, 1, 60)
@@ -499,18 +507,25 @@ spot_range = 10.060344
 spot_angle = 25.70133
 
 [node name="TFFloor" type="CSGBox3D" parent="BasicBlockout/ThirdFloor" unique_id=500871963]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.251993, 11.5, -17.348969)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.251993, 11.5, -6.8708725)
 material_override = ExtResource("1_bxeee")
 use_collision = true
 collision_layer = 6
-size = Vector3(47.471462, 0.4, 13.281799)
+size = Vector3(47.471462, 0.4, 34.23799)
 
 [node name="TFFloor4" type="CSGBox3D" parent="BasicBlockout/ThirdFloor" unique_id=757408144]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.231611, 11.5, -12.79203)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.231611, 11.5, -3.856699)
 material_override = ExtResource("1_bxeee")
 use_collision = true
 collision_layer = 6
-size = Vector3(21.52084, 0.4, 22.395676)
+size = Vector3(21.52084, 0.4, 40.26634)
+
+[node name="TFFloor5" type="CSGBox3D" parent="BasicBlockout/ThirdFloor" unique_id=1657938837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.416777, 11.5, 24.383184)
+material_override = ExtResource("1_bxeee")
+use_collision = true
+collision_layer = 6
+size = Vector3(1.5753589, 0.4, 19.703398)
 
 [node name="CentralStructure" type="Node3D" parent="BasicBlockout" unique_id=1922913134]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5687933, 0.5316143, 14.421667)
@@ -559,4 +574,4 @@ light_energy = 1.317
 environment = SubResource("Environment_mweve")
 
 [node name="CharacterBody3D" parent="." unique_id=1445218770 instance=ExtResource("1_57ebb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5249467, 0.9167414, -39.14882)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5249467, 14.253174, -19.486145)
