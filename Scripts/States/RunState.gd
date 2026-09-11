@@ -34,6 +34,9 @@ func PreUpdate(player: Player) -> void:
 			player.jumpSpeed = player.velocity.length()
 			player.velocity.y = player.jumpVelocity
 			player.ChangeStateTo(player.playerState.RunJump)
+			
+	elif Input.is_action_just_pressed("Crouch") and player.is_on_floor():
+		player.ChangeStateTo(player.playerState.CrouchWalk)
 	
 func Update(player: Player, delta: float) -> void:
 	var direction := player.GetMoveInput()

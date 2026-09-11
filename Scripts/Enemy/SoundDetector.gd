@@ -19,8 +19,9 @@ func OnSoundDetected(source: Vector3, volume: float) -> void:
 
 	var result = space_state.intersect_ray(query)
 	
-	if CaculateVolum(volume, distance, !result.is_empty()) > alarmVolum:
+	if CaculateVolum(volume, distance, !result.is_empty()) > alarmVolum and enemy.state != EnemyChaseState:
 		enemy.targetPositon = source
+		enemy.navigation_agent_3d.target_position = source
 		enemy.ChangeStateTo(enemy.enemyState.Alarm)
 	#print(result.is_empty())
 	#print("enemy", global_position)
@@ -28,7 +29,7 @@ func OnSoundDetected(source: Vector3, volume: float) -> void:
 	
 func CaculateVolum(sourceVolum: float, dis: float, isBlock: bool) -> float:
 	if isBlock:
-		sourceVolum -= 2
+		sourceVolum *= 0.5
 	
 	var heardVolum: float = sourceVolum - (sourceVolum / detecteRange) * dis
 	return heardVolum
