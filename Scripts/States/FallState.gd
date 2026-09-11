@@ -19,7 +19,9 @@ func PreUpdate(player: Player) -> void:
 			
 		if obstacleHight >= player.maxVaultHeight:
 			player.ChangeStateTo(player.playerState.HangingIdle)
-		
+	
+	if player.velocity.y < -30:
+		player.ChangeStateTo(player.playerState.Die)
 
 func Update(player: Player, delta: float) -> void:
 	var direction := player.GetMoveInput()
