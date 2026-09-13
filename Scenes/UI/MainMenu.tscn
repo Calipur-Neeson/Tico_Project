@@ -52,6 +52,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MainMenu" type="PanelContainer" parent="CanvasLayer" unique_id=503452495]
+visible = false
 offset_left = 20.0
 offset_top = 200.0
 offset_right = 437.0
@@ -154,10 +155,8 @@ icon_alignment = 1
 
 [node name="Audio Panel" type="PanelContainer" parent="CanvasLayer" unique_id=867519199]
 visible = false
-offset_left = 20.0
-offset_top = 200.0
-offset_right = 437.0
-offset_bottom = 726.0
+offset_right = 417.0
+offset_bottom = 310.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Audio Panel" unique_id=1320259357]
 layout_mode = 2
@@ -228,13 +227,12 @@ icon_alignment = 1
 
 [node name="DisplayPanel" type="PanelContainer" parent="CanvasLayer" unique_id=57407474]
 visible = false
-offset_left = 20.0
-offset_top = 200.0
-offset_right = 599.0
-offset_bottom = 639.0
+offset_right = 686.0
+offset_bottom = 461.0
 size_flags_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/DisplayPanel" unique_id=1983474843]
+custom_minimum_size = Vector2(417, 310)
 layout_mode = 2
 theme_override_constants/separation = 22
 
@@ -269,9 +267,27 @@ theme_override_font_sizes/font_size = 36
 text = "Full Screen"
 script = ExtResource("4_t6w0q")
 
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/DisplayPanel/VBoxContainer" unique_id=1177142904]
+layout_mode = 2
+
+[node name="Brightness" type="Label" parent="CanvasLayer/DisplayPanel/VBoxContainer/HBoxContainer" unique_id=1258566319]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Brightness"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/DisplayPanel/VBoxContainer/HBoxContainer" unique_id=1169363130]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+min_value = 0.5
+max_value = 1.5
+step = 0.05
+value = 1.0
+
 [node name="Back" type="Button" parent="CanvasLayer/DisplayPanel/VBoxContainer" unique_id=399698367]
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_constants/h_separation = 4
 theme_override_font_sizes/font_size = 38
 theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
 theme_override_styles/focus = ExtResource("3_t6w0q")
@@ -291,4 +307,5 @@ icon_alignment = 1
 [connection signal="pressed" from="CanvasLayer/Audio Panel/HBoxContainer/VBoxContainer/Label/Back" to="." method="_on_back_audio_pressed"]
 [connection signal="item_selected" from="CanvasLayer/DisplayPanel/VBoxContainer/Resolution/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="toggled" from="CanvasLayer/DisplayPanel/VBoxContainer/FullScreen_Controller" to="." method="_on_full_screen_controller_toggled"]
+[connection signal="value_changed" from="CanvasLayer/DisplayPanel/VBoxContainer/HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="CanvasLayer/DisplayPanel/VBoxContainer/Back" to="." method="_on_back_Display_pressed"]

@@ -7,6 +7,7 @@ extends Control
 @onready var option_menu: Control = $CanvasLayer/OptionMenu
 @onready var audio_panel: Control = $"CanvasLayer/Audio Panel"
 @onready var Display_panel: Control = $CanvasLayer/DisplayPanel
+@onready var brightness_slider: HSlider = $CanvasLayer/DisplayPanel/VBoxContainer/HBoxContainer/HSlider
 
 @onready var resolution_option: OptionButton = $CanvasLayer/DisplayPanel/VBoxContainer/Resolution/OptionButton
 
@@ -83,15 +84,16 @@ func _on_back_audio_pressed() -> void:
 	audio_panel.hide()
 	option_menu.show()
 
-
 func _on_back_Display_pressed() -> void:
 	main_menu.hide()
 	Display_panel.hide()
 	option_menu.show()
-	
 	
 func _on_option_button_item_selected(index: int) -> void:
 	match index:
 		0: get_window().size = Vector2i(1920, 1080)
 		1: get_window().size = Vector2i(1600, 900)
 		2: get_window().size = Vector2i(1280, 720)
+
+func _on_h_slider_value_changed(value: float) -> void:
+	print("Brightness: ", value)

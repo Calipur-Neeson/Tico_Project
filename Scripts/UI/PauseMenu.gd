@@ -5,6 +5,9 @@ var isPaused: bool = false
 @onready var panel: Panel = $Panel
 @onready var resume_button: Button = $Panel/PanelContainer/VBoxContainer/ResumeButton
 
+@onready var save_game_popup: Control = $Panel/SaveGame_popup
+@onready var game_saved: Label = $"Panel/Game Saved"
+
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Escape"):
@@ -44,3 +47,20 @@ func _on_restart_button_pressed() -> void:
 func _on_menu_button_pressed() -> void:
 	Resume()
 	SceneLoader.LoadScene(SceneLoader.mainMenuScene)
+
+
+func _on_save_game_pressed() -> void:
+	save_game_popup.show()
+	
+
+
+func _on_save_pressed() -> void:
+	print("Game Saved")
+	save_game_popup.hide()
+	game_saved.show()
+	await get_tree().create_timer(0.5).timeout
+	game_saved.hide()
+	
+	
+func _on_cancel_pressed() -> void:
+	save_game_popup.hide()
