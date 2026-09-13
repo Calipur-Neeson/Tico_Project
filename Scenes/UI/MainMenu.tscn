@@ -14,6 +14,10 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8c6r"]
 bg_color = Color(0.800896, 0.174268, 0.8034692, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t6w0q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k8um8"]
+
 [node name="Main Menu" type="Control" unique_id=646235655]
 layout_mode = 3
 anchors_preset = 0
@@ -52,7 +56,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MainMenu" type="PanelContainer" parent="CanvasLayer" unique_id=503452495]
-visible = false
 offset_left = 20.0
 offset_top = 200.0
 offset_right = 437.0
@@ -103,9 +106,9 @@ icon_alignment = 1
 [node name="OptionMenu" type="PanelContainer" parent="CanvasLayer" unique_id=488025099]
 visible = false
 offset_left = 20.0
-offset_top = 200.0
+offset_top = 101.0
 offset_right = 437.0
-offset_bottom = 687.0005
+offset_bottom = 512.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_61ot5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/OptionMenu" unique_id=812412530]
@@ -155,15 +158,20 @@ icon_alignment = 1
 
 [node name="Audio Panel" type="PanelContainer" parent="CanvasLayer" unique_id=867519199]
 visible = false
-offset_right = 417.0
-offset_bottom = 310.0
+offset_left = 17.0
+offset_top = 119.0
+offset_right = 543.0
+offset_bottom = 541.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_t6w0q")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Audio Panel" unique_id=1320259357]
 layout_mode = 2
+theme_override_constants/separation = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Audio Panel/HBoxContainer" unique_id=127688173]
 custom_minimum_size = Vector2(417, 310)
 layout_mode = 2
+theme_override_constants/separation = 4
 
 [node name="Label" type="Label" parent="CanvasLayer/Audio Panel/HBoxContainer/VBoxContainer" unique_id=535529794]
 layout_mode = 2
@@ -173,9 +181,10 @@ text = "Audio"
 
 [node name="Master volume" type="TextEdit" parent="CanvasLayer/Audio Panel/HBoxContainer/VBoxContainer/Label" unique_id=2088890738]
 layout_mode = 0
-offset_top = 83.0
-offset_right = 417.0
-offset_bottom = 144.0
+offset_left = 1.0
+offset_top = 80.0
+offset_right = 418.0
+offset_bottom = 141.0
 theme_override_font_sizes/font_size = 38
 text = "Master Volume"
 
@@ -187,9 +196,10 @@ offset_bottom = 61.0
 
 [node name="Music Volume" type="TextEdit" parent="CanvasLayer/Audio Panel/HBoxContainer/VBoxContainer/Label/Master volume" unique_id=140600018]
 layout_mode = 0
-offset_top = 97.0
-offset_right = 417.0
-offset_bottom = 158.0
+offset_left = 3.0
+offset_top = 83.0
+offset_right = 420.0
+offset_bottom = 144.0
 theme_override_font_sizes/font_size = 38
 text = "Music Volume"
 
@@ -201,9 +211,10 @@ offset_bottom = 61.0
 
 [node name="Sfx volume" type="TextEdit" parent="CanvasLayer/Audio Panel/HBoxContainer/VBoxContainer/Label" unique_id=455889665]
 layout_mode = 0
-offset_top = 275.0
-offset_right = 417.0
-offset_bottom = 336.0
+offset_left = 2.0
+offset_top = 247.0
+offset_right = 419.0
+offset_bottom = 308.0
 theme_override_font_sizes/font_size = 38
 text = "Sfx Volume"
 
@@ -215,9 +226,10 @@ offset_bottom = 61.0
 
 [node name="Back" type="Button" parent="CanvasLayer/Audio Panel/HBoxContainer/VBoxContainer/Label" unique_id=331238707]
 layout_mode = 0
-offset_top = 371.0
-offset_right = 417.0
-offset_bottom = 432.0
+offset_left = 3.0
+offset_top = 330.0
+offset_right = 420.0
+offset_bottom = 391.0
 theme_override_font_sizes/font_size = 38
 text = "Back
 
@@ -227,9 +239,12 @@ icon_alignment = 1
 
 [node name="DisplayPanel" type="PanelContainer" parent="CanvasLayer" unique_id=57407474]
 visible = false
-offset_right = 686.0
-offset_bottom = 461.0
+offset_left = 16.0
+offset_top = 111.0
+offset_right = 636.0
+offset_bottom = 509.0
 size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_k8um8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/DisplayPanel" unique_id=1983474843]
 custom_minimum_size = Vector2(417, 310)
