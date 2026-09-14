@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dvu3scmbv78mv"]
+
+[node name="FirstFloor" type="Node3D" unique_id=1773706448]
+
+[node name="FFGround" type="CSGBox3D" parent="." unique_id=574029171]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+size = Vector3(50, 0.2, 70)
+
+[node name="EntranceGround" type="CSGBox3D" parent="." unique_id=200645029]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.861908, -0.1, 0.13183594)
+size = Vector3(11.919739, 0.2, 8.1484375)
+
+[node name="FirstFloorWalls" type="Node3D" parent="." unique_id=860913941]
+
+[node name="WallZ+" type="CSGBox3D" parent="FirstFloorWalls" unique_id=1710467777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 35.5)
+size = Vector3(50, 6, 1)
+
+[node name="WallZ-" type="CSGBox3D" parent="FirstFloorWalls" unique_id=789507722]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -35.5)
+size = Vector3(50, 6, 1)
+
+[node name="WallX+" type="CSGBox3D" parent="FirstFloorWalls" unique_id=827255485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 3, -19.482971)
+size = Vector3(1, 6, 31.034058)
+
+[node name="WallX+3" type="CSGBox3D" parent="FirstFloorWalls" unique_id=2052779156]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 5, 0)
+size = Vector3(1, 2, 8)
+
+[node name="WallX+2" type="CSGBox3D" parent="FirstFloorWalls" unique_id=98891834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 3, 19.47876)
+size = Vector3(1, 6, 31.04248)
+
+[node name="WallX-" type="CSGBox3D" parent="FirstFloorWalls" unique_id=1896326282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5, 3, 0)
+size = Vector3(1, 6, 70)
