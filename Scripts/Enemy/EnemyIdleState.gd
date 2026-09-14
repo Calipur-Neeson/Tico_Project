@@ -9,5 +9,6 @@ func PreUpdate(enemy: Enemy) -> void:
 		for i: int in enemy.playerCast.get_collision_count():
 			var col = enemy.playerCast.get_collider(i)
 			if col is Player:
-				enemy.targetPositon = col.global_position
-				enemy.ChangeStateTo(enemy.enemyState.Chase)
+				if not enemy.ifThereIsWall(col.global_position):
+					enemy.targetPositon = col.global_position
+					enemy.ChangeStateTo(enemy.enemyState.Chase)
