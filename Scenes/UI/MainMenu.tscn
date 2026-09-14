@@ -2,11 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bgym4b4lgs5v1" path="res://Scripts/UI/MainMenu.gd" id="1_tt5f1"]
 [ext_resource type="Theme" uid="uid://28nmkntaehx4" path="res://Materials/main_theme.tres" id="2_72sra"]
+[ext_resource type="Texture2D" uid="uid://dox23y7048n3w" path="res://Image/Screenshot 2026-09-14 113830.png" id="2_k8um8"]
 [ext_resource type="StyleBox" uid="uid://bdxcgfioonlsf" path="res://Materials/button_focus_mat.tres" id="3_t6w0q"]
 [ext_resource type="Script" uid="uid://bcwbliscn8l86" path="res://Scripts/UI/full_screen_control.gd" id="4_t6w0q"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g18y6"]
-load_path = "res://.godot/imported/test_level_snow.png-7650d8900d336ebdeec0b778f0858ef1.s3tc.ctex"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61ot5"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -30,9 +28,14 @@ layer = 5
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("CompressedTexture2D_g18y6")
+texture = ExtResource("2_k8um8")
+expand_mode = 1
 stretch_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureRect" unique_id=1397865521]
@@ -44,33 +47,34 @@ offset_right = 1151.0
 offset_bottom = 646.0
 color = Color(1, 1, 1, 0.19607843)
 
-[node name="Game Name" type="Label" parent="CanvasLayer" unique_id=1561963849]
-offset_left = -50.0
-offset_top = 38.0
-offset_right = 607.13635
-offset_bottom = 196.0
-theme_override_colors/font_color = Color(0.35906908, 0.35906908, 0.35906908, 1)
-theme_override_font_sizes/font_size = 64
-text = "CRY () STILL"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="MainMenu" type="PanelContainer" parent="CanvasLayer" unique_id=503452495]
-offset_left = 20.0
-offset_top = 200.0
-offset_right = 437.0
-offset_bottom = 687.0005
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -398.0
+offset_right = 520.0
+offset_bottom = 2.0
+grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_61ot5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu" unique_id=448076653]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_constants/separation = 22
+theme_override_constants/separation = 2
+
+[node name="Game Name" type="Label" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1561963849]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 52
+text = "CRY () STILL"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="NewGame" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1028111757]
 layout_mode = 2
 theme = ExtResource("2_72sra")
-theme_override_font_sizes/font_size = 38
+theme_override_font_sizes/font_size = 26
 theme_override_styles/focus = ExtResource("3_t6w0q")
 text = "New Game"
 alignment = 0
@@ -78,7 +82,7 @@ icon_alignment = 1
 
 [node name="LoadGame" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1436467216]
 layout_mode = 2
-theme_override_font_sizes/font_size = 38
+theme_override_font_sizes/font_size = 26
 theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
 theme_override_styles/focus = ExtResource("3_t6w0q")
 text = "Load Game"
@@ -86,7 +90,7 @@ alignment = 0
 
 [node name="Options" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1851177872]
 layout_mode = 2
-theme_override_font_sizes/font_size = 38
+theme_override_font_sizes/font_size = 26
 theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
 theme_override_styles/focus = ExtResource("3_t6w0q")
 text = "Options"
@@ -95,7 +99,7 @@ icon_alignment = 1
 
 [node name="Exit" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=243049776]
 layout_mode = 2
-theme_override_font_sizes/font_size = 38
+theme_override_font_sizes/font_size = 26
 theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
 theme_override_styles/focus = ExtResource("3_t6w0q")
 text = "Exit
@@ -105,32 +109,41 @@ icon_alignment = 1
 
 [node name="OptionMenu" type="PanelContainer" parent="CanvasLayer" unique_id=488025099]
 visible = false
-offset_left = 20.0
-offset_top = 101.0
-offset_right = 437.0
-offset_bottom = 512.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -398.0
+offset_right = 520.0
+offset_bottom = -161.0
+grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_61ot5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/OptionMenu" unique_id=812412530]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_constants/separation = 22
+theme_override_constants/separation = 2
 
 [node name="Options" type="Label" parent="CanvasLayer/OptionMenu/VBoxContainer" unique_id=209519139]
 layout_mode = 2
-theme_override_font_sizes/font_size = 58
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 38
 text = "Options"
 
 [node name="Audio" type="Button" parent="CanvasLayer/OptionMenu/VBoxContainer" unique_id=196805725]
 layout_mode = 2
-theme_override_font_sizes/font_size = 38
+theme_override_font_sizes/font_size = 26
+theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
+theme_override_styles/focus = ExtResource("3_t6w0q")
 text = "Audio	"
 alignment = 0
 icon_alignment = 1
 
 [node name="Controls" type="Button" parent="CanvasLayer/OptionMenu/VBoxContainer" unique_id=506927284]
 layout_mode = 2
-theme_override_font_sizes/font_size = 38
+theme_override_font_sizes/font_size = 26
+theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
+theme_override_styles/focus = ExtResource("3_t6w0q")
 text = "Controls
 "
 alignment = 0
@@ -138,7 +151,9 @@ icon_alignment = 1
 
 [node name="Display" type="Button" parent="CanvasLayer/OptionMenu/VBoxContainer" unique_id=137281000]
 layout_mode = 2
-theme_override_font_sizes/font_size = 38
+theme_override_font_sizes/font_size = 26
+theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
+theme_override_styles/focus = ExtResource("3_t6w0q")
 text = "Display
 
 
@@ -148,7 +163,7 @@ icon_alignment = 1
 
 [node name="Back" type="Button" parent="CanvasLayer/OptionMenu/VBoxContainer" unique_id=1884475580]
 layout_mode = 2
-theme_override_font_sizes/font_size = 38
+theme_override_font_sizes/font_size = 26
 theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
 theme_override_styles/focus = ExtResource("3_t6w0q")
 text = "Back
@@ -158,79 +173,89 @@ icon_alignment = 1
 
 [node name="Audio Panel" type="PanelContainer" parent="CanvasLayer" unique_id=867519199]
 visible = false
-offset_left = 17.0
-offset_top = 119.0
-offset_right = 543.0
-offset_bottom = 541.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -398.0
+offset_right = 520.0
+offset_bottom = 2.0
+grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_t6w0q")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Audio Panel" unique_id=1320259357]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Audio Panel" unique_id=127688173]
 layout_mode = 2
-theme_override_constants/separation = 4
+theme_override_constants/separation = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Audio Panel/HBoxContainer" unique_id=127688173]
-custom_minimum_size = Vector2(417, 310)
+[node name="Label" type="Label" parent="CanvasLayer/Audio Panel/VBoxContainer" unique_id=535529794]
 layout_mode = 2
-theme_override_constants/separation = 4
-
-[node name="Label" type="Label" parent="CanvasLayer/Audio Panel/HBoxContainer/VBoxContainer" unique_id=535529794]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 58
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 38
 text = "Audio"
 
-[node name="Master volume" type="TextEdit" parent="CanvasLayer/Audio Panel/HBoxContainer/VBoxContainer/Label" unique_id=2088890738]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 80.0
-offset_right = 418.0
-offset_bottom = 141.0
-theme_override_font_sizes/font_size = 38
+[node name="MasterRow" type="HBoxContainer" parent="CanvasLayer/Audio Panel/VBoxContainer" unique_id=1320259357]
+layout_mode = 2
+theme_override_constants/separation = -50
+
+[node name="Master volume" type="Label" parent="CanvasLayer/Audio Panel/VBoxContainer/MasterRow" unique_id=1898739189]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
 text = "Master Volume"
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/Audio Panel/HBoxContainer/VBoxContainer/Label/Master volume" unique_id=1271319012]
-layout_mode = 0
-offset_left = 520.0
-offset_right = 937.0
-offset_bottom = 61.0
+[node name="HSlider" type="HSlider" parent="CanvasLayer/Audio Panel/VBoxContainer/MasterRow" unique_id=409517007]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_vertical = 8
+min_value = 0.5
+max_value = 1.5
+step = 0.05
+value = 1.0
 
-[node name="Music Volume" type="TextEdit" parent="CanvasLayer/Audio Panel/HBoxContainer/VBoxContainer/Label/Master volume" unique_id=140600018]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 83.0
-offset_right = 420.0
-offset_bottom = 144.0
-theme_override_font_sizes/font_size = 38
+[node name="Music Row" type="HBoxContainer" parent="CanvasLayer/Audio Panel/VBoxContainer" unique_id=157870799]
+layout_mode = 2
+theme_override_constants/separation = -50
+
+[node name="Music volume" type="Label" parent="CanvasLayer/Audio Panel/VBoxContainer/Music Row" unique_id=1644200589]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
 text = "Music Volume"
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/Audio Panel/HBoxContainer/VBoxContainer/Label/Master volume/Music Volume" unique_id=1260524000]
-layout_mode = 0
-offset_left = 520.0
-offset_right = 937.0
-offset_bottom = 61.0
+[node name="HSlider" type="HSlider" parent="CanvasLayer/Audio Panel/VBoxContainer/Music Row" unique_id=24024769]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_vertical = 8
+min_value = 0.5
+max_value = 1.5
+step = 0.05
+value = 1.0
 
-[node name="Sfx volume" type="TextEdit" parent="CanvasLayer/Audio Panel/HBoxContainer/VBoxContainer/Label" unique_id=455889665]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 247.0
-offset_right = 419.0
-offset_bottom = 308.0
-theme_override_font_sizes/font_size = 38
+[node name="sfx row" type="HBoxContainer" parent="CanvasLayer/Audio Panel/VBoxContainer" unique_id=1046104408]
+layout_mode = 2
+theme_override_constants/separation = -50
+
+[node name="Sfx volume" type="Label" parent="CanvasLayer/Audio Panel/VBoxContainer/sfx row" unique_id=1406015717]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
 text = "Sfx Volume"
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/Audio Panel/HBoxContainer/VBoxContainer/Label/Sfx volume" unique_id=1317139581]
-layout_mode = 0
-offset_left = 520.0
-offset_right = 937.0
-offset_bottom = 61.0
+[node name="HSlider" type="HSlider" parent="CanvasLayer/Audio Panel/VBoxContainer/sfx row" unique_id=2144274790]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_vertical = 8
+min_value = 0.5
+max_value = 1.5
+step = 0.05
+value = 1.0
 
-[node name="Back" type="Button" parent="CanvasLayer/Audio Panel/HBoxContainer/VBoxContainer/Label" unique_id=331238707]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 330.0
-offset_right = 420.0
-offset_bottom = 391.0
-theme_override_font_sizes/font_size = 38
+[node name="Back" type="Button" parent="CanvasLayer/Audio Panel/VBoxContainer" unique_id=331238707]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 26
+theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
+theme_override_styles/focus = ExtResource("3_t6w0q")
 text = "Back
 
 "
@@ -239,61 +264,72 @@ icon_alignment = 1
 
 [node name="DisplayPanel" type="PanelContainer" parent="CanvasLayer" unique_id=57407474]
 visible = false
-offset_left = 16.0
-offset_top = 111.0
-offset_right = 636.0
-offset_bottom = 509.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -398.0
+offset_right = 740.0
+offset_bottom = 2.0
+grow_vertical = 0
 size_flags_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_k8um8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/DisplayPanel" unique_id=1983474843]
-custom_minimum_size = Vector2(417, 310)
+custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
-theme_override_constants/separation = 22
+theme_override_constants/separation = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/DisplayPanel/VBoxContainer" unique_id=216772040]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.04395193, 0.04395193, 0.04395192, 1)
-theme_override_font_sizes/font_size = 56
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 38
 text = "Display"
 
 [node name="Resolution" type="HBoxContainer" parent="CanvasLayer/DisplayPanel/VBoxContainer" unique_id=1487087122]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = -120
 
 [node name="Label2" type="Label" parent="CanvasLayer/DisplayPanel/VBoxContainer/Resolution" unique_id=488181072]
-custom_minimum_size = Vector2(300, 61)
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 38
+theme_override_font_sizes/font_size = 26
 text = "Resolution"
 
 [node name="OptionButton" type="OptionButton" parent="CanvasLayer/DisplayPanel/VBoxContainer/Resolution" unique_id=645264978]
-custom_minimum_size = Vector2(300, 50)
+custom_minimum_size = Vector2(150, 10)
 layout_mode = 2
-size_flags_vertical = 4
-theme_override_font_sizes/font_size = 38
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = ExtResource("3_t6w0q")
 
 [node name="FullScreen_Controller" type="CheckButton" parent="CanvasLayer/DisplayPanel/VBoxContainer" unique_id=1202503368]
-custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
+size_flags_horizontal = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(-6, 0)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 36
+theme_override_constants/h_separation = 40
+theme_override_font_sizes/font_size = 26
 text = "Full Screen"
 script = ExtResource("4_t6w0q")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/DisplayPanel/VBoxContainer" unique_id=1177142904]
 layout_mode = 2
+theme_override_constants/separation = 50
 
 [node name="Brightness" type="Label" parent="CanvasLayer/DisplayPanel/VBoxContainer/HBoxContainer" unique_id=1258566319]
 layout_mode = 2
-theme_override_font_sizes/font_size = 38
+theme_override_font_sizes/font_size = 26
 text = "Brightness"
 vertical_alignment = 1
 
 [node name="HSlider" type="HSlider" parent="CanvasLayer/DisplayPanel/VBoxContainer/HBoxContainer" unique_id=1169363130]
-custom_minimum_size = Vector2(160, 0)
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
+size_flags_vertical = 8
 min_value = 0.5
 max_value = 1.5
 step = 0.05
@@ -302,8 +338,10 @@ value = 1.0
 [node name="Back" type="Button" parent="CanvasLayer/DisplayPanel/VBoxContainer" unique_id=399698367]
 layout_mode = 2
 size_flags_horizontal = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(-4, 0)
 theme_override_constants/h_separation = 4
-theme_override_font_sizes/font_size = 38
+theme_override_font_sizes/font_size = 26
 theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
 theme_override_styles/focus = ExtResource("3_t6w0q")
 text = "Back
@@ -319,7 +357,7 @@ icon_alignment = 1
 [connection signal="pressed" from="CanvasLayer/OptionMenu/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="CanvasLayer/OptionMenu/VBoxContainer/Display" to="." method="_on_display_pressed"]
 [connection signal="pressed" from="CanvasLayer/OptionMenu/VBoxContainer/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="CanvasLayer/Audio Panel/HBoxContainer/VBoxContainer/Label/Back" to="." method="_on_back_audio_pressed"]
+[connection signal="pressed" from="CanvasLayer/Audio Panel/VBoxContainer/Back" to="." method="_on_back_audio_pressed"]
 [connection signal="item_selected" from="CanvasLayer/DisplayPanel/VBoxContainer/Resolution/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="toggled" from="CanvasLayer/DisplayPanel/VBoxContainer/FullScreen_Controller" to="." method="_on_full_screen_controller_toggled"]
 [connection signal="value_changed" from="CanvasLayer/DisplayPanel/VBoxContainer/HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
