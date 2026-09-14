@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d3gb7oplluejt" path="res://Scenes/3D mockup/ff_jumping_puzzle.tscn" id="1_r8h33"]
 [ext_resource type="PackedScene" uid="uid://tkd8cs7qiwc0" path="res://Scenes/3D mockup/central_structure.tscn" id="2_t8q4r"]
+[ext_resource type="PackedScene" uid="uid://bhli6cilloe77" path="res://Scenes/3D mockup/rubble.tscn" id="2_uhv1p"]
 
 [node name="FirstFloor" type="Node3D" unique_id=1773706448]
 
@@ -28,8 +29,8 @@ transform = Transform3D(-0.036569063, 0, -0.9993311, 4.737899e-11, 1, -3.7252903
 size = Vector3(0.5275421, 14.23822, 1.2906104)
 
 [node name="BlockoutWall" type="CSGBox3D" parent="." unique_id=110674221]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.721096, 2.8953085, 3.9140177)
-size = Vector3(1, 6, 39.42118)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.721096, 2.8953085, -0.31955433)
+size = Vector3(1, 6, 47.888325)
 
 [node name="BlockoutWall2" type="CSGBox3D" parent="." unique_id=1185418321]
 transform = Transform3D(0.79086834, 0, -0.61198634, 0, 1, 0, 0.61198634, 0, 0.79086834, 5.0158486, 2.8953104, 28.646862)
@@ -58,15 +59,59 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.97
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.861908, -0.1, 0.13183594)
 
 [node name="EntranceGate" type="CSGBox3D" parent="Entrance" unique_id=144998958]
-transform = Transform3D(0.5583218, 0, -0.8296245, 0, 1, 0, 0.8296245, 0, 0.5583218, -3.2388535, 2.127717, 2.5685782)
+transform = Transform3D(0.5583218, 0, -0.8296245, 0, 1, 0, 0.8296245, 0, 0.5583218, -3.6569214, 2.127717, 2.5652533)
 size = Vector3(0.25585938, 4.035034, 4.025879)
 
 [node name="EntranceGate2" type="CSGBox3D" parent="Entrance" unique_id=1203339771]
-transform = Transform3D(-0.28687656, 0, -0.9579675, 0, 1, 0, 0.9579675, 0, -0.28687656, -2.8252869, 2.127717, -3.3173683)
+transform = Transform3D(-0.28687656, 0, -0.9579675, 0, 1, 0, 0.9579675, 0, -0.28687656, -3.1289215, 2.127717, -3.4548118)
 size = Vector3(0.25585938, 4.035034, 4.025879)
 
 [node name="EntranceGround" type="CSGBox3D" parent="Entrance" unique_id=200645029]
 size = Vector3(11.919739, 0.2, 8.1484375)
+
+[node name="Rubbles" type="Node3D" parent="." unique_id=481725235]
+
+[node name="Rubble" parent="Rubbles" unique_id=1081022700 instance=ExtResource("2_uhv1p")]
+transform = Transform3D(-3.1731102, 0, 0.060495973, 0, 3.1736867, 0, -0.060495496, 0, -3.17311, 23.620424, -2.861023e-06, 8.490461)
+use_collision = true
+collision_layer = 5
+size = Vector3(0.45898438, 1, 1.2378845)
+
+[node name="Rubble5" parent="Rubbles" unique_id=1276601082 instance=ExtResource("2_uhv1p")]
+transform = Transform3D(-5.0209007, 0, 0.05982434, 0, 4.416283, 0, -0.09572371, 0, -3.137882, 22.512651, 0.6148796, 26.61329)
+use_collision = true
+collision_layer = 5
+size = Vector3(0.45898438, 1, 1.2378845)
+
+[node name="Rubble2" parent="Rubbles" unique_id=1882924289 instance=ExtResource("2_uhv1p")]
+transform = Transform3D(-2.820237, 0, -1.4555236, 0.7133715, 2.7663717, -1.382235, 1.2687204, -1.5554659, -2.4582841, 23.620424, -2.861023e-06, 12.666719)
+use_collision = true
+collision_layer = 5
+size = Vector3(0.45898438, 1, 1.2378845)
+
+[node name="Rubble3" parent="Rubbles" unique_id=2072968662 instance=ExtResource("2_uhv1p")]
+transform = Transform3D(0.13721155, -3.1415324, 0.42922974, 3.168044, 0.15348125, 0.110603206, -0.1302411, 0.42368448, 3.1425815, 22.55292, -2.861023e-06, 18.234982)
+use_collision = true
+collision_layer = 5
+size = Vector3(0.45898438, 1, 1.2378845)
+
+[node name="Rubble6" parent="Rubbles" unique_id=1024431384 instance=ExtResource("2_uhv1p")]
+transform = Transform3D(0.13572699, -3.9197397, 0.41470218, 2.4998386, 0.45893896, 1.8204641, -1.8941762, 0.3248163, 2.4322734, 21.577465, 0.8228388, 13.781446)
+use_collision = true
+collision_layer = 5
+size = Vector3(0.45898438, 1, 1.2378845)
+
+[node name="Rubble7" parent="Rubbles" unique_id=1557214535 instance=ExtResource("2_uhv1p")]
+transform = Transform3D(0.13572699, -3.9197397, 0.41470218, 2.4998386, 0.45893896, 1.8204641, -1.8941762, 0.3248163, 2.4322734, 21.577465, 2.3013358, 25.856482)
+use_collision = true
+collision_layer = 5
+size = Vector3(0.45898438, 1, 1.2378845)
+
+[node name="Rubble4" parent="Rubbles" unique_id=299338805 instance=ExtResource("2_uhv1p")]
+transform = Transform3D(-1.8276007, -2.2384348, 1.3120894, 1.8559351, -2.249349, -1.2522874, 1.8131937, 0.046152778, 2.604321, 22.997473, 0.24583769, 20.502253)
+use_collision = true
+collision_layer = 5
+size = Vector3(0.45898438, 1, 1.2378845)
 
 [node name="FirstFloorWalls" type="Node3D" parent="." unique_id=860913941]
 
@@ -127,11 +172,11 @@ size = Vector3(6.9593506, 0.2, 17.132935)
 [node name="FFRightsidePlatforming" type="Node3D" parent="." unique_id=201296067]
 
 [node name="Box" type="CSGBox3D" parent="FFRightsidePlatforming" unique_id=204852476]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49193048, 3.0551949, -32.006218)
-size = Vector3(9.409, 6, 6.01)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49193048, 3.466755, -32.006218)
+size = Vector3(9.409, 6.82312, 6.01)
 
 [node name="InteractionThingy" type="CSGBox3D" parent="FFRightsidePlatforming" unique_id=1414894338]
-transform = Transform3D(0.62650955, 0, 0, 0, 1, 0, 0, 0, 0.3378904, -2.2806003, 6.5080414, -32.240803)
+transform = Transform3D(0.62650955, 0, 0, 0, 1, 0, 0, 0, 0.3378904, -2.2806003, 7.3161926, -32.240803)
 size = Vector3(1.7019806, 1.319458, 2.9997869)
 
 [node name="RampHolder" type="CSGBox3D" parent="FFRightsidePlatforming" unique_id=739359416]
