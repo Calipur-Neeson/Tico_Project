@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://d3gb7oplluejt"]
+
+[node name="FFJumpingPuzzle" type="Node3D" unique_id=1712027839]
+
+[node name="FFBlock2" type="CSGBox3D" parent="." unique_id=1061316919]
+transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 11.055804, 3.0111732, 28.808847)
+use_collision = true
+collision_layer = 7
+size = Vector3(2, 5.973509, 3.7558594)
+
+[node name="FFPlatform" type="CSGBox3D" parent="." unique_id=1231099149]
+transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 12.41177, 7.228707, 33.68862)
+use_collision = true
+collision_layer = 2
+size = Vector3(0.6066284, 0.2, 2.337582)
+
+[node name="FFPlatform2" type="CSGBox3D" parent="." unique_id=1096095902]
+transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 13.272649, 8.409049, 33.50166)
+use_collision = true
+collision_layer = 2
+size = Vector3(0.54016113, 0.2, 3.7597382)
+
+[node name="FFPlatform3" type="CSGBox3D" parent="." unique_id=2088326851]
+transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 15.645356, 9.501364, 33.64421)
+use_collision = true
+collision_layer = 2
+size = Vector3(0.71875, 0.2, 4.1002164)
+
+[node name="FFPlatform4" type="CSGBox3D" parent="." unique_id=1227116000]
+transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 7.633382, 6.0914273, 33.699875)
+use_collision = true
+collision_layer = 2
+size = Vector3(0.582, 0.1, 4.4)
+
+[node name="FFPlatform5" type="CSGBox3D" parent="." unique_id=2042013681]
+transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 4.5670652, 4.954433, 33.815186)
+use_collision = true
+collision_layer = 2
+size = Vector3(0.4315796, 0.2484777, 4.063904)
+
+[node name="FFBlock3" type="CSGBox3D" parent="." unique_id=2105729787]
+transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 8.698053, 1.3846602, 32.852154)
+use_collision = true
+collision_layer = 7
+size = Vector3(2, 4.539626, 2)
+
+[node name="FFBlock4" type="CSGBox3D" parent="." unique_id=800976896]
+transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 3.0570703, 1.5989094, 30.361504)
+use_collision = true
+collision_layer = 7
+size = Vector3(2, 3.5829, 2)
+
+[node name="FFBlock6" type="CSGBox3D" parent="." unique_id=900373731]
+transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 5.9055467, 0.77497303, 26.581272)
+use_collision = true
+collision_layer = 7
+size = Vector3(2, 2.74045, 2)
+
+[node name="FFBlock" type="CSGBox3D" parent="." unique_id=1685678870]
+transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 17.599548, 3.0647855, 32.62949)
+use_collision = true
+collision_layer = 7
+size = Vector3(2.4042969, 8.074631, 2)
