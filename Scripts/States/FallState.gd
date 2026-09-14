@@ -13,12 +13,14 @@ func PreUpdate(player: Player) -> void:
 	if player.is_on_floor():
 		player.ChangeStateTo(player.playerState.Land)
 		
-	if player.obstacle_cast.is_colliding():
-		var hitPoint: Vector3 = player.obstacle_cast.get_collision_point()
-		var obstacleHight: float = hitPoint.y - player.global_position.y
-			
-		if obstacleHight >= player.maxVaultHeight:
-			player.ChangeStateTo(player.playerState.HangingIdle)
+	#if player.obstacle_cast.is_colliding():
+		#var hitPoint: Vector3 = player.obstacle_cast.get_collision_point()
+		#var obstacleHight: float = hitPoint.y - player.global_position.y
+			#
+		#if obstacleHight >= player.maxVaultHeight:
+			#player.ChangeStateTo(player.playerState.HangingIdle)
+	if player.left_hand_climb_cast.is_colliding() or player.right_hand_climb_cast.is_colliding():
+		player.ChangeStateTo(player.playerState.HangingIdle)
 	
 	if player.velocity.y < -30:
 		player.ChangeStateTo(player.playerState.Die)
