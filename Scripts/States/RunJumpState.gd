@@ -18,11 +18,13 @@ func PreUpdate(player: Player) -> void:
 		player.obstacle_cast.enabled = false
 		player.ChangeStateTo(player.playerState.Run)
 	
-	if player.obstacle_cast.is_colliding() and not player.island:
-		var hitPoint: Vector3 = player.obstacle_cast.get_collision_point()
-		var height: float = hitPoint.y - player.global_position.y
-		if 1.4 < height and height < 1.6: 
-			player.ChangeStateTo(player.playerState.HangingIdle)
+	#if player.obstacle_cast.is_colliding() and not player.island:
+		#var hitPoint: Vector3 = player.obstacle_cast.get_collision_point()
+		#var height: float = hitPoint.y - player.global_position.y
+		#if 1.4 < height and height < 1.6: 
+			#player.ChangeStateTo(player.playerState.HangingIdle)
+	if player.left_hand_climb_cast.is_colliding() or player.right_hand_climb_cast.is_colliding() and not player.island:
+		player.ChangeStateTo(player.playerState.HangingIdle)
 
 func Update(player: Player, delta: float) -> void:
 	time += delta

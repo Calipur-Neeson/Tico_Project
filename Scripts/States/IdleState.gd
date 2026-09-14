@@ -20,6 +20,9 @@ func PreUpdate(player: Player) -> void:
 		player.obstacle_cast.enabled = true
 		player.obstacle_cast.force_raycast_update()
 		
+		player.assuming_land_cast.enabled = true
+		player.assuming_land_cast.force_raycast_update()
+		
 		player.climb_up_cast.enabled = true
 		player.climb_up_cast.force_raycast_update()
 		
@@ -31,7 +34,7 @@ func PreUpdate(player: Player) -> void:
 				player.ChangeStateTo(player.playerState.Vault)
 			elif obstacleHight < player.maxVaultHeight and obstacleHight > 0.5 and not player.climb_up_cast.is_colliding():
 				player.ChangeStateTo(player.playerState.ClimbWall)
-			elif obstacleHight >= player.maxVaultHeight:
+			elif obstacleHight >= player.maxVaultHeight and obstacleHight < 1.8:
 				player.ChangeStateTo(player.playerState.HangingIdle)
 			else:
 				player.ChangeStateTo(player.playerState.Jump)
@@ -53,3 +56,4 @@ func Update(player: Player, delta: float) -> void:
 func Exit(player: Player) -> void:
 	player.climb_up_cast.enabled = false
 	player.obstacle_cast.enabled = false
+	player.assuming_land_cast.enabled = false
