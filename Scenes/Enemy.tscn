@@ -19,6 +19,8 @@ albedo_color = Color(0.6749369, 0.8569317, 7.70092e-07, 1)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_f6tpa"]
 points = PackedVector3Array(0, 0, 0.6, -4, -0.5, 7, 4, -0.5, 7, 0, 1, 7)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_12j5o"]
+
 [node name="Enemy" type="CharacterBody3D" unique_id=173603545]
 collision_layer = 128
 collision_mask = 126
@@ -48,3 +50,9 @@ script = ExtResource("3_xeo28")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11, 0)
 shape = SubResource("ConvexPolygonShape3D_f6tpa")
 collision_mask = 82
+
+[node name="HitBox" type="ShapeCast3D" parent="." unique_id=787634092]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1710469)
+shape = SubResource("BoxShape3D_12j5o")
+target_position = Vector3(0, 0, 0)
+collision_mask = 16

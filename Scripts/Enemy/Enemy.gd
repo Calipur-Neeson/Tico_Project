@@ -4,6 +4,7 @@ extends CharacterBody3D
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var enemyState: EnemeyState = $StateMachine
 @onready var playerCast: ShapeCast3D = $PlayerShape3D
+@onready var hit_box: ShapeCast3D = $HitBox
 
 
 @export var moveSpeed: float = 3
@@ -31,6 +32,9 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector3.ZERO
 	move_and_slide()
 	
+	if hit_box.is_colliding():
+		var player = hit_box.get_collider(0) as Player
+		player.ChangeStateTo(player.playerState.Die)
 
 	
 func Move(delta: float) -> void:
