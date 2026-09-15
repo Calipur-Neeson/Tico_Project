@@ -12,6 +12,7 @@ extends CharacterBody3D
 
 var targetPositon: Vector3
 var hasTarget: bool = false
+var player: Player
 
 #Current state that our enemy is
 var state: BaseEnemyState 
@@ -32,9 +33,10 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector3.ZERO
 	move_and_slide()
 	
-	if hit_box.is_colliding():
-		var player = hit_box.get_collider(0) as Player
-		player.ChangeStateTo(player.playerState.Die)
+	if playerCast.is_colliding():
+		player = playerCast.get_collider(0) as Player
+	else:
+		player = null
 
 	
 func Move(delta: float) -> void:

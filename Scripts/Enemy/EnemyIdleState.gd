@@ -5,10 +5,6 @@ func Enter(enemy: Enemy) -> void:
 	enemy.hasTarget = false
 
 func PreUpdate(enemy: Enemy) -> void:
-	if enemy.playerCast.is_colliding():
-		for i: int in enemy.playerCast.get_collision_count():
-			var col = enemy.playerCast.get_collider(i)
-			if col is Player:
-				if not enemy.ifThereIsWall(col.global_position):
-					enemy.targetPositon = col.global_position
-					enemy.ChangeStateTo(enemy.enemyState.Chase)
+	if enemy.player != null and not enemy.ifThereIsWall(enemy.player.global_position):
+		enemy.targetPositon = enemy.player.global_position
+		enemy.ChangeStateTo(enemy.enemyState.Chase)
