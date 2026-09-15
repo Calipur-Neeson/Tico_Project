@@ -37,7 +37,6 @@ glow_enabled = true
 [node name="BasicBlockout" type="Node3D" parent="." unique_id=838870089]
 
 [node name="Walls" type="Node3D" parent="BasicBlockout" unique_id=667012150]
-visible = false
 
 [node name="Wallx-" type="CSGBox3D" parent="BasicBlockout/Walls" unique_id=550521616]
 physics_interpolation_mode = 1
@@ -353,7 +352,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0913696, 0.3123169, 8.3660
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.320122, 0.3123169, 17.353699)
 
 [node name="SecondFloor" type="Node3D" parent="BasicBlockout/NavigationRegion3D" unique_id=1489948982]
-visible = false
 
 [node name="SFSideRoom" type="Node3D" parent="BasicBlockout/NavigationRegion3D/SecondFloor" unique_id=2101173982]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.845, 6.5, 2.042)
@@ -437,7 +435,6 @@ script = ExtResource("3_aw2j1")
 footstep_sound = ExtResource("4_5m34c")
 
 [node name="ThirdFloor" type="Node3D" parent="BasicBlockout/NavigationRegion3D" unique_id=1843291539]
-visible = false
 
 [node name="Celing" type="CSGBox3D" parent="BasicBlockout/NavigationRegion3D/ThirdFloor" unique_id=936721241]
 physics_interpolation_mode = 1
