@@ -9,6 +9,7 @@ extends CharacterBody3D
 
 @export var moveSpeed: float = 3
 @export var rotateSpeed: float = 0.1
+@export var damage: float = 5
 
 var targetPositon: Vector3
 var hasTarget: bool = false
@@ -49,11 +50,13 @@ func Move(delta: float) -> void:
 	var targetRotation: float = direction.signed_angle_to(Vector3.MODEL_FRONT, Vector3.DOWN)
 	if abs(targetRotation - rotation.y) > deg_to_rad(60):
 		rotSpeed = rotateSpeed * 4
-	#rotation.y = move_toward(rotation.y , targetRotation, delta * moveSpeed)
-	var yaw: = atan2(direction.x, direction.z)
-	yaw = lerp_angle(rotation.y, yaw, rotSpeed)
-	
-	rotation.y = yaw
+	TurnTo(direction, rotSpeed)
+
+func TurnTo(direction: Vector3, speed: float) -> void:
+	if direction:
+		var yaw: = atan2(direction.x, direction.z)
+		yaw = lerp_angle(rotation.y, yaw, 0.25)
+		rotation.y = yaw
 	
 func ChangeStateTo(nextState: BaseEnemyState) -> void:
 	state.Exit(self)

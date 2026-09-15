@@ -37,4 +37,4 @@ func _process(delta: float) -> void:
 
 func InterveneHeat(value: float, delta: float) -> void:
 	isIntervene = true
-	currentHeat += value
+	currentHeat += value * delta

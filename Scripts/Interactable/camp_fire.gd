@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 		var player = shape_cast_3d.get_collider(0) as Player
 		current_player = player
 	
-	if current_player != null:
+	if current_player != null and shape_cast_3d.is_colliding():
 		current_player.heatSystem.InterveneHeat(healSpeed, delta)
 		
 	elif current_player != null and not shape_cast_3d.is_colliding():
