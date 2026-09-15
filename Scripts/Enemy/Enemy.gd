@@ -5,11 +5,13 @@ extends CharacterBody3D
 @onready var enemyState: EnemeyState = $StateMachine
 @onready var playerCast: ShapeCast3D = $PlayerShape3D
 @onready var hit_box: ShapeCast3D = $HitBox
+@onready var beam: MeshInstance3D = $Beam
 
 
 @export var moveSpeed: float = 3
 @export var rotateSpeed: float = 0.1
 @export var damage: float = 5
+@export var attackRange: float = 5
 
 var targetPositon: Vector3
 var hasTarget: bool = false
@@ -19,6 +21,7 @@ var player: Player
 var state: BaseEnemyState 
 
 func _ready() -> void:
+	beam.visible = false
 	state = enemyState.Idle
 	state.Enter(self)
 	
@@ -34,11 +37,6 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector3.ZERO
 	move_and_slide()
 	
-	if playerCast.is_colliding():
-		player = playerCast.get_collider(0) as Player
-	else:
-		player = null
-
 	
 func Move(delta: float) -> void:
 	navigation_agent_3d.target_position = targetPositon

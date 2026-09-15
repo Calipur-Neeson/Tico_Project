@@ -47,6 +47,7 @@ extends CharacterBody3D
 @onready var assuming_land_cast: RayCast3D = $RayDetectors/AssumingLandCast
 @onready var left_hand_climb_cast: RayCast3D = $RayDetectors/LeftHandClimbCast
 @onready var right_hand_climb_cast: RayCast3D = $RayDetectors/RightHandClimbCast
+@onready var falling_die_cast: RayCast3D = $RayDetectors/FallingDieCast
 
 
 #Hand Pivot
@@ -69,6 +70,7 @@ func _ready() -> void:
 	obstacle_cast.enabled = false
 	assuming_land_cast.enabled = false
 	climb_normal_cast.enabled = false
+	falling_die_cast.enabled = false
 	
 	state = playerState.Idle
 	state.Enter(self)

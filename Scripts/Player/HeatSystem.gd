@@ -11,7 +11,6 @@ extends Node3D
 
 
 var currentHeat: float
-var isIntervene: bool = false
 
 func _ready() -> void:
 	currentHeat = maxHeatMeter
@@ -19,8 +18,7 @@ func _ready() -> void:
 	progress_bar.value = maxHeatMeter
 
 func _process(delta: float) -> void:
-	if !isIntervene:
-		currentHeat -= dropSpeed * delta
+	currentHeat -= dropSpeed * delta
 	
 	currentHeat = clampf(currentHeat, 0, maxHeatMeter)
 	#For 2D bar
@@ -36,5 +34,4 @@ func _process(delta: float) -> void:
 		player.ChangeStateTo(player.playerState.Die)
 
 func InterveneHeat(value: float, delta: float) -> void:
-	isIntervene = true
 	currentHeat += value * delta
