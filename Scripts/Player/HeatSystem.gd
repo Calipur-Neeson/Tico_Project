@@ -11,11 +11,13 @@ extends Node3D
 
 
 var currentHeat: float
+var isDie: bool = false
 
 func _ready() -> void:
 	currentHeat = maxHeatMeter
 	progress_bar.max_value = maxHeatMeter
 	progress_bar.value = maxHeatMeter
+	isDie = false
 
 func _process(delta: float) -> void:
 	currentHeat -= dropSpeed * delta
@@ -30,7 +32,8 @@ func _process(delta: float) -> void:
 	csg_polygon_3d.material.set_shader_parameter("percent", percentage)
 	
 	
-	if currentHeat <= 0:
+	if currentHeat <= 0 and !isDie:
+		isDie = true
 		player.ChangeStateTo(player.playerState.Die)
 
 func InterveneHeat(value: float, delta: float) -> void:
