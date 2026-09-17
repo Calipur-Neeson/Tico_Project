@@ -2,7 +2,8 @@ class_name InteractControl
 extends ShapeCast3D
 
 var currentObject: BaseInteractable
-var isPicking: bool = false
+var hasItem: bool = false
+var objectInHand: BaseInteractable
 @onready var panel: Panel = $"../../Panel"
 @onready var interactText: RichTextLabel = $"../../Panel/RichTextLabel"
 @onready var player: Player = $"../.."
@@ -38,10 +39,7 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	if currentObject != null and Input.is_action_just_pressed("Interact"):
 		currentObject.Interact(player)
-		isPicking = true
-	if isPicking:
-		player.right_ik.influence = lerpf(player.right_ik.influence, 1, 0.1)
-	
+		
 	
 func GetInteractable() -> BaseInteractable:
 	for i in range(get_collision_count()):
@@ -52,3 +50,6 @@ func GetInteractable() -> BaseInteractable:
 			return col.get_parent()
 	return null
 	
+func Grab(item: BaseInteractable) -> void:
+	hasItem = true
+	objectInHand = item

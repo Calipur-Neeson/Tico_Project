@@ -14,6 +14,7 @@ extends CharacterBody3D
 @onready var muzzle: Trajectory = $Muzzle
 @onready var playerState: PlayerState = $StateMachine
 @onready var heatSystem: HeatSystem = $HeatMeter
+@onready var interactControl: InteractControl = $RayDetectors/InteractCast
 
 
 #Animator

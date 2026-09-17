@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://cywm4vx6pp8ll"]
 
 [ext_resource type="Material" uid="uid://bf8220torvm0p" path="res://Shader/outline_shader_material.tres" id="1_3rakw"]
-[ext_resource type="Script" uid="uid://boqxnnvn8s5bp" path="res://Scripts/Interactable/Interact_Test.gd" id="1_cp2a4"]
-[ext_resource type="Resource" uid="uid://je8jed7h2iyk" path="res://Scripts/Resource/test_projectile.tres" id="2_itkq8"]
+[ext_resource type="Script" uid="uid://cr23qqqeak5mc" path="res://Scripts/Interactable/BasePickable.gd" id="1_spp0r"]
 [ext_resource type="Shader" uid="uid://c1kbvi16neeys" path="res://Shader/outline_shader_material.gdshader" id="3_sudja"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fdfra"]
@@ -22,10 +21,11 @@ albedo_color = Color(0.7725, 0.089999974, 1, 1)
 [sub_resource type="SphereShape3D" id="SphereShape3D_61ot5"]
 radius = 0.1
 
-[node name="Ball" type="StaticBody3D" unique_id=912300834]
-collision_layer = 32
-script = ExtResource("1_cp2a4")
-item = ExtResource("2_itkq8")
+[sub_resource type="SphereShape3D" id="SphereShape3D_12j5o"]
+radius = 0.11
+
+[node name="Ball" type="Node3D" unique_id=1702800787]
+script = ExtResource("1_spp0r")
 outLine = SubResource("ShaderMaterial_fdfra")
 text = "Press \"E\" To Pick Up"
 
@@ -33,5 +33,14 @@ text = "Press \"E\" To Pick Up"
 mesh = SubResource("SphereMesh_qic7q")
 surface_material_override/0 = SubResource("StandardMaterial3D_u7x0b")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2003153620]
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=634471290]
+collision_layer = 32
+collision_mask = 222
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=2003153620]
 shape = SubResource("SphereShape3D_61ot5")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="." unique_id=147621549]
+shape = SubResource("SphereShape3D_12j5o")
+target_position = Vector3(0, 0, 0)
+collision_mask = 206
