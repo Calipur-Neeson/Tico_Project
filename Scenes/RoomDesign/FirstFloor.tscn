@@ -26,7 +26,7 @@ glow_enabled = true
 transform = Transform3D(0.999495, 0, 0.031775832, 0, 1, 0, -0.031775832, 0, 0.999495, 13.8425045, 1.4446397, -30.792522)
 
 [node name="SecondToThirdPuzzle" type="Node3D" parent="." unique_id=340608388]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9032693, 0, 18.068073)
+transform = Transform3D(-0.45995474, 0, 0.88794255, 0, 1, 0, -0.88794255, 0, -0.45995474, 10.241235, -1.9073486e-06, -12.925043)
 
 [node name="BridgePillar" type="CSGCylinder3D" parent="SecondToThirdPuzzle" unique_id=1344572071]
 transform = Transform3D(-0.026444051, -0.69071573, -0.72264284, -0.025258815, 0.7231266, -0.6902538, 0.999331, -2.6077032e-08, -0.036569063, 6.540061, 13.225626, 0)
@@ -54,10 +54,16 @@ size = Vector3(0.5275421, 14.23822, 1.2906104)
 [node name="RoomInnerWalls" type="Node3D" parent="." unique_id=625545776]
 
 [node name="BlockoutWall" type="CSGBox3D" parent="RoomInnerWalls" unique_id=110674221]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.721096, 2.8953085, 6.6273813)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.721096, 2.8953085, 4.617938)
 use_collision = true
 collision_layer = 65
-size = Vector3(1, 6, 33.994453)
+size = Vector3(1, 6, 38.01334)
+
+[node name="BlockoutWall7" type="CSGBox3D" parent="RoomInnerWalls" unique_id=533956947]
+transform = Transform3D(0.49278823, 0, -0.87014925, 0, 1, 0, 0.87014925, 0, 0.49278823, -8.61671, 2.8953104, -17.501501)
+use_collision = true
+collision_layer = 65
+size = Vector3(1, 6, 14.362954)
 
 [node name="BlockoutWall2" type="CSGBox3D" parent="RoomInnerWalls" unique_id=1185418321]
 transform = Transform3D(0.79086834, 0, -0.61198634, 0, 1, 0, 0.61198634, 0, 0.79086834, 5.0158486, 2.8953104, 28.646862)
@@ -84,10 +90,10 @@ collision_layer = 65
 size = Vector3(1, 3.008667, 9.083445)
 
 [node name="BlockoutWall4" type="CSGBox3D" parent="RoomInnerWalls" unique_id=1832454105]
-transform = Transform3D(0.90897256, 0, -0.41685623, 0, 1, 0, 0.41685623, 0, 0.90897256, 16.895386, 1.0305872, -1.9448489)
+transform = Transform3D(0.90897256, 0, -0.41685623, 0, 1, 0, 0.41685623, 0, 0.90897256, 16.895386, 0.84063435, -1.9448489)
 use_collision = true
 collision_layer = 65
-size = Vector3(1, 2.2986298, 5.018285)
+size = Vector3(1, 1.9187241, 5.018285)
 
 [node name="FFJumpingPuzzle" parent="." unique_id=1712027839 instance=ExtResource("1_r8h33")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.977398, 0.03633737, 5.2142105)
@@ -152,39 +158,6 @@ transform = Transform3D(-1.8276007, -2.2384348, 1.3120894, 1.8559351, -2.249349,
 use_collision = true
 collision_layer = 5
 size = Vector3(0.45898438, 1, 1.2378845)
-
-[node name="WallClimb" type="Node3D" parent="." unique_id=221627596]
-
-[node name="FFPlatform4" type="CSGBox3D" parent="WallClimb" unique_id=176401258]
-transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 8.987023, 6.9857073, -34.800583)
-use_collision = true
-collision_layer = 2
-size = Vector3(0.71875, 0.2, 9.9819565)
-
-[node name="FFPlatform3" type="CSGBox3D" parent="WallClimb" unique_id=198869146]
-transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 12.450996, 5.8653636, -34.94322)
-use_collision = true
-collision_layer = 2
-size = Vector3(0.54016113, 0.2, 2.186998)
-
-[node name="FFPlatform2" type="CSGBox3D" parent="WallClimb" unique_id=656107496]
-transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 14.194715, 4.784596, -34.89459)
-use_collision = true
-collision_layer = 2
-size = Vector3(0.582, 0.1, 5.691144)
-
-[node name="FFPlatform1" type="CSGBox3D" parent="WallClimb" unique_id=1485300660]
-transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 15.578888, 3.6151123, -35.00787)
-use_collision = true
-collision_layer = 2
-size = Vector3(0.4315796, 0.2484777, 4.063904)
-
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="WallClimb" unique_id=733870775]
-transform = Transform3D(-0.03457255, 0, 0.99940217, 0, 1, 0, -0.99940217, 0, -0.03457255, 16.728714, 0, -33.385765)
-use_collision = true
-collision_layer = 6
-polygon = PackedVector2Array(-2.805, 0, -0.59566116, 1.4631193, 1.0485573, 1.4401985, 1, 0)
-depth = 3.63
 
 [node name="FirstFloorWalls" type="Node3D" parent="." unique_id=860913941]
 
@@ -272,6 +245,40 @@ transform = Transform3D(0.8833393, 0, 0.4687341, 0, 1, 0, -0.4687341, 0, 0.88333
 size = Vector3(6.9593506, 0.2, 17.132935)
 
 [node name="FFRightsidePlatforming" type="Node3D" parent="." unique_id=201296067]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.088159, 0, -30.802929)
+
+[node name="WallClimb" type="Node3D" parent="FFRightsidePlatforming" unique_id=221627596]
+
+[node name="FFPlatform4" type="CSGBox3D" parent="FFRightsidePlatforming/WallClimb" unique_id=176401258]
+transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 8.987023, 6.9857073, -34.800583)
+use_collision = true
+collision_layer = 2
+size = Vector3(0.71875, 0.2, 9.9819565)
+
+[node name="FFPlatform3" type="CSGBox3D" parent="FFRightsidePlatforming/WallClimb" unique_id=198869146]
+transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 12.450996, 5.8653636, -34.94322)
+use_collision = true
+collision_layer = 2
+size = Vector3(0.54016113, 0.2, 2.186998)
+
+[node name="FFPlatform2" type="CSGBox3D" parent="FFRightsidePlatforming/WallClimb" unique_id=656107496]
+transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 14.194715, 4.784596, -34.89459)
+use_collision = true
+collision_layer = 2
+size = Vector3(0.582, 0.1, 5.691144)
+
+[node name="FFPlatform1" type="CSGBox3D" parent="FFRightsidePlatforming/WallClimb" unique_id=1485300660]
+transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 15.578888, 3.6151123, -35.00787)
+use_collision = true
+collision_layer = 2
+size = Vector3(0.4315796, 0.2484777, 4.063904)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="FFRightsidePlatforming/WallClimb" unique_id=733870775]
+transform = Transform3D(-0.03457255, 0, 0.99940217, 0, 1, 0, -0.99940217, 0, -0.03457255, 16.728714, 0, -32.926617)
+use_collision = true
+collision_layer = 6
+polygon = PackedVector2Array(-3, 0, 0.005, 1.4, 2.15, 1.4, 2.15, 0)
+depth = 3.63
 
 [node name="Box" type="CSGBox3D" parent="FFRightsidePlatforming" unique_id=204852476]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49193048, 3.5647469, -32.006218)
@@ -291,7 +298,7 @@ transform = Transform3D(0.62650955, 0, 0, 0, 1, 0, 0, 0, 0.3378904, -2.2806003, 
 use_collision = true
 size = Vector3(1.7019806, 1.319458, 2.9997869)
 
-[node name="CentralStructure" parent="FFRightsidePlatforming" unique_id=738015353 instance=ExtResource("2_t8q4r")]
+[node name="CentralStructure" parent="." unique_id=738015353 instance=ExtResource("2_t8q4r")]
 transform = Transform3D(0.6334052, 0, -0.7738203, 0, 1, 0, 0.7738203, 0, 0.6334052, -7.328761, 0, -0.96344423)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2056816545]
