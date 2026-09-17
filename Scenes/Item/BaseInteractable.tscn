@@ -11,13 +11,16 @@ shader = ExtResource("3_sudja")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/size = 1.05
 
-[sub_resource type="SphereMesh" id="SphereMesh_61ot5"]
+[sub_resource type="SphereMesh" id="SphereMesh_qic7q"]
+radius = 0.1
+height = 0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u7x0b"]
 next_pass = ExtResource("1_3rakw")
 albedo_color = Color(0.7725, 0.089999974, 1, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_61ot5"]
+radius = 0.1
 
 [node name="Ball" type="StaticBody3D" unique_id=912300834]
 collision_layer = 32
@@ -27,7 +30,7 @@ outLine = SubResource("ShaderMaterial_fdfra")
 text = "Press \"E\" To Pick Up"
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1909160582]
-mesh = SubResource("SphereMesh_61ot5")
+mesh = SubResource("SphereMesh_qic7q")
 surface_material_override/0 = SubResource("StandardMaterial3D_u7x0b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2003153620]

@@ -24,6 +24,9 @@ extends CharacterBody3D
 @onready var left_hand_point: Node3D = $LeftHandPoint
 @onready var right_hand_point: Node3D = $RightHandPoint
 @onready var physical_bone_simulator_3d: PhysicalBoneSimulator3D = $"Character/Y Bot/Skeleton3D/PhysicalBoneSimulator3D"
+@onready var player_look_at: LookAtModifier3D = $"Character/Y Bot/Skeleton3D/PlayerLookAt"
+@onready var right_hand_grab_pivot: Marker3D = $"Character/Y Bot/Skeleton3D/RightHandGrab/HandPivot"
+
 
 
 #Colliders

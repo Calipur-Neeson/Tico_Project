@@ -6,6 +6,7 @@ extends Node3D
 @onready var mesh: MeshInstance3D = $Mesh
 
 var mat: Material
+var isInteracted: bool = false
 
 
 func _ready() -> void:
@@ -14,7 +15,7 @@ func _ready() -> void:
 		mat.next_pass = null
 
 func Interact(player: Player) -> void:
-	pass
+	isInteracted = true
 
 
 func InteractEnter() -> void:
