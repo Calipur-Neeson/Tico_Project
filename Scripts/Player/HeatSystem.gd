@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 	progress_bar.value = currentHeat
 	texture_progress_bar.value = currentHeat
 	
-	var percentage := currentHeat / maxHeatMeter * 5.5
+	var percentage := currentHeat / maxHeatMeter * 3.11
 
 	csg_polygon_3d.material.set_shader_parameter("percent", percentage)
 	

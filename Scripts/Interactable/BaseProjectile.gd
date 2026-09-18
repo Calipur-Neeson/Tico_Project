@@ -16,6 +16,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if shape_cast_3d.is_colliding():
+		SoundEmitter.EmitSound(global_position, 8)
+		free()
 		return
 	velocity.y -= gravity * delta
 	position += velocity * delta

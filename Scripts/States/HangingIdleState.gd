@@ -9,6 +9,9 @@ var time: float
 var inversedInput: Vector3
 
 func Enter(player: Player) -> void:
+	player.collision_stand.disabled = true
+	player.collision_upper.disabled = false
+	
 	player.assuming_land_cast.enabled = false
 	
 	player.obstacle_cast.force_raycast_update()
@@ -34,7 +37,7 @@ func PreUpdate(player: Player) -> void:
 		player.ChangeStateTo(player.playerState.HangingToFall)
 	elif Input.is_action_just_pressed("Jump"):
 		var localInput = player.GetMoveInput().dot(player.global_basis.z)
-		if localInput > 0.7:
+		if localInput > 0.9:
 			player.ChangeStateTo(player.playerState.JumpBack)
 		elif not player.climb_up_cast.is_colliding():
 			player.ChangeStateTo(player.playerState.ClimbWall)
@@ -87,3 +90,4 @@ func Exit(player: Player) -> void:
 	player.right_ik.influence = 0
 	player.climb_normal_cast.enabled = false
 	player.climb_up_cast.enabled = false
+	

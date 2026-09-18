@@ -12,6 +12,7 @@ func Enter(player: Player) -> void:
 	time = 0
 	player.assuming_land_cast.enabled = false
 	player.collision_stand.disabled = true
+	player.collision_upper.disabled = true
 	
 	player.obstacle_cast.force_raycast_update()
 	hitPoint = player.obstacle_cast.get_collision_point()

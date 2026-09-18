@@ -44,6 +44,8 @@ extends CharacterBody3D
 @onready var left_turn_climb_cast: RayCast3D = $RayDetectors/LeftTurnClimbCast
 @onready var obstacle_cast: RayCast3D = $RayDetectors/ObstacleCast
 @onready var assuming_land_cast: RayCast3D = $RayDetectors/AssumingLandCast
+@onready var left_hand_climb_cast: RayCast3D = $RayDetectors/LeftHandClimbCast
+@onready var right_hand_climb_cast: RayCast3D = $RayDetectors/RightHandClimbCast
 
 
 #Hand Pivot

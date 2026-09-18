@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://c4disitlekxwt"]
+
+[ext_resource type="Script" uid="uid://mlj572rq8nm3" path="res://Scripts/BlockoutSceneScripts/PillarCopyTransform.gd" id="1_rocx0"]
+
+[node name="Testing" type="Node3D" unique_id=1110015414]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=954114565]
+transform = Transform3D(-1, -3.7252903e-09, 8.754432e-08, 0, 1.0000002, 0, -8.754432e-08, 0, -1.0000004, -82.4046, 3.0406694, -3.5585518)
+
+[node name="FFPillarHolder" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1700123393]
+transform = Transform3D(1, -3.7252894e-09, 1.2151702e-10, 0, 0.99999976, 0, -1.2154544e-10, 3.2612783e-16, 0.99999964, 0, -4.7683716e-07, -4.7683716e-07)
+use_collision = true
+collision_layer = 7
+size = Vector3(5.546875, 12.124306, 2.3027344)
+
+[node name="FFBlock8" type="CSGBox3D" parent="CSGCombiner3D/FFPillarHolder" unique_id=268477374]
+transform = Transform3D(0.99975145, 7.1167946e-05, -0.022277812, -0.02112198, 0.32096097, -0.9468567, 0.0070828516, 0.9470928, 0.32088232, -0.07333565, 4.988491, -0.70596766)
+operation = 2
+use_collision = true
+collision_layer = 7
+size = Vector3(6.3691406, 9.08321, 3.7441406)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D/FFPillarHolder" unique_id=1762576554]
+transform = Transform3D(-1.1, 7.968554e-08, -1.4573226e-07, -5.7731597e-15, 0.9651411, 0.52773356, 1.6609539e-07, 0.52773356, -0.9651411, 0.015926361, 5.7684994, -7.6173067)
+operation = 2
+radius = 1.819
+height = 13.75232
+sides = 20
+script = ExtResource("1_rocx0")
+
+[node name="PillarContainer" type="Node3D" parent="." unique_id=399081902]
+transform = Transform3D(1, 0, 0, 0, 0.6227851, 0.782393, 0, -0.782393, 0.6227851, -83.050705, 6.3961754, 11.295238)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="PillarContainer" unique_id=1965410375]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.8954688, 0.44512463, 0, -0.44512463, 0.8954688, 0, 7.105901, -1.8361559)
+radius = 1.819
+height = 13.75232
+
+[node name="FFIcePillar" type="CSGBox3D" parent="." unique_id=1866473405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109.738846, 7.669983, 8.4506645)
+use_collision = true
+collision_layer = 7
+size = Vector3(3.0234375, 12.124306, 2.3027344)
+
+[node name="FFBlock8" type="CSGBox3D" parent="FFIcePillar" unique_id=854261680]
+transform = Transform3D(0.99975145, 7.116983e-05, -0.022277819, -0.01000399, -0.8920647, -0.45179725, -0.01990541, 0.45190865, -0.8918423, -0.07333565, 5.3871126, 1.4124198)
+operation = 2
+use_collision = true
+collision_layer = 7
+size = Vector3(6.3691406, 9.08321, 3.7441406)

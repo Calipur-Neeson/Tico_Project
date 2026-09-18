@@ -1,4 +1,5 @@
 extends AudioStreamPlayer3D
+
 @onready var character: CharacterBody3D = get_parent()
 
 
@@ -17,3 +18,5 @@ func PlayFootstep() -> void:
 				break
 	
 	play()
+	
+	SoundEmitter.EmitSound(character.global_position, character.velocity.length())

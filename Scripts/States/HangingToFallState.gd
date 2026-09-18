@@ -4,6 +4,7 @@ extends BasePlayerState
 var time: float
 
 func Enter(player: Player) -> void:
+	player.SetCrouch(false)
 	player.animation_tree.set("parameters/movement/transition_request", "fall")
 	
 	player.shimmy_cast.enabled = true
