@@ -3,7 +3,7 @@ extends Node3D
 
 @export var outLine: ShaderMaterial
 @export var text: String
-@onready var mesh: MeshInstance3D = $Mesh
+@onready var mesh: MeshInstance3D = %Mesh
 
 var mat: Material
 var isInteracted: bool = false

@@ -3,7 +3,7 @@ extends ShapeCast3D
 
 var currentObject: BaseInteractable
 var hasItem: bool = false
-var objectInHand: BaseInteractable
+var objectInHand: BasePickable
 @onready var panel: Panel = $"../../Panel"
 @onready var interactText: RichTextLabel = $"../../Panel/RichTextLabel"
 @onready var player: Player = $"../.."
@@ -34,7 +34,6 @@ func _physics_process(delta: float) -> void:
 	panel.show()
 	interactText.text = currentObject.text
 	
-	
 
 func _process(delta: float) -> void:
 	if currentObject != null and Input.is_action_just_pressed("Interact"):
@@ -50,6 +49,17 @@ func GetInteractable() -> BaseInteractable:
 			return col.get_parent()
 	return null
 	
-func Grab(item: BaseInteractable) -> void:
+func Grab(item: BasePickable) -> void:
 	hasItem = true
 	objectInHand = item
+	objectInHand.InteractExit()
+
+func Drop() -> void:
+	if hasItem and objectInHand:
+		objectInHand.reparent(get_tree().current_scene)
+		objectInHand.rigidBody.freeze = false
+		objectInHand.collision.disabled = false
+		objectInHand.isInteracted = false
+		hasItem = false
+		objectInHand = null
+	
