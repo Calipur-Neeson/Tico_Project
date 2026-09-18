@@ -8,8 +8,11 @@ extends Control
 @onready var audio_panel: Control = $"CanvasLayer/Audio Panel"
 @onready var Display_panel: Control = $CanvasLayer/DisplayPanel
 @onready var brightness_slider: HSlider = $CanvasLayer/DisplayPanel/VBoxContainer/HBoxContainer/HSlider
+@onready var controls_panel: Control = $CanvasLayer/Controls_panel
 
 @onready var resolution_option: OptionButton = $CanvasLayer/DisplayPanel/VBoxContainer/Resolution/OptionButton
+@onready var hover_glow: Control = $CanvasLayer/MainMenu/VBoxContainer/NewGame/Hoverglow
+
 
 func _ready() -> void: 
 	main_menu.show()
@@ -66,7 +69,8 @@ func _on_audio_pressed() -> void:
 
 
 func _on_controls_pressed() -> void:
-	pass # Replace with function body.
+	option_menu.hide()
+	controls_panel.show()
 
 
 func _on_display_pressed() -> void:
@@ -97,3 +101,13 @@ func _on_option_button_item_selected(index: int) -> void:
 
 func _on_h_slider_value_changed(value: float) -> void:
 	print("Brightness: ", value)
+
+
+func _on_new_game_mouse_entered() -> void:
+	var tween = create_tween()
+	tween.tween_property(hover_glow, "modulate:a", 1.0, 0.15)
+
+func _on_back_pressed_controls() -> void:
+	controls_panel.hide()
+	option_menu.show()
+	main_menu.hide()

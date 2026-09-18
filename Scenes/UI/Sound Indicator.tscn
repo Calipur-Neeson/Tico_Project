@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cnmraeu3gcecs"]
+
+[node name="SoundIndicator" type="Control" unique_id=2085255223]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Silent" type="TextureRect" parent="." unique_id=422890099]
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 187.0
+
+[node name="low" type="TextureRect" parent="." unique_id=1074285250]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 187.0
+
+[node name="Medium" type="TextureRect" parent="." unique_id=1776013266]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 187.0

@@ -1,6 +1,20 @@
 [gd_scene format=3 uid="uid://d32l602i2xtte"]
 
 [ext_resource type="Script" uid="uid://bhxa5wjwjuju" path="res://Scripts/UI/PauseMenu.gd" id="1_emv3i"]
+[ext_resource type="StyleBox" uid="uid://bdxcgfioonlsf" path="res://Materials/button_focus_mat.tres" id="2_kdnb7"]
+[ext_resource type="Script" uid="uid://bcwbliscn8l86" path="res://Scripts/UI/full_screen_control.gd" id="3_702e2"]
+[ext_resource type="Texture2D" uid="uid://dox23y7048n3w" path="res://Image/Screenshot 2026-09-14 113830.png" id="4_qyryt"]
+[ext_resource type="Texture2D" uid="uid://dn1xgpo0sq8g4" path="res://Image/Controls.png" id="5_23me3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_deree"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yq7um"]
+bg_color = Color(0.800896, 0.174268, 0.8034692, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nqqw2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hanoc"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=956095709]
 process_mode = 3
@@ -143,6 +157,291 @@ text = "GAME SAVED"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="OptionMenu" type="PanelContainer" parent="Panel" unique_id=2049844552]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -398.0
+offset_right = 520.0
+offset_bottom = -161.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_deree")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/OptionMenu" unique_id=1129729053]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 2
+
+[node name="Options" type="Label" parent="Panel/OptionMenu/VBoxContainer" unique_id=794613349]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 26
+text = "Options"
+
+[node name="Audio" type="Button" parent="Panel/OptionMenu/VBoxContainer" unique_id=1594954733]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_styles/hover = SubResource("StyleBoxFlat_yq7um")
+theme_override_styles/focus = ExtResource("2_kdnb7")
+text = "Audio	"
+alignment = 0
+icon_alignment = 1
+
+[node name="Controls" type="Button" parent="Panel/OptionMenu/VBoxContainer" unique_id=411130285]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_styles/hover = SubResource("StyleBoxFlat_yq7um")
+theme_override_styles/focus = ExtResource("2_kdnb7")
+text = "Controls
+"
+alignment = 0
+icon_alignment = 1
+
+[node name="Display" type="Button" parent="Panel/OptionMenu/VBoxContainer" unique_id=418820123]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_styles/hover = SubResource("StyleBoxFlat_yq7um")
+theme_override_styles/focus = ExtResource("2_kdnb7")
+text = "Display
+
+
+"
+alignment = 0
+icon_alignment = 1
+
+[node name="Back" type="Button" parent="Panel/OptionMenu/VBoxContainer" unique_id=1889700878]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_styles/hover = SubResource("StyleBoxFlat_yq7um")
+theme_override_styles/focus = ExtResource("2_kdnb7")
+text = "Back
+"
+alignment = 0
+icon_alignment = 1
+
+[node name="Audio Panel" type="PanelContainer" parent="Panel" unique_id=594027184]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -398.0
+offset_right = 520.0
+offset_bottom = 2.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nqqw2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Audio Panel" unique_id=634138951]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Label" type="Label" parent="Panel/Audio Panel/VBoxContainer" unique_id=726747334]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 26
+text = "Audio"
+
+[node name="MasterRow" type="HBoxContainer" parent="Panel/Audio Panel/VBoxContainer" unique_id=1146284725]
+layout_mode = 2
+theme_override_constants/separation = -50
+
+[node name="Master volume" type="Label" parent="Panel/Audio Panel/VBoxContainer/MasterRow" unique_id=2145361142]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Master Volume"
+
+[node name="HSlider" type="HSlider" parent="Panel/Audio Panel/VBoxContainer/MasterRow" unique_id=912947211]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_vertical = 8
+min_value = 0.5
+max_value = 1.5
+step = 0.05
+value = 1.0
+
+[node name="Music Row" type="HBoxContainer" parent="Panel/Audio Panel/VBoxContainer" unique_id=666831135]
+layout_mode = 2
+theme_override_constants/separation = -50
+
+[node name="Music volume" type="Label" parent="Panel/Audio Panel/VBoxContainer/Music Row" unique_id=1806723852]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Music Volume"
+
+[node name="HSlider" type="HSlider" parent="Panel/Audio Panel/VBoxContainer/Music Row" unique_id=358878476]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_vertical = 8
+min_value = 0.5
+max_value = 1.5
+step = 0.05
+value = 1.0
+
+[node name="sfx row" type="HBoxContainer" parent="Panel/Audio Panel/VBoxContainer" unique_id=295315691]
+layout_mode = 2
+theme_override_constants/separation = -50
+
+[node name="Sfx volume" type="Label" parent="Panel/Audio Panel/VBoxContainer/sfx row" unique_id=291069699]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Sfx Volume"
+
+[node name="HSlider" type="HSlider" parent="Panel/Audio Panel/VBoxContainer/sfx row" unique_id=1924000389]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_vertical = 8
+min_value = 0.5
+max_value = 1.5
+step = 0.05
+value = 1.0
+
+[node name="Back" type="Button" parent="Panel/Audio Panel/VBoxContainer" unique_id=55906522]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 22
+theme_override_styles/hover = SubResource("StyleBoxFlat_yq7um")
+theme_override_styles/focus = ExtResource("2_kdnb7")
+text = "Back
+
+"
+alignment = 0
+icon_alignment = 1
+
+[node name="DisplayPanel" type="PanelContainer" parent="Panel" unique_id=438280537]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -398.0
+offset_right = 740.0
+offset_bottom = 2.0
+grow_vertical = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hanoc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/DisplayPanel" unique_id=969693653]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Label" type="Label" parent="Panel/DisplayPanel/VBoxContainer" unique_id=2039794192]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 26
+text = "Display"
+
+[node name="Resolution" type="HBoxContainer" parent="Panel/DisplayPanel/VBoxContainer" unique_id=1927403882]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_constants/separation = -120
+
+[node name="Label2" type="Label" parent="Panel/DisplayPanel/VBoxContainer/Resolution" unique_id=1242413273]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Resolution"
+
+[node name="OptionButton" type="OptionButton" parent="Panel/DisplayPanel/VBoxContainer/Resolution" unique_id=906079252]
+custom_minimum_size = Vector2(150, 10)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = ExtResource("2_kdnb7")
+
+[node name="FullScreen_Controller" type="CheckButton" parent="Panel/DisplayPanel/VBoxContainer" unique_id=593257917]
+layout_mode = 2
+size_flags_horizontal = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(-6, 0)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/h_separation = 40
+theme_override_font_sizes/font_size = 22
+text = "Full Screen"
+script = ExtResource("3_702e2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/DisplayPanel/VBoxContainer" unique_id=893463037]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Brightness" type="Label" parent="Panel/DisplayPanel/VBoxContainer/HBoxContainer" unique_id=1784308502]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Brightness"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Panel/DisplayPanel/VBoxContainer/HBoxContainer" unique_id=514204102]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_vertical = 8
+min_value = 0.01
+max_value = 4.0
+step = 0.05
+page = 0.01
+value = 1.01
+
+[node name="Back" type="Button" parent="Panel/DisplayPanel/VBoxContainer" unique_id=524286049]
+layout_mode = 2
+size_flags_horizontal = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(-4, 0)
+theme_override_constants/h_separation = 4
+theme_override_font_sizes/font_size = 22
+theme_override_styles/hover = SubResource("StyleBoxFlat_yq7um")
+theme_override_styles/focus = ExtResource("2_kdnb7")
+text = "Back
+"
+alignment = 0
+icon_alignment = 1
+
+[node name="Controls_panel" type="Control" parent="Panel" unique_id=2103775406]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Controls_panel" unique_id=1665659673]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_qyryt")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/Controls_panel" unique_id=292243851]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 51.0
+offset_right = 809.33075
+offset_bottom = 470.0
+texture = ExtResource("5_23me3")
+expand_mode = 1
+
+[node name="Back" type="Button" parent="Panel/Controls_panel" unique_id=2134556117]
+layout_mode = 0
+offset_left = 1016.0
+offset_top = 560.0
+offset_right = 1084.0
+offset_bottom = 604.0
+theme_override_font_sizes/font_size = 22
+theme_override_styles/hover = SubResource("StyleBoxFlat_yq7um")
+theme_override_styles/focus = ExtResource("2_kdnb7")
+text = "Back
+"
+alignment = 0
+icon_alignment = 1
+
 [connection signal="pressed" from="Panel/PanelContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="ready" from="Panel/PanelContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_ready"]
 [connection signal="pressed" from="Panel/PanelContainer/VBoxContainer/SaveGame" to="." method="_on_save_game_pressed"]
@@ -151,3 +450,12 @@ vertical_alignment = 1
 [connection signal="pressed" from="Panel/PanelContainer/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="Panel/SaveGame_popup/PanelContainer/VBoxContainer/HBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Panel/SaveGame_popup/PanelContainer/VBoxContainer/HBoxContainer/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="Panel/OptionMenu/VBoxContainer/Audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="Panel/OptionMenu/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="Panel/OptionMenu/VBoxContainer/Display" to="." method="_on_display_pressed"]
+[connection signal="pressed" from="Panel/OptionMenu/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Panel/Audio Panel/VBoxContainer/Back" to="." method="_on_back_pressed_audio"]
+[connection signal="item_selected" from="Panel/DisplayPanel/VBoxContainer/Resolution/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="toggled" from="Panel/DisplayPanel/VBoxContainer/FullScreen_Controller" to="." method="_on_full_screen_controller_toggled"]
+[connection signal="pressed" from="Panel/DisplayPanel/VBoxContainer/Back" to="." method="_on_back_pressed_display"]
+[connection signal="pressed" from="Panel/Controls_panel/Back" to="." method="_on_back_pressed_controls"]
