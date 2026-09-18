@@ -26,22 +26,8 @@ func Interact(player: Player) -> void:
 	PickUp(player)
 	
 func PickUp(player: Player) -> void:
-	player.interactControl.Drop()
-	
-	var tween := create_tween()
-	tween.tween_property(player.right_ik, "influence", 1.0, 0.2)
-
-	await get_tree().create_timer(pickUpDelay).timeout
-	
-	reparent(player.right_hand_grab_pivot)
-	position = Vector3.ZERO
-	rigidBody.freeze = true
-	
-	tween = player.create_tween()
-	tween.tween_property(player.right_ik, "influence", 0.0, 0.15)
-	
-	collision.disabled = true
 	player.interactControl.Grab(self)
+	
 
 func Throw(direction: Vector3, player: Player) -> void:
 	isHeld = false

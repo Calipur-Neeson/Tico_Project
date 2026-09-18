@@ -50,9 +50,26 @@ func GetInteractable() -> BaseInteractable:
 	return null
 	
 func Grab(item: BasePickable) -> void:
+	Drop()
+	
+	var tween := create_tween()
+	tween.tween_property(player.right_ik, "influence", 1.0, 0.2)
+	if currentObject:
+		if CaculateHeight() < 1:
+			player.ChangeStateTo(player.playerState.CrouchIdle)
+	await get_tree().create_timer(item.pickUpDelay).timeout
+
+	item.reparent(player.right_hand_grab_pivot)
+	item.position = Vector3.ZERO
+	item.rigidBody.freeze = true
+	item.collision.disabled = true
 	hasItem = true
 	objectInHand = item
 	objectInHand.InteractExit()
+	
+	tween = create_tween()
+	tween.tween_property(player.right_ik, "influence", 0.0, 0.15)
+	player.ChangeStateTo(player.playerState.Idle)
 
 func Drop() -> void:
 	if hasItem and objectInHand:
@@ -63,3 +80,5 @@ func Drop() -> void:
 		hasItem = false
 		objectInHand = null
 	
+func CaculateHeight() -> float:
+	return currentObject.global_position.y - player.global_position.y
