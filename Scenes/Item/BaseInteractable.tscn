@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://by0guhssw0g8e"]
+
+[ext_resource type="Material" uid="uid://bf8220torvm0p" path="res://Shader/outline_shader_material.tres" id="1_3rakw"]
+[ext_resource type="Script" uid="uid://cr23qqqeak5mc" path="res://Scripts/Interactable/BasePickable.gd" id="1_spp0r"]
+[ext_resource type="Shader" uid="uid://c1kbvi16neeys" path="res://Shader/outline_shader_material.gdshader" id="3_sudja"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fdfra"]
+render_priority = 0
+shader = ExtResource("3_sudja")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/size = 1.05
+
+[sub_resource type="SphereMesh" id="SphereMesh_qic7q"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u7x0b"]
+next_pass = ExtResource("1_3rakw")
+albedo_color = Color(0.7725, 0.089999974, 1, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_61ot5"]
+radius = 0.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_12j5o"]
+radius = 0.11
+
+[node name="Ball" type="Node3D" unique_id=1702800787]
+script = ExtResource("1_spp0r")
+outLine = SubResource("ShaderMaterial_fdfra")
+text = "Press \"E\" To Pick Up"
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1909160582]
+mesh = SubResource("SphereMesh_qic7q")
+surface_material_override/0 = SubResource("StandardMaterial3D_u7x0b")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=634471290]
+collision_layer = 32
+collision_mask = 222
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=2003153620]
+shape = SubResource("SphereShape3D_61ot5")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="." unique_id=147621549]
+shape = SubResource("SphereShape3D_12j5o")
+target_position = Vector3(0, 0, 0)
+collision_mask = 206

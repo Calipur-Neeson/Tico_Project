@@ -8,12 +8,8 @@ extends BaseInteractable
 @onready var collision: CollisionShape3D = %CollisionShape3D
 @onready var rigidBody: RigidBody3D = $"."
 
-
 var isHeld: bool = false
 var isThrown: bool = false
-var gravity: float
-var velocity: Vector3 
-
 
 func _ready() -> void:
 	super._ready()
@@ -28,6 +24,26 @@ func Interact(player: Player) -> void:
 func PickUp(player: Player) -> void:
 	player.interactControl.Grab(self)
 	
+func SetHeld(player: Player) -> void:
+	reparent(player.right_hand_grab_pivot)
+	position = Vector3.ZERO
+
+	rigidBody.freeze = true
+	collision.disabled = true
+
+	isHeld = true
+	isThrown = false
+
+func Drop() -> void:
+	reparent(get_tree().current_scene)
+
+	rigidBody.freeze = false
+	collision.disabled = false
+
+	isHeld = false
+	isThrown = false
+	isInteracted = false
+
 
 func Throw(direction: Vector3, player: Player) -> void:
 	isHeld = false
@@ -36,11 +52,9 @@ func Throw(direction: Vector3, player: Player) -> void:
 	
 	reparent(get_tree().current_scene)
 		
-	velocity = direction.normalized() * throwSpeed
 	rigidBody.freeze = false
-	player.interactControl.objectInHand = null
-	player.interactControl.hasItem = false
-
+	rigidBody.linear_velocity = direction * throwSpeed
+	player.interactControl.ClearHeldItem()
 
 func _physics_process(delta: float) -> void:
 	if not isThrown:
@@ -48,6 +62,3 @@ func _physics_process(delta: float) -> void:
 	if shape_cast_3d.is_colliding():
 		SoundEmitter.EmitSound(global_position, 8)
 		queue_free()
-		return
-
-	position += velocity * delta

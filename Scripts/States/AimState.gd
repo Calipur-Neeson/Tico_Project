@@ -8,7 +8,7 @@ func Enter(player: Player) -> void:
 	isAim = true
 	player.camControl.isReset = false
 	
-	if player.interactControl.hasItem:
+	if player.interactControl.objectInHand:
 		player.muzzle.isAim = true
 
 func PreUpdate(player: Player) -> void:	
@@ -25,6 +25,8 @@ func PreUpdate(player: Player) -> void:
 		if player.interactControl.objectInHand and player.interactControl.objectInHand is BasePickable:
 			player.interactControl.objectInHand.global_position = player.muzzle.global_position
 			player.interactControl.objectInHand.Throw(direction, player)
+			player.muzzle.isAim = false
+
 
 func Update(player: Player, delta: float) -> void:
 	player.TurnTo(direction)
