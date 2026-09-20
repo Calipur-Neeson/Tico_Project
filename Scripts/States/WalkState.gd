@@ -42,12 +42,13 @@ func Update(player: Player, delta: float) -> void:
 	var direction := player.GetMoveInput()
 	player.TurnTo(direction)
 	
-	if player.wall_cast.is_colliding():
-		player.velocity = Vector3.ZERO
-		return
+	if player.is_on_wall():
+		var wallNormal := player.get_wall_normal()
+		if abs(direction.dot(wallNormal)) > 0.7:
+			return
 		
 	player.velocity += player.get_gravity() * delta
-	player.UpdateVelocity(direction)
+	player.UpdateVelocity(direction, delta)
 	
 	var walkSpeed: float = lerpf(0.1, 1.6, player.GetCurrentSpeed() / player.maxWalkSpeed)
 	

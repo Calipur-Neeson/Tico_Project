@@ -19,6 +19,6 @@ func PreUpdate(player: Player) -> void:
 func Update(player: Player, delta: float) -> void:
 	time += delta
 	var direction := player.GetMoveInput()
-	player.UpdateVelocity(direction, player.GetCurrentSpeed())
+	player.UpdateVelocity(direction, delta, player.GetCurrentSpeed())
 	player.move_and_slide()
 	

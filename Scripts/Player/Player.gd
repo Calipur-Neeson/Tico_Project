@@ -7,6 +7,8 @@ extends CharacterBody3D
 @export var maxVaultHeight: float = 1.3
 @export var shimmyDis: float = 1.0
 @export var shimmyJumpDis: float = 1.1
+@export var acceleration: float = 10
+@export var deceleration: float = 20
 
 @onready var spring_arm_3d: CameraControl = $SpringArm3D
 @onready var cam: Camera3D = $SpringArm3D/Camera3D
@@ -44,7 +46,7 @@ extends CharacterBody3D
 @onready var left_climb_cast: RayCast3D = $RayDetectors/LeftClimbCast
 @onready var right_climb_cast: RayCast3D = $RayDetectors/RightClimbCast
 @onready var ceiling_cast: ShapeCast3D = $RayDetectors/CeilingCast
-@onready var wall_cast: ShapeCast3D = $RayDetectors/WallCast
+#@onready var wall_cast: ShapeCast3D = $RayDetectors/WallCast
 @onready var right_turn_climb_cast: RayCast3D = $RayDetectors/RightTurnClimbCast
 @onready var left_turn_climb_cast: RayCast3D = $RayDetectors/LeftTurnClimbCast
 @onready var obstacle_cast: RayCast3D = $RayDetectors/ObstacleCast
@@ -109,13 +111,22 @@ func GetMoveInput() -> Vector3:
 func GetCurrentSpeed() -> float:
 	return velocity.length()
 	
-func UpdateVelocity(direction: Vector3, speed: float = runSpeed) -> void:
+func UpdateVelocity(direction: Vector3, delta: float, speed: float = runSpeed) -> void:
 	if direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
+		#var targetVelocity := direction * speed
+		#if abs(velocity.dot(targetVelocity)) < 0:
+			#velocity.x = move_toward(velocity.x, targetVelocity.x, acceleration * 10 * delta)
+			#velocity.z = move_toward(velocity.z, targetVelocity.z, acceleration * 10 * delta)
+		#else:
+			#velocity.x = move_toward(velocity.x, targetVelocity.x, acceleration * delta)
+			#velocity.z = move_toward(velocity.z, targetVelocity.z, acceleration * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, 1)
 		velocity.z = move_toward(velocity.z, 0, 1)
+		#velocity.x = move_toward(velocity.x, 0, deceleration * delta)
+		#velocity.z = move_toward(velocity.z, 0, deceleration * delta)
 
 func SetCrouch(crouch: bool) -> void:
 	isCrouch = crouch

@@ -53,21 +53,13 @@ func GetInteractable() -> BaseInteractable:
 	
 func Grab(item: BasePickable) -> void:
 	Drop()
+	player.playerState.Pickup.itemPickup = item
+	if player.state == player.playerState.Idle:
+		player.playerState.Pickup.originalPose = PlayerPickupState.PickupPose.STANDING
+	elif player.state == player.playerState.CrouchIdle:
+		player.playerState.Pickup.originalPose = PlayerPickupState.PickupPose.CROUCHING
+	player.ChangeStateTo(player.playerState.Pickup)
 	
-	var tween := create_tween()
-	tween.tween_property(player.right_ik, "influence", 1.0, 0.2)
-	if currentObject and CaculateHeight() < 0.8:
-		player.ChangeStateTo(player.playerState.CrouchIdle)
-	await get_tree().create_timer(item.pickUpDelay).timeout
-	
-	item.SetHeld(player)
-	
-	objectInHand = item
-	objectInHand.InteractExit()
-	
-	tween = create_tween()
-	tween.tween_property(player.right_ik, "influence", 0.0, 0.15)
-	player.ChangeStateTo(player.playerState.Idle)
 
 func Drop() -> void:
 	if not objectInHand:
