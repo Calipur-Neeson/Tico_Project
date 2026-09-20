@@ -44,7 +44,7 @@ func Update(player: Player, delta: float) -> void:
 	
 	if player.is_on_wall():
 		var wallNormal := player.get_wall_normal()
-		if abs(direction.dot(wallNormal)) > 0.7:
+		if direction.dot(wallNormal) < -0.7:
 			return
 		
 	player.velocity += player.get_gravity() * delta
