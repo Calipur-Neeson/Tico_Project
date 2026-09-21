@@ -26,7 +26,6 @@ func Enter(player: Player) -> void:
 	var normalHitPoint: Vector3 = player.climb_normal_cast.get_collision_point()
 	var forward: Vector3 = -player.global_basis.z
 	var distance: float = (normalHitPoint - player.global_position).dot(forward)
-	print(distance - 0.4)
 	targetPointA += forward * (distance - 0.4)
 	
 	player.climb_up_cast.enabled = true
