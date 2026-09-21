@@ -3,9 +3,11 @@ extends Node3D
 
 @export var outLine: ShaderMaterial
 @export var text: String
-@onready var mesh: MeshInstance3D = $Mesh
+@onready var mesh: MeshInstance3D = %Mesh
 
 var mat: Material
+var isInteracted: bool = false
+
 
 func _ready() -> void:
 	mat = mesh.get_active_material(0) as StandardMaterial3D
@@ -13,7 +15,8 @@ func _ready() -> void:
 		mat.next_pass = null
 
 func Interact(player: Player) -> void:
-	print("Press E")
+	isInteracted = true
+
 
 func InteractEnter() -> void:
 	if mat:
