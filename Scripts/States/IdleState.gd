@@ -14,9 +14,14 @@ func PreUpdate(player: Player) -> void:
 		player.ChangeStateTo(player.playerState.Fall)
 		
 	elif player.GetMoveInput().length() > 0.01:
-		player.ChangeStateTo(player.playerState.Walk)
+		if player.is_on_wall():
+			var wallNormal := player.get_wall_normal()
+			if player.GetMoveInput().dot(wallNormal) > -0.7:
+				player.ChangeStateTo(player.playerState.Walk)
+		else:
+			player.ChangeStateTo(player.playerState.Walk)
 		
-	elif Input.is_action_just_pressed("Jump") and player.is_on_floor():
+	if Input.is_action_just_pressed("Jump") and player.is_on_floor():
 		player.obstacle_cast.enabled = true
 		player.obstacle_cast.force_raycast_update()
 		
