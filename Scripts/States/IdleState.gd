@@ -18,13 +18,6 @@ func PreUpdate(player: Player) -> void:
 			var wallNormal := player.get_wall_normal()
 			if player.GetMoveInput().dot(wallNormal) > -0.7:
 				player.ChangeStateTo(player.playerState.Walk)
-			else:
-				player.obstacle_cast.enabled = true
-				if player.obstacle_cast.is_colliding():
-					var hit: Vector3 = player.obstacle_cast.get_collision_point()
-					if hit.y - player.global_position.y < 0.4:
-						player.playerState.Stride.targetPoint = hit
-						player.ChangeStateTo(player.playerState.Stride)
 		else:
 			player.ChangeStateTo(player.playerState.Walk)
 		

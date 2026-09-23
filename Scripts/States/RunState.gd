@@ -16,6 +16,9 @@ func PreUpdate(player: Player) -> void:
 		player.obstacle_cast.enabled = true
 		player.obstacle_cast.force_raycast_update()
 		
+		player.assuming_land_cast.enabled = true
+		player.assuming_land_cast.force_raycast_update()
+		
 		player.climb_up_cast.enabled = true
 		player.climb_up_cast.force_raycast_update()
 		
