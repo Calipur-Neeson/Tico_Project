@@ -39,6 +39,7 @@ func Enter(player: Player) -> void:
 func PreUpdate(player: Player) -> void:
 	if Input.is_action_just_pressed("Crouch"):
 		player.island = true
+		player.velocity.y = -3
 		player.ChangeStateTo(player.playerState.HangingToFall)
 	elif Input.is_action_just_pressed("Jump"):
 		var localInput = player.GetMoveInput().dot(player.global_basis.z)
