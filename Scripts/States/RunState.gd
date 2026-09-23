@@ -43,6 +43,6 @@ func Update(player: Player, delta: float) -> void:
 	player.TurnTo(direction)
 		
 	player.velocity += player.get_gravity() * delta
-	player.UpdateVelocity(direction)
+	player.UpdateVelocity(direction, delta)
 	
 	player.move_and_slide()

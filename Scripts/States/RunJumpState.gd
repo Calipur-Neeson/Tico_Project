@@ -6,11 +6,10 @@ var time: float
 func Enter(player: Player) -> void:
 	time = 0
 	player.obstacle_cast.enabled = false
+	player.climb_normal_cast.enabled = true
 	player.animation_tree.set("parameters/movement/transition_request", "runJump")
 
 func PreUpdate(player: Player) -> void:
-	player.obstacle_cast.enabled = true
-	
 	if not player.GetMoveInput() or time > 0.7:
 		player.ChangeStateTo(player.playerState.Fall)
 		
@@ -18,13 +17,9 @@ func PreUpdate(player: Player) -> void:
 		player.obstacle_cast.enabled = false
 		player.ChangeStateTo(player.playerState.Run)
 	
-	#if player.obstacle_cast.is_colliding() and not player.island:
-		#var hitPoint: Vector3 = player.obstacle_cast.get_collision_point()
-		#var height: float = hitPoint.y - player.global_position.y
-		#if 1.4 < height and height < 1.6: 
-			#player.ChangeStateTo(player.playerState.HangingIdle)
-	if player.left_hand_climb_cast.is_colliding() or player.right_hand_climb_cast.is_colliding() and not player.island:
-		player.ChangeStateTo(player.playerState.HangingIdle)
+	if player.left_hand_climb_cast.is_colliding() or player.right_hand_climb_cast.is_colliding():
+		if player.climb_normal_cast.is_colliding():
+			player.ChangeStateTo(player.playerState.HangingIdle)
 
 func Update(player: Player, delta: float) -> void:
 	time += delta
@@ -34,3 +29,6 @@ func Update(player: Player, delta: float) -> void:
 	player.UpdateVelocity(direction, player.jumpSpeed)
 	player.TurnTo(direction)
 	player.move_and_slide()
+
+func Exit(player: Player) -> void:
+	player.climb_normal_cast.enabled = false

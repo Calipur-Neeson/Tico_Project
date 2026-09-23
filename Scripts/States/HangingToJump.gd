@@ -22,7 +22,7 @@ func Enter(player: Player) -> void:
 	
 	
 func PreUpdate(player: Player) -> void:
-	if time > 0.4:
+	if time > 0.8:
 		player.ChangeStateTo(player.playerState.HangingIdle)
 	
 
@@ -48,7 +48,8 @@ func Update(player: Player, delta: float) -> void:
 	
 	normal = player.climb_normal_cast.get_collision_normal()
 	player.TurnTo(-normal)
-	player.SmoothLerp(targetPointA,delta * 4)
+	if time > 0.4:
+		player.SmoothLerp(targetPointA,delta * 4)
 	
 func Exit(player: Player) -> void:
 	player.climb_normal_cast.enabled = false

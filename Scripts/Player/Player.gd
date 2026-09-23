@@ -7,6 +7,8 @@ extends CharacterBody3D
 @export var maxVaultHeight: float = 1.3
 @export var shimmyDis: float = 1.0
 @export var shimmyJumpDis: float = 1.1
+@export var acceleration: float = 10
+@export var deceleration: float = 20
 
 @onready var spring_arm_3d: CameraControl = $SpringArm3D
 @onready var cam: Camera3D = $SpringArm3D/Camera3D
@@ -14,6 +16,7 @@ extends CharacterBody3D
 @onready var muzzle: Trajectory = $Muzzle
 @onready var playerState: PlayerState = $StateMachine
 @onready var heatSystem: HeatSystem = $HeatMeter
+@onready var interactControl: InteractControl = $RayDetectors/InteractCast
 
 
 #Animator
@@ -23,6 +26,10 @@ extends CharacterBody3D
 @onready var left_ik: CCDIK3D = $"Character/Y Bot/Skeleton3D/LeftIK"
 @onready var left_hand_point: Node3D = $LeftHandPoint
 @onready var right_hand_point: Node3D = $RightHandPoint
+@onready var physical_bone_simulator_3d: PhysicalBoneSimulator3D = $"Character/Y Bot/Skeleton3D/PhysicalBoneSimulator3D"
+@onready var player_look_at: LookAtModifier3D = $"Character/Y Bot/Skeleton3D/PlayerLookAt"
+@onready var right_hand_grab_pivot: Marker3D = $"Character/Y Bot/Skeleton3D/RightHandGrab/HandPivot"
+
 
 
 #Colliders
@@ -39,13 +46,14 @@ extends CharacterBody3D
 @onready var left_climb_cast: RayCast3D = $RayDetectors/LeftClimbCast
 @onready var right_climb_cast: RayCast3D = $RayDetectors/RightClimbCast
 @onready var ceiling_cast: ShapeCast3D = $RayDetectors/CeilingCast
-@onready var wall_cast: ShapeCast3D = $RayDetectors/WallCast
+#@onready var wall_cast: ShapeCast3D = $RayDetectors/WallCast
 @onready var right_turn_climb_cast: RayCast3D = $RayDetectors/RightTurnClimbCast
 @onready var left_turn_climb_cast: RayCast3D = $RayDetectors/LeftTurnClimbCast
 @onready var obstacle_cast: RayCast3D = $RayDetectors/ObstacleCast
 @onready var assuming_land_cast: RayCast3D = $RayDetectors/AssumingLandCast
 @onready var left_hand_climb_cast: RayCast3D = $RayDetectors/LeftHandClimbCast
 @onready var right_hand_climb_cast: RayCast3D = $RayDetectors/RightHandClimbCast
+@onready var falling_die_cast: RayCast3D = $RayDetectors/FallingDieCast
 
 
 #Hand Pivot
@@ -68,6 +76,7 @@ func _ready() -> void:
 	obstacle_cast.enabled = false
 	assuming_land_cast.enabled = false
 	climb_normal_cast.enabled = false
+	falling_die_cast.enabled = false
 	
 	state = playerState.Idle
 	state.Enter(self)
@@ -102,13 +111,22 @@ func GetMoveInput() -> Vector3:
 func GetCurrentSpeed() -> float:
 	return velocity.length()
 	
-func UpdateVelocity(direction: Vector3, speed: float = runSpeed) -> void:
+func UpdateVelocity(direction: Vector3, delta: float, speed: float = runSpeed) -> void:
 	if direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
+		#var targetVelocity := direction * speed
+		#if abs(velocity.dot(targetVelocity)) < 0:
+			#velocity.x = move_toward(velocity.x, targetVelocity.x, acceleration * 10 * delta)
+			#velocity.z = move_toward(velocity.z, targetVelocity.z, acceleration * 10 * delta)
+		#else:
+			#velocity.x = move_toward(velocity.x, targetVelocity.x, acceleration * delta)
+			#velocity.z = move_toward(velocity.z, targetVelocity.z, acceleration * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, 1)
 		velocity.z = move_toward(velocity.z, 0, 1)
+		#velocity.x = move_toward(velocity.x, 0, deceleration * delta)
+		#velocity.z = move_toward(velocity.z, 0, deceleration * delta)
 
 func SetCrouch(crouch: bool) -> void:
 	isCrouch = crouch

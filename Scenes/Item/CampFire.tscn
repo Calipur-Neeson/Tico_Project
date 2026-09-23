@@ -14,7 +14,7 @@ albedo_color = Color(0.9852986, 0.2446771, 0.4276237, 1)
 height = 0.5
 radius = 0.3
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_61ot5"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_12j5o"]
 radius = 2.0
 
 [node name="CampFire" type="StaticBody3D" unique_id=716624488]
@@ -25,13 +25,19 @@ outLine = ExtResource("2_dpdl8")
 text = "Press \"E\" To Save"
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1514432527]
+unique_name_in_owner = true
 mesh = SubResource("TorusMesh_5m34c")
 surface_material_override/0 = SubResource("StandardMaterial3D_dpdl8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=430834520]
 shape = SubResource("CylinderShape3D_47lvx")
 
-[node name="ShapeCast3D" type="ShapeCast3D" parent="." unique_id=1124746212]
-shape = SubResource("SphereShape3D_61ot5")
-target_position = Vector3(0, 0, 0)
-collision_mask = 16
+[node name="Area3D" type="Area3D" parent="." unique_id=1785156248]
+collision_layer = 32
+collision_mask = 17
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=78497574]
+shape = SubResource("SphereShape3D_12j5o")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

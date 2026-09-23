@@ -14,7 +14,9 @@ func Enter(player: Player) -> void:
 	time = 0
 	player.island = false
 	#print("landSpeed", player.landSpeed)
-	if player.landSpeed <= -12:
+	if player.landSpeed < -18:
+		player.ChangeStateTo(player.playerState.Die)
+	elif player.landSpeed <= -12:
 		if player.GetMoveInput():
 			landDirection = player.GetMoveInput()
 			landVelociry = player.velocity
