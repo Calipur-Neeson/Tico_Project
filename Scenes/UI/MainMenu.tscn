@@ -5,7 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://dox23y7048n3w" path="res://Image/Screenshot 2026-09-14 113830.png" id="2_k8um8"]
 [ext_resource type="StyleBox" uid="uid://bdxcgfioonlsf" path="res://Materials/button_focus_mat.tres" id="3_t6w0q"]
 [ext_resource type="Script" uid="uid://bcwbliscn8l86" path="res://Scripts/UI/full_screen_control.gd" id="4_t6w0q"]
+[ext_resource type="PackedScene" uid="uid://b6x04x6qder7o" path="res://Scenes/UI/audio_slider_settings.tscn" id="5_kl3t2"]
 [ext_resource type="Texture2D" uid="uid://dn1xgpo0sq8g4" path="res://Image/Controls.png" id="6_jex3y"]
+[ext_resource type="AudioStream" uid="uid://gc37c8x3yahf" path="res://Audios/Music/title.mp3" id="7_744d7"]
+[ext_resource type="Shader" uid="uid://dq0x3donykfo2" path="res://Scenes/UI/MainMenu.gdshader" id="8_ynupv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61ot5"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -16,6 +19,10 @@ bg_color = Color(0.800896, 0.174268, 0.8034692, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t6w0q"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k8um8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bq07b"]
+shader = ExtResource("8_ynupv")
+shader_parameter/brightness = 1.0
 
 [node name="Main Menu" type="Control" unique_id=646235655]
 layout_mode = 3
@@ -49,7 +56,6 @@ offset_bottom = 646.0
 color = Color(1, 1, 1, 0.19607843)
 
 [node name="MainMenu" type="PanelContainer" parent="CanvasLayer" unique_id=503452495]
-visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -182,77 +188,32 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 120.0
 offset_top = -398.0
-offset_right = 520.0
-offset_bottom = 2.0
+offset_right = 553.0
+offset_bottom = -101.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_t6w0q")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Audio Panel" unique_id=127688173]
 layout_mode = 2
-theme_override_constants/separation = 2
+theme_override_constants/separation = 50
 
 [node name="Label" type="Label" parent="CanvasLayer/Audio Panel/VBoxContainer" unique_id=535529794]
 layout_mode = 2
+size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 38
 text = "Audio"
 
-[node name="MasterRow" type="HBoxContainer" parent="CanvasLayer/Audio Panel/VBoxContainer" unique_id=1320259357]
+[node name="Audio_Slider_Settings" parent="CanvasLayer/Audio Panel/VBoxContainer" unique_id=1318025372 instance=ExtResource("5_kl3t2")]
 layout_mode = 2
-theme_override_constants/separation = -50
 
-[node name="Master volume" type="Label" parent="CanvasLayer/Audio Panel/VBoxContainer/MasterRow" unique_id=1898739189]
-custom_minimum_size = Vector2(300, 50)
+[node name="Audio_Slider_Settings2" parent="CanvasLayer/Audio Panel/VBoxContainer" unique_id=1241422863 instance=ExtResource("5_kl3t2")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 26
-text = "Master Volume"
+bus_name = "Music"
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/Audio Panel/VBoxContainer/MasterRow" unique_id=409517007]
-custom_minimum_size = Vector2(150, 50)
+[node name="Audio_Slider_Settings3" parent="CanvasLayer/Audio Panel/VBoxContainer" unique_id=2121197301 instance=ExtResource("5_kl3t2")]
 layout_mode = 2
-size_flags_vertical = 8
-min_value = 0.5
-max_value = 1.5
-step = 0.05
-value = 1.0
-
-[node name="Music Row" type="HBoxContainer" parent="CanvasLayer/Audio Panel/VBoxContainer" unique_id=157870799]
-layout_mode = 2
-theme_override_constants/separation = -50
-
-[node name="Music volume" type="Label" parent="CanvasLayer/Audio Panel/VBoxContainer/Music Row" unique_id=1644200589]
-custom_minimum_size = Vector2(300, 50)
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-text = "Music Volume"
-
-[node name="HSlider" type="HSlider" parent="CanvasLayer/Audio Panel/VBoxContainer/Music Row" unique_id=24024769]
-custom_minimum_size = Vector2(150, 50)
-layout_mode = 2
-size_flags_vertical = 8
-min_value = 0.5
-max_value = 1.5
-step = 0.05
-value = 1.0
-
-[node name="sfx row" type="HBoxContainer" parent="CanvasLayer/Audio Panel/VBoxContainer" unique_id=1046104408]
-layout_mode = 2
-theme_override_constants/separation = -50
-
-[node name="Sfx volume" type="Label" parent="CanvasLayer/Audio Panel/VBoxContainer/sfx row" unique_id=1406015717]
-custom_minimum_size = Vector2(300, 50)
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-text = "Sfx Volume"
-
-[node name="HSlider" type="HSlider" parent="CanvasLayer/Audio Panel/VBoxContainer/sfx row" unique_id=2144274790]
-custom_minimum_size = Vector2(150, 50)
-layout_mode = 2
-size_flags_vertical = 8
-min_value = 0.5
-max_value = 1.5
-step = 0.05
-value = 1.0
+bus_name = "Sfx"
 
 [node name="Back" type="Button" parent="CanvasLayer/Audio Panel/VBoxContainer" unique_id=331238707]
 layout_mode = 2
@@ -334,11 +295,10 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 size_flags_vertical = 8
-min_value = 0.01
-max_value = 4.0
-step = 0.05
-page = 0.01
-value = 1.01
+min_value = 0.5
+max_value = 1.5
+step = 0.01
+value = 1.0
 
 [node name="Back" type="Button" parent="CanvasLayer/DisplayPanel/VBoxContainer" unique_id=399698367]
 layout_mode = 2
@@ -392,6 +352,20 @@ text = "Back
 "
 alignment = 0
 icon_alignment = 1
+
+[node name="Brightness overlay" type="ColorRect" parent="CanvasLayer" unique_id=1382841209]
+material = SubResource("ShaderMaterial_bq07b")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=747793201]
+stream = ExtResource("7_744d7")
+volume_db = -15.134
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/LoadGame" to="." method="_on_load_game_pressed"]

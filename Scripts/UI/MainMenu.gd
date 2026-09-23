@@ -12,12 +12,19 @@ extends Control
 
 @onready var resolution_option: OptionButton = $CanvasLayer/DisplayPanel/VBoxContainer/Resolution/OptionButton
 @onready var hover_glow: Control = $CanvasLayer/MainMenu/VBoxContainer/NewGame/Hoverglow
+@onready var brightness_overlay: ColorRect = get_node("/root/BrightnessManager/BrightnessOverlay")
 
 
 func _ready() -> void: 
 	main_menu.show()
 	option_menu.hide()
 	audio_panel.hide()
+	var mode = DisplayServer.window_get_mode()
+	var fullscreen = (
+		mode == DisplayServer.WINDOW_MODE_FULLSCREEN
+		or mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
+	)
+	$CanvasLayer/DisplayPanel/VBoxContainer/FullScreen_Controller.set_pressed_no_signal(fullscreen)
 
 	GameManager.OnInputModeChanged.connect(OnInputModeChanged) 
 	
@@ -100,7 +107,8 @@ func _on_option_button_item_selected(index: int) -> void:
 		2: get_window().size = Vector2i(1280, 720)
 
 func _on_h_slider_value_changed(value: float) -> void:
-	print("Brightness: ", value)
+	if brightness_overlay != null:
+		brightness_overlay.material.set_shader_parameter("brightness", value)
 
 
 func _on_new_game_mouse_entered() -> void:

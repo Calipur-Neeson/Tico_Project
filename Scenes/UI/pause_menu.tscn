@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bhxa5wjwjuju" path="res://Scripts/UI/PauseMenu.gd" id="1_emv3i"]
 [ext_resource type="StyleBox" uid="uid://bdxcgfioonlsf" path="res://Materials/button_focus_mat.tres" id="2_kdnb7"]
 [ext_resource type="Script" uid="uid://bcwbliscn8l86" path="res://Scripts/UI/full_screen_control.gd" id="3_702e2"]
+[ext_resource type="PackedScene" uid="uid://b6x04x6qder7o" path="res://Scenes/UI/audio_slider_settings.tscn" id="3_qyryt"]
 [ext_resource type="Texture2D" uid="uid://dox23y7048n3w" path="res://Image/Screenshot 2026-09-14 113830.png" id="4_qyryt"]
 [ext_resource type="Texture2D" uid="uid://dn1xgpo0sq8g4" path="res://Image/Controls.png" id="5_23me3"]
 
@@ -237,7 +238,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_nqqw2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/Audio Panel" unique_id=634138951]
 layout_mode = 2
-theme_override_constants/separation = 2
+theme_override_constants/separation = 50
 
 [node name="Label" type="Label" parent="Panel/Audio Panel/VBoxContainer" unique_id=726747334]
 layout_mode = 2
@@ -245,7 +246,19 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 26
 text = "Audio"
 
+[node name="Audio_Slider_Settings" parent="Panel/Audio Panel/VBoxContainer" unique_id=1318025372 instance=ExtResource("3_qyryt")]
+layout_mode = 2
+
+[node name="Audio_Slider_Settings2" parent="Panel/Audio Panel/VBoxContainer" unique_id=674391878 instance=ExtResource("3_qyryt")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="Audio_Slider_Settings3" parent="Panel/Audio Panel/VBoxContainer" unique_id=365156790 instance=ExtResource("3_qyryt")]
+layout_mode = 2
+bus_name = "Sfx"
+
 [node name="MasterRow" type="HBoxContainer" parent="Panel/Audio Panel/VBoxContainer" unique_id=1146284725]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = -50
 
@@ -265,6 +278,7 @@ step = 0.05
 value = 1.0
 
 [node name="Music Row" type="HBoxContainer" parent="Panel/Audio Panel/VBoxContainer" unique_id=666831135]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = -50
 
@@ -284,6 +298,7 @@ step = 0.05
 value = 1.0
 
 [node name="sfx row" type="HBoxContainer" parent="Panel/Audio Panel/VBoxContainer" unique_id=295315691]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = -50
 
@@ -340,22 +355,41 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 26
 text = "Display"
 
-[node name="Resolution" type="HBoxContainer" parent="Panel/DisplayPanel/VBoxContainer" unique_id=1927403882]
+[node name="Resolution" type="HBoxContainer" parent="Panel/DisplayPanel/VBoxContainer" unique_id=125479214]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 theme_override_constants/separation = -120
 
-[node name="Label2" type="Label" parent="Panel/DisplayPanel/VBoxContainer/Resolution" unique_id=1242413273]
+[node name="Label2" type="Label" parent="Panel/DisplayPanel/VBoxContainer/Resolution" unique_id=1225290376]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
 text = "Resolution"
 
-[node name="OptionButton" type="OptionButton" parent="Panel/DisplayPanel/VBoxContainer/Resolution" unique_id=906079252]
+[node name="OptionButton" type="OptionButton" parent="Panel/DisplayPanel/VBoxContainer/Resolution" unique_id=514640651]
 custom_minimum_size = Vector2(150, 10)
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = ExtResource("2_kdnb7")
+
+[node name="Resolution3" type="HBoxContainer" parent="Panel/DisplayPanel/VBoxContainer" unique_id=1927403882]
+visible = false
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_constants/separation = -120
+
+[node name="Label2" type="Label" parent="Panel/DisplayPanel/VBoxContainer/Resolution3" unique_id=1242413273]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Resolution"
+
+[node name="OptionButton" type="OptionButton" parent="Panel/DisplayPanel/VBoxContainer/Resolution3" unique_id=906079252]
+custom_minimum_size = Vector2(150, 10)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 22
 theme_override_styles/focus = ExtResource("2_kdnb7")
 
 [node name="FullScreen_Controller" type="CheckButton" parent="Panel/DisplayPanel/VBoxContainer" unique_id=593257917]
@@ -369,17 +403,18 @@ theme_override_font_sizes/font_size = 22
 text = "Full Screen"
 script = ExtResource("3_702e2")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/DisplayPanel/VBoxContainer" unique_id=893463037]
+[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/DisplayPanel/VBoxContainer" unique_id=893463037]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="Brightness" type="Label" parent="Panel/DisplayPanel/VBoxContainer/HBoxContainer" unique_id=1784308502]
+[node name="Brightness" type="Label" parent="Panel/DisplayPanel/VBoxContainer/HBoxContainer4" unique_id=1784308502]
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "Brightness"
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Panel/DisplayPanel/VBoxContainer/HBoxContainer" unique_id=514204102]
+[node name="HSlider" type="HSlider" parent="Panel/DisplayPanel/VBoxContainer/HBoxContainer4" unique_id=514204102]
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 size_flags_vertical = 8
@@ -388,6 +423,25 @@ max_value = 4.0
 step = 0.05
 page = 0.01
 value = 1.01
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/DisplayPanel/VBoxContainer" unique_id=1892699663]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Brightness" type="Label" parent="Panel/DisplayPanel/VBoxContainer/HBoxContainer" unique_id=920869910]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Brightness"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Panel/DisplayPanel/VBoxContainer/HBoxContainer" unique_id=889719100]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_vertical = 8
+min_value = 0.5
+max_value = 1.5
+step = 0.01
+value = 1.0
 
 [node name="Back" type="Button" parent="Panel/DisplayPanel/VBoxContainer" unique_id=524286049]
 layout_mode = 2
@@ -456,6 +510,8 @@ icon_alignment = 1
 [connection signal="pressed" from="Panel/OptionMenu/VBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Panel/Audio Panel/VBoxContainer/Back" to="." method="_on_back_pressed_audio"]
 [connection signal="item_selected" from="Panel/DisplayPanel/VBoxContainer/Resolution/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="Panel/DisplayPanel/VBoxContainer/Resolution3/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="toggled" from="Panel/DisplayPanel/VBoxContainer/FullScreen_Controller" to="." method="_on_full_screen_controller_toggled"]
+[connection signal="value_changed" from="Panel/DisplayPanel/VBoxContainer/HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="Panel/DisplayPanel/VBoxContainer/Back" to="." method="_on_back_pressed_display"]
 [connection signal="pressed" from="Panel/Controls_panel/Back" to="." method="_on_back_pressed_controls"]

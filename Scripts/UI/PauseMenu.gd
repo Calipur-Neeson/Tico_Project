@@ -13,7 +13,13 @@ var isPaused: bool = false
 @onready var controls_panel: Control = $Panel/Controls_panel
 
 
-
+func _ready() -> void:
+	var resolution_button: OptionButton = $Panel/DisplayPanel/VBoxContainer/Resolution/OptionButton
+	resolution_button.clear()
+	resolution_button.add_item("1920x1080")
+	resolution_button.add_item("1600x900")
+	resolution_button.add_item("1280x720")
+	resolution_button.select(0)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Escape"):
@@ -60,15 +66,6 @@ func _on_menu_button_pressed() -> void:
 func _on_save_game_pressed() -> void:
 	save_game_popup.show()
 	
-
-
-func _on_save_pressed() -> void:
-	print("Game Saved")
-	save_game_popup.hide()
-	game_saved.show()
-	await get_tree().create_timer(0.5).timeout
-	game_saved.hide()
-	
 	
 func _on_cancel_pressed() -> void:
 	save_game_popup.hide()
@@ -91,6 +88,12 @@ func _on_controls_pressed() -> void:
 	controls_panel.show()
 	
 func _on_display_pressed() -> void:
+	var mode = DisplayServer.window_get_mode()
+	var fullscreen = (
+		mode == DisplayServer.WINDOW_MODE_FULLSCREEN
+		or mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
+	)
+	$Panel/DisplayPanel/VBoxContainer/FullScreen_Controller.set_pressed_no_signal(fullscreen)
 	option_menu.hide()
 	display_panel.show()
 
@@ -114,9 +117,14 @@ func _on_option_button_item_selected(index: int) -> void:
 		1: get_window().size = Vector2i(1600, 900)
 		2: get_window().size = Vector2i(1280, 720)
 
-
 func _on_full_screen_controller_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+
+
+func _on_h_slider_value_changed(value: float) -> void:
+	var overlay = get_node("/root/BrightnessManager/BrightnessOverlay")
+	overlay.material.set_shader_parameter("brightness", value)

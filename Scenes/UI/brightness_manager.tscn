@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dgcam0teuo0bn"]
+
+[ext_resource type="Shader" uid="uid://dq0x3donykfo2" path="res://Scenes/UI/MainMenu.gdshader" id="1_ne51f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uwcm3"]
+shader = ExtResource("1_ne51f")
+shader_parameter/brightness = 1.0
+
+[node name="Brightness manager" type="CanvasLayer" unique_id=173743044]
+layer = 100
+
+[node name="BrightnessOverlay" type="ColorRect" parent="." unique_id=1676891269]
+material = SubResource("ShaderMaterial_uwcm3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
