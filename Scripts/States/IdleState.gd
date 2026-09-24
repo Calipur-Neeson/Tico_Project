@@ -7,6 +7,7 @@ func Enter(player: Player) -> void:
 	
 	player.left_climb_cast.enabled = false
 	player.right_climb_cast.enabled = false
+	player.climb_normal_cast.enabled = true
 
 
 func PreUpdate(player: Player) -> void:
@@ -39,7 +40,8 @@ func PreUpdate(player: Player) -> void:
 				player.ChangeStateTo(player.playerState.Vault)
 			elif obstacleHight < player.maxVaultHeight and obstacleHight > 0.5 and not player.climb_up_cast.is_colliding():
 				player.ChangeStateTo(player.playerState.ClimbWall)
-			
+			elif obstacleHight >= player.maxVaultHeight and obstacleHight < 1.9 and player.climb_normal_cast.is_colliding():
+				player.ChangeStateTo(player.playerState.HangingIdle)
 			else:
 				player.ChangeStateTo(player.playerState.Jump)
 		else:
@@ -61,3 +63,4 @@ func Exit(player: Player) -> void:
 	player.climb_up_cast.enabled = false
 	player.obstacle_cast.enabled = false
 	player.assuming_land_cast.enabled = false
+	player.climb_normal_cast.enabled = false
