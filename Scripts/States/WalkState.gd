@@ -6,17 +6,30 @@ func Enter(player: Player) -> void:
 
 func PreUpdate(player: Player) -> void:
 	var currentSpeed = player.GetCurrentSpeed()
-	if not player.is_on_floor() and not player.floor_cast.is_colliding():
+	if not player.is_on_floor():
 		player.ChangeStateTo(player.playerState.Fall)
 		
 	if currentSpeed > player.maxWalkSpeed:
 		player.ChangeStateTo(player.playerState.Run)
 	elif currentSpeed <= 0.01:
-		player.ChangeStateTo(player.playerState.Idle)
+		player.obstacle_cast.enabled = true
+		player.obstacle_cast.force_raycast_update()
+		if player.obstacle_cast.is_colliding() and player.is_on_wall():
+			var hit: Vector3 = player.obstacle_cast.get_collision_point()
+			if hit.y - player.global_position.y < 0.4:
+				player.playerState.Stride.targetPoint = hit
+				player.ChangeStateTo(player.playerState.Stride)
+			else :
+				player.ChangeStateTo(player.playerState.Idle)
+		else:
+			player.ChangeStateTo(player.playerState.Idle)
 		
 	if Input.is_action_just_pressed("Jump") and player.is_on_floor():
 		player.obstacle_cast.enabled = true
 		player.obstacle_cast.force_raycast_update()
+		
+		player.assuming_land_cast.enabled = true
+		player.assuming_land_cast.force_raycast_update()
 		
 		player.climb_up_cast.enabled = true
 		player.climb_up_cast.force_raycast_update()
@@ -42,11 +55,6 @@ func Update(player: Player, delta: float) -> void:
 	var direction := player.GetMoveInput()
 	player.TurnTo(direction)
 	
-	if player.is_on_wall():
-		var wallNormal := player.get_wall_normal()
-		if direction.dot(wallNormal) < -0.7:
-			return
-		
 	player.velocity += player.get_gravity() * delta
 	player.UpdateVelocity(direction, delta)
 	

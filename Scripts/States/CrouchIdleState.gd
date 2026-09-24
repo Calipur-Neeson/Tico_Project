@@ -10,9 +10,14 @@ func PreUpdate(player: Player) -> void:
 		player.ChangeStateTo(player.playerState.Fall)
 		
 	elif player.GetMoveInput().length() > 0.01:
-		player.ChangeStateTo(player.playerState.CrouchWalk)
+		if player.is_on_wall():
+			var wallNormal := player.get_wall_normal()
+			if player.GetMoveInput().dot(wallNormal) > -0.7:
+				player.ChangeStateTo(player.playerState.CrouchWalk)
+		else:
+			player.ChangeStateTo(player.playerState.CrouchWalk)
 		
-	elif Input.is_action_just_pressed("Jump") or Input.is_action_just_pressed("Crouch"):
+	if Input.is_action_just_pressed("Jump") or Input.is_action_just_pressed("Crouch"):
 		player.ceiling_cast.enabled = true
 		player.ceiling_cast.force_shapecast_update()
 		if not player.ceiling_cast.is_colliding():

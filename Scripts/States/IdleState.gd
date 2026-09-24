@@ -7,16 +7,22 @@ func Enter(player: Player) -> void:
 	
 	player.left_climb_cast.enabled = false
 	player.right_climb_cast.enabled = false
+	player.climb_normal_cast.enabled = true
 
 
 func PreUpdate(player: Player) -> void:
-	if not player.is_on_floor() and not player.floor_cast.is_colliding():
+	if not player.is_on_floor():
 		player.ChangeStateTo(player.playerState.Fall)
 		
 	elif player.GetMoveInput().length() > 0.01:
-		player.ChangeStateTo(player.playerState.Walk)
+		if player.is_on_wall():
+			var wallNormal := player.get_wall_normal()
+			if player.GetMoveInput().dot(wallNormal) > -0.7:
+				player.ChangeStateTo(player.playerState.Walk)
+		else:
+			player.ChangeStateTo(player.playerState.Walk)
 		
-	elif Input.is_action_just_pressed("Jump") and player.is_on_floor():
+	if Input.is_action_just_pressed("Jump") and player.is_on_floor():
 		player.obstacle_cast.enabled = true
 		player.obstacle_cast.force_raycast_update()
 		
@@ -34,7 +40,7 @@ func PreUpdate(player: Player) -> void:
 				player.ChangeStateTo(player.playerState.Vault)
 			elif obstacleHight < player.maxVaultHeight and obstacleHight > 0.5 and not player.climb_up_cast.is_colliding():
 				player.ChangeStateTo(player.playerState.ClimbWall)
-			elif obstacleHight >= player.maxVaultHeight and obstacleHight < 1.8:
+			elif obstacleHight >= player.maxVaultHeight and obstacleHight < 1.9 and player.climb_normal_cast.is_colliding():
 				player.ChangeStateTo(player.playerState.HangingIdle)
 			else:
 				player.ChangeStateTo(player.playerState.Jump)
@@ -57,3 +63,4 @@ func Exit(player: Player) -> void:
 	player.climb_up_cast.enabled = false
 	player.obstacle_cast.enabled = false
 	player.assuming_land_cast.enabled = false
+	player.climb_normal_cast.enabled = false
