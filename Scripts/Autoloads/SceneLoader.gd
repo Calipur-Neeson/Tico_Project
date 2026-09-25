@@ -1,6 +1,6 @@
 extends Node
 
-signal progressChanged(progress)
+signal progressChanged(progress,delta)
 signal loadFinished
 
 var loadingScene: PackedScene = preload("uid://c5u3xklskdd5s")
@@ -35,11 +35,11 @@ func StartLoad() -> void:
 		
 func _process(delta: float) -> void:
 	var loadStatus = ResourceLoader.load_threaded_get_status(scenePath, progress)
-	progressChanged.emit(progress[0])
+	progressChanged.emit(progress[0], delta)
 	match loadStatus:
 		ResourceLoader.THREAD_LOAD_INVALID_RESOURCE, ResourceLoader.THREAD_LOAD_FAILED:
 			set_process(false)
-		ResourceLoader.THREAD_LOAD_LOADED:
-			loadedResource = ResourceLoader.load_threaded_get(scenePath)
-			get_tree().change_scene_to_packed(loadedResource)
-			loadFinished.emit()
+		#ResourceLoader.THREAD_LOAD_LOADED:
+			#loadedResource = ResourceLoader.load_threaded_get(scenePath)
+			#get_tree().change_scene_to_packed(loadedResource)
+			#loadFinished.emit()
