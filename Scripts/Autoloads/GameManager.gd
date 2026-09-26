@@ -1,6 +1,7 @@
 extends Node
 
 signal OnInputModeChanged(mode: InputMode)
+signal OnGameStateChanged(state: GameState)
 signal OnGameRestart()
 
 enum InputMode {
@@ -17,7 +18,7 @@ enum GameState {
 
 var currentInputMode := InputMode.KEYBOARD_MOUSE
 var currentGameState := GameState.MENU
- 
+	
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey or event is InputEventMouseButton:
 		if event.pressed:
@@ -37,3 +38,9 @@ func SetInputMode(mode: InputMode) -> void:
 		
 	currentInputMode = mode
 	OnInputModeChanged.emit(currentInputMode)
+
+func SetGameState(state: GameState) -> void:
+	if currentGameState == state:
+		return
+	currentGameState = state
+	#OnGameStateChanged.emit(currentGameState)

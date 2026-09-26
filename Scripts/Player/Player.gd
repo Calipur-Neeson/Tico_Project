@@ -106,8 +106,10 @@ func _ready() -> void:
 	camControl = spring_arm_3d
 	
 	GameManager.OnGameRestart.connect(ReSetPositon)
-	if GameManager.currentGameState == GameManager.GameState.RESTART:
-		GameManager.OnGameRestart.emit()
+	#if GameManager.currentGameState == GameManager.GameState.RESTART:
+		#GameManager.OnGameRestart.emit()
+	GameManager.OnGameStateChanged.connect(OnGameStateChanged)
+	
 
 func ChangeStateTo(nextState: BasePlayerState) -> void:
 	state.Exit(self)
@@ -119,6 +121,19 @@ func _physics_process(delta: float) -> void:
 	state.Update(self, delta)
 	
 	handle_leg_ik(delta)
+
+func OnGameStateChanged(state: GameManager.GameState) -> void:
+	if state == GameManager.GameState.RESTART:
+		ReSetPositon()
+		GameManager.SetGameState(GameManager.GameState.PLAYING)
+		GameManager.OnGameStateChanged.emit(GameManager.currentGameState)
+	if state == GameManager.GameState.PLAYING:
+		set_process(true)
+		set_physics_process(true)
+	else:
+		set_process(false)
+		set_physics_process(false)
+
 
 func TurnTo(direction: Vector3) -> void:
 	if direction:
@@ -175,9 +190,11 @@ func ApplyRootMotion(delta: float) -> void:
 	move_and_slide()
 
 func ReSetPositon() -> void:
+	if not QuickSave.load_var("PlayerPosition"):
+		print("NO Data")
+		return
 	var pos: Vector3 = QuickSave.load_var("PlayerPosition")
 	self.position = pos
-	GameManager.currentGameState = GameManager.GameState.PLAYING
 
 func handle_leg_ik(delta: float) -> void:
 	#var should_ik_be_active: bool = is_on_floor() and (ik_is_enabled or !can_player_move)

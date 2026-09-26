@@ -18,19 +18,22 @@ func _ready() -> void:
 	await animation_player.animation_finished
 	LoadingSceneReady.emit()
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey or event is InputEventMouseButton or event is InputEventJoypadButton:
-		if event.pressed:
-			GoodToGo()
-			isFinished = false
+func _process(delta: float) -> void:
+	if progress_bar.value < updateProgress * 100:
+		progress_bar.value += 100 * delta
+	
+	if progress_bar.value == 100:
+		SceneLoader.ChangeScene()
 
-func OnProgressChanged(value: float, delta: float) -> void:
-	if value > updateProgress:
-		updateProgress = value
-	if progress_bar.value < updateProgress:
-		progress_bar.value += 0.5 * delta
-	else: 
-		progress_bar.value = updateProgress * 100
+func _input(event: InputEvent) -> void:
+	if event.is_pressed() and isFinished:
+		GoodToGo()
+		isFinished = false
+		GameManager.OnGameStateChanged.emit(GameManager.currentGameState)
+
+func OnProgressChanged(value: float) -> void:
+	updateProgress = value
+	
 	
 func OnLoadFinished() -> void:
 	progress_bar.hide()
