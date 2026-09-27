@@ -13,6 +13,7 @@ func _ready() -> void:
 		new_game.grab_focus()
 	
 func _on_new_game_pressed() -> void:
+	GameManager.SetGameState(GameManager.GameState.PLAYING)
 	SceneLoader.LoadScene(SceneLoader.mainLevelScene)
 
 func _on_load_game_pressed() -> void:
