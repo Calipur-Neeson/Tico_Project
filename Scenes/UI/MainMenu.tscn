@@ -67,7 +67,7 @@ layout_mode = 2
 theme = ExtResource("2_72sra")
 theme_override_font_sizes/font_size = 38
 theme_override_styles/focus = ExtResource("3_t6w0q")
-text = "New Game"
+text = "CONTEXT_STARTGAME"
 alignment = 0
 icon_alignment = 1
 
@@ -76,7 +76,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 38
 theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
 theme_override_styles/focus = ExtResource("3_t6w0q")
-text = "Load Game"
+text = "CONTEXT_LOADGAME"
 alignment = 0
 
 [node name="Options" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1851177872]
@@ -84,7 +84,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 38
 theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
 theme_override_styles/focus = ExtResource("3_t6w0q")
-text = "Options"
+text = "CONTEXT_OPTION"
 alignment = 0
 icon_alignment = 1
 
@@ -93,8 +93,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 38
 theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
 theme_override_styles/focus = ExtResource("3_t6w0q")
-text = "Exit
-"
+text = "CONTEXT_EXIT"
 alignment = 0
 icon_alignment = 1
 

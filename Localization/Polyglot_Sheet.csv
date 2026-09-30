@@ -1,0 +1,5 @@
+﻿LANGUAGE_CODE,en,fi,zh
+CONTEXT_STARTGAME,Start Game,Aloita peli,开始游戏
+CONTEXT_LOADGAME,Load Game,Lataa peli,继续
+CONTEXT_OPTION,Option,Asetukset,设置
+CONTEXT_EXIT,Exit,Poistu,退出

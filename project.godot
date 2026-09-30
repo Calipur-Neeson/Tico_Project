@@ -140,6 +140,11 @@ Escape={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://Localization/Polyglot_Sheet.en.translation", "res://Localization/Polyglot_Sheet.fi.translation", "res://Localization/Polyglot_Sheet.zh.translation")
+locale/test="en"
+
 [layer_names]
 
 3d_physics/layer_2="Climbable"
