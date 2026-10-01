@@ -1,7 +1,7 @@
-extends Control 
- 
-@onready var v_box_container: VBoxContainer = $CanvasLayer/MainMenu/VBoxContainer 
-@onready var new_game: Button = $CanvasLayer/MainMenu/VBoxContainer/NewGame 
+extends Control
+
+@onready var v_box_container: VBoxContainer = $CanvasLayer/MainMenu/VBoxContainer
+@onready var new_game: Button = $CanvasLayer/MainMenu/VBoxContainer/NewGame
 
 @onready var main_menu: Control = $CanvasLayer/MainMenu
 @onready var option_menu: Control = $CanvasLayer/OptionMenu
@@ -15,7 +15,7 @@ extends Control
 @onready var brightness_overlay: ColorRect = get_node("/root/BrightnessManager/BrightnessOverlay")
 
 
-func _ready() -> void: 
+func _ready() -> void:
 	main_menu.show()
 	option_menu.hide()
 	audio_panel.hide()
@@ -26,48 +26,47 @@ func _ready() -> void:
 	)
 	$CanvasLayer/DisplayPanel/VBoxContainer/FullScreen_Controller.set_pressed_no_signal(fullscreen)
 
-	GameManager.OnInputModeChanged.connect(OnInputModeChanged) 
-	
-	if GameManager.currentInputMode == GameManager.InputMode.KEYBOARD_MOUSE: 
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE 
-	elif GameManager.currentInputMode == GameManager.InputMode.CONTROLLER: 
-		new_game.grab_focus() 
-		
+	GameManager.OnInputModeChanged.connect(OnInputModeChanged)
+
+	if GameManager.currentInputMode == GameManager.InputMode.KEYBOARD_MOUSE:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	elif GameManager.currentInputMode == GameManager.InputMode.CONTROLLER:
+		new_game.grab_focus()
+
 	resolution_option.clear()
 	resolution_option.add_item("1920x1080")
 	resolution_option.add_item("1600x900")
 	resolution_option.add_item("1280x720")
-	 
-func _on_new_game_pressed() -> void: 
-	SceneLoader.LoadScene(SceneLoader.mainLevelScene) 
- 
-func _on_load_game_pressed() -> void: 
-	pass # Replace with function body. 
- 
-func _on_options_pressed() -> void: 
+
+
+func _on_new_game_pressed() -> void:
+	GameManager.SetGameState(GameManager.GameState.PLAYING)
+	SceneLoader.LoadScene(SceneLoader.mainLevelScene)
+
+func _on_load_game_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_options_pressed() -> void:
 	main_menu.hide()
 	option_menu.show()
 
+func _on_exit_pressed() -> void:
+	get_tree().quit()
 
-func _on_exit_pressed() -> void: 
-	get_tree().quit() 
- 
-func OnInputModeChanged(mode: GameManager.InputMode) -> void: 
-	if mode == GameManager.InputMode.KEYBOARD_MOUSE: 
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE 
-		get_viewport().gui_release_focus() 
-		 
- 
-	elif mode == GameManager.InputMode.CONTROLLER: 
-		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN 
+func OnInputModeChanged(mode: GameManager.InputMode) -> void:
+	if mode == GameManager.InputMode.KEYBOARD_MOUSE:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		get_viewport().gui_release_focus()
+	elif mode == GameManager.InputMode.CONTROLLER:
+		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 		new_game.grab_focus.call_deferred()
 
 
 func _on_full_screen_controller_toggled(toggled_on: bool) -> void:
 	if toggled_on == true:
-		DisplayServer. window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
-		DisplayServer. window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 
 func _on_audio_pressed() -> void:
@@ -99,7 +98,7 @@ func _on_back_Display_pressed() -> void:
 	main_menu.hide()
 	Display_panel.hide()
 	option_menu.show()
-	
+
 func _on_option_button_item_selected(index: int) -> void:
 	match index:
 		0: get_window().size = Vector2i(1920, 1080)

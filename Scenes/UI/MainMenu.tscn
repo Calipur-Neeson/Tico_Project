@@ -6,6 +6,7 @@
 [ext_resource type="StyleBox" uid="uid://bdxcgfioonlsf" path="res://Materials/button_focus_mat.tres" id="3_t6w0q"]
 [ext_resource type="Script" uid="uid://bcwbliscn8l86" path="res://Scripts/UI/full_screen_control.gd" id="4_t6w0q"]
 [ext_resource type="PackedScene" uid="uid://b6x04x6qder7o" path="res://Scenes/UI/audio_slider_settings.tscn" id="5_kl3t2"]
+[ext_resource type="PackedScene" uid="uid://5n3332ts4ry4" path="res://Scenes/UI/Language.tscn" id="5_m48tj"]
 [ext_resource type="Texture2D" uid="uid://dn1xgpo0sq8g4" path="res://Image/Controls.png" id="6_jex3y"]
 [ext_resource type="AudioStream" uid="uid://gc37c8x3yahf" path="res://Audios/Music/title.mp3" id="7_744d7"]
 [ext_resource type="Shader" uid="uid://dq0x3donykfo2" path="res://Scenes/UI/MainMenu.gdshader" id="8_ynupv"]
@@ -38,8 +39,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -1.0
 offset_top = 1.0
-offset_right = -1.0
-offset_bottom = 1.0
+offset_right = -4.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_k8um8")
@@ -47,7 +48,6 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureRect" unique_id=1397865521]
-visible = false
 layout_mode = 0
 offset_left = -1.0
 offset_top = -6.0
@@ -86,7 +86,7 @@ theme = ExtResource("2_72sra")
 theme_override_font_sizes/font_size = 26
 theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
 theme_override_styles/focus = ExtResource("3_t6w0q")
-text = "New Game"
+text = "NEW_GAME"
 alignment = 0
 icon_alignment = 1
 
@@ -95,7 +95,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 26
 theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
 theme_override_styles/focus = ExtResource("3_t6w0q")
-text = "Load Game"
+text = "LOAD_GAME"
 alignment = 0
 
 [node name="Options" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1851177872]
@@ -103,7 +103,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 26
 theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
 theme_override_styles/focus = ExtResource("3_t6w0q")
-text = "Options"
+text = "OPTIONS"
 alignment = 0
 icon_alignment = 1
 
@@ -112,8 +112,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 26
 theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
 theme_override_styles/focus = ExtResource("3_t6w0q")
-text = "Exit
-"
+text = "EXIT"
 alignment = 0
 icon_alignment = 1
 
@@ -123,9 +122,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 120.0
-offset_top = -398.0
+offset_top = -400.0
 offset_right = 520.0
-offset_bottom = -161.0
+offset_bottom = -80.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_61ot5")
 
@@ -138,14 +137,14 @@ theme_override_constants/separation = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 38
-text = "Options"
+text = "OPTIONS"
 
 [node name="Audio" type="Button" parent="CanvasLayer/OptionMenu/VBoxContainer" unique_id=196805725]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
 theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
 theme_override_styles/focus = ExtResource("3_t6w0q")
-text = "Audio	"
+text = "AUDIO"
 alignment = 0
 icon_alignment = 1
 
@@ -154,8 +153,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 26
 theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
 theme_override_styles/focus = ExtResource("3_t6w0q")
-text = "Controls
-"
+text = "CONTROLS"
 alignment = 0
 icon_alignment = 1
 
@@ -164,20 +162,21 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 26
 theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
 theme_override_styles/focus = ExtResource("3_t6w0q")
-text = "Display
-
-
-"
+text = "DISPLAY"
 alignment = 0
+clip_text = true
 icon_alignment = 1
+
+[node name="Control" parent="CanvasLayer/OptionMenu/VBoxContainer" unique_id=394874024 instance=ExtResource("5_m48tj")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
 
 [node name="Back" type="Button" parent="CanvasLayer/OptionMenu/VBoxContainer" unique_id=1884475580]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
 theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
 theme_override_styles/focus = ExtResource("3_t6w0q")
-text = "Back
-"
+text = "BACK"
 alignment = 0
 icon_alignment = 1
 
@@ -199,13 +198,14 @@ theme_override_constants/separation = 50
 
 [node name="Label" type="Label" parent="CanvasLayer/Audio Panel/VBoxContainer" unique_id=535529794]
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_vertical = 10
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 38
-text = "Audio"
+text = "AUDIO"
 
 [node name="Audio_Slider_Settings" parent="CanvasLayer/Audio Panel/VBoxContainer" unique_id=1318025372 instance=ExtResource("5_kl3t2")]
 layout_mode = 2
+bus_name = "Master"
 
 [node name="Audio_Slider_Settings2" parent="CanvasLayer/Audio Panel/VBoxContainer" unique_id=1241422863 instance=ExtResource("5_kl3t2")]
 layout_mode = 2
@@ -213,7 +213,6 @@ bus_name = "Music"
 
 [node name="Audio_Slider_Settings3" parent="CanvasLayer/Audio Panel/VBoxContainer" unique_id=2121197301 instance=ExtResource("5_kl3t2")]
 layout_mode = 2
-bus_name = "Sfx"
 
 [node name="Back" type="Button" parent="CanvasLayer/Audio Panel/VBoxContainer" unique_id=331238707]
 layout_mode = 2
@@ -221,9 +220,7 @@ offset_transform_enabled = true
 theme_override_font_sizes/font_size = 26
 theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
 theme_override_styles/focus = ExtResource("3_t6w0q")
-text = "Back
-
-"
+text = "BACK"
 alignment = 0
 icon_alignment = 1
 
@@ -250,7 +247,7 @@ layout_mode = 2
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 38
-text = "Display"
+text = "DISPLAY"
 
 [node name="Resolution" type="HBoxContainer" parent="CanvasLayer/DisplayPanel/VBoxContainer" unique_id=1487087122]
 custom_minimum_size = Vector2(300, 50)
@@ -261,7 +258,7 @@ theme_override_constants/separation = -120
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "Resolution"
+text = "RESOLUTION"
 
 [node name="OptionButton" type="OptionButton" parent="CanvasLayer/DisplayPanel/VBoxContainer/Resolution" unique_id=645264978]
 custom_minimum_size = Vector2(150, 10)
@@ -278,7 +275,7 @@ offset_transform_position = Vector2(-6, 0)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/h_separation = 40
 theme_override_font_sizes/font_size = 26
-text = "Full Screen"
+text = "FULL SCREEN"
 script = ExtResource("4_t6w0q")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/DisplayPanel/VBoxContainer" unique_id=1177142904]
@@ -288,7 +285,7 @@ theme_override_constants/separation = 50
 [node name="Brightness" type="Label" parent="CanvasLayer/DisplayPanel/VBoxContainer/HBoxContainer" unique_id=1258566319]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "Brightness"
+text = "BRIGHTNESS"
 vertical_alignment = 1
 
 [node name="HSlider" type="HSlider" parent="CanvasLayer/DisplayPanel/VBoxContainer/HBoxContainer" unique_id=1169363130]
@@ -309,8 +306,7 @@ theme_override_constants/h_separation = 4
 theme_override_font_sizes/font_size = 26
 theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
 theme_override_styles/focus = ExtResource("3_t6w0q")
-text = "Back
-"
+text = "BACK"
 alignment = 0
 icon_alignment = 1
 
@@ -324,6 +320,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Controls_panel" unique_id=39919313]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -348,8 +345,7 @@ offset_bottom = 604.0
 theme_override_font_sizes/font_size = 26
 theme_override_styles/hover = SubResource("StyleBoxFlat_p8c6r")
 theme_override_styles/focus = ExtResource("3_t6w0q")
-text = "Back
-"
+text = "BACK"
 alignment = 0
 icon_alignment = 1
 
@@ -358,13 +354,15 @@ material = SubResource("ShaderMaterial_bq07b")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -9.0
+offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
 [node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=747793201]
 stream = ExtResource("7_744d7")
-volume_db = -15.134
+volume_db = -2.389
 autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]

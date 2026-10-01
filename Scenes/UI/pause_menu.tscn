@@ -2,10 +2,32 @@
 
 [ext_resource type="Script" uid="uid://bhxa5wjwjuju" path="res://Scripts/UI/PauseMenu.gd" id="1_emv3i"]
 [ext_resource type="StyleBox" uid="uid://bdxcgfioonlsf" path="res://Materials/button_focus_mat.tres" id="2_kdnb7"]
+[ext_resource type="PackedScene" uid="uid://5n3332ts4ry4" path="res://Scenes/UI/Language.tscn" id="3_23me3"]
 [ext_resource type="Script" uid="uid://bcwbliscn8l86" path="res://Scripts/UI/full_screen_control.gd" id="3_702e2"]
 [ext_resource type="PackedScene" uid="uid://b6x04x6qder7o" path="res://Scenes/UI/audio_slider_settings.tscn" id="3_qyryt"]
 [ext_resource type="Texture2D" uid="uid://dox23y7048n3w" path="res://Image/Screenshot 2026-09-14 113830.png" id="4_qyryt"]
 [ext_resource type="Texture2D" uid="uid://dn1xgpo0sq8g4" path="res://Image/Controls.png" id="5_23me3"]
+
+[sub_resource type="FontFile" id="FontFile_dvisc"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/22/0/ascent = 0.0
+cache/0/22/0/descent = 0.0
+cache/0/22/0/underline_position = 0.0
+cache/0/22/0/underline_thickness = 0.0
+cache/0/22/0/scale = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_deree"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -52,21 +74,23 @@ theme_override_constants/separation = 2
 [node name="Paused" type="Label" parent="Panel/PanelContainer/VBoxContainer" unique_id=1205819801]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "PAUSED	"
+text = "PAUSED"
 
 [node name="ResumeButton" type="Button" parent="Panel/PanelContainer/VBoxContainer" unique_id=96474021]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../OptionsButton")
+theme_override_fonts/font = SubResource("FontFile_dvisc")
 theme_override_font_sizes/font_size = 22
-text = "Resume"
+text = "RESUME"
 alignment = 0
 
 [node name="SaveGame" type="Button" parent="Panel/PanelContainer/VBoxContainer" unique_id=175635526]
+visible = false
 layout_mode = 2
 focus_neighbor_top = NodePath("../OptionsButton")
 focus_neighbor_bottom = NodePath("../MenuButton")
 theme_override_font_sizes/font_size = 22
-text = "Save Game"
+text = "SAVE GAME"
 alignment = 0
 
 [node name="OptionsButton" type="Button" parent="Panel/PanelContainer/VBoxContainer" unique_id=651471976]
@@ -74,8 +98,7 @@ layout_mode = 2
 focus_neighbor_top = NodePath("../ResumeButton")
 focus_neighbor_bottom = NodePath("../RestartButton")
 theme_override_font_sizes/font_size = 22
-text = "Options
-"
+text = "OPTIONS"
 alignment = 0
 
 [node name="RestartButton" type="Button" parent="Panel/PanelContainer/VBoxContainer" unique_id=904258301]
@@ -83,14 +106,14 @@ layout_mode = 2
 focus_neighbor_top = NodePath("../OptionsButton")
 focus_neighbor_bottom = NodePath("../MenuButton")
 theme_override_font_sizes/font_size = 22
-text = "Restart"
+text = "RESTART"
 alignment = 0
 
 [node name="MenuButton" type="Button" parent="Panel/PanelContainer/VBoxContainer" unique_id=1845106959]
 layout_mode = 2
 focus_neighbor_top = NodePath("../RestartButton")
 theme_override_font_sizes/font_size = 22
-text = "Quit"
+text = "QUIT"
 alignment = 0
 
 [node name="SaveGame_popup" type="Control" parent="Panel" unique_id=253044935]
@@ -103,6 +126,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="Panel/SaveGame_popup" unique_id=111157755]
+visible = false
 custom_minimum_size = Vector2(480, 220)
 layout_mode = 1
 anchors_preset = 8
@@ -118,21 +142,25 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/SaveGame_popup/PanelContainer" unique_id=642195605]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="Messagelabel" type="Label" parent="Panel/SaveGame_popup/PanelContainer/VBoxContainer" unique_id=449801296]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Do you want to save your Game?"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/SaveGame_popup/PanelContainer/VBoxContainer" unique_id=687119225]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
 [node name="Save" type="Button" parent="Panel/SaveGame_popup/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1859925724]
+visible = false
 custom_minimum_size = Vector2(140, 45)
 layout_mode = 2
 theme_override_constants/h_separation = 20
@@ -140,6 +168,7 @@ theme_override_font_sizes/font_size = 16
 text = "Save"
 
 [node name="Cancel" type="Button" parent="Panel/SaveGame_popup/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1850384632]
+visible = false
 custom_minimum_size = Vector2(140, 45)
 layout_mode = 2
 theme_override_constants/h_separation = 20
@@ -180,14 +209,14 @@ theme_override_constants/separation = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 26
-text = "Options"
+text = "OPTIONS"
 
 [node name="Audio" type="Button" parent="Panel/OptionMenu/VBoxContainer" unique_id=1594954733]
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 theme_override_styles/hover = SubResource("StyleBoxFlat_yq7um")
 theme_override_styles/focus = ExtResource("2_kdnb7")
-text = "Audio	"
+text = "AUDIO"
 alignment = 0
 icon_alignment = 1
 
@@ -196,8 +225,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 22
 theme_override_styles/hover = SubResource("StyleBoxFlat_yq7um")
 theme_override_styles/focus = ExtResource("2_kdnb7")
-text = "Controls
-"
+text = "CONTROLS"
 alignment = 0
 icon_alignment = 1
 
@@ -206,20 +234,20 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 22
 theme_override_styles/hover = SubResource("StyleBoxFlat_yq7um")
 theme_override_styles/focus = ExtResource("2_kdnb7")
-text = "Display
-
-
-"
+text = "DISPLAY"
 alignment = 0
 icon_alignment = 1
+
+[node name="Control" parent="Panel/OptionMenu/VBoxContainer" unique_id=394874024 instance=ExtResource("3_23me3")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
 
 [node name="Back" type="Button" parent="Panel/OptionMenu/VBoxContainer" unique_id=1889700878]
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 theme_override_styles/hover = SubResource("StyleBoxFlat_yq7um")
 theme_override_styles/focus = ExtResource("2_kdnb7")
-text = "Back
-"
+text = "BACK"
 alignment = 0
 icon_alignment = 1
 
@@ -244,10 +272,11 @@ theme_override_constants/separation = 50
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 26
-text = "Audio"
+text = "AUDIO"
 
 [node name="Audio_Slider_Settings" parent="Panel/Audio Panel/VBoxContainer" unique_id=1318025372 instance=ExtResource("3_qyryt")]
 layout_mode = 2
+bus_name = "Master"
 
 [node name="Audio_Slider_Settings2" parent="Panel/Audio Panel/VBoxContainer" unique_id=674391878 instance=ExtResource("3_qyryt")]
 layout_mode = 2
@@ -255,67 +284,6 @@ bus_name = "Music"
 
 [node name="Audio_Slider_Settings3" parent="Panel/Audio Panel/VBoxContainer" unique_id=365156790 instance=ExtResource("3_qyryt")]
 layout_mode = 2
-bus_name = "Sfx"
-
-[node name="MasterRow" type="HBoxContainer" parent="Panel/Audio Panel/VBoxContainer" unique_id=1146284725]
-visible = false
-layout_mode = 2
-theme_override_constants/separation = -50
-
-[node name="Master volume" type="Label" parent="Panel/Audio Panel/VBoxContainer/MasterRow" unique_id=2145361142]
-custom_minimum_size = Vector2(300, 50)
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "Master Volume"
-
-[node name="HSlider" type="HSlider" parent="Panel/Audio Panel/VBoxContainer/MasterRow" unique_id=912947211]
-custom_minimum_size = Vector2(150, 50)
-layout_mode = 2
-size_flags_vertical = 8
-min_value = 0.5
-max_value = 1.5
-step = 0.05
-value = 1.0
-
-[node name="Music Row" type="HBoxContainer" parent="Panel/Audio Panel/VBoxContainer" unique_id=666831135]
-visible = false
-layout_mode = 2
-theme_override_constants/separation = -50
-
-[node name="Music volume" type="Label" parent="Panel/Audio Panel/VBoxContainer/Music Row" unique_id=1806723852]
-custom_minimum_size = Vector2(300, 50)
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "Music Volume"
-
-[node name="HSlider" type="HSlider" parent="Panel/Audio Panel/VBoxContainer/Music Row" unique_id=358878476]
-custom_minimum_size = Vector2(150, 50)
-layout_mode = 2
-size_flags_vertical = 8
-min_value = 0.5
-max_value = 1.5
-step = 0.05
-value = 1.0
-
-[node name="sfx row" type="HBoxContainer" parent="Panel/Audio Panel/VBoxContainer" unique_id=295315691]
-visible = false
-layout_mode = 2
-theme_override_constants/separation = -50
-
-[node name="Sfx volume" type="Label" parent="Panel/Audio Panel/VBoxContainer/sfx row" unique_id=291069699]
-custom_minimum_size = Vector2(300, 50)
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "Sfx Volume"
-
-[node name="HSlider" type="HSlider" parent="Panel/Audio Panel/VBoxContainer/sfx row" unique_id=1924000389]
-custom_minimum_size = Vector2(150, 50)
-layout_mode = 2
-size_flags_vertical = 8
-min_value = 0.5
-max_value = 1.5
-step = 0.05
-value = 1.0
 
 [node name="Back" type="Button" parent="Panel/Audio Panel/VBoxContainer" unique_id=55906522]
 layout_mode = 2
@@ -323,9 +291,7 @@ offset_transform_enabled = true
 theme_override_font_sizes/font_size = 22
 theme_override_styles/hover = SubResource("StyleBoxFlat_yq7um")
 theme_override_styles/focus = ExtResource("2_kdnb7")
-text = "Back
-
-"
+text = "BACK"
 alignment = 0
 icon_alignment = 1
 
@@ -353,7 +319,7 @@ layout_mode = 2
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 26
-text = "Display"
+text = "DISPLAY"
 
 [node name="Resolution" type="HBoxContainer" parent="Panel/DisplayPanel/VBoxContainer" unique_id=125479214]
 custom_minimum_size = Vector2(300, 50)
@@ -364,7 +330,7 @@ theme_override_constants/separation = -120
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "Resolution"
+text = "RESOLUTION"
 
 [node name="OptionButton" type="OptionButton" parent="Panel/DisplayPanel/VBoxContainer/Resolution" unique_id=514640651]
 custom_minimum_size = Vector2(150, 10)
@@ -400,7 +366,7 @@ offset_transform_position = Vector2(-6, 0)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/h_separation = 40
 theme_override_font_sizes/font_size = 22
-text = "Full Screen"
+text = "FULL SCREEN"
 script = ExtResource("3_702e2")
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="Panel/DisplayPanel/VBoxContainer" unique_id=893463037]
@@ -411,7 +377,7 @@ theme_override_constants/separation = 50
 [node name="Brightness" type="Label" parent="Panel/DisplayPanel/VBoxContainer/HBoxContainer4" unique_id=1784308502]
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
-text = "Brightness"
+text = "BRIGHTNESS"
 vertical_alignment = 1
 
 [node name="HSlider" type="HSlider" parent="Panel/DisplayPanel/VBoxContainer/HBoxContainer4" unique_id=514204102]
@@ -431,7 +397,7 @@ theme_override_constants/separation = 50
 [node name="Brightness" type="Label" parent="Panel/DisplayPanel/VBoxContainer/HBoxContainer" unique_id=920869910]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "Brightness"
+text = "BRIGHTNESS"
 vertical_alignment = 1
 
 [node name="HSlider" type="HSlider" parent="Panel/DisplayPanel/VBoxContainer/HBoxContainer" unique_id=889719100]
@@ -452,8 +418,7 @@ theme_override_constants/h_separation = 4
 theme_override_font_sizes/font_size = 22
 theme_override_styles/hover = SubResource("StyleBoxFlat_yq7um")
 theme_override_styles/focus = ExtResource("2_kdnb7")
-text = "Back
-"
+text = "BACK"
 alignment = 0
 icon_alignment = 1
 
@@ -491,8 +456,7 @@ offset_bottom = 604.0
 theme_override_font_sizes/font_size = 22
 theme_override_styles/hover = SubResource("StyleBoxFlat_yq7um")
 theme_override_styles/focus = ExtResource("2_kdnb7")
-text = "Back
-"
+text = "BACK"
 alignment = 0
 icon_alignment = 1
 

@@ -6,7 +6,7 @@ func Enter(player: Player) -> void:
 
 func PreUpdate(player: Player) -> void:
 	var currentSpped = player.GetCurrentSpeed()
-	if not player.is_on_floor() and not player.floor_cast.is_colliding():
+	if not player.is_on_floor():
 		player.ChangeStateTo(player.playerState.Fall)
 		
 	if currentSpped <= player.maxWalkSpeed:
@@ -15,6 +15,9 @@ func PreUpdate(player: Player) -> void:
 	if Input.is_action_just_pressed("Jump") and player.is_on_floor():
 		player.obstacle_cast.enabled = true
 		player.obstacle_cast.force_raycast_update()
+		
+		player.assuming_land_cast.enabled = true
+		player.assuming_land_cast.force_raycast_update()
 		
 		player.climb_up_cast.enabled = true
 		player.climb_up_cast.force_raycast_update()

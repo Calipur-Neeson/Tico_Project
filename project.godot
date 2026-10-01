@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PlayerTest"
-run/main_scene="uid://cnmraeu3gcecs"
+run/main_scene="uid://b8v205x84e1gt"
 config/features=PackedStringArray("4.7", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.svg"
@@ -141,6 +141,10 @@ Escape={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":6,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://languages/Language.fi.translation", "res://languages/Language.zh.translation", "res://languages/Language.ja.translation", "res://Languages/Language.en.translation")
 
 [layer_names]
 

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cywm4vx6pp8ll"]
+[gd_scene format=3 uid="uid://dy4ddlui13fgv"]
 
 [ext_resource type="Script" uid="uid://cr23qqqeak5mc" path="res://Scripts/Interactable/BasePickable.gd" id="1_spp0r"]
 [ext_resource type="Shader" uid="uid://c1kbvi16neeys" path="res://Shader/outline_shader_material.gdshader" id="3_sudja"]
