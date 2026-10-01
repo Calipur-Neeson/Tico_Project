@@ -18,3 +18,10 @@ func _ready() -> void:
 	var id = Steam.getSteamID()
 	var name = Steam.getFriendPersonaName(id)
 	print("Username: ", str(name))
+	
+func SetAchievement(ach) -> void:
+	var status = Steam.getAchievement(ach)
+	if status["achieved"]:
+		print("Already Unlocked")
+		return
+	Steam.setAchievement(ach)
