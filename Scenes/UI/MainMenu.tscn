@@ -364,6 +364,7 @@ mouse_filter = 2
 stream = ExtResource("7_744d7")
 volume_db = -2.389
 autoplay = true
+bus = &" Music"
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/LoadGame" to="." method="_on_load_game_pressed"]
