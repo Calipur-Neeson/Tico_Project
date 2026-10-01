@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cnl32pf7loast"
+
+[deps]
+
+files=["res://Languages/Language.en.translation", "res://Languages/Language.fi.translation", "res://Languages/Language.zh.translation", "res://Languages/Language.ja.translation"]
+
+source_file="res://Languages/Language.csv"
+dest_files=["res://Languages/Language.en.translation", "res://Languages/Language.fi.translation", "res://Languages/Language.zh.translation", "res://Languages/Language.ja.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true
