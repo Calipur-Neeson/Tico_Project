@@ -144,7 +144,8 @@ Escape={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://languages/Language.fi.translation", "res://languages/Language.zh.translation", "res://languages/Language.ja.translation", "res://Languages/Language.en.translation")
+locale/translations=PackedStringArray("res://Localization/Polyglot_Sheet.en.translation", "res://Localization/Polyglot_Sheet.fi.translation", "res://Localization/Polyglot_Sheet.zh.translation")
+locale/test="en"
 
 [layer_names]
 
