@@ -10,10 +10,15 @@ config_version=5
 
 [application]
 
-config/name="PlayerTest"
+config/name="Cry() Still"
+config/description="Buy it!!!
+Buy it!!!!"
+config/version="0.2.0"
 run/main_scene="uid://b8v205x84e1gt"
 config/features=PackedStringArray("4.7", "Forward Plus")
 run/max_fps=60
+boot_splash/bg_color=Color(0.83448696, 0.51365817, 0.9908574, 1)
+boot_splash/image="uid://gxdt75wjkhpo"
 config/icon="res://icon.svg"
 
 [audio]
@@ -27,6 +32,7 @@ SceneLoader="*uid://oerrnvv5tj6d"
 GameManager="*uid://exipo0k1y7mv"
 QuickSave="*uid://bg1ylmajd8c7s"
 SoundEmitter="*uid://60chxcylqm7c"
+SteamMain="*uid://bptvfg4djra3c"
 
 [display]
 
@@ -35,7 +41,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/quicksave/plugin.cfg")
+enabled=PackedStringArray("res://addons/godotsteam/plugin.cfg", "res://addons/quicksave/plugin.cfg")
 
 [input]
 
