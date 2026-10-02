@@ -78,9 +78,11 @@ var last_offset_r: float = 0.0
 @onready var right_hand_climb_cast: RayCast3D = $RayDetectors/RightHandClimbCast
 @onready var falling_die_cast: RayCast3D = $RayDetectors/FallingDieCast
 
-
 #Hand Pivot
 @onready var hand_pivot: Marker3D = $HandPivot
+
+#HUD
+@onready var hud_panel: PlayerHUD = $HUDPanel
 
 
 var camControl: CameraControl
