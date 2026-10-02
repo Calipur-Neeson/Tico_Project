@@ -20,8 +20,10 @@ var RightShimmy := PlayerRightShimmyState.new()
 var ClimbWall := PlayerClimbWallState.new()
 var Aim := PlayerAimState.new()
 var Vault: = PlayerVaultState.new()
+var Stride: = PlayerStrideState.new()
 
 var TurnLeftShimmy := PlayerLeftShimmyTurnState.new()
 var TurnRightShimmy := PlayerRightShimmyTurnState.new()
 
+var Pickup: = PlayerPickupState.new()
 var Die:= PlayerDieState.new()

@@ -17,12 +17,20 @@ func Enter(player: Player) -> void:
 	player.obstacle_cast.force_raycast_update()
 	hitPoint = player.obstacle_cast.get_collision_point()
 	player.obstacle_cast.enabled = false
+	
 	obstacleHight = hitPoint.y - player.global_position.y
 	
+	if obstacleHight < 1.5:
+		player.ChangeStateTo(player.playerState.Fall)
 	targetPointA = player.global_position + Vector3(0, obstacleHight - 1.8, 0)
 	
 	player.climb_normal_cast.enabled = true
 	player.climb_normal_cast.force_raycast_update()
+	var normalHitPoint: Vector3 = player.climb_normal_cast.get_collision_point()
+	var forward: Vector3 = -player.global_basis.z
+	var distance: float = (normalHitPoint - player.global_position).dot(forward)
+	targetPointA += forward * (distance - 0.4)
+	
 	player.climb_up_cast.enabled = true
 	player.climb_up_cast.force_raycast_update()
 	
@@ -34,10 +42,11 @@ func Enter(player: Player) -> void:
 func PreUpdate(player: Player) -> void:
 	if Input.is_action_just_pressed("Crouch"):
 		player.island = true
+		player.velocity.y = -3
 		player.ChangeStateTo(player.playerState.HangingToFall)
 	elif Input.is_action_just_pressed("Jump"):
 		var localInput = player.GetMoveInput().dot(player.global_basis.z)
-		if localInput > 0.9:
+		if localInput > 0.7:
 			player.ChangeStateTo(player.playerState.JumpBack)
 		elif not player.climb_up_cast.is_colliding():
 			player.ChangeStateTo(player.playerState.ClimbWall)
