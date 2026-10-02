@@ -107,10 +107,9 @@ func _ready() -> void:
 	state.Enter(self)
 	camControl = spring_arm_3d
 	
-	GameManager.OnGameRestart.connect(ReSetPositon)
-	#if GameManager.currentGameState == GameManager.GameState.RESTART:
-		#GameManager.OnGameRestart.emit()
+	
 	GameManager.OnGameStateChanged.connect(OnGameStateChanged)
+	GameManager.OnGameStateChanged.emit(GameManager.currentGameState)
 	
 
 func ChangeStateTo(nextState: BasePlayerState) -> void:

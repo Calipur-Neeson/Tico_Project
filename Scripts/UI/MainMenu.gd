@@ -44,7 +44,8 @@ func _on_new_game_pressed() -> void:
 	SceneLoader.LoadScene(SceneLoader.mainLevelScene)
 
 func _on_load_game_pressed() -> void:
-	pass # Replace with function body.
+	GameManager.SetGameState(GameManager.GameState.RESTART)
+	SceneLoader.LoadScene(SceneLoader.mainLevelScene)
 
 func _on_options_pressed() -> void:
 	main_menu.hide()
