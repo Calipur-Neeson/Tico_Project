@@ -110,24 +110,25 @@ size = Vector3(1, 1.9187241, 5.018285)
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.977398, 0.03633737, 5.2142105)
 
 [node name="Entrance" type="Node3D" parent="." unique_id=1173566143]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.861908, -0.1, 0.13183594)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.862, 0, 0.132)
 
 [node name="EntranceGate" type="CSGBox3D" parent="Entrance" unique_id=144998958]
-transform = Transform3D(0.5583218, 0, -0.8296245, 0, 1, 0, 0.8296245, 0, 0.5583218, -3.6569214, 2.127717, 2.5652533)
+transform = Transform3D(0.5583218, 0, -0.8296245, 0, 1, 0, 0.8296245, 0, 0.5583218, -3.6569214, 2.127717, 2.8119955)
 material_override = ExtResource("2_vqx3y")
 use_collision = true
 size = Vector3(0.25585938, 4.035034, 4.025879)
 
 [node name="EntranceGate2" type="CSGBox3D" parent="Entrance" unique_id=1203339771]
-transform = Transform3D(-0.28687656, 0, -0.9579675, 0, 1, 0, 0.9579675, 0, -0.28687656, -3.1289215, 2.127717, -3.4548118)
+transform = Transform3D(-0.28687656, 0, -0.9579675, 0, 1, 0, 0.9579675, 0, -0.28687656, -3.1289215, 2.127717, -3.6773107)
 material_override = ExtResource("2_vqx3y")
 use_collision = true
 size = Vector3(0.25585938, 4.035034, 4.025879)
 
 [node name="EntranceGround" type="CSGBox3D" parent="Entrance" unique_id=200645029]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.215, -0.1, 0)
 material_override = ExtResource("4_licuc")
 use_collision = true
-size = Vector3(11.919739, 0.2, 8.1484375)
+size = Vector3(12.600983, 0.2, 8.1484375)
 
 [node name="Rubbles" type="Node3D" parent="." unique_id=481725235]
 
@@ -176,39 +177,53 @@ size = Vector3(0.45898438, 1, 1.2378845)
 [node name="FirstFloorWalls" type="Node3D" parent="." unique_id=860913941]
 
 [node name="WallZ+" type="CSGBox3D" parent="FirstFloorWalls" unique_id=1710467777]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 35.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5648804, 8, 35.5)
 material_override = ExtResource("2_vqx3y")
 use_collision = true
 collision_layer = 65
-size = Vector3(50, 16, 1)
+size = Vector3(63.12976, 16, 1)
+
+[node name="WallZ+2" type="CSGBox3D" parent="FirstFloorWalls" unique_id=588621506]
+transform = Transform3D(0.99586844, 0, -0.09080747, 0, 1, 0, 0.09080747, 0, 0.99586844, 32, 8, 5.23)
+material_override = ExtResource("2_vqx3y")
+use_collision = true
+collision_layer = 65
+size = Vector3(13.571255, 16, 1)
+
+[node name="WallZ+3" type="CSGBox3D" parent="FirstFloorWalls" unique_id=468895460]
+transform = Transform3D(0.99588436, 0, 0.09063257, 0, 1, 0, -0.09063257, 0, 0.99588436, 32, 8, -5.215)
+material_override = ExtResource("2_vqx3y")
+use_collision = true
+collision_layer = 65
+size = Vector3(13.268368, 16, 1)
 
 [node name="WallZ-" type="CSGBox3D" parent="FirstFloorWalls" unique_id=789507722]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0349617, 7.964341, -35.490486)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2985954, 7.964341, -35.490486)
 material_override = ExtResource("2_vqx3y")
 use_collision = true
 collision_layer = 65
-size = Vector3(50, 16, 1)
+size = Vector3(62.667114, 16, 1)
 
 [node name="WallX+" type="CSGBox3D" parent="FirstFloorWalls" unique_id=827255485]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 8, -19.482971)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.117756, 8, -20.693207)
 material_override = ExtResource("2_vqx3y")
 use_collision = true
 collision_layer = 65
-size = Vector3(1, 16, 31.034058)
+size = Vector3(1, 16, 28.613586)
 
 [node name="WallX+3" type="CSGBox3D" parent="FirstFloorWalls" unique_id=2052779156]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 10.010986, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.78836, 10.010986, 0)
 material_override = ExtResource("2_vqx3y")
 use_collision = true
 collision_layer = 65
-size = Vector3(1, 11.978027, 8)
+size = Vector3(1, 11.978, 8.2)
 
 [node name="WallX+2" type="CSGBox3D" parent="FirstFloorWalls" unique_id=98891834]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 8, 19.47876)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.117756, 8, 20.650757)
 material_override = ExtResource("2_vqx3y")
 use_collision = true
 collision_layer = 65
-size = Vector3(1, 16, 31.04248)
+size = Vector3(1, 16, 28.698486)
 
 [node name="WallX-" type="CSGBox3D" parent="FirstFloorWalls" unique_id=1896326282]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5, 8, 0)
@@ -218,25 +233,25 @@ collision_layer = 65
 size = Vector3(1, 16, 70)
 
 [node name="IceFloor" type="CSGBox3D" parent="FirstFloorWalls" unique_id=2066503178]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27819824, -0.19029307, -0.90704346)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2024784, -0.19029307, -0.90704346)
 material_override = ExtResource("4_h2d35")
 use_collision = true
 collision_layer = 5
 size = Vector3(17.01294, 0.1, 29.661499)
 
 [node name="IceFloor2" type="CSGBox3D" parent="FirstFloorWalls" unique_id=495599290]
-transform = Transform3D(-0.031681642, 0, -0.999498, 0, 1, 0, 0.999498, 0, -0.031681642, -14.266383, -0.21249795, 28.633093)
+transform = Transform3D(-0.031681642, 0, -0.999498, 0, 1, 0, 0.999498, 0, -0.031681642, -9.144276, -0.21249795, 28.22539)
 material_override = ExtResource("4_h2d35")
 use_collision = true
 collision_layer = 5
-size = Vector3(15.402832, 0.1, 25.699768)
+size = Vector3(15.402832, 0.1, 28.31131)
 
 [node name="FFGround" type="CSGBox3D" parent="." unique_id=574029171]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21289063, -0.15637359, 0.03383255)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.703, -0.1, 0.034)
 material_override = ExtResource("4_licuc")
 use_collision = true
 collision_layer = 4
-size = Vector3(50.678223, 0.2, 70.6073)
+size = Vector3(63.65924, 0.2, 70.6073)
 
 [node name="Hole" type="CSGBox3D" parent="FFGround" unique_id=2010016173]
 transform = Transform3D(1, 0, 0, 0, 1.1335512, 0, 0, 0, 1, 0.23822498, 0, -0.066613436)
