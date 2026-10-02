@@ -5,14 +5,18 @@ extends BaseInteractable
 var current_player: Player = null
 
 func Interact(player: Player) -> void:
-	print("Save")
-	QuickSave.save_var("PlayerPosition", player.position)
-	print(player.position)
+	pass
+	#print("Save")
+	#QuickSave.save_var("PlayerPosition", player.position)
+	#print(player.position)
 	#TODO: save menu
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Player:
 		body.heatSystem.dropSpeed -= healSpeed 
+		
+		QuickSave.save_var("PlayerPosition", body.position)
+		body.hud_panel.OnSave.emit()
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body is Player:
