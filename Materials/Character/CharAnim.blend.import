@@ -1,0 +1,141 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://c4jgjla4l5nnd"
+path="res://.godot/imported/CharAnim.blend-ea8ce5333f6ac51c21dd8ac06d9c12a9.scn"
+
+[deps]
+
+source_file="res://Materials/Character/CharAnim.blend"
+dest_files=["res://.godot/imported/CharAnim.blend-ea8ce5333f6ac51c21dd8ac06d9c12a9.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+mesh_library/use_node_names_as_mesh_names=false
+array_mesh/deduplicate_surfaces=true
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"Body.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Character/Body/Body1.tres",
+"use_external/path": "uid://d4lsrl7pvci5u"
+},
+"Body.002": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Character/Body/Body2.tres",
+"use_external/path": "uid://cmdfvkmf45m4q"
+},
+"Body.003": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Character/Body/Body3.tres",
+"use_external/path": "uid://wte8ek1f58gn"
+},
+"Body.004": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Character/Body/Body4.tres",
+"use_external/path": "uid://yp5jmsp3ddfo"
+},
+"Body.005": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Character/Body/Body5.tres",
+"use_external/path": "uid://cd60by16hqo5k"
+},
+"Body.006": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Character/Body/Body6.tres",
+"use_external/path": "uid://s384d0wv00l4"
+},
+"Body.007": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Character/Body/Body7.tres",
+"use_external/path": "uid://bb7i60l2hogat"
+},
+"Body.008": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Character/Body/Body8.tres",
+"use_external/path": "uid://c36xe77kq80p4"
+},
+"Body.009": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Character/Body/Body9.tres",
+"use_external/path": "uid://cgxl5atxm7ygq"
+},
+"Body.010": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Character/Body/Body10.tres",
+"use_external/path": "uid://vn5ykwyl311w"
+},
+"CarunculaMAT": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Character/Eyes/Caruncle.tres",
+"use_external/path": "uid://cx7vyict77srb"
+},
+"CarunculaMAT.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Character/Eyes/Caruncle.tres",
+"use_external/path": "uid://cx7vyict77srb"
+},
+"CorneaMAT.002": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Character/Eyes/Eyes.tres",
+"use_external/path": "uid://d18c6ywhtxa1e"
+},
+"HairCards": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Character/Hair/Hair.tres",
+"use_external/path": "uid://bkjvegp68mknb"
+},
+"Zipper": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Character/Zipper.tres",
+"use_external/path": "uid://cfvi0hln5dt7d"
+}
+}
+}
+blender/nodes/visible=0
+blender/nodes/active_collection_only=false
+blender/nodes/punctual_lights=true
+blender/nodes/cameras=true
+blender/nodes/custom_properties=true
+blender/nodes/modifiers=1
+blender/meshes/vertex_colors=1
+blender/meshes/uvs=true
+blender/meshes/normals=true
+blender/meshes/export_geometry_nodes_instances=false
+blender/meshes/gpu_instances=false
+blender/meshes/tangents=true
+blender/meshes/skins=2
+blender/meshes/export_bones_deforming_mesh_only=false
+blender/materials/unpack_enabled=true
+blender/materials/export_materials=1
+blender/animation/limit_playback=true
+blender/animation/always_sample=true
+blender/animation/group_tracks=true
+gltf/naming_version=2
+gltf/texture_map_mode=1

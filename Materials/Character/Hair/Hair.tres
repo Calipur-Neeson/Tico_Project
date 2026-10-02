@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bkjvegp68mknb"]
+
+[ext_resource type="Texture2D" uid="uid://bx6y1jbekg5mx" path="res://Materials/Character/Hair/CardsFrozen.png" id="1_2wqrd"]
+[ext_resource type="Texture2D" uid="uid://cdusvqvhlwn1v" path="res://Materials/Character/Hair/NormalMap.png" id="2_vgrr4"]
+
+[resource]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(1.151608, 1.151608, 1.151608, 1)
+albedo_texture = ExtResource("1_2wqrd")
+albedo_texture_force_srgb = true
+roughness = 0.35
+normal_enabled = true
+normal_texture = ExtResource("2_vgrr4")

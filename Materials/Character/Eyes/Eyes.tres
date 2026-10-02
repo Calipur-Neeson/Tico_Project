@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d18c6ywhtxa1e"]
+
+[ext_resource type="Texture2D" uid="uid://p853batkom3s" path="res://Materials/Character/Eyes/CorneaSimple_CorneaMAT_BaseColor.png" id="1_k36u5"]
+[ext_resource type="Texture2D" uid="uid://buv3l88r4hpn2" path="res://Materials/Character/Eyes/CorneaSimple_CorneaMAT_Normal.png" id="2_0swmh"]
+[ext_resource type="Texture2D" uid="uid://cgg217h82wbcf" path="res://Materials/Character/Eyes/CorneaSimple_CorneaMAT_Roughness.png" id="3_wm66j"]
+
+[resource]
+albedo_texture = ExtResource("1_k36u5")
+roughness_texture = ExtResource("3_wm66j")
+normal_enabled = true
+normal_texture = ExtResource("2_0swmh")
+refraction_enabled = true
+refraction_scale = 0.52

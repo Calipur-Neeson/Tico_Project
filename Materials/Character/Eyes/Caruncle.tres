@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cx7vyict77srb"]
+
+[ext_resource type="Texture2D" uid="uid://cvfxlxj7lp4y1" path="res://Materials/Character/Eyes/Caruncula-TM1001PNG.png" id="1_3qj3l"]
+
+[resource]
+albedo_texture = ExtResource("1_3qj3l")
+roughness = 0.1

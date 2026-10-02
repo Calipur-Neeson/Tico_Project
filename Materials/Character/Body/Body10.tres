@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://vn5ykwyl311w"]
+
+[ext_resource type="Texture2D" uid="uid://dqgf8127wonrm" path="res://Materials/Character/Body/10/ChaTC_SP_Body_BaseColor.10.png" id="1_otti5"]
+[ext_resource type="Texture2D" uid="uid://221uy4u08nfm" path="res://Materials/Character/Body/10/ChaTC_SPBody_AO.10.png" id="2_m5idu"]
+[ext_resource type="Texture2D" uid="uid://bxx7bdlqkony1" path="res://Materials/Character/Body/10/ChaTC_SP_Body_Metallic.10.png" id="3_g7up5"]
+[ext_resource type="Texture2D" uid="uid://bds3x7eofe8bv" path="res://Materials/Character/Body/10/ChaTC_SP_Body_Normal.10.png" id="4_ojsw1"]
+[ext_resource type="Texture2D" uid="uid://c71wwfp3i1qsa" path="res://Materials/Character/Body/10/ChaTC_SP_Body_Roughness.10.png" id="5_4wasv"]
+
+[resource]
+albedo_color = Color(1.6328185, 1.6328185, 1.6328185, 1)
+albedo_texture = ExtResource("1_otti5")
+metallic = 1.0
+metallic_texture = ExtResource("3_g7up5")
+roughness_texture = ExtResource("5_4wasv")
+normal_enabled = true
+normal_texture = ExtResource("4_ojsw1")
+ao_enabled = true
+ao_light_affect = 0.32
+ao_texture = ExtResource("2_m5idu")
