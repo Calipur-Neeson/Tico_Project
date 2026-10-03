@@ -37,10 +37,12 @@ func _ready() -> void:
 	resolution_option.add_item("1920x1080")
 	resolution_option.add_item("1600x900")
 	resolution_option.add_item("1280x720")
+	
+	GameManager.SetGameState(GameManager.GameState.MENU)
 
 
 func _on_new_game_pressed() -> void:
-	GameManager.SetGameState(GameManager.GameState.PLAYING)
+	GameManager.targetState = GameManager.GameState.PLAYING
 	SceneLoader.LoadScene(SceneLoader.mainLevelScene)
 
 func _on_load_game_pressed() -> void:

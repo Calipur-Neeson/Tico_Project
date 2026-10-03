@@ -96,7 +96,10 @@ var island: bool = false
 #Current state that our player is
 var state: BasePlayerState 
 
+	
 func _ready() -> void:
+	GlobalAutoload.player = self
+	
 	ceiling_cast.enabled = false
 	obstacle_cast.enabled = false
 	assuming_land_cast.enabled = false
@@ -107,10 +110,10 @@ func _ready() -> void:
 	state.Enter(self)
 	camControl = spring_arm_3d
 	
-	
 	GameManager.OnGameStateChanged.connect(OnGameStateChanged)
-	GameManager.OnGameStateChanged.emit(GameManager.currentGameState)
 	
+	if GameManager.currentGameState == GameManager.GameState.RESTART:
+		ReSetPositon()
 
 func ChangeStateTo(nextState: BasePlayerState) -> void:
 	state.Exit(self)
@@ -124,10 +127,6 @@ func _physics_process(delta: float) -> void:
 	handle_leg_ik(delta)
 
 func OnGameStateChanged(state: GameManager.GameState) -> void:
-	if state == GameManager.GameState.RESTART:
-		ReSetPositon()
-		GameManager.SetGameState(GameManager.GameState.PLAYING)
-		GameManager.OnGameStateChanged.emit(GameManager.currentGameState)
 	if state == GameManager.GameState.PLAYING:
 		set_process(true)
 		set_physics_process(true)

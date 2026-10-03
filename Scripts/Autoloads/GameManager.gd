@@ -17,6 +17,7 @@ enum GameState {
 
 var currentInputMode := InputMode.KEYBOARD_MOUSE
 var currentGameState := GameState.MENU
+var targetState : GameState
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey or event is InputEventMouseButton:
@@ -42,3 +43,6 @@ func SetGameState(state: GameState) -> void:
 	if currentGameState == state:
 		return
 	currentGameState = state
+	OnGameStateChanged.emit(currentGameState)
+	print("State Change: ", str(GameManager.currentGameState))
+	
