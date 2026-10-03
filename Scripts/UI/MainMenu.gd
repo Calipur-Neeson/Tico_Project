@@ -11,7 +11,7 @@ extends Control
 @onready var controls_panel: Control = $CanvasLayer/Controls_panel
 
 @onready var resolution_option: OptionButton = $CanvasLayer/DisplayPanel/VBoxContainer/Resolution/OptionButton
-@onready var hover_glow: Control = $CanvasLayer/MainMenu/VBoxContainer/NewGame/Hoverglow
+#@onready var hover_glow: Control = $CanvasLayer/MainMenu/VBoxContainer/NewGame/Hoverglow
 @onready var brightness_overlay: ColorRect = get_node("/root/BrightnessManager/BrightnessOverlay")
 
 
@@ -113,9 +113,9 @@ func _on_h_slider_value_changed(value: float) -> void:
 		brightness_overlay.material.set_shader_parameter("brightness", value)
 
 
-func _on_new_game_mouse_entered() -> void:
-	var tween = create_tween()
-	tween.tween_property(hover_glow, "modulate:a", 1.0, 0.15)
+#func _on_new_game_mouse_entered() -> void:
+	#var tween = create_tween()
+	#tween.tween_property(hover_glow, "modulate:a", 1.0, 0.15)
 
 func _on_back_pressed_controls() -> void:
 	controls_panel.hide()

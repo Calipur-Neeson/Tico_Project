@@ -79,11 +79,10 @@ var last_offset_r: float = 0.0
 @onready var falling_die_cast: RayCast3D = $RayDetectors/FallingDieCast
 
 #Hand Pivot
-@onready var hand_pivot: Marker3D = $HandPivot
+@onready var hand_pivot: Marker3D = $"Character/Y Bot/Skeleton3D/RightHandGrab/HandPivot"
 
 #HUD
 @onready var hud_panel: PlayerHUD = $HUDPanel
-
 
 var camControl: CameraControl
 var jumpSpeed: float
@@ -98,8 +97,6 @@ var state: BasePlayerState
 
 	
 func _ready() -> void:
-	GlobalAutoload.player = self
-	
 	ceiling_cast.enabled = false
 	obstacle_cast.enabled = false
 	assuming_land_cast.enabled = false

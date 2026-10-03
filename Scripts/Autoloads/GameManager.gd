@@ -44,5 +44,4 @@ func SetGameState(state: GameState) -> void:
 		return
 	currentGameState = state
 	OnGameStateChanged.emit(currentGameState)
-	print("State Change: ", str(GameManager.currentGameState))
 	

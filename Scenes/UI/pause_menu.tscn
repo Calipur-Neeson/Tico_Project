@@ -279,14 +279,15 @@ text = "AUDIO"
 
 [node name="Audio_Slider_Settings" parent="Panel/Audio Panel/VBoxContainer" unique_id=1318025372 instance=ExtResource("3_qyryt")]
 layout_mode = 2
-bus_name = "Master"
+bus_name = "MASTER"
 
 [node name="Audio_Slider_Settings2" parent="Panel/Audio Panel/VBoxContainer" unique_id=674391878 instance=ExtResource("3_qyryt")]
 layout_mode = 2
-bus_name = "Music"
+bus_name = "MUSIC"
 
 [node name="Audio_Slider_Settings3" parent="Panel/Audio Panel/VBoxContainer" unique_id=365156790 instance=ExtResource("3_qyryt")]
 layout_mode = 2
+bus_name = "SFX"
 
 [node name="Back" type="Button" parent="Panel/Audio Panel/VBoxContainer" unique_id=55906522]
 layout_mode = 2
