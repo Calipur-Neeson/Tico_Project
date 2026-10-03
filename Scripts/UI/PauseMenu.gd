@@ -31,8 +31,10 @@ func _process(delta: float) -> void:
 		isPaused = not isPaused
 
 func Pause() -> void:
+	if not GameManager.currentGameState == GameManager.GameState.PLAYING:
+		return
+		
 	GameManager.SetGameState(GameManager.GameState.PAUSE)
-	GameManager.OnGameStateChanged.emit(GameManager.currentGameState)
 	panel.modulate.a = 255
 	get_tree().paused = true
 	if GameManager.currentInputMode == GameManager.InputMode.KEYBOARD_MOUSE:
@@ -42,7 +44,6 @@ func Pause() -> void:
 	
 func Resume() -> void:
 	GameManager.SetGameState(GameManager.GameState.PLAYING)
-	GameManager.OnGameStateChanged.emit(GameManager.currentGameState)
 	panel.modulate.a = 0
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -55,15 +56,18 @@ func _on_setting_button_pressed() -> void:
 	panel_container.hide()
 
 func _on_restart_button_pressed() -> void:
-	Resume()
+	panel.modulate.a = 0
+	get_tree().paused = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 	GameManager.SetGameState(GameManager.GameState.RESTART)
 	SceneLoader.LoadScene(SceneLoader.mainLevelScene)
 
 
 func _on_menu_button_pressed() -> void:
 	Resume()
+	GameManager.targetState = GameManager.GameState.MENU
 	GameManager.SetGameState(GameManager.GameState.MENU)
-	GameManager.OnGameStateChanged.emit(GameManager.currentGameState)
 	SceneLoader.LoadScene(SceneLoader.mainMenuScene)
 	option_menu.show()
 

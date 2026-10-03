@@ -79,11 +79,10 @@ var last_offset_r: float = 0.0
 @onready var falling_die_cast: RayCast3D = $RayDetectors/FallingDieCast
 
 #Hand Pivot
-@onready var hand_pivot: Marker3D = $HandPivot
+@onready var hand_pivot: Marker3D = $"Character/Y Bot/Skeleton3D/RightHandGrab/HandPivot"
 
 #HUD
 @onready var hud_panel: PlayerHUD = $HUDPanel
-
 
 var camControl: CameraControl
 var jumpSpeed: float
@@ -96,6 +95,7 @@ var island: bool = false
 #Current state that our player is
 var state: BasePlayerState 
 
+	
 func _ready() -> void:
 	ceiling_cast.enabled = false
 	obstacle_cast.enabled = false
@@ -107,11 +107,10 @@ func _ready() -> void:
 	state.Enter(self)
 	camControl = spring_arm_3d
 	
-	GameManager.OnGameRestart.connect(ReSetPositon)
-	#if GameManager.currentGameState == GameManager.GameState.RESTART:
-		#GameManager.OnGameRestart.emit()
 	GameManager.OnGameStateChanged.connect(OnGameStateChanged)
 	
+	if GameManager.currentGameState == GameManager.GameState.RESTART:
+		ReSetPositon()
 
 func ChangeStateTo(nextState: BasePlayerState) -> void:
 	state.Exit(self)
@@ -125,10 +124,6 @@ func _physics_process(delta: float) -> void:
 	handle_leg_ik(delta)
 
 func OnGameStateChanged(state: GameManager.GameState) -> void:
-	if state == GameManager.GameState.RESTART:
-		ReSetPositon()
-		GameManager.SetGameState(GameManager.GameState.PLAYING)
-		GameManager.OnGameStateChanged.emit(GameManager.currentGameState)
 	if state == GameManager.GameState.PLAYING:
 		set_process(true)
 		set_physics_process(true)

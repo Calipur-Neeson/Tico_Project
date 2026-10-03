@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://dn1xgpo0sq8g4" path="res://Image/Controls.png" id="5_23me3"]
 
 [sub_resource type="FontFile" id="FontFile_dvisc"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -276,14 +279,15 @@ text = "AUDIO"
 
 [node name="Audio_Slider_Settings" parent="Panel/Audio Panel/VBoxContainer" unique_id=1318025372 instance=ExtResource("3_qyryt")]
 layout_mode = 2
-bus_name = "Master"
+bus_name = "MASTER"
 
 [node name="Audio_Slider_Settings2" parent="Panel/Audio Panel/VBoxContainer" unique_id=674391878 instance=ExtResource("3_qyryt")]
 layout_mode = 2
-bus_name = "Music"
+bus_name = "MUSIC"
 
 [node name="Audio_Slider_Settings3" parent="Panel/Audio Panel/VBoxContainer" unique_id=365156790 instance=ExtResource("3_qyryt")]
 layout_mode = 2
+bus_name = "SFX"
 
 [node name="Back" type="Button" parent="Panel/Audio Panel/VBoxContainer" unique_id=55906522]
 layout_mode = 2
