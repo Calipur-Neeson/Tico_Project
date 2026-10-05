@@ -23,7 +23,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	currentHeat -= dropSpeed * delta
 	heatInfluence = log(remap(currentHeat / maxHeatMeter, 0, 1, 1.2, exp(1)))
-	print(heatInfluence)
 	
 	currentHeat = clampf(currentHeat, 0, maxHeatMeter)
 	#For 2D bar
