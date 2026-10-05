@@ -149,8 +149,8 @@ func GetCurrentSpeed() -> float:
 	
 func UpdateVelocity(direction: Vector3, delta: float, speed: float = runSpeed) -> void:
 	if direction:
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
+		velocity.x = direction.x * speed * heatSystem.heatInfluence
+		velocity.z = direction.z * speed * heatSystem.heatInfluence
 		#var targetVelocity := direction * speed
 		#if abs(velocity.dot(targetVelocity)) < 0:
 			#velocity.x = move_toward(velocity.x, targetVelocity.x, acceleration * 10 * delta)
