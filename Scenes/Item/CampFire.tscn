@@ -22,7 +22,7 @@ collision_layer = 32
 script = ExtResource("1_n0jt5")
 healSpeed = 20.0
 outLine = ExtResource("2_dpdl8")
-text = "Press \"E\" To Save"
+text = "Press \"E\" To Nothing"
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1514432527]
 unique_name_in_owner = true

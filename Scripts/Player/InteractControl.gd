@@ -4,13 +4,13 @@ extends ShapeCast3D
 var currentObject: BaseInteractable
 var objectInHand: BasePickable
 
-@onready var panel: Panel = $"../../Panel"
-@onready var interactText: RichTextLabel = $"../../Panel/RichTextLabel"
+@onready var panel: Panel = $"../../HUDPanel"
+@onready var interactText: RichTextLabel = $"../../HUDPanel/RichTextLabel"
 @onready var player: Player = $"../.."
 
 
 func _ready() -> void:
-	panel.hide()
+	interactText.hide()
 
 func _physics_process(delta: float) -> void:
 	var newObject: BaseInteractable = GetInteractable()
@@ -29,7 +29,7 @@ func SetCurrentObject(newObject: BaseInteractable) -> void:
 	currentObject = newObject
 
 	if currentObject == null:
-		panel.hide()
+		interactText.hide()
 		player.player_look_at.influence = 0
 		return
 
@@ -39,7 +39,7 @@ func SetCurrentObject(newObject: BaseInteractable) -> void:
 	player.player_look_at.influence = 1
 
 	interactText.text = currentObject.text
-	panel.show()
+	interactText.show()
 	
 	
 func GetInteractable() -> BaseInteractable:
