@@ -35,7 +35,7 @@ func PreUpdate(player: Player) -> void:
 		
 		else:
 			player.jumpSpeed = player.velocity.length()
-			player.velocity.y = player.jumpVelocity
+			player.velocity.y = player.jumpVelocity * player.heatSystem.heatInfluence
 			player.ChangeStateTo(player.playerState.RunJump)
 			
 	elif Input.is_action_just_pressed("Crouch") and player.is_on_floor():

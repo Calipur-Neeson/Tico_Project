@@ -12,7 +12,7 @@ func Enter(player: Player) -> void:
 func PreUpdate(player: Player) -> void:
 	if time > 0.5:
 		player.jumpSpeed = player.velocity.length()
-		player.velocity.y = player.jumpVelocity
+		player.velocity.y = player.jumpVelocity * player.heatSystem.heatInfluence
 		player.animation_tree.set("parameters/movement/transition_request", "fall")
 		player.ChangeStateTo(player.playerState.Fall)
 		
