@@ -31,6 +31,10 @@ func load_var(key: String, default_value : Variant = null) -> Variant:
 		return default_value
 
 
+func has_var(key : String) -> bool:
+	reload_data()
+	return _save_data.has(key)
+
 ## Reload the data manually if something has not been saved
 func reload_data() -> void:
 	var file : FileAccess
@@ -61,4 +65,5 @@ func clear_all_data() -> void:
 
 
 func get_save_data() -> Dictionary[String, Variant]:
+	reload_data()
 	return _save_data

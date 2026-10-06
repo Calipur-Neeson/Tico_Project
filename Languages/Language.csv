@@ -1,0 +1,22 @@
+Keys,en,fi,zh,ja
+NEW_GAME,New Game,Uusi peli,新游戏,ニューゲーム
+LOAD_GAME,Load Game,Lataa peli,加载游戏,ロードゲーム
+OPTIONS,Options,Asetukset,设置,オプション
+EXIT,Exit,Poistu,退出,終了
+AUDIO,Audio,Ääniasetukset,音频,オーディオ
+CONTROLS,Controls,Ohjaimet,操作设置,操作設定
+DISPLAY,Display,Näyttöasetukset,显示设置,表示設定
+BACK,Back,Takaisin,返回,戻る
+MASTER_VOLUME,Master Volume,Pää-äänenvoimakkuus,主音量,マスター音量
+MUSIC_VOLUME,Music Volume,Musiikin äänenvoimakkuus,音乐音量,音楽音量
+SFX_VOLUME,Sfx Volume,Tehosteiden äänenvoimakkuus,音效音量,効果音音量
+RESOLUTION,Resolution,Resoluutio,分辨率,解像度
+FULL SCREEN,Full Screen,Koko näyttö,全屏,フルスクリーン
+BRIGHTNESS,Brightness,Kirkkaus,亮度,明るさ
+PAUSED,Paused,Tauko,游戏暂停,一時停止中
+RESTART,Restart,Aloita uudelleen,重新开始,リスタート
+QUIT,Quit,Lopeta peli,退出游戏,ゲームを終了
+PRESS ANY KEY TO CONTINUE,Press any key to continue,Jatka painamalla mitä tahansa näppäintä,按任意键继续,いずれかのキーを押して続行
+"PRESS ""E"" TO SAVE","Press ""E"" to save","Paina ""E"" tallentaaksesi",按“E”键保存,「E」キーを押してセーブ
+RESUME,Resume,Jatka peliä,继续游戏,ゲームに戻る
+LANGUAGE,Language,Kieli,语言,言語
