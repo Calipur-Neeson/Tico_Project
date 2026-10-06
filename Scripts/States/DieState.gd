@@ -4,6 +4,8 @@ extends BasePlayerState
 var time : float
 
 func Enter(player: Player) -> void:
+	GameManager.targetState = GameManager.GameState.MENU
+	
 	time = 0
 	player.animation_tree.active = false
 	player.velocity = Vector3.ZERO
@@ -12,6 +14,7 @@ func Enter(player: Player) -> void:
 func PreUpdate(player: Player) -> void:
 	if time > 1:
 		SceneLoader.LoadScene(SceneLoader.mainMenuScene)
+		GameManager.SetGameState(GameManager.GameState.OVER)
 		
 func Update(player: Player, delta: float) -> void:
 	time += delta
