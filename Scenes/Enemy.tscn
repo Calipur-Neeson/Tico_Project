@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://nt65daoq2yla" path="res://Scripts/Enemy/Enemy.gd" id="1_wovta"]
 [ext_resource type="Script" uid="uid://75nx6k08ifx" path="res://Scripts/Enemy/EnemyState.gd" id="2_xeo28"]
 [ext_resource type="Script" uid="uid://dfmq1nyjwfpor" path="res://Scripts/Enemy/SoundDetector.gd" id="3_xeo28"]
+[ext_resource type="Shader" uid="uid://foae8be7d6if" path="res://Shader/Beam.gdshader" id="4_kpr8r"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_12j5o"]
 height = 1.5
@@ -19,11 +20,34 @@ albedo_color = Color(0.6749369, 0.8569317, 7.70092e-07, 1)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_f6tpa"]
 points = PackedVector3Array(0, 0, 0.6, -4, -0.5, 7, 4, -0.5, 7, 0, 1, 7)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_12j5o"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_61ot5"]
+top_radius = 0.2
+bottom_radius = 0.2
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ftswq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pohj0"]
+render_priority = 0
+shader = ExtResource("4_kpr8r")
+shader_parameter/main_color = Color(0.7574182, 0.8687647, 1, 1)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ftswq")
+shader_parameter/emission = Color(0.78171813, 0, 0.3691429, 1)
+shader_parameter/emission_energy = 4.0
+shader_parameter/scroll_speed = 0.6
+shader_parameter/alpha_threshold = 0.0
+shader_parameter/use_threshold = false
+shader_parameter/invert_boost_direction = false
+
 [node name="Enemy" type="CharacterBody3D" unique_id=173603545]
 collision_layer = 128
 collision_mask = 126
 script = ExtResource("1_wovta")
 rotateSpeed = 0.05
+attackRange = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=629589996]
 shape = SubResource("CapsuleShape3D_12j5o")
@@ -47,4 +71,15 @@ script = ExtResource("3_xeo28")
 [node name="PlayerShape3D" type="ShapeCast3D" parent="." unique_id=757891302]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11, 0)
 shape = SubResource("ConvexPolygonShape3D_f6tpa")
-collision_mask = 82
+collision_mask = 16
+
+[node name="HitBox" type="ShapeCast3D" parent="." unique_id=787634092]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1710469)
+shape = SubResource("BoxShape3D_12j5o")
+target_position = Vector3(0, 0, 0)
+collision_mask = 16
+
+[node name="Beam" type="MeshInstance3D" parent="." unique_id=1862268685]
+visible = false
+mesh = SubResource("CylinderMesh_61ot5")
+surface_material_override/0 = SubResource("ShaderMaterial_pohj0")
