@@ -45,7 +45,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_k8um8")
 expand_mode = 1
-stretch_mode = 1
+stretch_mode = 6
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureRect" unique_id=1397865521]
 layout_mode = 0
@@ -53,7 +53,7 @@ offset_left = -1.0
 offset_top = -6.0
 offset_right = 1151.0
 offset_bottom = 646.0
-color = Color(1, 1, 1, 0.19607843)
+color = Color(1, 1, 1, 0)
 
 [node name="MainMenu" type="PanelContainer" parent="CanvasLayer" unique_id=503452495]
 anchors_preset = 2
@@ -365,7 +365,6 @@ mouse_filter = 2
 stream = ExtResource("7_744d7")
 volume_db = -2.389
 autoplay = true
-bus = &"MUSIC"
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/LoadGame" to="." method="_on_load_game_pressed"]
