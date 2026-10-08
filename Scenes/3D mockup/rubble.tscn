@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bhli6cilloe77"]
+
+[node name="Rubble" type="CSGBox3D" unique_id=1081022700]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.99999994, 0, -1.1920929e-07, 0, 0.9999999, 0, 0, 0)
+size = Vector3(0.45898438, 1, 2.3876343)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=661582791]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75104237, -0.13336182, 0)
+size = Vector3(0.45898438, 0.73327637, 0.73913574)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=954575916]
+transform = Transform3D(1, 0, 0, 0, 0.73524487, 0.67780155, 0, -0.67780155, 0.73524487, 0.43601894, 0.14449954, 0.5409355)
+size = Vector3(0.45898438, 0.73327637, 0.73913574)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=1402998217]
+transform = Transform3D(0.60772365, -0.5382751, 0.58389366, 0, 0.73524487, 0.67780155, -0.79414856, -0.41191605, 0.4468257, 0.4519081, 0.14449954, -0.6514931)
+size = Vector3(0.45898438, 0.73327637, 0.73913574)
