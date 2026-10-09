@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://5i32jqh5ttpk"]
+
+[resource]
+resource_name = "M_Stonekit"
+cull_mode = 2
+roughness = 0.5

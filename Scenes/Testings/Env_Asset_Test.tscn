@@ -2,6 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://c5vkvxaon31pd" path="res://Assets/Environment/FrozenPuddle/FrozenPuddle_A.glb" id="1_84wxd"]
 [ext_resource type="Material" uid="uid://cmj20ooscyfia" path="res://Assets/Materials/M_FrozenPuddle_A.tres" id="2_xl62b"]
+[ext_resource type="PackedScene" uid="uid://b51o4065ys5od" path="res://Assets/Environment/StoneKit/Models/StoneKit_LOW.glb" id="3_fp65l"]
+[ext_resource type="PackedScene" uid="uid://x8qlbm53cnbv" path="res://Assets/Environment/WallKit/Wall_High_A.tscn" id="4_qtm55"]
+[ext_resource type="PackedScene" uid="uid://pcdulg1cye5l" path="res://Assets/Environment/WallKit/Wall_Mid_A.tscn" id="5_x42va"]
+[ext_resource type="PackedScene" uid="uid://cbxc0u4320ku1" path="res://Assets/Environment/WallKit/Wall_Low_A.tscn" id="6_x42va"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d6bm3"]
 albedo_color = Color(0.32358384, 0.32358387, 0.32358384, 1)
@@ -10,21 +14,51 @@ albedo_color = Color(0.32358384, 0.32358387, 0.32358384, 1)
 material = SubResource("StandardMaterial3D_d6bm3")
 size = Vector2(10, 10)
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xl62b"]
+
+[sub_resource type="Sky" id="Sky_e7gen"]
+sky_material = SubResource("ProceduralSkyMaterial_xl62b")
+
+[sub_resource type="Environment" id="Environment_d6bm3"]
+background_mode = 2
+sky = SubResource("Sky_e7gen")
+ambient_light_source = 3
+reflected_light_source = 2
+
 [node name="EnvAssetTest" type="Node3D" unique_id=142144913]
 
 [node name="Test_Ground" type="MeshInstance3D" parent="." unique_id=549736981]
+transform = Transform3D(2.0198827, 0, 0, 0, 1, 0, 0, 0, 1, -0.08421695, 0.11401558, 0.028002739)
 mesh = SubResource("PlaneMesh_wxrey")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=722922766]
+environment = SubResource("Environment_d6bm3")
+
 [node name="Test_Sun" type="DirectionalLight3D" parent="." unique_id=158966701]
-transform = Transform3D(0.8921811, 0.31938452, -0.31938452, 0, 0.7071068, 0.7071068, 0.4516779, -0.6308673, 0.6308673, -1.9250144, 1.9776087, 0)
-light_energy = 1.95
+transform = Transform3D(-0.5011147, -0.61191654, 0.6119168, 2.3389054e-08, 0.7071069, 0.7071067, -0.865381, 0.35434148, -0.35434172, -3.2130678, 4.8554187, 2.2932382)
+light_angular_distance = 0.5
+shadow_enabled = true
 
 [node name="Test_Camera" type="Camera3D" parent="." unique_id=1312159568]
 
 [node name="FrozenPuddle_A" parent="." unique_id=1798768089 instance=ExtResource("1_84wxd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.16925073, 0)
+visible = false
 
 [node name="FrozenPuddle_A" parent="FrozenPuddle_A" index="0" unique_id=30393415]
 surface_material_override/0 = ExtResource("2_xl62b")
+
+[node name="StoneKit_Test" parent="." unique_id=2013197163 instance=ExtResource("3_fp65l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.82913077, 2.3720436, 0.71912074)
+visible = false
+
+[node name="WallHighA" parent="." unique_id=1232217965 instance=ExtResource("4_qtm55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7155833, 2.115493, 0)
+
+[node name="WallMidA" parent="." unique_id=1644795312 instance=ExtResource("5_x42va")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19091, 0.0046830177, 0)
+
+[node name="WallLowA" parent="." unique_id=594805775 instance=ExtResource("6_x42va")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5799522, 0, 0)
 
 [editable path="FrozenPuddle_A"]

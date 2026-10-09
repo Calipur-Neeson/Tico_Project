@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://x8qlbm53cnbv"]
+
+[ext_resource type="PackedScene" uid="uid://b51o4065ys5od" path="res://Assets/Environment/StoneKit/Models/StoneKit_LOW.glb" id="1_orsjr"]
+
+[node name="WallHighA" type="Node3D" unique_id=1232217965]
+
+[node name="StoneKit_LOW" parent="." unique_id=199431533 instance=ExtResource("1_orsjr")]
+
+[node name="Stone_S_03_Low" parent="StoneKit_LOW" index="6" unique_id=559735084]
+transform = Transform3D(0.990534, 0.13726749, 0, -0.13726749, 0.990534, 0, 0, 0, 1, 0.62014854, 1.3318326, -0.11964881)
+
+[editable path="StoneKit_LOW"]
