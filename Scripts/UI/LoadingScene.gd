@@ -36,27 +36,32 @@ func _input(event: InputEvent) -> void:
 func OnProgressChanged(value: float) -> void:
 	updateProgress = value
 	
-	
+
+## Finish load, show"Press any key"
 func OnLoadFinished() -> void:
 	progress_bar.hide()
 	label.show()
+	Bgm.PlayBell()
 	isFinished = true
 	
 	if GameManager.currentGameState == GameManager.GameState.RESTART:
 		GameManager.targetState = GameManager.GameState.PLAYING
 	
-
+## Start load
 func ReadyToLoad() -> void:
 	progress_bar.show()
+	Bgm.StopAudio()
 
+## Show new scene
 func GoodToGo() -> void:
 	animation_player.play_backwards("Transition")
 	await animation_player.animation_finished
 	GameManager.SetGameState(GameManager.targetState)
 	
 	if GameManager.currentGameState == GameManager.GameState.PLAYING:
-		print("Play ambiance")
 		Bgm.PlayAmbiance()
+	elif GameManager.currentGameState == GameManager.GameState.MENU:
+		Bgm.PlayMenu()
 		
 	
 	queue_free()

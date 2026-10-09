@@ -4,10 +4,11 @@
 [ext_resource type="AudioStream" uid="uid://r1ms147b4yka" path="res://Audios/Music/CF.MenuDraft.wav" id="1_swxlp"]
 [ext_resource type="AudioStream" uid="uid://c6jq3b61ssycv" path="res://Audios/Music/village.mp3" id="2_q1jj6"]
 [ext_resource type="AudioStream" uid="uid://1uk3vembiux" path="res://Audios/Music/battle.mp3" id="3_swxlp"]
+[ext_resource type="AudioStream" uid="uid://ccpci5wvqfs5l" path="res://Audios/Music/churchbell.mp3" id="5_ef16n"]
 [ext_resource type="Script" uid="uid://d1kk4qk2mkuyq" path="res://Scripts/Audio/BGM.gd" id="5_n5x36"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_12j5o"]
-clip_count = 4
+clip_count = 5
 clip_0/name = &"Menu"
 clip_0/stream = ExtResource("1_swxlp")
 clip_0/auto_advance = 0
@@ -20,6 +21,9 @@ clip_2/auto_advance = 0
 clip_3/name = &"Detecte"
 clip_3/stream = ExtResource("3_swxlp")
 clip_3/auto_advance = 0
+clip_4/name = &"Bell"
+clip_4/stream = ExtResource("5_ef16n")
+clip_4/auto_advance = 0
 
 [node name="Bgm" type="AudioStreamPlayer" unique_id=1490203729]
 stream = SubResource("AudioStreamInteractive_12j5o")
