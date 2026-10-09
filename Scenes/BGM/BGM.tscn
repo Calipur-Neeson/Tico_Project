@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c0v0uihymau0v"]
 
 [ext_resource type="AudioStream" uid="uid://m2jfmx3q1h1b" path="res://Audios/Music/temple.mp3" id="1_bq0rg"]
-[ext_resource type="AudioStream" uid="uid://gc37c8x3yahf" path="res://Audios/Music/title.mp3" id="1_swxlp"]
+[ext_resource type="AudioStream" uid="uid://r1ms147b4yka" path="res://Audios/Music/CF.MenuDraft.wav" id="1_swxlp"]
 [ext_resource type="AudioStream" uid="uid://c6jq3b61ssycv" path="res://Audios/Music/village.mp3" id="2_q1jj6"]
 [ext_resource type="AudioStream" uid="uid://1uk3vembiux" path="res://Audios/Music/battle.mp3" id="3_swxlp"]
 [ext_resource type="Script" uid="uid://d1kk4qk2mkuyq" path="res://Scripts/Audio/BGM.gd" id="5_n5x36"]

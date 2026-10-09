@@ -53,4 +53,10 @@ func GoodToGo() -> void:
 	animation_player.play_backwards("Transition")
 	await animation_player.animation_finished
 	GameManager.SetGameState(GameManager.targetState)
+	
+	if GameManager.currentGameState == GameManager.GameState.PLAYING:
+		print("Play ambiance")
+		Bgm.PlayAmbiance()
+		
+	
 	queue_free()
