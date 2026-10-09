@@ -233,7 +233,7 @@ collision_layer = 65
 size = Vector3(1, 16, 70)
 
 [node name="IceFloor" type="CSGBox3D" parent="FirstFloorWalls" unique_id=2066503178]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2024784, -0.19029307, -0.90704346)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.091372, -0.19029307, -0.90704346)
 material_override = ExtResource("4_h2d35")
 use_collision = true
 collision_layer = 5
@@ -254,7 +254,7 @@ collision_layer = 4
 size = Vector3(63.65924, 0.2, 70.6073)
 
 [node name="Hole" type="CSGBox3D" parent="FFGround" unique_id=2010016173]
-transform = Transform3D(1, 0, 0, 0, 1.1335512, 0, 0, 0, 1, 0.23822498, 0, -0.066613436)
+transform = Transform3D(1, 0, 0, 0, 1.1335512, 0, 0, 0, 1, -4.6941357, 0, -0.066613436)
 material_override = ExtResource("4_h2d35")
 operation = 2
 size = Vector3(6.9593506, 0.2, 21.068604)
@@ -286,38 +286,38 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.
 [node name="WallClimb" type="Node3D" parent="FFRightsidePlatforming" unique_id=221627596]
 
 [node name="FFPlatform4" type="CSGBox3D" parent="FFRightsidePlatforming/WallClimb" unique_id=176401258]
-transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 8.987023, 6.9857073, -34.800583)
+transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 8.987024, 6.9857073, -47.34855)
 use_collision = true
 collision_layer = 2
 size = Vector3(0.71875, 0.2, 9.9819565)
 
 [node name="FFPlatform3" type="CSGBox3D" parent="FFRightsidePlatforming/WallClimb" unique_id=198869146]
-transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 12.450996, 5.8653636, -34.94322)
+transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 12.450996, 5.8653636, -47.491188)
 use_collision = true
 collision_layer = 2
 size = Vector3(0.54016113, 0.2, 2.186998)
 
 [node name="FFPlatform2" type="CSGBox3D" parent="FFRightsidePlatforming/WallClimb" unique_id=656107496]
-transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 14.194715, 4.784596, -34.89459)
+transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 14.1947155, 4.784596, -47.44256)
 use_collision = true
 collision_layer = 2
 size = Vector3(0.582, 0.1, 5.691144)
 
 [node name="FFPlatform1" type="CSGBox3D" parent="FFRightsidePlatforming/WallClimb" unique_id=1485300660]
-transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 15.578888, 3.6151123, -35.00787)
+transform = Transform3D(-0.0024694616, 0, 0.99999696, 0, 1, 0, -0.99999696, 0, -0.0024694616, 15.578888, 3.6151123, -47.55584)
 use_collision = true
 collision_layer = 2
 size = Vector3(0.4315796, 0.2484777, 4.063904)
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="FFRightsidePlatforming/WallClimb" unique_id=733870775]
-transform = Transform3D(-0.03457255, 0, 0.99940217, 0, 1, 0, -0.99940217, 0, -0.03457255, 16.728714, 0, -32.926617)
+transform = Transform3D(-0.03457255, 0, 0.99940217, 0, 1, 0, -0.99940217, 0, -0.03457255, 16.728714, 0, -45.474586)
 use_collision = true
 collision_layer = 6
 polygon = PackedVector2Array(-3, 0, 0.005, 1.4, 2.15, 1.4, 2.15, 0)
 depth = 3.63
 
 [node name="Box" type="CSGBox3D" parent="FFRightsidePlatforming" unique_id=204852476]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49193048, 3.5647469, -32.006218)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49193, 3.5647469, -44.554184)
 use_collision = true
 collision_layer = 70
 size = Vector3(9.409, 7.019104, 6.01)
@@ -330,7 +330,7 @@ collision_layer = 70
 size = Vector3(3.3236408, 2.5803528, 6.01)
 
 [node name="InteractionThingy" type="CSGBox3D" parent="FFRightsidePlatforming" unique_id=1414894338]
-transform = Transform3D(0.62650955, 0, 0, 0, 1, 0, 0, 0, 0.3378904, -2.2806003, 7.3161926, -32.240803)
+transform = Transform3D(0.62650955, 0, 0, 0, 1, 0, 0, 0, 0.3378904, -2.2805977, 7.3161926, -44.788773)
 use_collision = true
 size = Vector3(1.7019806, 1.319458, 2.9997869)
 
@@ -345,7 +345,7 @@ light_energy = 1.317
 environment = SubResource("Environment_h2d35")
 
 [node name="SprayTrap" parent="." unique_id=1714741706 instance=ExtResource("8_licuc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.047387, 0.014879897, -0.0026426315)
+transform = Transform3D(0.49335307, 0, 0, 0, 1, 0, 0, 0, 0.67202044, 12.9809885, 0.014879897, -0.0026426315)
 
 [node name="SprayTrap2" parent="." unique_id=1990322698 instance=ExtResource("8_licuc")]
 transform = Transform3D(-0.042664252, 0, 0.9990895, 0, 1, 0, -0.9990895, 0, -0.042664252, -0.52570915, 0.014879897, 19.93665)
