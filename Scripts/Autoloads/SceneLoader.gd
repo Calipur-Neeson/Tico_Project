@@ -5,7 +5,7 @@ signal loadFinished
 
 var loadingScene: PackedScene = preload("uid://c5u3xklskdd5s")
 var mainMenuScene: String = "uid://b8v205x84e1gt"
-var mainLevelScene: String = "uid://bes5sm4j5semt"
+var mainLevelScene: String = "uid://ddwoonfdlh7yu"
 
 var loadedResource: PackedScene
 var scenePath: String
@@ -39,7 +39,12 @@ func _process(delta: float) -> void:
 	match loadStatus:
 		ResourceLoader.THREAD_LOAD_INVALID_RESOURCE, ResourceLoader.THREAD_LOAD_FAILED:
 			set_process(false)
-		ResourceLoader.THREAD_LOAD_LOADED:
-			loadedResource = ResourceLoader.load_threaded_get(scenePath)
-			get_tree().change_scene_to_packed(loadedResource)
-			loadFinished.emit()
+		#ResourceLoader.THREAD_LOAD_LOADED:
+			#loadedResource = ResourceLoader.load_threaded_get(scenePath)
+			#get_tree().change_scene_to_packed(loadedResource)
+			#loadFinished.emit()
+
+func ChangeScene() -> void:
+	loadedResource = ResourceLoader.load_threaded_get(scenePath)
+	get_tree().change_scene_to_packed(loadedResource)
+	loadFinished.emit()

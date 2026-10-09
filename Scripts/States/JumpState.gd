@@ -12,13 +12,17 @@ func Enter(player: Player) -> void:
 func PreUpdate(player: Player) -> void:
 	if time > 0.5:
 		player.jumpSpeed = player.velocity.length()
-		player.velocity.y = player.jumpVelocity
+		player.velocity.y = player.jumpVelocity * player.heatSystem.heatInfluence
+		player.animation_tree.set("parameters/movement/transition_request", "fall")
 		player.ChangeStateTo(player.playerState.Fall)
 		
+	if player.left_hand_climb_cast.is_colliding() or player.right_hand_climb_cast.is_colliding():
+		if player.climb_normal_cast.is_colliding():
+			player.ChangeStateTo(player.playerState.HangingIdle)
 
 func Update(player: Player, delta: float) -> void:
 	time += delta
 	var direction := player.GetMoveInput()
-	player.UpdateVelocity(direction, player.GetCurrentSpeed())
+	player.UpdateVelocity(direction, delta, player.GetCurrentSpeed())
 	player.move_and_slide()
 	
