@@ -3,6 +3,8 @@ extends AudioStreamPlayer
 @onready var playerback: AudioStreamPlaybackInteractive
 
 var current_clip: String = ""
+var amountAlarmEnemy: int = 0
+var amountPursueEnemy: int = 0
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -43,8 +45,22 @@ func PlayAlarm() -> void:
 func PlayBell() -> void:
 	BGMChange("Bell")
 
-func PlayDetecte() -> void:
-	BGMChange("Detecte")
+func PlayPursued() -> void:
+	BGMChange("Pursued")
 
 func StopAudio() -> void:
 	BGMChange("None")
+
+func OnEnemyAlarm(a: int) -> void:
+	amountAlarmEnemy += a
+	EnemyInfluenceBGM()
+func OnEnemyPursue(a: int) -> void:
+	amountPursueEnemy += a
+	EnemyInfluenceBGM()
+func EnemyInfluenceBGM() -> void:
+	if amountPursueEnemy > 0:
+		PlayPursued()
+	elif amountAlarmEnemy > 0:
+		PlayAlarm()
+	elif amountAlarmEnemy == 0 and amountPursueEnemy == 0:
+		PlayAmbiance()
