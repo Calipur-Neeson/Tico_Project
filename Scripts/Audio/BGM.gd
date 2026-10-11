@@ -19,6 +19,10 @@ func _ready() -> void:
 	else:
 		BGMChange("Ambiance")
 
+func Init() -> void:
+	amountAlarmEnemy = 0
+	amountPursueEnemy = 0
+
 func BGMChange(clipName: String) -> void:
 	if current_clip == clipName:
 		return
@@ -38,6 +42,7 @@ func PlayMenu() -> void:
 
 func PlayAmbiance() -> void:
 	BGMChange("Ambiance")
+	Init()
 
 func PlayAlarm() -> void:
 	BGMChange("Alarm")
