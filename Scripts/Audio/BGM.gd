@@ -46,11 +46,5 @@ func PlayBell() -> void:
 func PlayDetecte() -> void:
 	BGMChange("Detecte")
 
-func FadeOut(duration: float = 2.0) -> void:
-	var tween = create_tween()
-	tween.tween_property(self, "volume_db", -80.0, duration)
-	tween.tween_callback(StopAudio)
-	
 func StopAudio() -> void:
-	stop()
-	volume_db = 0
+	BGMChange("None")

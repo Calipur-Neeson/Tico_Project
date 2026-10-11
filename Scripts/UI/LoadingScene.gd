@@ -17,6 +17,7 @@ func _ready() -> void:
 	label.hide()
 	LoadingSceneReady.connect(ReadyToLoad)
 	
+	Bgm.StopAudio()
 	await animation_player.animation_finished
 	LoadingSceneReady.emit()
 
@@ -36,6 +37,9 @@ func _input(event: InputEvent) -> void:
 func OnProgressChanged(value: float) -> void:
 	updateProgress = value
 	
+## Start load
+func ReadyToLoad() -> void:
+	progress_bar.show()
 
 ## Finish load, show"Press any key"
 func OnLoadFinished() -> void:
@@ -46,11 +50,6 @@ func OnLoadFinished() -> void:
 	
 	if GameManager.currentGameState == GameManager.GameState.RESTART:
 		GameManager.targetState = GameManager.GameState.PLAYING
-	
-## Start load
-func ReadyToLoad() -> void:
-	progress_bar.show()
-	Bgm.StopAudio()
 
 ## Show new scene
 func GoodToGo() -> void:
