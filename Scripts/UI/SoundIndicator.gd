@@ -1,0 +1,25 @@
+extends Node3D
+
+@onready var color_rect: ColorRect = $SubViewport/ColorRect
+@onready var shader_material: ShaderMaterial = color_rect.material
+@onready var shaderParameter_sounds: CurveTexture = shader_material.get_shader_parameter("sounds")
+
+var soundTween: Tween
+
+func _ready() -> void:
+	SoundEmitter.sound_emitted.connect(OnSoundEmit)
+
+func OnSoundEmit(source: Vector3, volume: float) -> void:
+	var value = remap(volume, 0.0, 5.0, 0.2, 2.0)
+	
+	if soundTween and soundTween.is_running():
+		soundTween.kill()
+
+	soundTween = create_tween()
+	soundTween.tween_method(SetCurveValue, shaderParameter_sounds.curve.get_point_position(0).y, value, 0.2)
+	soundTween.tween_method(SetCurveValue, value, 0.2, 0.2)
+
+func SetCurveValue(value: float) -> void:
+	shaderParameter_sounds.curve.set_point_value(0.5, value)
+	
+	

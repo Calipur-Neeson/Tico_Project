@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://x2xcymw0kyev"]
+
+[ext_resource type="Shader" uid="uid://c5x2ao13p7qie" path="res://Shader/SoundIndicator.gdshader" id="1_ix5nu"]
+[ext_resource type="Script" uid="uid://c0517wuatw0yx" path="res://Scripts/UI/SoundIndicator.gd" id="1_wa5g2"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rc6ml"]
+noise_type = 0
+frequency = 0.0382
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_535ly"]
+noise = SubResource("FastNoiseLite_rc6ml")
+
+[sub_resource type="Curve" id="Curve_ftswq"]
+_limits = [0.2, 2.0, 0.0, 1.0]
+_data = [Vector2(0.5, 0.2), 0.0, 0.0, 0, 0]
+point_count = 1
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_pohj0"]
+curve = SubResource("Curve_ftswq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_12j5o"]
+shader = ExtResource("1_ix5nu")
+shader_parameter/inner_diameter = 0.21200001007
+shader_parameter/outer_diameter = 0.2370000112575
+shader_parameter/noise = SubResource("NoiseTexture2D_535ly")
+shader_parameter/sounds = SubResource("CurveTexture_pohj0")
+shader_parameter/noise_strength = 0.1
+shader_parameter/noise_speed = 0.1
+shader_parameter/foreground = Vector4(0.075, 2.364, 0.88, 1)
+shader_parameter/background = Vector4(0, 0, 0, 0)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_12j5o"]
+viewport_path = NodePath("SubViewport")
+
+[node name="SoundIndicator" type="Node3D" unique_id=1150495940]
+script = ExtResource("1_wa5g2")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1709203157]
+transparent_bg = true
+size = Vector2i(150, 150)
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport" unique_id=60832041]
+material = SubResource("ShaderMaterial_12j5o")
+offset_left = -17.5
+offset_top = -17.5
+offset_right = 162.5
+offset_bottom = 162.5
+color = Color(1, 1, 1, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1910453285]
+billboard = 1
+texture = SubResource("ViewportTexture_12j5o")
