@@ -27,5 +27,3 @@ var TurnRightShimmy := PlayerRightShimmyTurnState.new()
 
 var Pickup: = PlayerPickupState.new()
 var Die:= PlayerDieState.new()
-
-var isPursued: bool = false
