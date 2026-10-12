@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://n38fqsws43c2"]
+
+[resource]
+resource_name = "M_GroundBase.001"
+cull_mode = 2
+roughness = 0.5
