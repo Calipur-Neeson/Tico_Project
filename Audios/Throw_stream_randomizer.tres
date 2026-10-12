@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://cjko0icpqytq1"]
+
+[ext_resource type="AudioStream" uid="uid://g0et5qsfk0bp" path="res://Audios/Player/Throw/Throw01.wav" id="1_6n10n"]
+[ext_resource type="AudioStream" uid="uid://p6l123kns81" path="res://Audios/Player/Throw/Throw02.wav" id="2_r243i"]
+
+[resource]
+random_pitch = 1.0717734
+random_volume_offset_db = 0.1
+streams_count = 2
+stream_0/stream = ExtResource("1_6n10n")
+stream_1/stream = ExtResource("2_r243i")

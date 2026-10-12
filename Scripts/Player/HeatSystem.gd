@@ -21,6 +21,9 @@ func _ready() -> void:
 	isDie = false
 
 func _process(delta: float) -> void:
+	if not GameManager.currentGameState == GameManager.GameState.PLAYING:
+		return
+		
 	currentHeat -= dropSpeed * delta
 	heatInfluence = log(remap(currentHeat / maxHeatMeter, 0, 1, 1.2, exp(1)))
 	

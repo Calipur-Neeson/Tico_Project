@@ -53,13 +53,14 @@ var last_offset_r: float = 0.0
 @onready var player_look_at: LookAtModifier3D = $"Character/Y Bot/Skeleton3D/PlayerLookAt"
 @onready var right_hand_grab_pivot: Marker3D = $"Character/Y Bot/Skeleton3D/RightHandGrab/HandPivot"
 
-
+#Audio
+@onready var voice_audio: PlayerVoiceAudio = $VoiceAudio
+@onready var action_audio: PlayerActionAudio = $ActionAudio
 
 #Colliders
 @onready var collision_stand: CollisionShape3D = $CollisionStand
 @onready var collision_crouch: CollisionShape3D = $CollisionCrouch
 @onready var collision_upper: CollisionShape3D = $CollisionUpper
-
 
 #Caster
 @onready var climb_normal_cast: RayCast3D = $RayDetectors/ClimbNormalCast
