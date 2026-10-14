@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cgpadwrgxa23o" path="res://Assets/Environment/Ground/Models/Ground_Source_A.glb" id="7_o6gx2"]
 [ext_resource type="Material" uid="uid://hgtawdm0vbo2" path="res://Assets/Materials/M_GroundStone.tres" id="8_rnysp"]
 [ext_resource type="Material" uid="uid://n38fqsws43c2" path="res://Assets/Materials/M_GroundBase.001.tres" id="9_poaux"]
+[ext_resource type="PackedScene" uid="uid://dp6o3er8vg60o" path="res://Assets/Environment/RubbleKit/Rubble_Cluster_A.tscn" id="10_mccdg"]
+[ext_resource type="PackedScene" uid="uid://ei0bajrc1nqc" path="res://Assets/Environment/RubbleKit/Rubble_Cluster_B.tscn" id="11_1lbtp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d6bm3"]
 albedo_color = Color(0.32358384, 0.32358387, 0.32358384, 1)
@@ -66,6 +68,7 @@ shadow_mesh = SubResource("ArrayMesh_c8ynx")
 
 [node name="Test_Ground" type="MeshInstance3D" parent="." unique_id=549736981]
 transform = Transform3D(2.0198827, 0, 0, 0, 1, 0, 0, 0, 1, -0.08421695, 0.11401558, 0.028002739)
+visible = false
 mesh = SubResource("PlaneMesh_wxrey")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=722922766]
@@ -80,6 +83,7 @@ shadow_enabled = true
 
 [node name="FrozenPuddle_A" parent="." unique_id=1798768089 instance=ExtResource("1_84wxd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.16925073, 0)
+visible = false
 
 [node name="FrozenPuddle_A" parent="FrozenPuddle_A" index="0" unique_id=30393415]
 surface_material_override/0 = ExtResource("2_xl62b")
@@ -98,15 +102,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19091, 0.0046830177, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5799522, 0, 0)
 
 [node name="Ground_Source_A2" parent="." unique_id=726855239 instance=ExtResource("7_o6gx2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.369858, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6294861, 0, 0)
+
+[node name="Ground_Source_A" parent="Ground_Source_A2" index="0" unique_id=1568403818]
+material_override = ExtResource("8_rnysp")
 
 [node name="Ground_Source_A4" type="MeshInstance3D" parent="Ground_Source_A2" unique_id=900939972]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
 material_override = ExtResource("8_rnysp")
 mesh = SubResource("ArrayMesh_dsi1p")
-
-[node name="Ground_Source_A" parent="Ground_Source_A2" index="1" unique_id=928253582]
-material_override = ExtResource("8_rnysp")
 
 [node name="Ground_Source_A2" type="MeshInstance3D" parent="Ground_Source_A2" unique_id=935010209]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
@@ -118,5 +122,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8)
 material_override = ExtResource("8_rnysp")
 mesh = SubResource("ArrayMesh_dsi1p")
 
+[node name="RubbleClusterA" parent="." unique_id=772308623 instance=ExtResource("10_mccdg")]
+
+[node name="RubbleClusterA" parent="RubbleClusterA" unique_id=1676888383 instance=ExtResource("11_1lbtp")]
+
 [editable path="FrozenPuddle_A"]
 [editable path="Ground_Source_A2"]
+[editable path="RubbleClusterA"]
