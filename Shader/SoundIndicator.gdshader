@@ -7,6 +7,8 @@ uniform float noise_strength = .1;
 uniform float noise_speed = .1;
 uniform vec4 foreground = vec4(1.);
 uniform vec4 background = vec4(0.);
+uniform bool hasEnemy = false;
+uniform float influence;
 
 void fragment() {
 //	Get the angle from the UV to the center, in radians.
@@ -29,6 +31,27 @@ void fragment() {
 	float inner = step(inner_diameter, dist);
 	float outer = 1.-step(outer_diameter, dist);
 	dist = inner*outer;
-//	use our distance value to apply foreground color, drawing our wobbly circle.
-	COLOR = mix(foreground, background, 1.0-dist);
+	
+// Clip everything outside the circle
+	if (distance(UV, vec2(0.5)) > 0.5) 
+	{
+    	discard;
+	}
+	
+	if (!hasEnemy)
+	{
+		COLOR = mix(foreground, background, 1.0-dist);
+	}
+	else
+	{
+		//float sound_value = texture(sounds, vec2(angle, 0.0)).r;
+		//float clampDis = clamp(influence / 10.0, 0, 3.6);
+		//float color_factor = clamp((sound_value - 0.2) / clampDis, 0.0, 1.0);
+		//vec4 sound_color = mix(foreground,vec4(1.0, 0.0, 0.0, 1.0),color_factor);
+		//COLOR = mix(sound_color, background, 1.0-dist);
+		
+		float threshold = clamp(influence / 10.0, 0.0, 1.0);
+		vec4 sound_color = mix(foreground,vec4(1.0, 0.0, 0.0, 1.0), 2.0 * (1.0 - threshold));
+		COLOR = mix(sound_color, background, 1.0-dist);
+	}
 }

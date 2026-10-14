@@ -95,7 +95,6 @@ var island: bool = false
 
 #Current state that our player is
 var state: BasePlayerState 
-
 	
 func _ready() -> void:
 	ceiling_cast.enabled = false
@@ -131,7 +130,6 @@ func OnGameStateChanged(state: GameManager.GameState) -> void:
 	else:
 		set_process(false)
 		set_physics_process(false)
-
 
 func TurnTo(direction: Vector3) -> void:
 	if direction:
@@ -212,7 +210,6 @@ func handle_leg_ik(delta: float) -> void:
 		ik_leg_left.influence = 0.0
 		ik_leg_right.influence = 0.0
 
-
 func choose_lowest_gap(delta: float) -> void:
 	var lowest_gap: float = min(last_offset_l, last_offset_r)
 
@@ -220,7 +217,6 @@ func choose_lowest_gap(delta: float) -> void:
 		visual_for_IK.position.y = lerp(visual_for_IK.position.y, lowest_gap, 10.0 * delta)
 	else:
 		visual_for_IK.position.y = lerp(visual_for_IK.position.y, 0.0, 10.0 * delta)
-
 
 func _process_leg_ik(ray_f: RayCast3D, ray_b: RayCast3D, target_marker: Marker3D, ik: TwoBoneIK3D, delta: float) -> float:
 	var is_f_colliding: bool = ray_f.is_colliding()

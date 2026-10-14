@@ -1,3 +1,4 @@
+class_name SoundIndicator
 extends Node3D
 
 @onready var color_rect: ColorRect = $SubViewport/ColorRect
@@ -22,4 +23,5 @@ func OnSoundEmit(source: Vector3, volume: float) -> void:
 func SetCurveValue(value: float) -> void:
 	shaderParameter_sounds.curve.set_point_value(0.5, value)
 	
-	
+func SetCurveColor(color: Color) -> void:
+	shader_material.set_shader_parameter("foreground", color)
