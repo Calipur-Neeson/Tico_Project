@@ -43,4 +43,4 @@ func MoveIdle(delta: float) -> void:
 func MoveCrouchIdle(delta: float) -> void:
 	position = lerp(position, Vector3(-0.06, -0.7, -0.47), delta * 10)
 func MoveCrouchWalk(delta: float) -> void:
-	position = lerp(position, Vector3(0.16, -0.235, -0.3), delta * 10)
+	position = lerp(position, Vector3(0.2, -0.235, -0.3), delta * 10)

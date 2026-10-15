@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b6x04x6qder7o" path="res://Scenes/UI/audio_slider_settings.tscn" id="5_kl3t2"]
 [ext_resource type="PackedScene" uid="uid://5n3332ts4ry4" path="res://Scenes/UI/Language.tscn" id="5_m48tj"]
 [ext_resource type="Texture2D" uid="uid://dn1xgpo0sq8g4" path="res://Image/Controls.png" id="6_jex3y"]
-[ext_resource type="Shader" uid="uid://dq0x3donykfo2" path="res://Scenes/UI/MainMenu.gdshader" id="8_ynupv"]
+[ext_resource type="Shader" uid="uid://dq0x3donykfo2" path="res://Shader/MainMenu.gdshader" id="8_ynupv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61ot5"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

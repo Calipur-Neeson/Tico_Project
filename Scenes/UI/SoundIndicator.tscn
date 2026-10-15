@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://c5x2ao13p7qie" path="res://Shader/SoundIndicator.gdshader" id="1_ix5nu"]
 [ext_resource type="Script" uid="uid://c0517wuatw0yx" path="res://Scripts/UI/SoundIndicator.gd" id="1_wa5g2"]
-[ext_resource type="Script" uid="uid://b1ro85sufcc0x" path="res://Scenes/UI/EnemyShow.gd" id="3_pbpth"]
+[ext_resource type="Script" uid="uid://b1ro85sufcc0x" path="res://Scripts/UI/EnemyShow.gd" id="3_pbpth"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_rc6ml"]
 noise_type = 0
