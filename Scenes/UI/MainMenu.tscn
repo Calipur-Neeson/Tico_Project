@@ -74,7 +74,7 @@ theme_override_constants/separation = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 52
-text = "CRY () STILL"
+text = "CRY ( ) STILL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -350,6 +350,7 @@ alignment = 0
 icon_alignment = 1
 
 [node name="Brightness overlay" type="ColorRect" parent="CanvasLayer" unique_id=1382841209]
+visible = false
 material = SubResource("ShaderMaterial_bq07b")
 anchors_preset = 15
 anchor_right = 1.0

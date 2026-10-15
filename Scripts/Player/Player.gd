@@ -82,8 +82,11 @@ var last_offset_r: float = 0.0
 #Hand Pivot
 @onready var hand_pivot: Marker3D = $"Character/Y Bot/Skeleton3D/RightHandGrab/HandPivot"
 
-#HUD
+#UI
 @onready var hud_panel: PlayerHUD = $HUDPanel
+@onready var heat_meter: HeatSystem = $HeatMeter
+@onready var sound_indicator: SoundIndicator = $SoundIndicator
+
 
 var camControl: CameraControl
 var jumpSpeed: float

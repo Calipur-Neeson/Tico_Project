@@ -29,7 +29,7 @@ shader_parameter/sounds = SubResource("CurveTexture_pohj0")
 shader_parameter/noise_strength = 0.1
 shader_parameter/noise_speed = 0.1
 shader_parameter/foreground = Vector4(1, 1, 1, 1)
-shader_parameter/background = Vector4(0, 0, 0, 0.5)
+shader_parameter/background = Vector4(0, 0, 0, 0)
 shader_parameter/hasEnemy = false
 shader_parameter/influence = 0.0
 

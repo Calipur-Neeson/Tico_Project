@@ -4,6 +4,9 @@ extends BasePlayerState
 func Enter(player: Player) -> void:
 	player.SetCrouch(true)
 	player.animation_tree.set("parameters/movement/transition_request", "crouchIdle")
+	
+	player.heat_meter.state = player.heat_meter.sm.CROUCH
+	player.sound_indicator.state = player.sound_indicator.sm.CROUCH
 
 func PreUpdate(player: Player) -> void:
 	if not player.is_on_floor():
@@ -27,6 +30,6 @@ func PreUpdate(player: Player) -> void:
 	
 	elif Input.is_action_pressed("Aim") and player.is_on_floor():
 		player.ChangeStateTo(player.playerState.Aim)
-
+	
 func Exit(player: Player) -> void:
 	player.ceiling_cast.enabled = false

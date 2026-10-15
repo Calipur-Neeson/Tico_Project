@@ -7,9 +7,21 @@ extends Node3D
 
 var soundTween: Tween
 
+enum sm{IDLE, CROUCH, CROUCHWALK}
+var state: = sm.IDLE
+
 func _ready() -> void:
 	SoundEmitter.sound_emitted.connect(OnSoundEmit)
 
+func _process(delta: float) -> void:
+	match state:
+		sm.IDLE:
+			MoveIdle(delta)
+		sm.CROUCH:
+			MoveCrouchIdle(delta)
+		sm.CROUCHWALK:
+			MoveCrouchWalk(delta)
+	
 func OnSoundEmit(source: Vector3, volume: float) -> void:
 	var value = remap(volume, 0.0, 5.0, 0.2, 2.0)
 	
@@ -25,3 +37,10 @@ func SetCurveValue(value: float) -> void:
 	
 func SetCurveColor(color: Color) -> void:
 	shader_material.set_shader_parameter("foreground", color)
+
+func MoveIdle(delta: float) -> void:
+	position = lerp(position, Vector3(0, 0, 0), delta * 10)
+func MoveCrouchIdle(delta: float) -> void:
+	position = lerp(position, Vector3(-0.06, -0.7, -0.47), delta * 10)
+func MoveCrouchWalk(delta: float) -> void:
+	position = lerp(position, Vector3(0.16, -0.235, -0.3), delta * 10)
