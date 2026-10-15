@@ -57,54 +57,12 @@ size = Vector3(0.5275421, 14.23822, 1.2906104)
 
 [node name="RoomInnerWalls" type="Node3D" parent="." unique_id=625545776]
 
-[node name="BlockoutWall" type="CSGBox3D" parent="RoomInnerWalls" unique_id=110674221]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.721096, 2.8953085, 4.617938)
-material_override = ExtResource("2_vqx3y")
-use_collision = true
-collision_layer = 65
-size = Vector3(1, 6, 38.01334)
-
-[node name="BlockoutWall7" type="CSGBox3D" parent="RoomInnerWalls" unique_id=533956947]
-transform = Transform3D(0.49278823, 0, -0.87014925, 0, 1, 0, 0.87014925, 0, 0.49278823, -8.61671, 2.8953104, -17.501501)
-material_override = ExtResource("2_vqx3y")
-use_collision = true
-collision_layer = 65
-size = Vector3(1, 6, 14.362954)
-
-[node name="BlockoutWall2" type="CSGBox3D" parent="RoomInnerWalls" unique_id=1185418321]
-transform = Transform3D(0.79086834, 0, -0.61198634, 0, 1, 0, 0.61198634, 0, 0.79086834, 5.0158486, 2.8953104, 28.646862)
-material_override = ExtResource("2_vqx3y")
-use_collision = true
-collision_layer = 65
-size = Vector3(1, 6, 3.8755975)
-
-[node name="BlockoutWall6" type="CSGBox3D" parent="RoomInnerWalls" unique_id=318845242]
-transform = Transform3D(0.99917275, 0, -0.040667504, 0, 1, 0, 0.040667504, 0, 0.99917275, 3.9776688, 2.8953104, 31.414524)
-material_override = ExtResource("2_vqx3y")
-use_collision = true
-collision_layer = 65
-size = Vector3(1, 6, 3.7834215)
-
 [node name="BlockoutWall5" type="CSGBox3D" parent="RoomInnerWalls" unique_id=225718718]
-transform = Transform3D(-0.03656906, 0, -0.9993311, 0, 1, 0, 0.9993311, 0, -0.03656906, 12.955579, 2.8953104, 26.89734)
+transform = Transform3D(-0.03656906, 0, -0.9993311, 0, 1, 0, 0.9993311, 0, -0.03656906, -2.9054327, 2.8953085, 14.590019)
 material_override = ExtResource("2_vqx3y")
 use_collision = true
 collision_layer = 65
 size = Vector3(1, 6, 7.3337145)
-
-[node name="BlockoutWall3" type="CSGBox3D" parent="RoomInnerWalls" unique_id=1514610917]
-transform = Transform3D(0.53835034, 0, -0.8427211, 0, 1, 0, 0.8427211, 0, 0.53835034, 21.601665, 1.118958, -6.3684487)
-material_override = ExtResource("2_vqx3y")
-use_collision = true
-collision_layer = 65
-size = Vector3(1, 3.008667, 9.083445)
-
-[node name="BlockoutWall4" type="CSGBox3D" parent="RoomInnerWalls" unique_id=1832454105]
-transform = Transform3D(0.90897256, 0, -0.41685623, 0, 1, 0, 0.41685623, 0, 0.90897256, 16.895386, 0.84063435, -1.9448489)
-material_override = ExtResource("2_vqx3y")
-use_collision = true
-collision_layer = 65
-size = Vector3(1, 1.9187241, 5.018285)
 
 [node name="FFJumpingPuzzle" parent="." unique_id=1712027839 instance=ExtResource("1_r8h33")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.977398, 0.03633737, 5.2142105)
@@ -139,37 +97,37 @@ collision_layer = 5
 size = Vector3(0.45898438, 1, 1.2378845)
 
 [node name="Rubble5" parent="Rubbles" unique_id=1276601082 instance=ExtResource("2_uhv1p")]
-transform = Transform3D(-5.0209007, 0, 0.05982434, 0, 4.416283, 0, -0.09572371, 0, -3.137882, 22.512651, 0.6148796, 26.61329)
+transform = Transform3D(-5.0209007, 0, 0.05982434, 0, 4.416283, 0, -0.09572371, 0, -3.137882, 17.30099, 0.6148796, 23.853912)
 use_collision = true
 collision_layer = 5
 size = Vector3(0.45898438, 1, 1.2378845)
 
 [node name="Rubble2" parent="Rubbles" unique_id=1882924289 instance=ExtResource("2_uhv1p")]
-transform = Transform3D(-2.820237, 0, -1.4555236, 0.7133715, 2.7663717, -1.382235, 1.2687204, -1.5554659, -2.4582841, 23.620424, -2.861023e-06, 12.666719)
+transform = Transform3D(-2.820237, 0, -1.4555236, 0.7133715, 2.7663717, -1.382235, 1.2687204, -1.5554659, -2.4582841, 14.791664, -2.861023e-06, 19.615223)
 use_collision = true
 collision_layer = 5
 size = Vector3(0.45898438, 1, 1.2378845)
 
 [node name="Rubble3" parent="Rubbles" unique_id=2072968662 instance=ExtResource("2_uhv1p")]
-transform = Transform3D(0.13721155, -3.1415324, 0.42922974, 3.168044, 0.15348125, 0.110603206, -0.1302411, 0.42368448, 3.1425815, 22.55292, -2.861023e-06, 18.234982)
+transform = Transform3D(0.13721155, -3.1415324, 0.42922974, 3.168044, 0.15348125, 0.110603206, -0.1302411, 0.42368448, 3.1425815, 17.207624, -2.861023e-06, 14.204115)
 use_collision = true
 collision_layer = 5
 size = Vector3(0.45898438, 1, 1.2378845)
 
 [node name="Rubble6" parent="Rubbles" unique_id=1024431384 instance=ExtResource("2_uhv1p")]
-transform = Transform3D(0.13572699, -3.9197397, 0.41470218, 2.4998386, 0.45893896, 1.8204641, -1.8941762, 0.3248163, 2.4322734, 21.577465, 0.8228388, 13.781446)
+transform = Transform3D(0.13572699, -3.9197397, 0.41470218, 2.4998386, 0.45893896, 1.8204641, -1.8941762, 0.3248163, 2.4322734, 15.874855, 0.8228388, 18.549461)
 use_collision = true
 collision_layer = 5
 size = Vector3(0.45898438, 1, 1.2378845)
 
 [node name="Rubble7" parent="Rubbles" unique_id=1557214535 instance=ExtResource("2_uhv1p")]
-transform = Transform3D(0.13572699, -3.9197397, 0.41470218, 2.4998386, 0.45893896, 1.8204641, -1.8941762, 0.3248163, 2.4322734, 21.577465, 2.3013358, 25.856482)
+transform = Transform3D(0.13572699, -3.9197397, 0.41470218, 2.4998386, 0.45893896, 1.8204641, -1.8941762, 0.3248163, 2.4322734, 16.365803, 2.3013358, 23.097103)
 use_collision = true
 collision_layer = 5
 size = Vector3(0.45898438, 1, 1.2378845)
 
 [node name="Rubble4" parent="Rubbles" unique_id=299338805 instance=ExtResource("2_uhv1p")]
-transform = Transform3D(-1.8276007, -2.2384348, 1.3120894, 1.8559351, -2.249349, -1.2522874, 1.8131937, 0.046152778, 2.604321, 22.997473, 0.24583769, 20.502253)
+transform = Transform3D(-1.8276007, -2.2384348, 1.3120894, 1.8559351, -2.249349, -1.2522874, 1.8131937, 0.046152778, 2.604321, 18.634804, 0.24583769, 7.8165255)
 use_collision = true
 collision_layer = 5
 size = Vector3(0.45898438, 1, 1.2378845)
@@ -345,10 +303,7 @@ light_energy = 1.317
 environment = SubResource("Environment_h2d35")
 
 [node name="SprayTrap" parent="." unique_id=1714741706 instance=ExtResource("8_licuc")]
-transform = Transform3D(0.49335307, 0, 0, 0, 1, 0, 0, 0, 0.67202044, 12.9809885, 0.014879897, -0.0026426315)
-
-[node name="SprayTrap2" parent="." unique_id=1990322698 instance=ExtResource("8_licuc")]
-transform = Transform3D(-0.042664252, 0, 0.9990895, 0, 1, 0, -0.9990895, 0, -0.042664252, -0.52570915, 0.014879897, 19.93665)
+transform = Transform3D(0.49335307, 0, 0, 0, 1, 0, 0, 0, 0.67202044, 7.8326864, 0.014879897, 26.639427)
 
 [node name="SprayTrap3" parent="." unique_id=134551782 instance=ExtResource("8_licuc")]
 transform = Transform3D(-0.8997457, 0, -0.43641472, 0, 1, 0, 0.43641472, 0, -0.8997457, -12.387112, 0.014876083, -21.308075)
