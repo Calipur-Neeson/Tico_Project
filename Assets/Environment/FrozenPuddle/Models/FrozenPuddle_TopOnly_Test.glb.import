@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c5vkvxaon31pd"
-path="res://.godot/imported/FrozenPuddle_A.glb-5e04e074b7492178950dcc45958aac40.scn"
+uid="uid://bd0rx7185gwvl"
+path="res://.godot/imported/FrozenPuddle_TopOnly_Test.glb-8a183fbe16f134af1dcf1c172489085d.scn"
 
 [deps]
 
-source_file="res://Assets/Environment/FrozenPuddle/FrozenPuddle_A.glb"
-dest_files=["res://.godot/imported/FrozenPuddle_A.glb-5e04e074b7492178950dcc45958aac40.scn"]
+source_file="res://Assets/Environment/FrozenPuddle/Models/FrozenPuddle_TopOnly_Test.glb"
+dest_files=["res://.godot/imported/FrozenPuddle_TopOnly_Test.glb-8a183fbe16f134af1dcf1c172489085d.scn"]
 
 [params]
 
