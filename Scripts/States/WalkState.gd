@@ -3,6 +3,9 @@ extends BasePlayerState
 
 func Enter(player: Player) -> void:
 	player.SetCrouch(false)
+	
+	player.heat_meter.state = player.heat_meter.sm.IDLE
+	player.sound_indicator.state = player.sound_indicator.sm.IDLE
 
 func PreUpdate(player: Player) -> void:
 	var currentSpeed = player.GetCurrentSpeed()

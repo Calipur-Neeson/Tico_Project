@@ -68,6 +68,7 @@ script = ExtResource("2_xeo28")
 
 [node name="SoundDetector" type="Node3D" parent="." unique_id=696125762]
 script = ExtResource("3_xeo28")
+alarmVolum = 1.0
 
 [node name="PlayerShape3D" type="ShapeCast3D" parent="." unique_id=757891302]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11, 0)
