@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6qlj2q0q3446"
-path.s3tc="res://.godot/imported/FrozenPuddle_A_DefaultMaterial_Normal.png-f0c3632cdb8f089aac061cdf7f8d90ff.s3tc.ctex"
+uid="uid://b2qidos8pkgiy"
+path.s3tc="res://.godot/imported/FrozenPuddle_TopOnly_Test_DefaultMaterial_Normal.png-364ef8c4e05bf1a61c5e70f940817858.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Environment/FrozenPuddle/Textures/FrozenPuddle_A_DefaultMaterial_Normal.png"
-dest_files=["res://.godot/imported/FrozenPuddle_A_DefaultMaterial_Normal.png-f0c3632cdb8f089aac061cdf7f8d90ff.s3tc.ctex"]
+source_file="res://Assets/Environment/FrozenPuddle/Textures/FrozenPuddle_TopOnly_Test_DefaultMaterial_Normal.png"
+dest_files=["res://.godot/imported/FrozenPuddle_TopOnly_Test_DefaultMaterial_Normal.png-364ef8c4e05bf1a61c5e70f940817858.s3tc.ctex"]
 
 [params]
 
@@ -27,7 +27,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://Assets/Environment/FrozenPuddle/Textures/FrozenPuddle_A_DefaultMaterial_Normal.png"
+roughness/src_normal="res://Assets/Environment/FrozenPuddle/Textures/FrozenPuddle_TopOnly_Test_DefaultMaterial_Normal.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

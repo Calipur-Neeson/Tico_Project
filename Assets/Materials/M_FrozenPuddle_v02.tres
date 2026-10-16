@@ -1,11 +1,12 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://db3wl6gab6647"]
 
-[ext_resource type="Texture2D" uid="uid://nk7vk3ic2wk8" path="res://Assets/Environment/FrozenPuddle/Textures/FrozenPuddle_A_DefaultMaterial_BaseColor.png" id="1_pg0np"]
-[ext_resource type="Texture2D" uid="uid://b6qlj2q0q3446" path="res://Assets/Environment/FrozenPuddle/Textures/FrozenPuddle_A_DefaultMaterial_Normal.png" id="2_pwx44"]
-[ext_resource type="Texture2D" uid="uid://b1lf7wwrun0t" path="res://Assets/Environment/FrozenPuddle/Textures/FrozenPuddle_A_DefaultMaterial_Roughness.png" id="3_ruwxe"]
+[ext_resource type="Texture2D" uid="uid://ddc51uh7nrdrh" path="res://Assets/Environment/FrozenPuddle/Textures/FrozenPuddle_TopOnly_Test_DefaultMaterial_BaseColor.png" id="1_pg0np"]
+[ext_resource type="Texture2D" uid="uid://b2qidos8pkgiy" path="res://Assets/Environment/FrozenPuddle/Textures/FrozenPuddle_TopOnly_Test_DefaultMaterial_Normal.png" id="2_pwx44"]
+[ext_resource type="Texture2D" uid="uid://j6ybu4oit5ro" path="res://Assets/Environment/FrozenPuddle/Textures/FrozenPuddle_TopOnly_Test_DefaultMaterial_Roughness.png" id="3_ruwxe"]
 
 [resource]
 transparency = 1
+albedo_color = Color(0.7490196, 0.7490196, 0.7490196, 1)
 albedo_texture = ExtResource("1_pg0np")
 roughness_texture = ExtResource("3_ruwxe")
 normal_enabled = true

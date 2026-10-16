@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bd0rx7185gwvl"
-path="res://.godot/imported/FrozenPuddle_TopOnly_Test.glb-8a183fbe16f134af1dcf1c172489085d.scn"
+uid="uid://cbuoi3xr4r0jv"
+path="res://.godot/imported/WetPatch_Canvas.glb-720466c9052b40e8745054e4e50ad567.scn"
 
 [deps]
 
-source_file="res://Assets/Environment/FrozenPuddle/Models/FrozenPuddle_TopOnly_Test.glb"
-dest_files=["res://.godot/imported/FrozenPuddle_TopOnly_Test.glb-8a183fbe16f134af1dcf1c172489085d.scn"]
+source_file="res://Assets/Environment/WetPatch/Models/WetPatch_Canvas.glb"
+dest_files=["res://.godot/imported/WetPatch_Canvas.glb-720466c9052b40e8745054e4e50ad567.scn"]
 
 [params]
 

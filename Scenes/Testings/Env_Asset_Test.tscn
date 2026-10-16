@@ -9,11 +9,11 @@
 [ext_resource type="Material" uid="uid://n38fqsws43c2" path="res://Assets/Materials/M_GroundBase.001.tres" id="9_poaux"]
 [ext_resource type="PackedScene" uid="uid://dp6o3er8vg60o" path="res://Assets/Environment/RubbleKit/Rubble_Cluster_A.tscn" id="10_mccdg"]
 [ext_resource type="PackedScene" uid="uid://ei0bajrc1nqc" path="res://Assets/Environment/RubbleKit/Rubble_Cluster_B.tscn" id="11_1lbtp"]
-[ext_resource type="PackedScene" uid="uid://ce6vbfhhfumy2" path="res://Assets/Environment/FrozenPuddle/Models/FrozenPuddle_A.glb" id="11_oxv63"]
 [ext_resource type="Material" uid="uid://db3wl6gab6647" path="res://Assets/Materials/M_FrozenPuddle_v02.tres" id="12_n4bro"]
 [ext_resource type="PackedScene" uid="uid://dx6gfh5ccnqbh" path="res://Assets/Environment/Ground/Models/Ground_Damage_Test.glb" id="12_oxv63"]
-[ext_resource type="PackedScene" uid="uid://bd0rx7185gwvl" path="res://Assets/Environment/FrozenPuddle/Models/FrozenPuddle_TopOnly_Test.glb" id="13_xy0oq"]
-[ext_resource type="Material" uid="uid://b3spt0o7i3bha" path="res://Assets/Materials/M_FrozenPuddle_Roughness_Test.tres" id="14_13fd8"]
+[ext_resource type="Texture2D" uid="uid://ckm44ctw34tq6" path="res://Assets/Environment/WetPatch/Textures/RGB Alpha.png" id="13_n4bro"]
+[ext_resource type="PackedScene" uid="uid://b80wpe6v38a6y" path="res://Assets/Environment/FrozenPuddle/Models/FrozenPuddle_A.glb" id="13_xy0oq"]
+[ext_resource type="Texture2D" uid="uid://ch4sggugn6727" path="res://Assets/Environment/WetPatch/Textures/RGB.png" id="14_xy0oq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xl62b"]
 sky_top_color = Color(0.25882354, 0.34117648, 0.41960785, 1)
@@ -95,11 +95,16 @@ environment = SubResource("Environment_d6bm3")
 
 [node name="Ceiling_Blockout_A" type="CSGBox3D" parent="Lighting/Lighting_Blockout" unique_id=1300336799]
 transform = Transform3D(3.0736403, 0, 0, 0, 1, 0, 0, 0, 1.4582338, 2.3514252, 6.8864746, 11.769262)
+visible = false
 size = Vector3(5, 0.3, 21.775604)
 
 [node name="Player_Reference" type="MeshInstance3D" parent="Lighting/Lighting_Blockout" unique_id=348920187]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9156494, 23.302734)
 mesh = SubResource("CapsuleMesh_icsuj")
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="Lighting" unique_id=1435344859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2288609, -1.8127441, 14.003625)
+size = Vector3(16.000916, 12.374512, 26.67035)
 
 [node name="Rubble_Test" type="Node" parent="." unique_id=1527424155]
 
@@ -132,7 +137,7 @@ transform = Transform3D(0.013397366, 0, -0.99991024, 0, 1, 0, 0.99991024, 0, 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6247959, 0, 15.8688965)
 
 [node name="Ground_Underlay_A" parent="Ground_Test/Ground_Damage_Test2" index="0" unique_id=1853152195]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01842308, -0.39350587, -0.69384766)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01842308, -0.0076776147, -0.69384766)
 surface_material_override/0 = SubResource("StandardMaterial3D_oxv63")
 
 [node name="Broken_Slab_B" parent="Ground_Test/Ground_Damage_Test2" index="1" unique_id=814047838]
@@ -144,13 +149,13 @@ surface_material_override/0 = ExtResource("8_rnysp")
 [node name="Ground_Source_A2" parent="Ground_Test" unique_id=726855239 instance=ExtResource("7_o6gx2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6294861, 0, 0)
 
+[node name="Ground_Source_A" parent="Ground_Test/Ground_Source_A2" index="0" unique_id=1568403818]
+material_override = ExtResource("8_rnysp")
+
 [node name="Ground_Source_A6" type="MeshInstance3D" parent="Ground_Test/Ground_Source_A2" unique_id=2091386323]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9755363, -0.00024414063, 16.002686)
 material_override = ExtResource("8_rnysp")
 mesh = SubResource("ArrayMesh_dsi1p")
-
-[node name="Ground_Source_A" parent="Ground_Test/Ground_Source_A2" index="1" unique_id=1568403818]
-material_override = ExtResource("8_rnysp")
 
 [node name="Ground_Source_A4" type="MeshInstance3D" parent="Ground_Test/Ground_Source_A2" unique_id=900939972]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
@@ -163,7 +168,7 @@ material_override = ExtResource("8_rnysp")
 mesh = SubResource("ArrayMesh_dsi1p")
 
 [node name="Ground_Source_A3" type="MeshInstance3D" parent="Ground_Test/Ground_Source_A2" unique_id=545884983]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.014053, -0.00012207031, 8.001343)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.02512, -0.00012207031, 8.002554)
 material_override = ExtResource("8_rnysp")
 mesh = SubResource("ArrayMesh_dsi1p")
 
@@ -206,24 +211,23 @@ surface_material_override/0 = ExtResource("8_rnysp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5094342, 2.3720436, 23.07935)
 visible = false
 
-[node name="FrozenPuddle_TopOnly_Test2" parent="Asset_Test" unique_id=269210170 instance=ExtResource("13_xy0oq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.662611, 0.0425272, 2.069408)
+[node name="FrozenPuddle_A" parent="Asset_Test" unique_id=15569099 instance=ExtResource("13_xy0oq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13008213, 0.11866474, 8.946033)
 
-[node name="FrozenPuddle_TopOnly_Test" parent="Asset_Test/FrozenPuddle_TopOnly_Test2" index="0" unique_id=375334458]
-transform = Transform3D(0.5636099, 0, -0.8260411, 0, 1, 0, 0.8260411, 0, 0.5636099, 10.298982, 0, 13.762207)
-surface_material_override/0 = ExtResource("14_13fd8")
-
-[node name="FrozenPuddle_A2" parent="Asset_Test" unique_id=1154982474 instance=ExtResource("11_oxv63")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.981608, 0, 2.0318518)
-
-[node name="FrozenPuddle_A" parent="Asset_Test/FrozenPuddle_A2" index="0" unique_id=1273878570]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46559143, 0, 0)
-visible = false
+[node name="FrozenPuddle_TopOnly_Test" parent="Asset_Test/FrozenPuddle_A" index="0" unique_id=2026862728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5884647, -0.03289652, 0)
 surface_material_override/0 = ExtResource("12_n4bro")
+
+[node name="WetPatch_A" type="Decal" parent="Asset_Test" unique_id=815721087]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.54907227, -0.0036898851, 8.251053)
+size = Vector3(4.0981445, 0.5, 3)
+texture_albedo = ExtResource("13_n4bro")
+texture_orm = ExtResource("14_xy0oq")
+albedo_mix = 0.1
+normal_fade = 0.5
 
 [editable path="Rubble_Test/RubbleClusterA"]
 [editable path="Ground_Test/Ground_Damage_Test2"]
 [editable path="Ground_Test/Ground_Source_A2"]
 [editable path="Ground_Test/Ground_Damage_Test3"]
-[editable path="Asset_Test/FrozenPuddle_TopOnly_Test2"]
-[editable path="Asset_Test/FrozenPuddle_A2"]
+[editable path="Asset_Test/FrozenPuddle_A"]

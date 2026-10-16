@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doibao0bwgkje"
-path="res://.godot/imported/FrozenPuddle_A_DefaultMaterial_Emissive.png-a181815be453afe6983beebe870a3e00.ctex"
+uid="uid://b86h7iekgq53t"
+path="res://.godot/imported/FrozenPuddle_TopOnly_Test_DefaultMaterial_Metallic.png-f7f8667eefcc9b76da4e23b41fd7faf0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Environment/FrozenPuddle/Textures/FrozenPuddle_A_DefaultMaterial_Emissive.png"
-dest_files=["res://.godot/imported/FrozenPuddle_A_DefaultMaterial_Emissive.png-a181815be453afe6983beebe870a3e00.ctex"]
+source_file="res://Assets/Environment/FrozenPuddle/Textures/FrozenPuddle_TopOnly_Test_DefaultMaterial_Metallic.png"
+dest_files=["res://.godot/imported/FrozenPuddle_TopOnly_Test_DefaultMaterial_Metallic.png-f7f8667eefcc9b76da4e23b41fd7faf0.ctex"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1lf7wwrun0t"
-path.s3tc="res://.godot/imported/FrozenPuddle_A_DefaultMaterial_Roughness.png-c637dafb9e8ef79ba3de39e3deda99a7.s3tc.ctex"
+uid="uid://ddc51uh7nrdrh"
+path.s3tc="res://.godot/imported/FrozenPuddle_TopOnly_Test_DefaultMaterial_BaseColor.png-62d7deb06be9587b1d1b78bb300d2619.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Environment/FrozenPuddle/Textures/FrozenPuddle_A_DefaultMaterial_Roughness.png"
-dest_files=["res://.godot/imported/FrozenPuddle_A_DefaultMaterial_Roughness.png-c637dafb9e8ef79ba3de39e3deda99a7.s3tc.ctex"]
+source_file="res://Assets/Environment/FrozenPuddle/Textures/FrozenPuddle_TopOnly_Test_DefaultMaterial_BaseColor.png"
+dest_files=["res://.godot/imported/FrozenPuddle_TopOnly_Test_DefaultMaterial_BaseColor.png-62d7deb06be9587b1d1b78bb300d2619.s3tc.ctex"]
 
 [params]
 
