@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b51o4065ys5od" path="res://Assets/Environment/StoneKit/Models/StoneKit_LOW.glb" id="3_fp65l"]
 [ext_resource type="PackedScene" uid="uid://x8qlbm53cnbv" path="res://Assets/Environment/WallKit/Wall_High_A.tscn" id="4_qtm55"]
-[ext_resource type="PackedScene" uid="uid://pcdulg1cye5l" path="res://Assets/Environment/WallKit/Wall_Mid_A.tscn" id="5_x42va"]
+[ext_resource type="PackedScene" uid="uid://pcdulg1cye5l" path="res://Assets/Environment/ArchitectureKit/Arch_Wall_Straight_A.tscn" id="5_x42va"]
 [ext_resource type="PackedScene" uid="uid://cbxc0u4320ku1" path="res://Assets/Environment/WallKit/Wall_Low_A.tscn" id="6_x42va"]
 [ext_resource type="PackedScene" uid="uid://cgpadwrgxa23o" path="res://Assets/Environment/Ground/Models/Ground_Source_A.glb" id="7_o6gx2"]
 [ext_resource type="Material" uid="uid://hgtawdm0vbo2" path="res://Assets/Materials/M_GroundStone.tres" id="8_rnysp"]
@@ -225,6 +225,15 @@ texture_albedo = ExtResource("13_n4bro")
 texture_orm = ExtResource("14_xy0oq")
 albedo_mix = 0.1
 normal_fade = 0.5
+
+[node name="ArchitectureKit_Test" type="Node3D" parent="." unique_id=258231979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.189335, 0, 15.704769)
+
+[node name="Arch_Wall_Straight_A" parent="ArchitectureKit_Test" unique_id=2108748507 instance=ExtResource("5_x42va")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4761767, 0, 0)
+
+[node name="Arch_Wall_Straight_A2" parent="ArchitectureKit_Test" unique_id=683922254 instance=ExtResource("5_x42va")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055085182, 0, 0)
 
 [editable path="Rubble_Test/RubbleClusterA"]
 [editable path="Ground_Test/Ground_Damage_Test2"]

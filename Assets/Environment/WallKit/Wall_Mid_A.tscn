@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://pcdulg1cye5l"]
+[gd_scene format=3 uid="uid://bf86bfo13scsa"]
 
 [ext_resource type="ArrayMesh" uid="uid://by3gsjlcurlvc" path="res://Assets/Environment/StoneKit/Meshes/Stone_S_01.res" id="1_frhji"]
 [ext_resource type="ArrayMesh" uid="uid://bdb8ohwem43vg" path="res://Assets/Environment/StoneKit/Meshes/Stone_M_03.res" id="2_lpbt4"]
