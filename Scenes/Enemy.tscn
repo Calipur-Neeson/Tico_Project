@@ -45,7 +45,7 @@ shader_parameter/invert_boost_direction = false
 
 [node name="Enemy" type="CharacterBody3D" unique_id=173603545]
 collision_layer = 128
-collision_mask = 126
+collision_mask = 254
 script = ExtResource("1_wovta")
 rotateSpeed = 0.05
 attackRange = 10.0
@@ -62,6 +62,7 @@ mesh = SubResource("BoxMesh_12j5o")
 surface_material_override/0 = SubResource("StandardMaterial3D_61ot5")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=777520406]
+target_desired_distance = 2.0
 
 [node name="StateMachine" type="Node3D" parent="." unique_id=1401129852]
 script = ExtResource("2_xeo28")

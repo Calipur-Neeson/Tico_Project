@@ -9,7 +9,7 @@ func Enter(player: Player) -> void:
 	time = 0
 	player.animation_tree.active = false
 	player.velocity = Vector3.ZERO
-	player.physical_bone_simulator_3d.physical_bones_start_simulation()
+	#player.physical_bone_simulator_3d.physical_bones_start_simulation()
 
 func PreUpdate(player: Player) -> void:
 	if time > 1:
