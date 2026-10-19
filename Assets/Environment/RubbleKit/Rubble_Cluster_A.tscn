@@ -5,6 +5,15 @@
 [ext_resource type="ArrayMesh" uid="uid://b1nmxafhf5dqw" path="res://Assets/Environment/StoneKit/Meshes/Stone_L_01.res" id="10_0ei5c"]
 [ext_resource type="ArrayMesh" uid="uid://cqrnhpe16718o" path="res://Assets/Environment/StoneKit/Meshes/Stone_S_02.res" id="11_fjyk0"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_45ags"]
+size = Vector3(1.2113835, 0.49008203, 1.0768502)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4dko4"]
+size = Vector3(1.2003225, 0.7429521, 1.1450816)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_amj25"]
+size = Vector3(1.8788991, 1.1632249, 1.1626493)
+
 [node name="RubbleClusterA" type="Node3D" unique_id=1232217965]
 
 [node name="StoneKit_LOW" type="Node3D" parent="." unique_id=199431533]
@@ -13,13 +22,31 @@
 transform = Transform3D(0.51614594, -0.0004735665, -0.17270738, 0.0007025151, 0.36633536, -1.3368282e-18, 0.118693806, -0.00010890215, 0.75102675, 1.7518877, 0.053569317, 2.031471)
 mesh = ExtResource("4_5m46q")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Stone_Long_02_Low" unique_id=160995098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02751869, -0.025932372, -0.024609447)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stone_Long_02_Low/StaticBody3D" unique_id=1299661639]
+shape = SubResource("BoxShape3D_45ags")
+
 [node name="Stone_M_01_Low" type="MeshInstance3D" parent="." unique_id=1870224330]
 transform = Transform3D(0.30636334, 0.29942945, 0.08362713, -0.25050893, 0.39479265, 0, -0.08561987, -0.083682045, 0.29923302, 1.1916778, 0.14308488, 1.1928163)
 mesh = ExtResource("5_xq5f7")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Stone_M_01_Low" unique_id=1821634239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04510647, -0.06343126, -0.029613316)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stone_M_01_Low/StaticBody3D" unique_id=166674550]
+shape = SubResource("BoxShape3D_4dko4")
+
 [node name="Stone_L_01_Low" type="MeshInstance3D" parent="." unique_id=1235459411]
 transform = Transform3D(0.3865505, 0, 0, 0, 0.48794618, 0, 0, 0, 0.7706289, 0.57379174, 0.18003154, 1.1864448)
 mesh = ExtResource("10_0ei5c")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Stone_L_01_Low" unique_id=1761344942]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.093106985, 0.005088687, -0.08457869)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stone_L_01_Low/StaticBody3D" unique_id=2138147361]
+shape = SubResource("BoxShape3D_amj25")
 
 [node name="Stone_S_02_Low" type="MeshInstance3D" parent="." unique_id=1202718290]
 transform = Transform3D(0.23431604, 0.17485872, -0.06723365, -0.17942263, 0.24043182, 0, 0.05388372, 0.040210813, 0.29236898, 1.5621501, 0.20310831, 1.9632667)

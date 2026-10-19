@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b51o4065ys5od" path="res://Assets/Environment/StoneKit/Models/StoneKit_LOW.glb" id="3_fp65l"]
 [ext_resource type="PackedScene" uid="uid://x8qlbm53cnbv" path="res://Assets/Environment/WallKit/Wall_High_A.tscn" id="4_qtm55"]
 [ext_resource type="PackedScene" uid="uid://pcdulg1cye5l" path="res://Assets/Environment/ArchitectureKit/Arch_Wall_Straight_A.tscn" id="5_x42va"]
+[ext_resource type="PackedScene" uid="uid://bf86bfo13scsa" path="res://Assets/Environment/WallKit/Wall_Mid_A.tscn" id="5_xy0oq"]
 [ext_resource type="PackedScene" uid="uid://cbxc0u4320ku1" path="res://Assets/Environment/WallKit/Wall_Low_A.tscn" id="6_x42va"]
 [ext_resource type="PackedScene" uid="uid://cgpadwrgxa23o" path="res://Assets/Environment/Ground/Models/Ground_Source_A.glb" id="7_o6gx2"]
 [ext_resource type="Material" uid="uid://hgtawdm0vbo2" path="res://Assets/Materials/M_GroundStone.tres" id="8_rnysp"]
@@ -122,14 +123,11 @@ transform = Transform3D(0.99999154, 0, 0.0041071656, 0, 1, 0, -0.0041071656, 0, 
 [node name="WallHighA" parent="Wall_Test" unique_id=1031959830 instance=ExtResource("4_qtm55")]
 transform = Transform3D(0.9539163, 0, -0.30007282, 0, 1, 0, 0.30007282, 0, 0.9539163, 2.570809, 2.115493, 0.76904297)
 
-[node name="WallMidA" parent="Wall_Test" unique_id=1644795312 instance=ExtResource("5_x42va")]
-transform = Transform3D(0.46834216, 0, -0.8835472, 0, 1, 0, 0.8835472, 0, 0.46834216, 5.5837636, 0.0046830177, 3.7502441)
-
 [node name="WallLowA" parent="Wall_Test" unique_id=594805775 instance=ExtResource("6_x42va")]
 transform = Transform3D(-0.99955785, 0, 0.029733177, 0, 1, 0, -0.029733177, 0, -0.99955785, 1.839241, 0, -1.6158447)
 
-[node name="WallMidA2" parent="Wall_Test" unique_id=1232217965 instance=ExtResource("5_x42va")]
-transform = Transform3D(0.013397366, 0, -0.99991024, 0, 1, 0, 0.99991024, 0, 0.013397366, 7.918288, 0.009366035, 19.188694)
+[node name="WallMidA" parent="Wall_Test" unique_id=1232217965 instance=ExtResource("5_xy0oq")]
+transform = Transform3D(0.6630185, 0, -0.748603, 0, 1, 0, 0.748603, 0, 0.6630185, 6.397939, 0, 1.5931396)
 
 [node name="Ground_Test" type="Node" parent="." unique_id=217590514]
 
@@ -158,7 +156,7 @@ material_override = ExtResource("8_rnysp")
 mesh = SubResource("ArrayMesh_dsi1p")
 
 [node name="Ground_Source_A4" type="MeshInstance3D" parent="Ground_Test/Ground_Source_A2" unique_id=900939972]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0087890625, 6.1035156e-05, 7.996704)
 material_override = ExtResource("8_rnysp")
 mesh = SubResource("ArrayMesh_dsi1p")
 
@@ -230,10 +228,7 @@ normal_fade = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.189335, 0, 15.704769)
 
 [node name="Arch_Wall_Straight_A" parent="ArchitectureKit_Test" unique_id=2108748507 instance=ExtResource("5_x42va")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4761767, 0, 0)
-
-[node name="Arch_Wall_Straight_A2" parent="ArchitectureKit_Test" unique_id=683922254 instance=ExtResource("5_x42va")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055085182, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.69244385, 0, -10.198853)
 
 [editable path="Rubble_Test/RubbleClusterA"]
 [editable path="Ground_Test/Ground_Damage_Test2"]
