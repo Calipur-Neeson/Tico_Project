@@ -23,7 +23,6 @@ func OnSoundDetected(source: Vector3, volume: float) -> void:
 		enemy.targetPositon = source
 		enemy.navigation_agent_3d.target_position = source
 		enemy.ChangeStateTo(enemy.enemyState.Alarm)
-
 	
 func CaculateVolum(sourceVolum: float, dis: float, isBlock: bool) -> float:
 	if isBlock:

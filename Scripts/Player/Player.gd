@@ -53,13 +53,14 @@ var last_offset_r: float = 0.0
 @onready var player_look_at: LookAtModifier3D = $"Character/Y Bot/Skeleton3D/PlayerLookAt"
 @onready var right_hand_grab_pivot: Marker3D = $"Character/Y Bot/Skeleton3D/RightHandGrab/HandPivot"
 
-
+#Audio
+@onready var voice_audio: PlayerVoiceAudio = $VoiceAudio
+@onready var action_audio: PlayerActionAudio = $ActionAudio
 
 #Colliders
 @onready var collision_stand: CollisionShape3D = $CollisionStand
 @onready var collision_crouch: CollisionShape3D = $CollisionCrouch
 @onready var collision_upper: CollisionShape3D = $CollisionUpper
-
 
 #Caster
 @onready var climb_normal_cast: RayCast3D = $RayDetectors/ClimbNormalCast
@@ -81,8 +82,11 @@ var last_offset_r: float = 0.0
 #Hand Pivot
 @onready var hand_pivot: Marker3D = $"Character/Y Bot/Skeleton3D/RightHandGrab/HandPivot"
 
-#HUD
+#UI
 @onready var hud_panel: PlayerHUD = $HUDPanel
+@onready var heat_meter: HeatSystem = $HeatMeter
+@onready var sound_indicator: SoundIndicator = $SoundIndicator
+
 
 var camControl: CameraControl
 var jumpSpeed: float
@@ -94,7 +98,6 @@ var island: bool = false
 
 #Current state that our player is
 var state: BasePlayerState 
-
 	
 func _ready() -> void:
 	ceiling_cast.enabled = false
@@ -130,7 +133,6 @@ func OnGameStateChanged(state: GameManager.GameState) -> void:
 	else:
 		set_process(false)
 		set_physics_process(false)
-
 
 func TurnTo(direction: Vector3) -> void:
 	if direction:
@@ -211,7 +213,6 @@ func handle_leg_ik(delta: float) -> void:
 		ik_leg_left.influence = 0.0
 		ik_leg_right.influence = 0.0
 
-
 func choose_lowest_gap(delta: float) -> void:
 	var lowest_gap: float = min(last_offset_l, last_offset_r)
 
@@ -219,7 +220,6 @@ func choose_lowest_gap(delta: float) -> void:
 		visual_for_IK.position.y = lerp(visual_for_IK.position.y, lowest_gap, 10.0 * delta)
 	else:
 		visual_for_IK.position.y = lerp(visual_for_IK.position.y, 0.0, 10.0 * delta)
-
 
 func _process_leg_ik(ray_f: RayCast3D, ray_b: RayCast3D, target_marker: Marker3D, ik: TwoBoneIK3D, delta: float) -> float:
 	var is_f_colliding: bool = ray_f.is_colliding()

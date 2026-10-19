@@ -9,6 +9,8 @@ var time: float
 var inversedInput: Vector3
 
 func Enter(player: Player) -> void:
+	player.action_audio.PlayClimb()
+	
 	player.collision_stand.disabled = true
 	player.collision_upper.disabled = false
 	
