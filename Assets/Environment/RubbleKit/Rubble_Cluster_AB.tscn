@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://pxqfmgt1dft4"]
+
+[ext_resource type="ArrayMesh" uid="uid://by3gsjlcurlvc" path="res://Assets/Environment/StoneKit/Meshes/Stone_S_01.res" id="1_qpf3d"]
+[ext_resource type="ArrayMesh" uid="uid://bdb8ohwem43vg" path="res://Assets/Environment/StoneKit/Meshes/Stone_M_03.res" id="2_mtkht"]
+[ext_resource type="ArrayMesh" uid="uid://b60ovearkpdxg" path="res://Assets/Environment/StoneKit/Meshes/Stone_M_02.res" id="3_geep8"]
+[ext_resource type="ArrayMesh" uid="uid://bmb3k8i0jyrub" path="res://Assets/Environment/StoneKit/Meshes/Stone_Long_02.res" id="4_uru11"]
+[ext_resource type="ArrayMesh" uid="uid://b3nf1b0v8v2bp" path="res://Assets/Environment/StoneKit/Meshes/Stone_M_01.res" id="5_hcmxg"]
+[ext_resource type="ArrayMesh" uid="uid://dl1whn1vvlp12" path="res://Assets/Environment/StoneKit/Meshes/Stone_L_02.res" id="6_xcw0o"]
+[ext_resource type="ArrayMesh" uid="uid://dhmfvanvxkxrn" path="res://Assets/Environment/StoneKit/Meshes/Stone_S_03.res" id="7_rdtqv"]
+[ext_resource type="ArrayMesh" uid="uid://ktwd8x1a2388" path="res://Assets/Environment/StoneKit/Meshes/Stone_Long_03.res" id="8_14gtq"]
+[ext_resource type="ArrayMesh" uid="uid://btssf54ed8vgl" path="res://Assets/Environment/StoneKit/Meshes/Stone_Long_01.res" id="9_2ae6g"]
+[ext_resource type="ArrayMesh" uid="uid://b1nmxafhf5dqw" path="res://Assets/Environment/StoneKit/Meshes/Stone_L_01.res" id="10_g71wg"]
+[ext_resource type="ArrayMesh" uid="uid://cqrnhpe16718o" path="res://Assets/Environment/StoneKit/Meshes/Stone_S_02.res" id="11_ahu8m"]
+
+[node name="RubbleClusterA" type="Node3D" unique_id=1232217965]
+
+[node name="StoneKit_LOW" type="Node3D" parent="." unique_id=199431533]
+
+[node name="Stone_S_01_Low" type="MeshInstance3D" parent="." unique_id=1643483107]
+transform = Transform3D(-0.1404191, -0.865025, -0.20430122, 0.45178643, -0.2933531, 0, -0.042385004, -0.2611047, 0.6768383, 4.585241, 0.07071102, 2.067978)
+mesh = ExtResource("1_qpf3d")
+
+[node name="Stone_M_03_Low" type="MeshInstance3D" parent="." unique_id=1662396963]
+transform = Transform3D(0.47035366, 0.10016296, 0.031725124, -0.1260309, 0.37381327, -0.008500721, -0.032056, 0, 0.49892005, 5.465692, 0.117542624, 0.99407434)
+mesh = ExtResource("2_mtkht")
+
+[node name="Stone_M_02_Low" type="MeshInstance3D" parent="." unique_id=1609364795]
+transform = Transform3D(-6.001917e-09, -0.23314479, -0.19134486, 0.15038714, -1.1161835e-08, 0, -2.6813438e-09, -0.10415695, 0.42830616, 5.326415, 0.089518785, 1.4580989)
+mesh = ExtResource("3_geep8")
+
+[node name="Stone_Long_02_Low" type="MeshInstance3D" parent="." unique_id=1356374117]
+transform = Transform3D(0.51614594, -0.0004735665, -0.17270738, 0.0007025151, 0.36633536, -1.3368282e-18, 0.118693806, -0.00010890215, 0.75102675, 1.7518877, 0.053569317, 2.031471)
+mesh = ExtResource("4_uru11")
+
+[node name="Stone_M_01_Low" type="MeshInstance3D" parent="." unique_id=1870224330]
+transform = Transform3D(0.30636334, 0.29942945, 0.08362713, -0.25050893, 0.39479265, 0, -0.08561987, -0.083682045, 0.29923302, 1.1916778, 0.14308488, 1.1928163)
+mesh = ExtResource("5_hcmxg")
+
+[node name="Stone_L_02_Low" type="MeshInstance3D" parent="." unique_id=356344877]
+transform = Transform3D(-0.45932263, -0.10004666, -0.12047936, -0.12307513, 0.3733792, -0.032282345, 0.10939284, 0, -0.5421931, 4.3881626, 0.12997389, 0.93121624)
+mesh = ExtResource("6_xcw0o")
+
+[node name="Stone_S_03_Low" type="MeshInstance3D" parent="." unique_id=334068479]
+transform = Transform3D(0.10874077, 0.21234019, -0.41575244, 0.41702095, 0.069550134, 0.12949665, 0.07601681, -0.6852943, -0.11567939, 5.613764, 0.052387953, 2.1915808)
+mesh = ExtResource("7_rdtqv")
+
+[node name="Stone_S_03_Low2" type="MeshInstance3D" parent="." unique_id=298240568]
+transform = Transform3D(0.3596379, 0.19327523, -0.35672754, -0.20763706, 0.33476254, 0.20595676, 0.70104504, 0, 0.24400286, 4.932516, 0.11490196, 1.4813657)
+mesh = ExtResource("7_rdtqv")
+
+[node name="Stone_Long_03_Low" type="MeshInstance3D" parent="." unique_id=1845630088]
+transform = Transform3D(0.013506076, -0.03660339, -0.76686954, -0.48775914, -0.00064070267, -0.021305371, 0.00047259266, 0.38481307, -0.072980076, 3.468425, 0.20153368, 1.4924622)
+mesh = ExtResource("8_14gtq")
+
+[node name="Stone_Long_03_Low2" type="MeshInstance3D" parent="." unique_id=451145700]
+transform = Transform3D(0.30057043, 0.26660532, -0.20102012, -0.28596863, 0.28051823, 0.19051817, 0.25695014, 0.0003336987, 0.44717973, 4.8980203, 0.17948008, 0.830719)
+mesh = ExtResource("8_14gtq")
+
+[node name="Stone_Long_01_Low" type="MeshInstance3D" parent="." unique_id=2090489764]
+transform = Transform3D(0.19613087, 0.007326454, -0.03845787, 0.03864406, -0.004761676, 0.1961733, 0.006270656, -0.19980903, -0.006085178, 3.654245, 0.32083476, 1.3695903)
+mesh = ExtResource("9_2ae6g")
+
+[node name="Stone_L_01_Low" type="MeshInstance3D" parent="." unique_id=1235459411]
+transform = Transform3D(0.3865505, 0, 0, 0, 0.48794618, 0, 0, 0, 0.7706289, 0.57379174, 0.18003154, 1.1864448)
+mesh = ExtResource("10_g71wg")
+
+[node name="Stone_S_02_Low" type="MeshInstance3D" parent="." unique_id=1202718290]
+transform = Transform3D(0.23431604, 0.17485872, -0.06723365, -0.17942263, 0.24043182, 0, 0.05388372, 0.040210813, 0.29236898, 1.5621501, 0.20310831, 1.9632667)
+mesh = ExtResource("11_ahu8m")

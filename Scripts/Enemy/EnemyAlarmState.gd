@@ -4,6 +4,7 @@ extends BaseEnemyState
 func Enter(enemy: Enemy) -> void:
 	enemy.moveSpeed = 2
 	enemy.hasTarget = true
+	Bgm.OnEnemyAlarm(1)
 	
 func PreUpdate(enemy: Enemy) -> void:
 	if enemy.navigation_agent_3d.is_target_reached():
@@ -13,3 +14,6 @@ func PreUpdate(enemy: Enemy) -> void:
 		if not enemy.ifThereIsWall(enemy.player.global_position):
 			enemy.targetPositon = enemy.player.global_position
 			enemy.ChangeStateTo(enemy.enemyState.Chase)
+
+func Exit(enemy: Enemy) -> void:
+	Bgm.OnEnemyAlarm(-1)

@@ -10,6 +10,11 @@ func Enter(player: Player) -> void:
 	
 	if player.interactControl.objectInHand:
 		player.muzzle.isAim = true
+		
+	if player.isCrouch:
+		player.muzzle.position.y = 0.9
+	else :
+		player.muzzle.position.y = 1.2
 
 func PreUpdate(player: Player) -> void:	
 	if Input.is_action_just_released("Aim"):

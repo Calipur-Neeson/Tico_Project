@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://5i32jqh5ttpk"]
+
+[ext_resource type="Texture2D" uid="uid://donuyd0uf1e3f" path="res://Assets/Environment/StoneKit/Textures/StoneKit_LOW_M_Stonekit_BaseColor.png" id="1_7jyec"]
+[ext_resource type="Texture2D" uid="uid://dvtqaauhtpoqm" path="res://Assets/Environment/StoneKit/Textures/StoneKit_LOW_M_Stonekit_Normal.png" id="2_d7pjh"]
+[ext_resource type="Texture2D" uid="uid://b7of3xlj2ibp2" path="res://Assets/Environment/StoneKit/Textures/StoneKit_LOW_M_Stonekit_Roughness.png" id="3_88qwx"]
+
+[resource]
+resource_name = "M_Stonekit"
+cull_mode = 2
+albedo_texture = ExtResource("1_7jyec")
+roughness_texture = ExtResource("3_88qwx")
+normal_enabled = true
+normal_texture = ExtResource("2_d7pjh")
