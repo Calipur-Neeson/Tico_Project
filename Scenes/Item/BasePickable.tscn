@@ -20,7 +20,7 @@ height = 0.2
 albedo_color = Color(0.7725, 0.089999974, 1, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_12j5o"]
-radius = 0.05
+radius = 0.1
 
 [node name="Ball" type="RigidBody3D" unique_id=482176694]
 collision_layer = 32

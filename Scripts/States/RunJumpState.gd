@@ -15,6 +15,7 @@ func PreUpdate(player: Player) -> void:
 		
 	if player.is_on_floor() and player.landSpeed > -7:
 		player.obstacle_cast.enabled = false
+		player.action_audio.PlayLand()
 		player.ChangeStateTo(player.playerState.Run)
 	
 	if player.left_hand_climb_cast.is_colliding() or player.right_hand_climb_cast.is_colliding():

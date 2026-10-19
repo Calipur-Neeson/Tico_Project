@@ -60,5 +60,5 @@ func _physics_process(delta: float) -> void:
 	if not isThrown:
 		return
 	if shape_cast_3d.is_colliding():
-		SoundEmitter.EmitSound(global_position, 8)
+		SoundEmitter.EmitSound(global_position, 10)
 		queue_free()

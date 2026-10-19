@@ -45,7 +45,7 @@ shader_parameter/invert_boost_direction = false
 
 [node name="Enemy" type="CharacterBody3D" unique_id=173603545]
 collision_layer = 128
-collision_mask = 126
+collision_mask = 254
 script = ExtResource("1_wovta")
 rotateSpeed = 0.05
 attackRange = 10.0
