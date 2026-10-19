@@ -29,6 +29,7 @@ func PreUpdate(player: Player) -> void:
 	if Input.is_action_just_released("Shot"):
 		if player.interactControl.objectInHand and player.interactControl.objectInHand is BasePickable:
 			player.interactControl.objectInHand.global_position = player.muzzle.global_position
+			player.action_audio.PlayThrow()
 			player.interactControl.objectInHand.Throw(direction, player)
 			player.muzzle.isAim = false
 

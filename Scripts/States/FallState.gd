@@ -13,6 +13,7 @@ func PreUpdate(player: Player) -> void:
 		player.animation_tree.set("parameters/movement/transition_request", "fall")
 		
 	if player.is_on_floor():
+		player.action_audio.PlayLand()
 		player.ChangeStateTo(player.playerState.Land)
 		
 	if player.left_hand_climb_cast.is_colliding() or player.right_hand_climb_cast.is_colliding():
