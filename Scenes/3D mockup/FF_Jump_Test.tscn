@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://btu4figs38l5i"]
+
+[ext_resource type="PackedScene" uid="uid://d3gb7oplluejt" path="res://Scenes/3D mockup/ff_jumping_puzzle.tscn" id="1_x8nyr"]
+[ext_resource type="PackedScene" uid="uid://d3rrh52jvjo02" path="res://Scenes/Player.tscn" id="2_4jfm6"]
+
+[node name="FfJumpTest" type="Node3D" unique_id=418830861]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2018545511]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.12582, 0.05090332, 11.985321)
+use_collision = true
+collision_layer = 4
+size = Vector3(30.636559, 0.1184082, 24.970642)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1461522301]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 2.8785477, 0.05090332, 24.325283)
+use_collision = true
+collision_layer = 65
+size = Vector3(26.201584, 0.1184082, 24.970642)
+
+[node name="FFJumpingPuzzle" parent="." unique_id=1712027839 instance=ExtResource("1_x8nyr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9488373, 0, 24.342361)
+
+[node name="CharacterBody3D" parent="." unique_id=1445218770 instance=ExtResource("2_4jfm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8431644, 1.1056287, 12.54109)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1238867375]
+transform = Transform3D(1, 0, 0, 0, -0.681833, 0.73150784, 0, -0.73150784, -0.681833, 0, 21.641434, 0)
