@@ -13,7 +13,7 @@ func _ready() -> void:
 	
 	language_option.item_selected.connect(_on_language_option_item_selected)
 
-	if QuickSave.has_var("LanguageIndex"):
+	if QuickSave.has_file() and QuickSave.has_var("LanguageIndex"):
 		var index : int = QuickSave.load_var("LanguageIndex")
 		language_option.select(index)
 		_on_language_option_item_selected(index)

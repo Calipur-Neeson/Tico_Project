@@ -14,6 +14,9 @@ extends Control
 #@onready var hover_glow: Control = $CanvasLayer/MainMenu/VBoxContainer/NewGame/Hoverglow
 @onready var brightness_overlay: ColorRect = get_node("/root/BrightnessManager/BrightnessOverlay")
 
+#Button
+@onready var loadGameButton: Button = $CanvasLayer/MainMenu/VBoxContainer/LoadGame
+
 
 func _ready() -> void:
 	main_menu.show()
@@ -39,6 +42,8 @@ func _ready() -> void:
 	resolution_option.add_item("1280x720")
 	
 	GameManager.SetGameState(GameManager.GameState.MENU)
+	
+	loadGameButton.disabled = not QuickSave.has_file()
 
 
 func _on_new_game_pressed() -> void:
