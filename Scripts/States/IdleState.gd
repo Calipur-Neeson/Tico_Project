@@ -8,6 +8,9 @@ func Enter(player: Player) -> void:
 	player.left_climb_cast.enabled = false
 	player.right_climb_cast.enabled = false
 	player.climb_normal_cast.enabled = true
+	
+	player.heat_meter.state = player.heat_meter.sm.IDLE
+	player.sound_indicator.state = player.sound_indicator.sm.IDLE
 
 
 func PreUpdate(player: Player) -> void:

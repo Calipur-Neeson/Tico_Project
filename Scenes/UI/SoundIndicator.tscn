@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://x2xcymw0kyev"]
+
+[ext_resource type="Shader" uid="uid://c5x2ao13p7qie" path="res://Shader/SoundIndicator.gdshader" id="1_ix5nu"]
+[ext_resource type="Script" uid="uid://c0517wuatw0yx" path="res://Scripts/UI/SoundIndicator.gd" id="1_wa5g2"]
+[ext_resource type="Script" uid="uid://b1ro85sufcc0x" path="res://Scripts/UI/EnemyShow.gd" id="3_pbpth"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rc6ml"]
+noise_type = 0
+frequency = 0.0382
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_535ly"]
+noise = SubResource("FastNoiseLite_rc6ml")
+
+[sub_resource type="Curve" id="Curve_ftswq"]
+_limits = [0.2, 2.0, 0.0, 1.0]
+_data = [Vector2(0.5, 0.2), 0.0, 0.0, 0, 0]
+point_count = 1
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_pohj0"]
+curve = SubResource("Curve_ftswq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_12j5o"]
+shader = ExtResource("1_ix5nu")
+shader_parameter/inner_diameter = 0.12400000589
+shader_parameter/outer_diameter = 0.1550000073625
+shader_parameter/noise = SubResource("NoiseTexture2D_535ly")
+shader_parameter/sounds = SubResource("CurveTexture_pohj0")
+shader_parameter/noise_strength = 0.1
+shader_parameter/noise_speed = 0.1
+shader_parameter/foreground = Vector4(1, 1, 1, 1)
+shader_parameter/background = Vector4(0, 0, 0, 0)
+shader_parameter/hasEnemy = false
+shader_parameter/influence = 0.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_12j5o"]
+viewport_path = NodePath("SubViewport")
+
+[node name="SoundIndicator" type="Node3D" unique_id=1150495940]
+script = ExtResource("1_wa5g2")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1709203157]
+transparent_bg = true
+size = Vector2i(180, 180)
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport" unique_id=60832041]
+material = SubResource("ShaderMaterial_12j5o")
+offset_right = 180.0
+offset_bottom = 180.0
+color = Color(1, 1, 1, 0)
+
+[node name="Control" type="Control" parent="SubViewport" unique_id=1456759884]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 180.0
+offset_bottom = 180.0
+script = ExtResource("3_pbpth")
+radar_range = 10.0
+enemy_color = Color(0.95938724, 0.96171075, 2.3102762e-06, 1)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1910453285]
+billboard = 1
+texture = SubResource("ViewportTexture_12j5o")
