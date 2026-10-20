@@ -4,7 +4,7 @@ extends CharacterBody3D
 @export var runSpeed:float = 5.0
 @export var crouchSpeed:float = 2.0
 @export var jumpVelocity:float = 6
-@export var maxVaultHeight: float = 1.3
+@export var maxVaultHeight: float = 1.5
 @export var shimmyDis: float = 1.0
 @export var shimmyJumpDis: float = 1.1
 @export var acceleration: float = 10

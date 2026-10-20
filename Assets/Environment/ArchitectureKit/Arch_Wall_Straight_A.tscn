@@ -116,7 +116,8 @@ mesh = ExtResource("9_i2r1r")
 transform = Transform3D(1.0485795, 0, 0.029830035, 0, 1.2995653, 0, -0.043900494, 0, 0.71250135, 3.9809008, 0.41273677, 0.15404285)
 mesh = ExtResource("4_wnsxo")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=1671706121]
+[node name="Area3D" type="StaticBody3D" parent="." unique_id=1504777295]
+collision_layer = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=368194344]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3789063, 2.8370056, 0.12182617)

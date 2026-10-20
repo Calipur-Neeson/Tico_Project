@@ -43,7 +43,7 @@ func PreUpdate(player: Player) -> void:
 				player.ChangeStateTo(player.playerState.Vault)
 			elif obstacleHight < player.maxVaultHeight and obstacleHight > 0.5 and not player.climb_up_cast.is_colliding():
 				player.ChangeStateTo(player.playerState.ClimbWall)
-			elif obstacleHight >= player.maxVaultHeight and obstacleHight < 1.9 and player.climb_normal_cast.is_colliding():
+			elif obstacleHight >= player.maxVaultHeight and obstacleHight < 2.2 and player.climb_normal_cast.is_colliding():
 				player.ChangeStateTo(player.playerState.HangingIdle)
 			else:
 				player.ChangeStateTo(player.playerState.Jump)

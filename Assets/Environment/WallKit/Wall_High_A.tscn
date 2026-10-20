@@ -39,71 +39,82 @@ size = Vector3(0.62731886, 0.50631857, 0.70461535)
 
 [node name="StoneKit_LOW" parent="." unique_id=199431533 instance=ExtResource("1_orsjr")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_S_01_Low" parent_id_path=PackedInt32Array(199431533, 789533219) index="0" unique_id=368691467]
+[node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_S_01_Low" parent_id_path=PackedInt32Array(199431533, 1784229294) index="0" unique_id=368691467]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0074100196, -0.02128014, 0.00021079183)
+collision_layer = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StoneKit_LOW/Stone_S_01_Low/StaticBody3D" unique_id=1826141027]
 shape = SubResource("BoxShape3D_orsjr")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_M_03_Low" parent_id_path=PackedInt32Array(199431533, 1823508770) index="0" unique_id=1912421334]
+[node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_M_03_Low" parent_id_path=PackedInt32Array(199431533, 788698309) index="0" unique_id=1912421334]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00812608, -0.05410725, -0.0047144294)
+collision_layer = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StoneKit_LOW/Stone_M_03_Low/StaticBody3D" unique_id=1303867747]
 shape = SubResource("BoxShape3D_6bmdf")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_M_02_Low" parent_id_path=PackedInt32Array(199431533, 337519470) index="0" unique_id=1583831132]
+[node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_M_02_Low" parent_id_path=PackedInt32Array(199431533, 131012807) index="0" unique_id=1583831132]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09154487, -0.04396984, 0.0128109455)
+collision_layer = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StoneKit_LOW/Stone_M_02_Low/StaticBody3D" unique_id=116284518]
 shape = SubResource("BoxShape3D_0wn1o")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_Long_02_Low" parent_id_path=PackedInt32Array(199431533, 1851512989) index="0" unique_id=439129572]
+[node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_Long_02_Low" parent_id_path=PackedInt32Array(199431533, 1351216918) index="0" unique_id=439129572]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02751869, -0.025932372, -0.024609447)
+collision_layer = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StoneKit_LOW/Stone_Long_02_Low/StaticBody3D" unique_id=1899507361]
 shape = SubResource("BoxShape3D_vtqwd")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_M_01_Low" parent_id_path=PackedInt32Array(199431533, 1288051631) index="0" unique_id=2102657923]
+[node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_M_01_Low" parent_id_path=PackedInt32Array(199431533, 973028133) index="0" unique_id=2102657923]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04510647, -0.06343126, -0.029613316)
+collision_layer = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StoneKit_LOW/Stone_M_01_Low/StaticBody3D" unique_id=390733215]
 shape = SubResource("BoxShape3D_yfp4s")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_L_02_Low" parent_id_path=PackedInt32Array(199431533, 1261111908) index="0" unique_id=917051469]
+[node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_L_02_Low" parent_id_path=PackedInt32Array(199431533, 8715116) index="0" unique_id=917051469]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.036064386, -0.05378574, -0.07696372)
+collision_layer = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StoneKit_LOW/Stone_L_02_Low/StaticBody3D" unique_id=187486320]
 shape = SubResource("BoxShape3D_q1cj7")
 
-[node name="Stone_S_03_Low" parent="StoneKit_LOW" index="6" unique_id=223620781]
+[node name="Stone_S_03_Low" parent="StoneKit_LOW" index="6" unique_id=1065645085]
 transform = Transform3D(0.990534, 0.13726749, 0, -0.13726749, 0.990534, 0, 0, 0, 1, 0.62014854, 1.3318326, -0.11964881)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_S_03_Low" index="0" unique_id=333219509]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04801391, -0.004611492, -0.05834073)
+collision_layer = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StoneKit_LOW/Stone_S_03_Low/StaticBody3D" unique_id=1047516635]
 shape = SubResource("BoxShape3D_jfs1x")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_Long_03_Low" parent_id_path=PackedInt32Array(199431533, 1287393042) index="0" unique_id=1952663031]
+[node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_Long_03_Low" parent_id_path=PackedInt32Array(199431533, 1158909460) index="0" unique_id=1952663031]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14464054, -0.047201455, -0.052615285)
+collision_layer = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StoneKit_LOW/Stone_Long_03_Low/StaticBody3D" unique_id=109929555]
 shape = SubResource("BoxShape3D_bb4b6")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_Long_01_Low" parent_id_path=PackedInt32Array(199431533, 482942372) index="0" unique_id=621815872]
+[node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_Long_01_Low" parent_id_path=PackedInt32Array(199431533, 261592302) index="0" unique_id=621815872]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19190556, -0.0043991804, -0.05868399)
+collision_layer = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StoneKit_LOW/Stone_Long_01_Low/StaticBody3D" unique_id=1617337974]
 shape = SubResource("BoxShape3D_s63er")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_L_01_Low" parent_id_path=PackedInt32Array(199431533, 1634511016) index="0" unique_id=809550026]
+[node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_L_01_Low" parent_id_path=PackedInt32Array(199431533, 1613209188) index="0" unique_id=809550026]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.093106985, 0.005088687, -0.08457869)
+collision_layer = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StoneKit_LOW/Stone_L_01_Low/StaticBody3D" unique_id=1805474829]
 shape = SubResource("BoxShape3D_o1stp")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_S_02_Low" parent_id_path=PackedInt32Array(199431533, 1217187758) index="0" unique_id=1782171518]
+[node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_S_02_Low" parent_id_path=PackedInt32Array(199431533, 170564269) index="0" unique_id=1782171518]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0043996572, -0.07191849, 0.13230531)
+collision_layer = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StoneKit_LOW/Stone_S_02_Low/StaticBody3D" unique_id=1065467061]
 shape = SubResource("BoxShape3D_gplvj")

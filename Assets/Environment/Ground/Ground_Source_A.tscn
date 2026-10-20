@@ -48,6 +48,8 @@ mesh = SubResource("ArrayMesh_m7d83")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Ground_Source_A" unique_id=1409613474]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0139743555, 0)
+collision_layer = 4
+collision_mask = 176
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground_Source_A/StaticBody3D" unique_id=1613500937]
 shape = SubResource("BoxShape3D_440wr")

@@ -38,6 +38,7 @@ mesh = ExtResource("1_ib6ge")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_S_01_Low" unique_id=644315841]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0074100196, -0.02128014, 0.00021079183)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StoneKit_LOW/Stone_S_01_Low/StaticBody3D" unique_id=471049304]
 shape = SubResource("BoxShape3D_cq7br")
@@ -48,6 +49,8 @@ mesh = ExtResource("2_46lw4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_M_03_Low" unique_id=1349085722]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00812608, -0.05410725, -0.0047144294)
+collision_layer = 2
+collision_mask = 176
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StoneKit_LOW/Stone_M_03_Low/StaticBody3D" unique_id=619553826]
 shape = SubResource("BoxShape3D_cnupq")
@@ -58,6 +61,8 @@ mesh = ExtResource("6_eew3b")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_L_02_Low" unique_id=1187475160]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.036064386, -0.05378574, -0.07696372)
+collision_layer = 2
+collision_mask = 176
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StoneKit_LOW/Stone_L_02_Low/StaticBody3D" unique_id=551314060]
 shape = SubResource("BoxShape3D_gttjy")
@@ -68,6 +73,8 @@ mesh = ExtResource("7_ie4ya")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_S_03_Low" unique_id=394000810]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04801391, -0.004611492, -0.05834073)
+collision_layer = 2
+collision_mask = 176
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StoneKit_LOW/Stone_S_03_Low/StaticBody3D" unique_id=359846317]
 shape = SubResource("BoxShape3D_35sd7")
@@ -78,6 +85,8 @@ mesh = ExtResource("7_ie4ya")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_S_03_Low2" unique_id=314089087]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04801391, -0.004611492, -0.05834073)
+collision_layer = 2
+collision_mask = 176
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StoneKit_LOW/Stone_S_03_Low2/StaticBody3D" unique_id=26180640]
 shape = SubResource("BoxShape3D_0pjq3")
@@ -88,6 +97,8 @@ mesh = ExtResource("8_m4sou")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_Long_03_Low" unique_id=1036287518]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14464054, -0.047201455, -0.052615285)
+collision_layer = 2
+collision_mask = 176
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StoneKit_LOW/Stone_Long_03_Low/StaticBody3D" unique_id=1127258505]
 shape = SubResource("BoxShape3D_ib6ge")
@@ -98,6 +109,8 @@ mesh = ExtResource("11_tdjhm")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="StoneKit_LOW/Stone_S_02_Low" unique_id=1737937477]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0043996572, -0.07191849, 0.13230531)
+collision_layer = 2
+collision_mask = 176
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StoneKit_LOW/Stone_S_02_Low/StaticBody3D" unique_id=1614030127]
 shape = SubResource("BoxShape3D_46lw4")
