@@ -3,7 +3,6 @@ extends CanvasLayer
 var isPaused: bool = false
 
 @onready var panel: Panel = $Panel
-@onready var resume_button: Button = $Panel/PanelContainer/VBoxContainer/ResumeButton
 @onready var panel_container: PanelContainer =  $Panel/PanelContainer
 @onready var save_game_popup: Control = $Panel/SaveGame_popup
 @onready var game_saved: Label = $"Panel/Game Saved"
@@ -11,6 +10,10 @@ var isPaused: bool = false
 @onready var audio_panel: Control = $"Panel/Audio Panel"
 @onready var display_panel: Control = $Panel/DisplayPanel
 @onready var controls_panel: Control = $Panel/Controls_panel
+
+#Button
+@onready var resume_button: Button = $Panel/PanelContainer/VBoxContainer/ResumeButton
+@onready var restart_button: Button = $Panel/PanelContainer/VBoxContainer/RestartButton
 
 
 func _ready() -> void:
@@ -20,6 +23,9 @@ func _ready() -> void:
 	resolution_button.add_item("1600x900")
 	resolution_button.add_item("1280x720")
 	resolution_button.select(0)
+	
+	restart_button.disabled = not QuickSave.has_file()
+	QuickSave.on_data_change.connect(OnSave)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Escape"):
@@ -63,7 +69,6 @@ func _on_restart_button_pressed() -> void:
 	GameManager.SetGameState(GameManager.GameState.RESTART)
 	SceneLoader.LoadScene(SceneLoader.mainLevelScene)
 
-
 func _on_menu_button_pressed() -> void:
 	Resume()
 	GameManager.targetState = GameManager.GameState.MENU
@@ -71,6 +76,8 @@ func _on_menu_button_pressed() -> void:
 	SceneLoader.LoadScene(SceneLoader.mainMenuScene)
 	option_menu.show()
 
+func OnSave() -> void:
+	restart_button.disabled = not QuickSave.has_file()
 
 func _on_save_game_pressed() -> void:
 	save_game_popup.show()
@@ -82,11 +89,9 @@ func _on_cancel_pressed() -> void:
 	#Options
 	
 
-
 func _on_back_pressed() -> void:
 	option_menu.hide()
 	panel_container.show()
-
 
 func _on_audio_pressed() -> void:
 	option_menu.hide()
@@ -131,8 +136,6 @@ func _on_full_screen_controller_toggled(toggled_on: bool) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-
-
 
 func _on_h_slider_value_changed(value: float) -> void:
 	var overlay = get_node("/root/BrightnessManager/BrightnessOverlay")
