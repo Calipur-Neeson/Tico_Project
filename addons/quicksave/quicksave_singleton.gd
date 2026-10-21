@@ -9,30 +9,30 @@ var _save_data : Dictionary[String, Variant] = {}
 
 
 ## Save variable to the save data using key
-func save_var(key: String, value: Variant) -> void:
+func save_var(key: String, value: Variant, index: int = 1) -> void:
 	var file : FileAccess = FileAccess.open(SAVE_LOCATION, FileAccess.WRITE)
-	_save_data[key] = value
+	_save_data[key + str(index)] = value
 	var success : bool = file.store_var(_save_data)
 	if !success:
-		printerr("[ERROR] Cannot store ", key, " with value ", value, "!")
+		printerr("[ERROR] Cannot store ", key, index, " with value ", value, "!")
 	file.close()
 	
 	on_data_change.emit()
 
 
 ## Load variable from the save data using key
-func load_var(key: String, default_value : Variant = null) -> Variant:
+func load_var(key: String, index: int = 1, default_value : Variant = null) -> Variant:
 	reload_data()
 	
-	if _save_data.has(key):
-		return _save_data[key]
+	if _save_data.has(key + str(index)):
+		return _save_data[key + str(index)]
 	else:
-		save_var(key, default_value)
+		save_var(key + str(index), default_value)
 		return default_value
 
-func has_var(key : String) -> bool:
+func has_var(key : String, index: int = 1) -> bool:
 	reload_data()
-	return _save_data.has(key)
+	return _save_data.has(key + str(index))
 
 func has_file() -> bool:
 	return FileAccess.file_exists(SAVE_LOCATION)
