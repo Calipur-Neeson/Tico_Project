@@ -29,12 +29,20 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Escape"):
-		if isPaused:
-			Resume()
-		else:
+		if not isPaused:
 			Pause()
-		
-		isPaused = not isPaused
+			isPaused = true
+		elif audio_panel.visible:
+			_on_back_pressed_audio()
+		elif display_panel.visible:
+			_on_back_pressed_display()
+		elif controls_panel.visible:
+			_on_back_pressed_controls()
+		elif option_menu.visible:
+			_on_back_pressed()
+		else:
+			Resume()
+			isPaused = false
 
 func Pause() -> void:
 	if not GameManager.currentGameState == GameManager.GameState.PLAYING:
