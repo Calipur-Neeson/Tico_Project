@@ -2,13 +2,14 @@ class_name Player
 extends CharacterBody3D
 
 @export var runSpeed:float = 5.0
+@export var rotateSpeed:float = 5.0
 @export var crouchSpeed:float = 2.0
 @export var jumpVelocity:float = 6
 @export var maxVaultHeight: float = 1.3
 @export var shimmyDis: float = 1.0
 @export var shimmyJumpDis: float = 1.1
 @export var acceleration: float = 10
-@export var deceleration: float = 20
+@export var deceleration: float = 12
 
 # Foot IK
 @export_group("Foot IK")
@@ -137,9 +138,15 @@ func OnGameStateChanged(state: GameManager.GameState) -> void:
 func TurnTo(direction: Vector3) -> void:
 	if direction:
 		var yaw: = atan2(-direction.x, -direction.z)
-		yaw = lerp_angle(rotation.y, yaw, 0.25)
+		yaw = lerp_angle(rotation.y, yaw, 0.1)
 		rotation.y = yaw
 
+func TurnToSmooth(direction: Vector3, delta: float) -> void:
+	rotation.y = rotate_toward(
+		rotation.y,
+		Vector2(-direction.z, -direction.x).angle(),
+		rotateSpeed * delta)
+	
 func GetMoveInput() -> Vector3:
 	var input_dir := Input.get_vector("Move_Left", "Move_Right", "Move_Forward", "Move_Back")
 	var direction := (cam.global_basis * Vector3(input_dir.x, 0, input_dir.y))
@@ -151,20 +158,21 @@ func GetCurrentSpeed() -> float:
 	
 func UpdateVelocity(direction: Vector3, delta: float, speed: float = runSpeed) -> void:
 	if direction:
-		velocity.x = direction.x * speed * heatSystem.heatInfluence
-		velocity.z = direction.z * speed * heatSystem.heatInfluence
-		#var targetVelocity := direction * speed
-		#if abs(velocity.dot(targetVelocity)) < 0:
-			#velocity.x = move_toward(velocity.x, targetVelocity.x, acceleration * 10 * delta)
-			#velocity.z = move_toward(velocity.z, targetVelocity.z, acceleration * 10 * delta)
-		#else:
-			#velocity.x = move_toward(velocity.x, targetVelocity.x, acceleration * delta)
-			#velocity.z = move_toward(velocity.z, targetVelocity.z, acceleration * delta)
+		#velocity.x = direction.x * speed * heatSystem.heatInfluence
+		#velocity.z = direction.z * speed * heatSystem.heatInfluence
+		 
+		var target_angle = atan2(-direction.x, -direction.z)
+		TurnToSmooth(direction, delta)
+		var angle_diff = abs(wrapf(target_angle - rotation.y, -PI, PI))
+		var turn_factor = clamp(1.0 - angle_diff / PI,0.0,1.0)
+		var target_velocity = direction * speed * turn_factor * heatSystem.heatInfluence
+		velocity.x = move_toward(velocity.x,target_velocity.x,acceleration * delta)
+		velocity.z = move_toward(velocity.z,target_velocity.z,acceleration * delta)
 	else:
-		velocity.x = move_toward(velocity.x, 0, 1)
-		velocity.z = move_toward(velocity.z, 0, 1)
-		#velocity.x = move_toward(velocity.x, 0, deceleration * delta)
-		#velocity.z = move_toward(velocity.z, 0, deceleration * delta)
+		#velocity.x = move_toward(velocity.x, 0, 1)
+		#velocity.z = move_toward(velocity.z, 0, 1)
+		velocity.x = move_toward(velocity.x, 0, deceleration * delta)
+		velocity.z = move_toward(velocity.z, 0, deceleration * delta)
 
 func SetCrouch(crouch: bool) -> void:
 	isCrouch = crouch
