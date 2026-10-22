@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody3D
 
 @export var runSpeed:float = 5.0
-@export var rotateSpeed:float = 5.0
+@export var rotateSpeed:float = 8.0
 @export var crouchSpeed:float = 2.0
 @export var jumpVelocity:float = 6
 @export var maxVaultHeight: float = 1.3
