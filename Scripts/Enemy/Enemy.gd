@@ -7,11 +7,11 @@ extends CharacterBody3D
 @onready var hit_box: ShapeCast3D = $HitBox
 @onready var beam: MeshInstance3D = $Beam
 
-
 @export var moveSpeed: float = 3
 @export var rotateSpeed: float = 0.1
 @export var damage: float = 5
 @export var attackRange: float = 5
+@export var patrolPoints: Array[Node3D]
 
 var targetPositon: Vector3
 var hasTarget: bool = false
@@ -22,7 +22,7 @@ var state: BaseEnemyState
 
 func _ready() -> void:
 	beam.visible = false
-	state = enemyState.Idle
+	state = enemyState.Patrol
 	state.Enter(self)
 	
 func _physics_process(delta: float) -> void:
