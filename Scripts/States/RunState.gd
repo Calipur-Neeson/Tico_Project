@@ -48,5 +48,11 @@ func Update(player: Player, delta: float) -> void:
 	player.velocity += player.get_gravity() * delta
 	player.UpdateVelocity(direction, delta)
 	
+	var runSpeed: float = lerpf(0.5, 1.2, player.GetCurrentSpeed() / player.runSpeed)
+	player.animation_tree.set("parameters/runSpeed/scale", runSpeed)
+	
+	var lean := direction.dot(player.global_basis.x)
+	player.animation_tree.set("parameters/RunLean/add_amount", lean)
+	
 	player.move_and_slide()
 	

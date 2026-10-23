@@ -21,9 +21,9 @@ func PreUpdate(player: Player) -> void:
 		if player.is_on_wall():
 			var wallNormal := player.get_wall_normal()
 			if player.GetMoveInput().dot(wallNormal) > -0.7:
-				player.ChangeStateTo(player.playerState.Walk)
+				player.ChangeStateTo(player.playerState.Run)
 		else:
-			player.ChangeStateTo(player.playerState.Walk)
+			player.ChangeStateTo(player.playerState.Run)
 		
 	if Input.is_action_just_pressed("Jump") and player.is_on_floor():
 		player.obstacle_cast.enabled = true
