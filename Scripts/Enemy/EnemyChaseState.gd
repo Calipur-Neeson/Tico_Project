@@ -9,7 +9,7 @@ func Enter(enemy: Enemy) -> void:
 	
 func PreUpdate(enemy: Enemy) -> void:
 	if enemy.navigation_agent_3d.is_target_reached():
-		enemy.ChangeStateTo(enemy.enemyState.Idle)
+		enemy.ChangeStateTo(enemy.enemyState.Patrol)
 		Bgm.OnEnemyPursue(-1)
 	
 	elif enemy.hit_box.is_colliding():
