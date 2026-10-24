@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c0aqayn08fq5q"
-path="res://.godot/imported/CharAnim.blend-ea8ce5333f6ac51c21dd8ac06d9c12a9.scn"
+uid="uid://bmqe6y1khpjnt"
+path="res://.godot/imported/CharAnim2.blend-ee7cb1c73a2815369be9e48c2fcc2a22.scn"
 
 [deps]
 
-source_file="res://Materials/Character/CharAnim.blend"
-dest_files=["res://.godot/imported/CharAnim.blend-ea8ce5333f6ac51c21dd8ac06d9c12a9.scn"]
+source_file="res://Materials/Character/CharAnim2.blend"
+dest_files=["res://.godot/imported/CharAnim2.blend-ee7cb1c73a2815369be9e48c2fcc2a22.scn"]
 
 [params]
 
@@ -110,11 +110,6 @@ _subresources={
 "use_external/enabled": true,
 "use_external/fallback_path": "res://Materials/Character/Hair/Hair.tres",
 "use_external/path": "uid://bkjvegp68mknb"
-},
-"Zipper": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://Materials/Character/Zipper.tres",
-"use_external/path": "uid://cfvi0hln5dt7d"
 }
 }
 }
