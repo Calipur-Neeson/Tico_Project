@@ -9,10 +9,9 @@ func Enter(enemy: Enemy) -> void:
 	
 func PreUpdate(enemy: Enemy) -> void:
 	if enemy.player:
-		
 		if distance > enemy.attackRange:
 			enemy.beam.visible = false
-			enemy.ChangeStateTo(enemy.enemyState.Idle)
+			enemy.ChangeStateTo(enemy.enemyState.Patrol)
 			Bgm.OnEnemyPursue(-1)
 
 func Update(enemy: Enemy, delta: float) -> void:
