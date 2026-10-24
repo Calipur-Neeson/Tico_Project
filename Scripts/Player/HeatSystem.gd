@@ -6,7 +6,7 @@ extends Node3D
 
 @onready var player: Player = get_parent()
 @onready var progress_bar: ProgressBar = $CanvasLayer/Panel/ProgressBar
-@onready var csg_polygon_3d: CSGPolygon3D = $"../Character/Y Bot/Skeleton3D/BoneAttachment3D/Path3D/CSGPolygon3D"
+#@onready var csg_polygon_3d: CSGPolygon3D = $"../Character/Y Bot/Skeleton3D/BoneAttachment3D/Path3D/CSGPolygon3D"
 @onready var texture_progress_bar: TextureProgressBar = $SubViewport/TextureProgressBar
 
 
@@ -36,8 +36,8 @@ func _process(delta: float) -> void:
 	#For 2D bar in 3D world
 	texture_progress_bar.value = currentHeat
 	#For 3D spine bar
-	var percentage := currentHeat / maxHeatMeter * 3.11
-	csg_polygon_3d.material.set_shader_parameter("percent", percentage)
+	#var percentage := currentHeat / maxHeatMeter * 3.11
+	#csg_polygon_3d.material.set_shader_parameter("percent", percentage)
 	
 	if currentHeat <= 0 and !isDie:
 		isDie = true
