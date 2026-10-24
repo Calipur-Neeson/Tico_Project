@@ -3,6 +3,9 @@ extends BasePlayerState
 
 func Enter(player: Player) -> void:
 	player.SetCrouch(true)
+	
+	player.heat_meter.state = player.heat_meter.sm.CROUCHWALK
+	player.sound_indicator.state = player.sound_indicator.sm.CROUCHWALK
 
 func PreUpdate(player: Player) -> void:
 	var currentSpeed = player.GetCurrentSpeed()
@@ -23,7 +26,7 @@ func PreUpdate(player: Player) -> void:
 
 func Update(player: Player, delta: float) -> void:
 	var direction := player.GetMoveInput()
-	player.UpdateVelocity(direction, player.crouchSpeed)
+	player.UpdateVelocity(direction, delta, player.crouchSpeed)
 	
 	var walkSpeed: float = lerpf(0.1, 1.8, player.GetCurrentSpeed() / player.maxWalkSpeed)
 	player.animation_tree.set("parameters/movement/transition_request", "crouchWalk")

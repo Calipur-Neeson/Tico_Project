@@ -3,16 +3,64 @@ extends CanvasLayer
 signal LoadingSceneReady
 @export var animation_player: AnimationPlayer
 @onready var progress_bar: ProgressBar = $Panel/ProgressBar
+@onready var label: Label = $Panel/Label
 
+var updateProgress: float
+var isSceneChanged: bool
+var isFinished: bool
  
 func _ready() -> void:
+	isFinished = false
+	isSceneChanged = false
+	updateProgress = 0.0
+	progress_bar.hide()
+	label.hide()
+	LoadingSceneReady.connect(ReadyToLoad)
+	
+	Bgm.StopAudio()
 	await animation_player.animation_finished
 	LoadingSceneReady.emit()
 
-func OnProgressChanged(value: float) -> void:
-	progress_bar.value = value * 100
+func _process(delta: float) -> void:
+	if progress_bar.value < updateProgress * 100:
+		progress_bar.value += 100 * delta
 	
+	if progress_bar.value >= 100 and not isSceneChanged:
+		isSceneChanged = true
+		SceneLoader.ChangeScene()
+
+func _input(event: InputEvent) -> void:
+	if event.is_pressed() and isFinished:
+		GoodToGo()
+		isFinished = false
+
+func OnProgressChanged(value: float) -> void:
+	updateProgress = value
+	
+## Start load
+func ReadyToLoad() -> void:
+	progress_bar.show()
+
+## Finish load, show"Press any key"
 func OnLoadFinished() -> void:
+	progress_bar.hide()
+	label.show()
+	Bgm.PlayBell()
+	isFinished = true
+	
+	if GameManager.currentGameState == GameManager.GameState.RESTART:
+		GameManager.targetState = GameManager.GameState.PLAYING
+
+## Show new scene
+func GoodToGo() -> void:
 	animation_player.play_backwards("Transition")
 	await animation_player.animation_finished
+	GameManager.SetGameState(GameManager.targetState)
+	
+	if GameManager.currentGameState == GameManager.GameState.PLAYING:
+		Bgm.PlayAmbiance()
+	elif GameManager.currentGameState == GameManager.GameState.MENU:
+		Bgm.PlayMenu()
+		
+	
 	queue_free()

@@ -8,12 +8,20 @@ func Enter(player: Player) -> void:
 	isAim = true
 	player.camControl.isReset = false
 	
-	direction = -player.cam.global_transform.basis.z.normalized()
-	if player.container.currentItem:
+	if player.interactControl.objectInHand:
 		player.muzzle.isAim = true
+		
+	if player.isCrouch:
+		player.muzzle.position.y = 0.9
+	else :
+		player.muzzle.position.y = 1.2
+	player.interactControl.objectInHand.global_position = player.muzzle.global_position
 
 func PreUpdate(player: Player) -> void:	
 	if Input.is_action_just_released("Aim"):
+		if player.interactControl.objectInHand:
+			player.interactControl.objectInHand.position = Vector3.ZERO
+			
 		player.muzzle.isAim = false
 		player.camControl.isReset = true
 		if not player.isCrouch:
@@ -21,11 +29,14 @@ func PreUpdate(player: Player) -> void:
 		else :
 			player.ChangeStateTo(player.playerState.CrouchIdle)
 	
+	direction = -player.cam.global_transform.basis.z.normalized()
 	if Input.is_action_just_released("Shot"):
-		if player.container.currentItem != null:
-			var item = player.container.currentItem.scene.instantiate()
-			player.get_parent().add_child(item)
-			item.global_position = player.muzzle.global_position
+		if player.interactControl.objectInHand and player.interactControl.objectInHand is BasePickable:
+			#player.interactControl.objectInHand.global_position = player.muzzle.global_position
+			player.action_audio.PlayThrow()
+			player.interactControl.objectInHand.Throw(direction, player)
+			player.muzzle.isAim = false
+
 
 func Update(player: Player, delta: float) -> void:
 	player.TurnTo(direction)

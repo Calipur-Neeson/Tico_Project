@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://5n3332ts4ry4"]
+
+[ext_resource type="Script" uid="uid://di1bh1ngmaiov" path="res://Scripts/UI/language.gd" id="1_k05fp"]
+[ext_resource type="StyleBox" uid="uid://bdxcgfioonlsf" path="res://Materials/button_focus_mat.tres" id="1_u6jca"]
+
+[node name="Control" type="Control" unique_id=394874024]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Language" type="HBoxContainer" parent="." unique_id=192009776]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 0
+theme_override_constants/separation = -120
+script = ExtResource("1_k05fp")
+
+[node name="Languages" type="Label" parent="Language" unique_id=238124298]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "LANGUAGE"
+
+[node name="OptionButton" type="OptionButton" parent="Language" unique_id=744898141]
+custom_minimum_size = Vector2(150, 10)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = ExtResource("1_u6jca")
+item_count = 4
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Suomi"
+popup/item_1/id = 1
+popup/item_2/text = "中文"
+popup/item_2/id = 2
+popup/item_3/text = "日本語"
+popup/item_3/id = 3

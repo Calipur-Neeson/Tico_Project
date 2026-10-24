@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://cjp8j8fsw3151"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3c5t"]
+albedo_color = Color(0.659273, 0.84147, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l20u7"]
+albedo_color = Color(0.5890956, 0.5890956, 0.5890956, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mtg2f"]
+albedo_color = Color(0.5589535, 0.5589535, 0.5589535, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54flr"]
+albedo_color = Color(0.3722513, 0.3722513, 0.37225124, 1)
+
+[node name="Node3D" type="Node3D" unique_id=1253081388]
+
+[node name="IcePatch" type="Node3D" parent="." unique_id=123008901]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.68938446, 0)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="IcePatch" unique_id=560652104]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.674345, 0.8496094, -15.591579)
+size = Vector3(5, 1, 5)
+material = SubResource("StandardMaterial3D_r3c5t")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="IcePatch" unique_id=603589324]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7492542, -24.738556)
+size = Vector3(5, 1, 5)
+material = SubResource("StandardMaterial3D_r3c5t")
+
+[node name="Ruin_StoneWall_Group" type="Node3D" parent="." unique_id=717119789]
+transform = Transform3D(0.99954426, 0, 0.030185819, 0, 1, 0, -0.030185819, 0, 0.99954426, -12.228458, 3.6586514, -17.625011)
+
+[node name="FFBlock6" type="CSGBox3D" parent="Ruin_StoneWall_Group" unique_id=72528718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.881043, -3.3154855, -4.0536575)
+use_collision = true
+collision_layer = 7
+size = Vector3(2, 2.16547, 2)
+
+[node name="FFBlock3" type="CSGBox3D" parent="Ruin_StoneWall_Group" unique_id=883973128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.778955, -0.77126884, 0.0758667)
+use_collision = true
+collision_layer = 7
+size = Vector3(2, 5.5636272, 2)
+
+[node name="FFBlock4" type="CSGBox3D" parent="Ruin_StoneWall_Group" unique_id=875622429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.529394, -1.4748669, -2.1287231)
+use_collision = true
+collision_layer = 7
+size = Vector3(2, 4.4909954, 2)
+
+[node name="FFWall2" type="CSGBox3D" parent="Ruin_StoneWall_Group" unique_id=2010681149]
+transform = Transform3D(0.69647515, -0.0027112146, 0.7175879, 0.0018295425, 0.9999963, 0.0020025678, -0.7175915, -8.187755e-05, 0.69647634, 7.367149, -2.9326417, 13.081915)
+use_collision = true
+collision_layer = 7
+size = Vector3(2, 7.2052917, 5.854004)
+
+[node name="FFWall" type="CSGBox3D" parent="Ruin_StoneWall_Group" unique_id=1040552206]
+transform = Transform3D(0.9995444, 0, -0.030185822, 0, 1, 0, 0.030185822, 0, 0.9995444, 4.606217, -0.8279333, 4.237571)
+use_collision = true
+collision_layer = 7
+size = Vector3(2, 6, 6.27063)
+
+[node name="Ruin_StoneRubble_Group2" type="Node3D" parent="." unique_id=635371214]
+transform = Transform3D(0.8701683, 0, -0.49275464, 0, 1, 0, 0.49275464, 0, 0.8701683, 4.626033, 3.1445389, -8.207932)
+
+[node name="FFBlock6" type="CSGBox3D" parent="Ruin_StoneRubble_Group2" unique_id=558347165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4456062, -1.1936947, -6.0361376)
+use_collision = true
+collision_layer = 7
+size = Vector3(2, 2.16547, 2)
+material = SubResource("StandardMaterial3D_l20u7")
+
+[node name="FFBlock3" type="CSGBox3D" parent="Ruin_StoneRubble_Group2" unique_id=1216750291]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1358013, 0, -6.1777287)
+use_collision = true
+collision_layer = 7
+size = Vector3(2, 5.5636272, 2)
+material = SubResource("StandardMaterial3D_mtg2f")
+
+[node name="FFBlock4" type="CSGBox3D" parent="Ruin_StoneRubble_Group2" unique_id=488098590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6991286, -0.5386524, -4.1206627)
+use_collision = true
+collision_layer = 7
+size = Vector3(2, 4.4909954, 2)
+material = SubResource("StandardMaterial3D_54flr")
+
+[node name="Ruin_StoneRubble_Group2" type="Node3D" parent="Ruin_StoneRubble_Group2" unique_id=1375584238]
+transform = Transform3D(0.8701683, 0, -0.49275467, 0, 1, 0, 0.49275467, 0, 0.8701683, -4.092492, 0.5476303, -10.533216)
+
+[node name="FFBlock6" type="CSGBox3D" parent="Ruin_StoneRubble_Group2/Ruin_StoneRubble_Group2" unique_id=517384159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.322712, -1.1936947, -2.7213058)
+use_collision = true
+collision_layer = 7
+size = Vector3(2, 2.16547, 2)
+material = SubResource("StandardMaterial3D_l20u7")
+
+[node name="FFBlock3" type="CSGBox3D" parent="Ruin_StoneRubble_Group2/Ruin_StoneRubble_Group2" unique_id=989678681]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.840061, 0, -1.9475842)
+use_collision = true
+collision_layer = 7
+size = Vector3(2, 5.5636272, 2)
+material = SubResource("StandardMaterial3D_mtg2f")
+
+[node name="FFBlock4" type="CSGBox3D" parent="Ruin_StoneRubble_Group2/Ruin_StoneRubble_Group2" unique_id=655350021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.41432, -0.5386524, -1.0917597)
+use_collision = true
+collision_layer = 7
+size = Vector3(2, 4.4909954, 2)
+material = SubResource("StandardMaterial3D_54flr")
+
+[node name="Ruin_StoneRubble_Group" type="Node3D" parent="." unique_id=461498036]
+transform = Transform3D(0.9669975, 0, -0.2547859, 0, 1, 0, 0.2547859, 0, 0.9669975, 2.0051212, 1.8293257, -19.994905)
+
+[node name="FFBlock6" type="CSGBox3D" parent="Ruin_StoneRubble_Group" unique_id=48604004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.322712, -1.1936947, -2.7213058)
+use_collision = true
+collision_layer = 7
+size = Vector3(2, 2.16547, 2)
+material = SubResource("StandardMaterial3D_l20u7")
+
+[node name="FFBlock3" type="CSGBox3D" parent="Ruin_StoneRubble_Group" unique_id=1034144376]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.840061, 0, -1.9475842)
+use_collision = true
+collision_layer = 7
+size = Vector3(2, 5.5636272, 2)
+material = SubResource("StandardMaterial3D_mtg2f")
+
+[node name="FFBlock4" type="CSGBox3D" parent="Ruin_StoneRubble_Group" unique_id=1885299492]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.465149, -0.5363159, -1.120542)
+use_collision = true
+collision_layer = 7
+size = Vector3(2, 4.4909954, 2)
+material = SubResource("StandardMaterial3D_54flr")

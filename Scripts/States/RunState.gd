@@ -6,7 +6,7 @@ func Enter(player: Player) -> void:
 
 func PreUpdate(player: Player) -> void:
 	var currentSpped = player.GetCurrentSpeed()
-	if not player.is_on_floor() and not player.floor_cast.is_colliding():
+	if not player.is_on_floor():
 		player.ChangeStateTo(player.playerState.Fall)
 		
 	if currentSpped <= player.maxWalkSpeed:
@@ -15,6 +15,9 @@ func PreUpdate(player: Player) -> void:
 	if Input.is_action_just_pressed("Jump") and player.is_on_floor():
 		player.obstacle_cast.enabled = true
 		player.obstacle_cast.force_raycast_update()
+		
+		player.assuming_land_cast.enabled = true
+		player.assuming_land_cast.force_raycast_update()
 		
 		player.climb_up_cast.enabled = true
 		player.climb_up_cast.force_raycast_update()
@@ -32,7 +35,7 @@ func PreUpdate(player: Player) -> void:
 		
 		else:
 			player.jumpSpeed = player.velocity.length()
-			player.velocity.y = player.jumpVelocity
+			player.velocity.y = player.jumpVelocity * player.heatSystem.heatInfluence
 			player.ChangeStateTo(player.playerState.RunJump)
 			
 	elif Input.is_action_just_pressed("Crouch") and player.is_on_floor():
@@ -40,9 +43,16 @@ func PreUpdate(player: Player) -> void:
 	
 func Update(player: Player, delta: float) -> void:
 	var direction := player.GetMoveInput()
-	player.TurnTo(direction)
+	#player.TurnTo(direction)
 		
 	player.velocity += player.get_gravity() * delta
-	player.UpdateVelocity(direction)
+	player.UpdateVelocity(direction, delta)
+	
+	var runSpeed: float = lerpf(0.5, 1.2, player.GetCurrentSpeed() / player.runSpeed)
+	player.animation_tree.set("parameters/runSpeed/scale", runSpeed)
+	
+	var lean := direction.dot(player.global_basis.x)
+	player.animation_tree.set("parameters/RunLean/add_amount", lean)
 	
 	player.move_and_slide()
+	
